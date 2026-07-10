@@ -117,7 +117,7 @@ FOOTER=('<footer><div class="wrap"><div class="fgrid">'
 '<span>Дарья Ростовцева и Алексей Федотов</span></div>'
 '</div></footer>')
 
-BURGER_JS='''<script>document.querySelector('.burger').addEventListener('click',function(){var m=document.querySelector('.menu');var open=m.style.display==='flex';m.style.cssText=open?'':'display:flex;position:absolute;top:88px;left:0;right:0;background:#fff;flex-direction:column;padding:20px 24px;border-bottom:1px solid var(--line);gap:16px;box-shadow:var(--sh2);z-index:90'});</script>'''
+BURGER_JS='''<script>document.querySelector('.burger').addEventListener('click',function(){var h=document.querySelector('header').offsetHeight;var m=document.querySelector('.menu');var open=m.style.display==='flex';m.style.cssText=open?'':'display:flex;position:fixed;top:'+h+'px;left:0;right:0;background:#fff;flex-direction:column;padding:20px 24px;border-bottom:1px solid var(--line);gap:16px;box-shadow:var(--sh2);z-index:90;max-height:calc(100vh - '+h+'px);overflow:auto'});</script>'''
 
 import hashlib, json
 try: _CSSV=hashlib.md5(open('styles.css','rb').read()).hexdigest()[:8]

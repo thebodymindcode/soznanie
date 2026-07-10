@@ -43,6 +43,16 @@ h1,h2,h3{margin:0;letter-spacing:-.02em}
 header{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.9);backdrop-filter:saturate(150%) blur(14px);
   border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;gap:24px;height:88px}
+/* мобайл: шапка ниже, полупрозрачная и надёжно вверху; герой почти на всю ширину */
+@media(max-width:1000px){
+  header{background:rgba(255,255,255,.66);-webkit-backdrop-filter:saturate(170%) blur(20px);backdrop-filter:saturate(170%) blur(20px)}
+  .nav{height:60px;gap:14px}
+  .mark{width:37px;height:37px}
+}
+@media(max-width:760px){
+  .hero>.wrap{padding:0 9px}
+  .hero-card{border-radius:22px;min-height:600px}
+}
 .brand{display:flex;align-items:center;gap:13px}
 .mark{width:47px;height:47px;flex:none}
 .brand .bt{display:flex;flex-direction:column;line-height:1}
