@@ -45,11 +45,11 @@ FOOTER=('<footer><div class="wrap"><div class="fgrid">'
 '<span class="tx"><b>Телеграм-канал</b><small>Присоединиться к «Архитектуре сознания»</small></span>'
 '<span class="arr">→</span></a>'
 '</div>'
-'<div class="fnav"><h4>Разделы</h4>'
+'<div class="fnav"><h4>Разделы</h4><div class="flinks">'
 '<a href="mozg.html">Мозг</a><a href="telo.html">Тело</a><a href="dengi.html">Деньги</a>'
 '<a href="programs.html">Программы</a><a href="sessions.html">Сессии</a><a href="knigi.html">Книги</a>'
 '<a href="nauka.html">Наука</a><a href="podhod.html">Подход</a><a href="blog.html">Статьи</a>'
-'<a href="o-nas.html">О нас</a><a href="kontakty.html">Контакты</a></div>'
+'<a href="o-nas.html">О нас</a><a href="kontakty.html">Контакты</a></div></div>'
 '<div class="fppl">'
 '<div class="pers"><div class="nm">Дарья Ростовцева</div><div class="rl">Инсайт, техники, эфиры</div>'
 '<div class="sbtns">'
@@ -78,6 +78,8 @@ def page(slug, title, body, desc, active=''):
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css"></head><body>%s%s%s%s</body></html>''' % (title, desc, header(active), body, FOOTER, BURGER_JS)
+    # гейт бренда: ни одного длинного тире в выводе (em → разделитель «·», en между числами → дефис)
+    html = html.replace('—', '·').replace('–', '-')
     open(slug+'.html','w',encoding='utf-8').write(html)
     print('written', slug+'.html', len(html))
 
