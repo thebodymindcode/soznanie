@@ -12,8 +12,9 @@ DNA='<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M8 3c0
 def wing_ic(w,s=22):
     return {'b':IC_BRAIN,'t':IC_BODY,'m':IC_MONEY}[w] % (s,s)
 
-NAVLINKS=[('mozg','Мозг','wb'),('telo','Тело','wt'),('dengi','Деньги','wm'),
-          ('programs','Программы',''),('knigi','Книги',''),('nauka','Наука',''),('o-nas','О нас','')]
+NAVLINKS=[('index','Главная',''),('mozg','Мозг','wb'),('telo','Тело','wt'),('dengi','Деньги','wm'),
+          ('programs','Программы',''),('sessions','Сессии',''),('knigi','Книги',''),
+          ('nauka','Наука',''),('o-nas','О нас','')]
 
 def header(active=''):
     links=''
@@ -32,7 +33,7 @@ FOOTER='''<footer><div class="wrap"><div class="grid">
 <div><div class="fbrand"><svg width="40" height="40" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="13" fill="url(#g2)"/><path d="M13 33V25c0-6.08 4.92-11 11-11s11 4.92 11 11v8" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="24" cy="25" r="2.6" fill="#fff"/><defs><linearGradient id="g2" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#2f6bff"/><stop offset="1" stop-color="#221a5e"/></linearGradient></defs></svg><b>АРХИТЕКТУРА СОЗНАНИЯ</b></div>
 <p class="fl">Портал по осознанности. Знание о покое, теле и достатке, собранное в программы. Дарья и Алексей.</p></div>
 <div><h4>Крылья</h4><a href="mozg.html">Мозг</a><a href="telo.html">Тело</a><a href="dengi.html">Деньги</a></div>
-<div><h4>Портал</h4><a href="programs.html">Программы</a><a href="knigi.html">Книги</a><a href="nauka.html">Наука</a><a href="o-nas.html">О нас</a></div>
+<div><h4>Портал</h4><a href="programs.html">Программы</a><a href="sessions.html">Сессии</a><a href="knigi.html">Книги</a><a href="nauka.html">Наука</a><a href="o-nas.html">О нас</a></div>
 <div><h4>Связь</h4><a href="https://t.me/+bo3a92A06cQ3NWMy" target="_blank" rel="noopener">Канал Дарьи</a><a href="https://t.me/+aEgupwOOOq84YTNi" target="_blank" rel="noopener">Канал Алексея</a><a href="kontakty.html">Контакты</a></div>
 </div><div class="bot"><span>© 2026 Архитектура сознания</span><span>Портал в разработке, версия 0.5</span></div></div></footer>'''
 
