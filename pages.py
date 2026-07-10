@@ -824,4 +824,106 @@ pod += ('<section class="soft"><div class="wrap"><div class="sec-h center"><span
 pod += cta_band('Собери свою архитектуру','Подход это карта. Программы переводят её в маршрут по дням, с практиками и прогрессом.','Смотреть программы',U+'shop/')
 page('podhod','Подход — Архитектура сознания',pod,'Философия портала «Архитектура сознания»: состояние первично, внимание это рычаг, я достаточно. Идеи Роббинса, Пир, Форлео, Вишена и Мел Роббинс, переведённые по-взрослому.',active='podhod')
 
+# ============ КВИЗ «ИНДЕКС ЯСНОСТИ» ============
+QUIZ_JS = r'''<script>
+(function(){
+ var Q=[
+  {t:'Голова к вечеру гудит, а мысли не получается переключить?',w:'b'},
+  {t:'Ловишь себя, что телом здесь, а мыслями далеко, в прошлом или в планах?',w:'b'},
+  {t:'Перед сном прокручиваешь прошедший день или завтрашние дела?',w:'b'},
+  {t:'Тело шлёт сигналы (зажимы, тяжесть, усталость), а ты их глушишь и идёшь дальше?',w:'t'},
+  {t:'Самочувствие скачет без явной причины: сон, пищеварение, энергия?',w:'t'},
+  {t:'Есть ощущение невидимого потолка в доходе, будто выше не пускает?',w:'m'},
+  {t:'Решения про деньги идут через тревогу или откладывание на потом?',w:'m'},
+  {t:'Всё про себя понимаешь, но между «понял» и «делаю» целая пропасть?',w:'g'},
+  {t:'Трудно побыть в тишине без телефона и дел хотя бы пару минут?',w:'g'}
+ ];
+ var OPTS=[['Почти каждый день',3],['Часто',2],['Иногда',1],['Почти никогда',0]];
+ var REC={
+  b:{tag:'Мозг',cls:'brain',name:'Протокол остановки ума',desc:'28 дней по 16 минут. Голова перестаёт гудеть, внутренний диалог затихает, возвращается ясность.',url:'https://thebodymindcode.github.io/protocol/'},
+  t:{tag:'Тело',cls:'body',name:'За пределами заболеваний',desc:'Как тело выходит из режима борьбы и перестаёт каждое утро воссоздавать свои диагнозы.',url:'https://thebodymindcode.github.io/Beyond/'},
+  m:{tag:'Деньги',cls:'money',name:'Протокол денег',desc:'17 дней перенастройки денежной программы. Спокойные решения вместо тревоги и потолка.',url:'https://thebodymindcode.github.io/moneyaccess/'},
+  g:{tag:'Мозг',cls:'brain',name:'Выбор',desc:'Почему всё понятно, но ничего не меняется. Пять скрытых программ, которые держат тебя на месте.',url:'https://thebodymindcode.github.io/choice/'}
+ };
+ var TG='https://t.me/+bo3a92A06cQ3NWMy';
+ var ans=new Array(Q.length).fill(null), cur=-1;
+ var stage=document.getElementById('q-stage'), top=document.getElementById('qtop'),
+     bar=document.getElementById('qbar'), count=document.getElementById('qcount');
+ function esc(s){return s;}
+ function intro(){
+  top.hidden=true;
+  stage.innerHTML='<div class="q-intro">'+
+   '<h2>Насколько тихо у тебя в голове?</h2>'+
+   '<p>Девять вопросов, честные ответы про себя. В конце увидишь свой индекс ясности от 0 до 100 и поймёшь, с какого крыла портала начать. Две минуты.</p>'+
+   '<button class="qbtn" id="qstart">Пройти тест</button>'+
+   '<div class="q-note">Мы ничего не сохраняем и не просим почту. Результат сразу на экране.</div>'+
+   '</div>';
+  document.getElementById('qstart').onclick=function(){go(0);};
+ }
+ function go(n){
+  cur=n; top.hidden=false;
+  var q=Q[n], answered=ans.filter(function(a){return a!==null;}).length;
+  count.textContent='Вопрос '+(n+1)+' из '+Q.length;
+  bar.style.width=Math.round(answered/Q.length*100)+'%';
+  var opts='';
+  for(var i=0;i<OPTS.length;i++){
+   var sel=ans[n]===OPTS[i][1]?' sel':'';
+   opts+='<button class="q-opt'+sel+'" data-v="'+OPTS[i][1]+'">'+OPTS[i][0]+'</button>';
+  }
+  stage.innerHTML='<div class="q-card"><div class="q-title">'+esc(q.t)+'</div>'+
+   '<div class="q-opts">'+opts+'</div>'+
+   '<div class="q-nav">'+(n>0?'<button class="q-back" id="qback">Назад</button>':'<span></span>')+'</div></div>';
+  var btns=stage.querySelectorAll('.q-opt');
+  btns.forEach(function(b){b.onclick=function(){
+   ans[n]=parseInt(b.getAttribute('data-v'),10);
+   bar.style.width=Math.round(ans.filter(function(a){return a!==null;}).length/Q.length*100)+'%';
+   setTimeout(function(){ n+1<Q.length?go(n+1):result(); },180);
+  };});
+  var back=document.getElementById('qback'); if(back) back.onclick=function(){go(n-1);};
+ }
+ function band(i){
+  if(i>=70)return{name:'Ясный ум',cls:'hi',txt:'Шум под контролем. Ты чаще в контакте с собой, чем в голове. Дальше это про то, чтобы удержать состояние и углубить его.'};
+  if(i>=40)return{name:'Средний шум',cls:'mid',txt:'Фон мешает, но ты им ещё управляешь. Самое время настроить внимание, пока шум не стал привычкой.'};
+  return{name:'Высокий шум',cls:'lo',txt:'Голова перегружена, и на это уходит много сил. Хорошая новость: это перенастраивается, и начать стоит с базы.'};
+ }
+ function result(){
+  var tot=0,sum={b:0,t:0,m:0,g:0};
+  for(var i=0;i<Q.length;i++){var v=ans[i]||0; tot+=v; sum[Q[i].w]+=v;}
+  var idx=Math.round(100*(1-tot/(Q.length*3)));
+  var bnd=band(idx);
+  var best='b',bv=-1; ['b','t','m','g'].forEach(function(w){if(sum[w]>bv){bv=sum[w];best=w;}});
+  var r=REC[best];
+  top.hidden=true;
+  var deg=Math.round(idx*3.6);
+  stage.innerHTML='<div class="q-result">'+
+   '<div class="qr-head">'+
+    '<div class="qr-ring '+bnd.cls+'" style="--deg:'+deg+'deg"><div class="qr-in"><b>'+idx+'</b><span>из 100</span></div></div>'+
+    '<div class="qr-h"><span class="qr-ey">Твой индекс ясности</span><h2>'+bnd.name+'</h2><p>'+bnd.txt+'</p></div>'+
+   '</div>'+
+   '<div class="qr-rec"><span class="qr-recey">С чего честнее начать</span>'+
+    '<div class="qr-card"><span class="chip '+r.cls+'">'+r.tag+'</span><h3>'+r.name+'</h3><p>'+r.desc+'</p>'+
+    '<a class="btn primary bracket" href="'+r.url+'" target="_blank" rel="noopener">Смотреть программу</a></div></div>'+
+   '<a class="qr-tg" href="'+TG+'" target="_blank" rel="noopener"><span class="qr-tgic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21.3 4.3 2.9 11.4c-1 .38-.98 1.78.03 2.13l4.55 1.56 1.76 5.4c.28.85 1.37 1.03 1.9.28l2.5-3.55 4.55 3.36c.7.52 1.7.13 1.87-.72L22.9 5.7c.2-1-.68-1.82-1.6-1.4Z" fill="currentColor"/></svg></span><span class="qr-tgtx"><b>Забирай практики в Телеграм-канале</b><small>Каждую неделю разбор и техника, чтобы шум в голове тише. Бесплатно.</small></span><span class="qr-arr">→</span></a>'+
+   '<button class="qr-again" id="qagain">Пройти заново</button>'+
+   '</div>';
+  document.getElementById('qagain').onclick=function(){ans=new Array(Q.length).fill(null);intro();window.scrollTo({top:0,behavior:'smooth'});};
+ }
+ intro();
+})();
+</script>'''
+
+kviz = phero('img/podhod-1.jpg','Бесплатный тест','Индекс ясности',
+  'Короткий тест на две минуты. Покажет, сколько сейчас шума в голове и с чего честнее начать. Не диагноз, а зеркало.',
+  'Индекс ясности',['внимание','покой','ясность','тело','достаток'])
+kviz += ('<section class="qwrap"><div class="wrap">'
+  '<div class="quiz" id="quiz">'
+  '<div class="q-top" id="qtop" hidden><div class="q-count" id="qcount"></div>'
+  '<div class="q-progress"><span id="qbar"></span></div></div>'
+  '<div id="q-stage"></div>'
+  '</div></div></section>')
+kviz += QUIZ_JS
+page('kviz','Индекс ясности — тест на шум ума | Архитектура сознания', kviz,
+  'Бесплатный тест «Индекс ясности»: за две минуты покажет уровень внутреннего шума и подскажет, с какой программы портала честнее начать.',
+  active='kviz')
+
 print('ALL PAGES BUILT')
