@@ -116,6 +116,10 @@ def factbox(th, body, src, cls=''):
     return '<div class="factbox %s"><div class="th">%s</div><p>%s</p>%s</div>' % (cls, th, body, srch)
 def pullq(text, cite, cls=''):
     return '<div class="pullquote %s">«%s»<cite>%s</cite></div>' % (cls, text, cite)
+def mq_wrap(text, cite, cls=''):
+    return '<div class="miniquote %s"><q>%s</q><cite>%s</cite></div>' % (cls, text, cite)
+def pullq_section(text, cls=''):
+    return '<section><div class="wrap"><div class="pullbig %s">%s</div></div></section>' % (cls, text)
 def statband(items, hi=None, hic=''):
     tiles=''
     for i,(n,l) in enumerate(items):
