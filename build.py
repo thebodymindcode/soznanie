@@ -128,6 +128,12 @@ def statband(items, hi=None, hic=''):
     return '<div class="stats">%s</div>'%tiles
 def fgrid(*boxes):
     return '<div class="factgrid">%s</div>' % ''.join(boxes)
+def wsci(cls, eyebrow, h2, *boxes):
+    ec={'w1':'','w2':'t','w3':'m'}.get(cls,'')
+    return '<section><div class="wrap"><div class="sec-h"><span class="eyebrow %s">%s</span><h2>%s</h2></div>%s</div></section>' % (ec, eyebrow, h2, fgrid(*boxes))
+def wfaq(items):
+    inner=''.join('<details%s><summary>%s<span></span></summary><p>%s</p></details>'%(' open' if i==0 else '',q,a) for i,(q,a) in enumerate(items))
+    return '<section class="soft"><div class="wrap"><div class="sec-h center"><span class="eyebrow">Вопросы</span><h2>Коротко о главном</h2></div><div class="faq">%s</div></div></section>'%inner
 
 def cta_band(h, p, btn, url):
     return '''<section><div class="wrap"><div class="ctaband"><h2>%s</h2><p>%s</p>
