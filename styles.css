@@ -278,6 +278,11 @@ section{padding:78px 0}
 .stat{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:28px;box-shadow:var(--sh)}
 .stat b{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em;display:block;line-height:1}
 .stat span{color:var(--mut);font-size:14px;display:block;margin-top:10px}
+.stat.hi{border:0;color:#fff;box-shadow:var(--sh2)}
+.stat.hi span{color:rgba(255,255,255,.86)}
+.stat.hi{background:linear-gradient(145deg,#2f6bff,#221a5e)}
+.stat.hi.t{background:linear-gradient(145deg,#0fa596,#0c3a52)}
+.stat.hi.m{background:linear-gradient(145deg,#d29a2a,#7a5313)}
 
 /* duo */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:22px}

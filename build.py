@@ -116,8 +116,12 @@ def factbox(th, body, src, cls=''):
     return '<div class="factbox %s"><div class="th">%s</div><p>%s</p>%s</div>' % (cls, th, body, srch)
 def pullq(text, cite, cls=''):
     return '<div class="pullquote %s">«%s»<cite>%s</cite></div>' % (cls, text, cite)
-def statband(items):
-    return '<div class="stats">%s</div>' % ''.join('<div class="stat"><b>%s</b><span>%s</span></div>'%(n,l) for n,l in items)
+def statband(items, hi=None, hic=''):
+    tiles=''
+    for i,(n,l) in enumerate(items):
+        c=' hi '+hic if hi==i else ''
+        tiles+='<div class="stat%s"><b>%s</b><span>%s</span></div>'%(c,n,l)
+    return '<div class="stats">%s</div>'%tiles
 def fgrid(*boxes):
     return '<div class="factgrid">%s</div>' % ''.join(boxes)
 
