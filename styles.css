@@ -45,8 +45,8 @@ header{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.9);backdrop
 .brand .bt{display:flex;flex-direction:column;line-height:1}
 .brand .bt b{font-family:var(--display);font-weight:800;font-size:16px;letter-spacing:-.01em}
 .brand .bt span{font-size:10px;letter-spacing:.28em;color:var(--mut);margin-top:5px;text-transform:uppercase}
-.menu{display:flex;gap:23px;margin:0 auto}
-.menu a{font-weight:600;font-size:15.5px;color:var(--ink2);transition:.18s;position:relative;padding:6px 0;white-space:nowrap}
+.menu{display:flex;gap:18px;margin:0 auto}
+.menu a{font-weight:600;font-size:15px;color:var(--ink2);transition:.18s;position:relative;padding:6px 0;white-space:nowrap}
 .menu a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:currentColor;transition:right .22s}
 .menu a:hover::after,.menu a.on::after{right:0}
 .menu a:hover,.menu a.on{color:var(--blue)}
