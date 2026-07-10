@@ -393,15 +393,40 @@ section{padding:78px 0}
 .artcta{max-width:780px;margin:36px auto 0}
 
 /* footer */
-footer{background:#111428;color:#c7cbe0;padding:62px 0 40px}
-footer .grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:34px;margin-bottom:38px}
-footer h4{color:#fff;font-size:13px;margin:0 0 16px;letter-spacing:.04em;text-transform:uppercase}
-footer a{color:#c7cbe0;display:block;margin-bottom:10px;font-size:14px}
-footer a:hover{color:#fff}
-footer .fl{max-width:34ch;font-size:14px;color:#9096b7;line-height:1.6}
-footer .fbrand{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-footer .fbrand b{font-family:var(--display);font-weight:800;color:#fff;font-size:15px;letter-spacing:-.01em}
-footer .bot{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;font-size:13px;color:#8b91b3;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer{background:#0f1226;color:#c7cbe0;padding:68px 0 34px}
+footer .fgrid{display:grid;grid-template-columns:1.55fr 1fr 1.25fr;gap:48px;margin-bottom:40px}
+footer h4{color:#fff;font-size:12px;margin:0 0 18px;letter-spacing:.08em;text-transform:uppercase;color:#8b91b3}
+footer .fl{max-width:36ch;font-size:14.5px;color:#9096b7;line-height:1.62;margin:0 0 24px}
+footer .fbrand{display:flex;align-items:center;gap:13px;margin-bottom:18px}
+footer .fbrand b{font-family:var(--display);font-weight:800;color:#fff;font-size:16px;letter-spacing:-.01em;line-height:1.05;display:flex;flex-direction:column}
+footer .fbrand b span{font-family:var(--sans);font-weight:600;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#9096b7}
+/* телеграм CTA */
+.ftg{display:inline-flex;align-items:center;gap:14px;background:linear-gradient(135deg,#2AABEE,#229ED9);border-radius:16px;padding:13px 18px;box-shadow:0 10px 26px rgba(34,158,217,.32);transition:.22s;color:#fff}
+.ftg:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(34,158,217,.44);color:#fff}
+.ftg .ic{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.16);flex:none;color:#fff}
+.ftg .tx{display:flex;flex-direction:column;line-height:1.25}
+.ftg .tx b{font-size:15px;font-weight:800;color:#fff}
+.ftg .tx small{font-size:12.5px;color:rgba(255,255,255,.88)}
+.ftg .arr{margin-left:6px;font-size:18px;opacity:.85;transition:.22s}
+.ftg:hover .arr{transform:translateX(3px)}
+/* навигация футера */
+.fnav a{color:#c7cbe0;display:block;margin-bottom:11px;font-size:14.5px;transition:.15s}
+.fnav a:hover{color:#fff;transform:translateX(3px)}
+/* авторы и соцсети */
+.fppl .pers{margin-bottom:22px}
+.fppl .nm{color:#fff;font-weight:700;font-size:15px}
+.fppl .rl{color:#8b91b3;font-size:12.5px;margin:2px 0 12px}
+.sbtns{display:flex;flex-wrap:wrap;gap:9px}
+.sbtn{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:11px;padding:8px 13px;color:#c7cbe0;font-size:13px;font-weight:600;transition:.2s}
+.sbtn svg{flex:none}
+.sbtn:hover{transform:translateY(-3px);color:#fff}
+.sbtn[aria-label*="Instagram"]:hover{background:linear-gradient(135deg,#833ab4,#e1306c,#fcaf45);border-color:transparent}
+.sbtn[aria-label*="YouTube"]:hover{background:#ff0033;border-color:#ff0033}
+.sbtn[aria-label*="TikTok"]:hover{background:#111;border-color:#333}
+.sbtn[aria-label*="Threads"]:hover{background:#111;border-color:#333}
+.fsupport{display:inline-block;margin-top:6px;color:#9096b7;font-size:13.5px;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:1px;transition:.2s}
+.fsupport:hover{color:#fff;border-color:#fff}
+footer .bot{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;font-size:13px;color:#8b91b3;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 @media(max-width:1000px){
   .menu,.nav-r .shop{display:none}
@@ -413,13 +438,13 @@ footer .bot{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;font-size
   .twocol{columns:1}
   .phero-card .labels,.hero-card .labels{display:none}
   .stats{grid-template-columns:repeat(2,1fr)}
-  footer .grid{grid-template-columns:1fr 1fr}
+  footer .fgrid{grid-template-columns:1fr 1fr}
   section{padding:56px 0}
   .hero-in,.phero-in{padding:36px 24px}
   .cab,.ctaband{padding:38px 26px}
   .why.rev{direction:ltr}
 }
-@media(max-width:560px){ footer .grid{grid-template-columns:1fr} .stats{grid-template-columns:1fr} }
+@media(max-width:560px){ footer .fgrid{grid-template-columns:1fr} .stats{grid-template-columns:1fr} }
 
 /* article magazine extras */
 .afig{margin:32px 0}
