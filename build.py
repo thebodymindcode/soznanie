@@ -270,7 +270,15 @@ def infobars(title, bars, cls=''):
     rows=''.join('<div class="bar"><span>%s</span><div class="track"><div class="fill %s" style="width:%s%%"></div></div><b>%s</b></div>'%(l,cls,p,v) for l,p,v in bars)
     return '<figure class="info"><div class="ct">%s</div><div class="bars">%s</div></figure>'%(title,rows)
 
+ARTICLE_RELATED={}  # заполняется в pages.py: slug -> HTML блока «связанные материалы»
+def related_block(links):
+    # links: [(href, kicker, title), ...]
+    cards=''.join('<a class="relcard" href="%s"><span class="rk">%s</span><span class="rt">%s</span><span class="rl">Открыть →</span></a>'%(h,k,t) for h,k,t in links)
+    return ('<section class="soft"><div class="wrap"><div class="sec-h"><span class="eyebrow">Дальше</span>'
+            '<h2>Что почитать и попробовать</h2></div><div class="relgrid">%s</div></div></section>')%cards
+
 def article_page(slug, cover, tag, readtime, title, lead, sections_html, related=''):
+    related = ARTICLE_RELATED.get(slug,'') + related  # связанные материалы, затем финальный CTA
     hero=('<section class="phero"><div class="wrap"><div class="arthero"><img class="bg" src="%s" alt="">'
           '<div class="in"><div class="artmeta"><a href="blog.html" style="color:#c3caea">← Все статьи</a>'
           '<span class="tg">%s</span><span>%s</span></div><h1>%s</h1></div></div></div></section>' % (cover, tag, readtime, title))

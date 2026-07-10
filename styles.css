@@ -552,6 +552,16 @@ footer .bot{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;font-size
 .kcta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
 @media(max-width:560px){.kalk{padding:32px 22px}.kcta{flex-direction:column}.kcta .btn{width:100%}}
 
+/* связанные материалы в конце статей */
+.relgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.relcard{display:flex;flex-direction:column;gap:9px;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:24px 24px 22px;box-shadow:var(--sh);transition:.22s;min-height:152px}
+.relcard:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
+.relcard .rk{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.relcard .rt{font-family:var(--display);font-weight:800;font-size:18px;line-height:1.2;color:var(--ink);letter-spacing:-.01em}
+.relcard .rl{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue);transition:.15s}
+.relcard:hover .rl{letter-spacing:.02em}
+@media(max-width:760px){.relgrid{grid-template-columns:1fr}}
+
 /* подход: манифест, медиа-банд, стена учителей (база ДО медиазапросов, иначе мобайл затирается) */
 .manifesto{background-image:linear-gradient(rgba(9,11,30,.84),rgba(12,18,50,.8)),var(--bg);background-size:cover;background-position:center;color:#fff;padding:104px 0}
 .manifesto .wrap{max-width:980px;text-align:center}
