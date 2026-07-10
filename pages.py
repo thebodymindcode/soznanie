@@ -42,7 +42,7 @@ home='''
 <section id="why"><div class="wrap"><div class="why">
 <div class="why-media"><img src="img/sci-c.jpg" alt=""><span class="cap"><span class="d"></span> За каждой техникой данные</span></div>
 <div><span class="eyebrow">Проверено наукой</span>
-<h2 class="disp" style="font-size:clamp(26px,3.4vw,42px);margin:14px 0 4px">За каждой техникой стоит <span class="hl">исследование</span></h2>
+<h2 class="disp" style="font-size:clamp(22px,2.4vw,31px);margin:14px 0 6px;text-wrap:balance;max-width:20ch">За каждой техникой стоит <span class="hl">исследование</span></h2>
 <p class="mut" style="font-size:17px;margin:14px 0 0;max-width:48ch">То, что веками знали мудрецы, сегодня видно на приборах. Мы берём то, что проверено, и собираем в понятные шаги.</p>
 <ul class="thm-list">
 %s%s%s%s
@@ -111,7 +111,7 @@ def wing_page(slug,img,sci_img,cap,ew,title,lead,intro,states,progs,bullets,cls,
 <section><div class="wrap"><div class="sec-h"><span class="eyebrow %s">Программы крыла</span><h2>С чего начать</h2><p>Короткая запись, длинный маршрут с кабинетом или личная работа. Выбирай по силам.</p></div>
 <div class="pgrid">%s</div></div></section>
 <section class="soft"><div class="wrap"><div class="why"><div class="why-media"><img src="%s" alt=""><span class="cap"><span class="d"></span> %s</span></div>
-<div><span class="eyebrow %s">Проверено наукой</span><h2 class="disp" style="font-size:clamp(24px,3vw,38px);margin:14px 0 6px">Почему это работает</h2>
+<div><span class="eyebrow %s">Проверено наукой</span><h2 class="disp" style="font-size:clamp(21px,2.3vw,30px);margin:14px 0 8px;text-wrap:balance;max-width:20ch">Почему это работает</h2>
 <ul class="thm-list %s">%s</ul></div></div></div></section>
 %s%s%s
 ''' % (phero(img,ew,title,lead,title,labels), intro[0], twocol, mq, fb,
@@ -211,14 +211,14 @@ sess = phero('img/sessions-c.jpg','Личная работа','Одна сесс
 # 1. БОЛЬ
 sess += '''<section><div class="wrap"><div class="introg">
 <div><span class="eyebrow">Почему до сих пор ничего не поменялось</span>
-<h2 class="disp" style="font-size:clamp(26px,3.4vw,42px);margin:14px 0 12px">Ты всё понимаешь. Но живёшь так же</h2>
+<h2 class="disp" style="font-size:clamp(22px,2.4vw,31px);margin:14px 0 12px;text-wrap:balance;max-width:18ch">Ты всё понимаешь. Но живёшь так же</h2>
 <p class="lead">Ты пробовал. Психологи, коучи, марафоны, книги. Ты знаешь про травмы, установки и сценарии. Только знание не равно изменение.</p>
 <div class="twocol"><p>Между «я всё понимаю» и «я живу иначе» лежит пропасть. Можно прочитать тридцать книг и пройти десять марафонов, знать причину наизусть и каждое утро возвращаться в ту же точку.</p><p>Так работает корень. Пока он на месте, ты разбираешь слой за слоем, а программа запускается снова. Одним хватает одной встречи, другие годами ходят по кругу. Разница в том, доходят ли до корня.</p></div></div>
 <div class="aside">''' + mq_wrap('«За 15 лет терапии никто не увидел того, что ты увидела за 60 минут».','Марина, 37 лет') + '</div></div></div></section>'
 
 # 2. МЕХАНИЗМ: работа с корнем
 sess += '<section class="soft"><div class="wrap"><div class="why"><div class="why-media"><img src="img/root-1.jpg" alt=""><span class="cap"><span class="d"></span> Прямой доступ к корню</span></div>'
-sess += '<div><span class="eyebrow">В чём разница</span><h2 class="disp" style="font-size:clamp(24px,3vw,38px);margin:14px 0 12px">Работа с корнем, не с симптомом</h2>'
+sess += '<div><span class="eyebrow">В чём разница</span><h2 class="disp" style="font-size:clamp(21px,2.3vw,30px);margin:14px 0 12px;text-wrap:balance;max-width:20ch">Работа с корнем, не с симптомом</h2>'
 sess += '<p class="mut" style="font-size:17px;margin:0 0 8px;max-width:48ch">Корень это решение или момент, который когда-то запустил всю цепочку. Не анализ вокруг да около, а прямой доступ к тому, что скрыто за слоями привычных объяснений.</p>'
 sess += '<ul class="thm-list">' + bullet('<b>Видишь причину, а не следствие.</b> Там, где симптом просто уходит и возвращается, корень меняет всю цепочку.','dna') + bullet('<b>Сдвиг за одну встречу.</b> Когда корень найден, он больше не управляет тобой.','grow') + bullet('<b>Работаем и с телом.</b> Решение это внутреннее действие, и оно проходит через тело, а не только через голову.','heart') + '</ul></div></div></div></section>'
 
