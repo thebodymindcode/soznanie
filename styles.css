@@ -83,6 +83,7 @@ header{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.9);backdrop
 .hero-card{position:relative;border-radius:var(--r-lg);overflow:hidden;min-height:660px;display:flex;align-items:flex-end;
   box-shadow:var(--sh2);isolation:isolate}
 .hero-card img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% center;z-index:-2}
+@media(min-width:1001px){.hero-card img.bg{object-position:40% center}} /* мозг чуть правее, чтобы текст на него не наседал (веб) */
 .hero-card:before{content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(102deg,rgba(9,11,30,.92) 0%,rgba(12,18,50,.74) 44%,rgba(12,18,50,.26) 74%,rgba(18,26,64,.12) 100%)}
 .hero-in{padding:58px 60px 56px;max-width:800px;color:#fff}
@@ -94,7 +95,12 @@ header{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.9);backdrop
 .hero-in .sub{font-weight:500;font-size:clamp(17px,2.2vw,23px);margin-top:22px;color:#e7ebff;max-width:34ch;line-height:1.4}
 .hero-in .sub .hl{color:#fff;background:linear-gradient(transparent 58%,rgba(55,166,255,.42) 0)}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.hero-startlink{display:inline-flex;align-items:center;gap:8px;margin-top:18px;color:#c3caea;font-weight:600;font-size:15.5px;transition:.2s}
+.hero-startlink .arr{transition:transform .2s}
+.hero-startlink:hover{color:#fff}
+.hero-startlink:hover .arr{transform:translateX(4px)}
 .hero-trust{display:flex;gap:14px 38px;flex-wrap:wrap;margin-top:34px;padding-top:26px;border-top:1px solid rgba(255,255,255,.18)}
+@media(max-width:560px){.hero-cta{flex-direction:column;align-items:stretch}.hero-cta .btn{width:100%}}
 .hero-trust b{font-family:var(--display);font-weight:800;font-size:25px;display:block;line-height:1}
 .hero-trust span{font-size:13px;color:#c3caea;display:block;margin-top:6px}
 
