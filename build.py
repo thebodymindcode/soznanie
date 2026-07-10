@@ -38,8 +38,8 @@ MORE_TITLE='Библиотека'
 MORE_ITEMS=[
   ('kviz','Индекс ясности','Тест на шум ума за две минуты','target'),
   ('praktiki','Практики','Таймеры дыхания и восстановления','breath'),
-  ('podhod','Подход','Во что мы верим и почему','compass'),
   ('blog','Статьи','Разборы, лонгриды и наука','doc'),
+  # ('podhod','Подход',...) СКРЫТ по просьбе Алексея: черновой, ждёт нормального переписывания. Страница остаётся по ссылке.
 ]
 MORE_SLUGS={s for s,_,_,_ in MORE_ITEMS}
 MENU_IC={
@@ -94,7 +94,7 @@ FOOTER=('<footer><div class="wrap"><div class="fgrid">'
 '<div class="fnav"><h4>Разделы</h4><div class="flinks">'
 '<a href="mozg.html">Мозг</a><a href="telo.html">Тело</a><a href="dengi.html">Деньги</a>'
 '<a href="programs.html">Программы</a><a href="sessions.html">Сессии</a><a href="knigi.html">Книги</a>'
-'<a href="nauka.html">Наука</a><a href="podhod.html">Подход</a><a href="blog.html">Статьи</a>'
+'<a href="nauka.html">Наука</a><a href="blog.html">Статьи</a>'
 '<a href="o-nas.html">О нас</a><a href="kontakty.html">Контакты</a></div></div>'
 '<div class="fppl">'
 '<div class="pers"><div class="nm">Дарья Ростовцева</div><div class="rl">Инсайт, техники, эфиры</div>'
