@@ -2,7 +2,24 @@
 # Генератор страниц портала «Архитектура сознания». Общие шапка/подвал, единый стиль.
 import os
 
-MARK = '''<svg class="mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="13" fill="url(#g)"/><path d="M13 33V25c0-6.08 4.92-11 11-11s11 4.92 11 11v8" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><path d="M18.5 33v-8a5.5 5.5 0 0 1 11 0v8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".7"/><circle cx="24" cy="25" r="2.6" fill="#fff"/><defs><linearGradient id="g" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#2f6bff"/><stop offset="1" stop-color="#221a5e"/></linearGradient></defs></svg>'''
+def brand_mark(cls='', px=None):
+    # премиум бренд-значок: мозг из двух полушарий + нейро-узлы и связи, на градиенте бренда
+    size = 'width="%d" height="%d" ' % (px, px) if px else ''
+    clsa = 'class="%s" ' % cls if cls else ''
+    gid = 'bm-' + (cls or ('p%d' % (px or 0)))
+    return ('<svg %s%sviewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">'
+      '<defs><linearGradient id="%s" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#2f6bff"/><stop offset="1" stop-color="#221a5e"/></linearGradient></defs>'
+      '<rect width="48" height="48" rx="13" fill="url(#%s)"/>'
+      '<g stroke="#8fb4ff" stroke-width="1.1" stroke-linecap="round" opacity=".85"><line x1="15.5" y1="18" x2="9.2" y2="14.5"/><line x1="32.5" y1="18" x2="38.8" y2="14.5"/><line x1="24" y1="35" x2="24" y2="40"/></g>'
+      '<g transform="translate(6,5) scale(1.5)" stroke="#fff" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round">'
+      '<path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-1.5 5.6A3 3 0 0 0 6 18a3 3 0 0 0 3 2V4Z"/>'
+      '<path d="M15 4a3 3 0 0 1 3 3 3 3 0 0 1 1.5 5.6A3 3 0 0 1 18 18a3 3 0 0 1-3 2V4Z"/>'
+      '<path d="M12 6.5v13" opacity=".55"/></g>'
+      '<g fill="#fff"><circle cx="18.6" cy="19" r="1.5"/><circle cx="29.4" cy="19" r="1.5"/><circle cx="24" cy="28" r="1.5"/></g>'
+      '<g fill="#cfe0ff"><circle cx="9.2" cy="14.5" r="1.5"/><circle cx="38.8" cy="14.5" r="1.5"/><circle cx="24" cy="40" r="1.5"/></g>'
+      '</svg>') % (size, clsa, gid, gid)
+
+MARK = brand_mark('mark')
 
 IC_BRAIN='<svg width="%d" height="%d" viewBox="0 0 24 24" fill="none"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-1.5 5.6A3 3 0 0 0 6 18a3 3 0 0 0 3 2V4Zm6 0a3 3 0 0 1 3 3 3 3 0 0 1 1.5 5.6A3 3 0 0 1 18 18a3 3 0 0 1-3 2V4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>'
 IC_BODY='<svg width="%d" height="%d" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.35-7-9.5A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 7 2.5C19 15.65 12 20 12 20Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M5 13h3l1.5-3 2 5 1.5-3H19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
@@ -65,7 +82,7 @@ _TG='<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21.3 
 
 FOOTER=('<footer><div class="wrap"><div class="fgrid">'
 '<div class="fbrand-col">'
-'<div class="fbrand"><svg width="42" height="42" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="13" fill="url(#g2)"/><path d="M13 33V25c0-6.08 4.92-11 11-11s11 4.92 11 11v8" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="24" cy="25" r="2.6" fill="#fff"/><defs><linearGradient id="g2" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#2f6bff"/><stop offset="1" stop-color="#221a5e"/></linearGradient></defs></svg><b>АРХИТЕКТУРА<span>сознания</span></b></div>'
+'<div class="fbrand">'+brand_mark('',44)+'<b>АРХИТЕКТУРА<span>сознания</span></b></div>'
 '<p class="fl">Портал по осознанности. Знание о покое, теле и достатке, проверенное наукой и собранное в программы.</p>'
 '<a class="ftg" href="https://t.me/+bo3a92A06cQ3NWMy" target="_blank" rel="noopener">'
 '<span class="ic">'+_TG+'</span>'
