@@ -512,7 +512,7 @@ onas='''
 <section class="soft"><div class="wrap"><div class="sec-h"><span class="eyebrow">Дуэт</span><h2>Двое за каждой программой</h2></div>
 <div class="duo">
 <div class="person"><div class="pav" style="background:linear-gradient(145deg,#2f6bff,#221a5e)">Д</div><h3>Дарья Ростовцева</h3><div class="role">Инсайт, техники, эфиры</div><p>Ведёт эфиры и программы, создаёт техники, работает с людьми один на один. Чувствует, где болит, и находит ключ.</p><div class="socs">%s</div></div>
-<div class="person d"><div class="pav">А</div><h3>Алексей</h3><div class="role">Структура, наука, проверка</div><p>Находит исследования, проверяет каждый факт и цифру, приземляет технику в понятный механизм. Пока за кадром, но в каждой детали.</p><div class="socs">%s</div></div>
+<div class="person d"><div class="pav">А</div><h3>Алексей Федотов</h3><div class="role">Структура, наука, проверка</div><p>Находит исследования, проверяет каждый факт и цифру, приземляет технику в понятный механизм. Пока за кадром, но в каждой детали.</p><div class="socs">%s</div></div>
 </div>
 <div class="stats" style="margin-top:22px">
 <div class="stat"><b>2 500+</b><span>человек в программах</span></div>
@@ -533,7 +533,7 @@ kont='''
 <section><div class="wrap"><div class="sec-h"><span class="eyebrow">Ресурсы</span><h2>Где мы есть</h2><p>Каналы, соцсети и поддержка. Заходи, куда удобнее.</p></div>
 <div class="hub">
 <div class="hcard"><h3>Дарья Ростовцева</h3><div class="role">Инсайт, техники, эфиры</div><div class="socs">%s</div></div>
-<div class="hcard"><h3>Алексей</h3><div class="role">Структура, наука, проверка</div><div class="socs">%s</div></div>
+<div class="hcard"><h3>Алексей Федотов</h3><div class="role">Структура, наука, проверка</div><div class="socs">%s</div></div>
 </div>
 <div class="cab" style="margin-top:22px"><span class="eyebrow">Поддержка</span><h2>Нужна помощь или доступ</h2><p>Напиши в поддержку, поможем с доступом к программам и ответим на вопросы.</p><a class="btn light bracket" href="https://t.me/TheBodyMindCode_support" target="_blank" rel="noopener">Написать в поддержку</a></div>
 </div></section>
