@@ -14,20 +14,34 @@ def wing_ic(w,s=22):
 
 NAVLINKS=[('index','Главная',''),('mozg','Мозг','wb'),('telo','Тело','wt'),('dengi','Деньги','wm'),
           ('programs','Программы',''),('sessions','Сессии',''),('knigi','Книги',''),
-          ('nauka','Наука',''),('podhod','Подход',''),('blog','Статьи',''),('o-nas','О нас','')]
+          ('nauka','Наука','')]
+# выпадающий блок «Ещё»: всё, что можно убрать из основного меню, сгруппировано
+MORE_MENU=[
+  ('Знание',[('podhod','Подход'),('blog','Статьи')]),
+  ('Портал',[('o-nas','О нас'),('kontakty','Контакты'),('faq','Вопросы')]),
+]
+MORE_SLUGS={s for _,items in MORE_MENU for s,_ in items}
 
 def header(active=''):
     links=''
     for slug,label,cls in NAVLINKS:
         on=' on' if slug==active else ''
         links+='<a class="%s%s" href="%s.html">%s</a>' % (cls,on,slug,label)
+    groups=''
+    for gtitle,items in MORE_MENU:
+        gl=''.join('<a class="%s" href="%s.html">%s</a>'%(('on' if s==active else ''),s,lbl) for s,lbl in items)
+        groups+='<div class="mgroup"><span class="mh">%s</span>%s</div>'%(gtitle,gl)
+    trigon=' on' if active in MORE_SLUGS else ''
+    more=('<div class="hasmenu"><button class="mtrig%s" aria-expanded="false" aria-haspopup="true">Ещё'
+          '<svg class="car" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'
+          '<div class="mmenu">%s</div></div>')%(trigon,groups)
     return '''<header><div class="wrap nav">
 <a class="brand" href="index.html" aria-label="Архитектура сознания">%s<span class="bt"><b>АРХИТЕКТУРА</b><span>сознания</span></span></a>
-<nav class="menu">%s</nav>
+<nav class="menu">%s%s</nav>
 <div class="nav-r"><a class="shop" href="https://thebodymindcode.github.io/shop/" target="_blank" rel="noopener">Магазин</a>
 <a class="enter" href="kontakty.html"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM5 20a7 7 0 0 1 14 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Войти</a>
 <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button></div>
-</div></header>''' % (MARK, links)
+</div></header>''' % (MARK, links, more)
 
 # премиум-иконки соцсетей (моно, currentColor)
 _IG='<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5.4" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="1.7"/><circle cx="17.4" cy="6.6" r="1.25" fill="currentColor"/></svg>'
