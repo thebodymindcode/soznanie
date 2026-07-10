@@ -119,17 +119,53 @@ FOOTER=('<footer><div class="wrap"><div class="fgrid">'
 
 BURGER_JS='''<script>document.querySelector('.burger').addEventListener('click',function(){var m=document.querySelector('.menu');var open=m.style.display==='flex';m.style.cssText=open?'':'display:flex;position:absolute;top:88px;left:0;right:0;background:#fff;flex-direction:column;padding:20px 24px;border-bottom:1px solid var(--line);gap:16px;box-shadow:var(--sh2);z-index:90'});</script>'''
 
-import hashlib
+import hashlib, json
 try: _CSSV=hashlib.md5(open('styles.css','rb').read()).hexdigest()[:8]
 except Exception: _CSSV='1'
 
-def page(slug, title, body, desc, active=''):
+# ---------- SEO ----------
+BASE='https://thebodymindcode.github.io/soznanie/'
+ORG_SAMEAS=['https://t.me/thebodymindcode','https://instagram.com/thebodymindcode',
+            'https://www.youtube.com/@thebodymindcode','https://www.tiktok.com/@thebodymindcode',
+            'https://instagram.com/daryarostovtseva']
+METRIKA_ID=''  # вставить номер счётчика Яндекс.Метрики сюда, когда Алексей даст (пока пусто = не подключён)
+ORG_JSONLD=('{"@context":"https://schema.org","@type":"Organization","name":"Архитектура сознания",'
+            '"url":"%s","logo":"%sapple-touch-icon.png","sameAs":%s}') % (BASE, BASE, json.dumps(ORG_SAMEAS, ensure_ascii=False))
+WEBSITE_JSONLD='{"@context":"https://schema.org","@type":"WebSite","name":"Архитектура сознания","url":"%s"}' % BASE
+METRIKA_TMPL=('<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};'
+  'm[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}'
+  'k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})'
+  '(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");'
+  'ym(%s,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});</script>'
+  '<noscript><div><img src="https://mc.yandex.ru/watch/%s" style="position:absolute;left:-9999px" alt=""></div></noscript>')
+
+def seo_head(slug, title, desc, ogimg=None):
+    url = BASE if slug=='index' else BASE+slug+'.html'
+    img = BASE + (ogimg or 'img/hero-1.jpg')
+    return ('<link rel="canonical" href="%s">'
+      '<meta property="og:type" content="website"><meta property="og:site_name" content="Архитектура сознания">'
+      '<meta property="og:locale" content="ru_RU">'
+      '<meta property="og:title" content="%s"><meta property="og:description" content="%s">'
+      '<meta property="og:url" content="%s"><meta property="og:image" content="%s">'
+      '<meta name="twitter:card" content="summary_large_image">'
+      '<meta name="twitter:title" content="%s"><meta name="twitter:description" content="%s"><meta name="twitter:image" content="%s">'
+      '<meta name="theme-color" content="#0f1226"><meta name="yandex-verification" content="">'
+      '<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">'
+      '<link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest">'
+      ) % (url, title, desc, url, img, title, desc, img)
+
+def page(slug, title, body, desc, active='', ogimg=None, schema=''):
+    seo = seo_head(slug, title, desc, ogimg)
+    jsonld = '<script type="application/ld+json">%s</script><script type="application/ld+json">%s</script>' % (ORG_JSONLD, WEBSITE_JSONLD)
+    if schema: jsonld += '<script type="application/ld+json">%s</script>' % schema
+    met = (METRIKA_TMPL % (METRIKA_ID, METRIKA_ID)) if METRIKA_ID else ''
     html='''<!doctype html><html lang="ru"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>%s</title><meta name="description" content="%s">
+%s
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css"></head><body>%s%s%s%s</body></html>''' % (title, desc, header(active), body, FOOTER, BURGER_JS)
+<link rel="stylesheet" href="styles.css">%s</head><body>%s%s%s%s%s</body></html>''' % (title, desc, seo, jsonld, header(active), body, FOOTER, BURGER_JS, met)
     # гейт бренда: ни одного длинного тире в выводе (em → разделитель «·», en между числами → дефис)
     html = html.replace('—', '·').replace('–', '-')
     # версия CSS для кэш-бастинга: правки видны сразу, без старого кэша
@@ -239,7 +275,11 @@ def article_page(slug, cover, tag, readtime, title, lead, sections_html, related
           '<div class="in"><div class="artmeta"><a href="blog.html" style="color:#c3caea">← Все статьи</a>'
           '<span class="tg">%s</span><span>%s</span></div><h1>%s</h1></div></div></div></section>' % (cover, tag, readtime, title))
     body=hero+'<section><div class="article"><p class="lead dropcap">%s</p>%s</div></section>%s' % (lead, sections_html, related)
-    page(slug, title+' — Архитектура сознания', body, lead[:150], active='blog')
+    art_schema=('{"@context":"https://schema.org","@type":"Article","headline":%s,"description":%s,'
+      '"image":"%s%s","author":{"@type":"Organization","name":"Архитектура сознания"},'
+      '"publisher":{"@type":"Organization","name":"Архитектура сознания","logo":{"@type":"ImageObject","url":"%sapple-touch-icon.png"}},'
+      '"mainEntityOfPage":"%s%s.html"}') % (json.dumps(title,ensure_ascii=False), json.dumps(lead[:180],ensure_ascii=False), BASE, cover, BASE, BASE, slug)
+    page(slug, title+' — Архитектура сознания', body, lead[:150], active='blog', ogimg=cover, schema=art_schema)
 
 def bcard(slug, cover, tag, title, excerpt, readtime):
     return ('<a class="bcard" href="%s.html"><div class="cov"><img src="%s" alt=""><span class="tag">%s</span></div>'

@@ -995,4 +995,20 @@ page('praktiki','Практики: дыхание, отдых, холод | Ар
   'Живые таймеры практик: дыхание 4-7-8, сердечная когерентность, NSDR и холод. Включаются прямо на странице, без скачиваний.',
   active='praktiki')
 
+# ============ SEO-АКТИВЫ: favicon, манифест, sitemap, robots ============
+import json as _json, glob as _glob
+open('favicon.svg','w',encoding='utf-8').write(brand_mark('', None))
+_manifest={"name":"Архитектура сознания","short_name":"Сознание",
+  "description":"Портал по осознанности: покой, тело и достаток, проверенное наукой.",
+  "icons":[{"src":"favicon-32.png","sizes":"32x32","type":"image/png"},
+           {"src":"apple-touch-icon.png","sizes":"180x180","type":"image/png"},
+           {"src":"icon-192.png","sizes":"192x192","type":"image/png"}],
+  "theme_color":"#0f1226","background_color":"#0f1226","display":"standalone","start_url":"./","lang":"ru"}
+open('site.webmanifest','w',encoding='utf-8').write(_json.dumps(_manifest,ensure_ascii=False))
+_slugs=sorted(f for f in _glob.glob('*.html') if f not in ('404.html',))
+_urls=''.join('<url><loc>%s%s</loc><changefreq>weekly</changefreq></url>'%(BASE,('' if f=='index.html' else f)) for f in _slugs)
+open('sitemap.xml','w',encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+_urls+'</urlset>')
+open('robots.txt','w',encoding='utf-8').write('User-agent: *\nAllow: /\nSitemap: %ssitemap.xml\n'%BASE)
+print('SEO assets: favicon.svg, site.webmanifest, sitemap.xml (%d urls), robots.txt'%len(_slugs))
+
 print('ALL PAGES BUILT')
