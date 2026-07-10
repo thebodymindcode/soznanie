@@ -94,6 +94,13 @@ def phero(img, eyebrow, h1, p, crumb, labels=None):
 <div class="phero-in"><div class="crumbs"><a href="index.html">Главная</a> · %s</div>
 <div class="eyebrow" style="margin-top:14px">%s</div><h1>%s</h1><p>%s</p></div></div></div></section>''' % (img, lab, crumb, eyebrow, h1, p)
 
+def factbox(th, body, src, cls=''):
+    return '<div class="factbox %s"><div class="th">%s</div><p>%s</p><div class="src">%s</div></div>' % (cls, th, body, src)
+def pullq(text, cite, cls=''):
+    return '<div class="pullquote %s">«%s»<cite>%s</cite></div>' % (cls, text, cite)
+def statband(items):
+    return '<div class="stats">%s</div>' % ''.join('<div class="stat"><b>%s</b><span>%s</span></div>'%(n,l) for n,l in items)
+
 def cta_band(h, p, btn, url):
     return '''<section><div class="wrap"><div class="ctaband"><h2>%s</h2><p>%s</p>
 <a class="btn light bracket" href="%s" target="_blank" rel="noopener">%s</a></div></div></section>''' % (h,p,url,btn)
