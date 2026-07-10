@@ -430,6 +430,20 @@ footer .fbrand b span{font-family:var(--sans);font-weight:600;font-size:11px;let
 .fsupport:hover{color:#fff;border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.09);transform:translateY(-2px)}
 footer .bot{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;font-size:13px;color:#8b91b3;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
+/* главная: премиум-баннер телеграма */
+.tgjoin{padding:8px 0 4px}
+.tgband{position:relative;display:flex;align-items:center;gap:28px;overflow:hidden;background:linear-gradient(135deg,#2AABEE,#229ED9);border-radius:var(--r-lg);padding:40px 46px;box-shadow:0 24px 60px rgba(34,158,217,.34);transition:.25s}
+.tgband:hover{transform:translateY(-3px);box-shadow:0 32px 74px rgba(34,158,217,.46)}
+.tgband::after{content:"";position:absolute;right:-50px;top:-70px;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,.22),transparent 70%);pointer-events:none}
+.tgband .ic{position:relative;flex:none;display:grid;place-items:center;width:76px;height:76px;border-radius:21px;background:rgba(255,255,255,.18);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+.tgband .ic svg{width:40px;height:40px}
+.tgband .tx{position:relative;flex:1;min-width:0;color:#fff}
+.tgband .tx b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(20px,2.3vw,27px);letter-spacing:-.01em;line-height:1.14}
+.tgband .tx small{display:block;margin-top:8px;font-size:15.5px;color:rgba(255,255,255,.92);line-height:1.5}
+.tgband .cta{position:relative;flex:none;display:inline-flex;align-items:center;gap:9px;background:#fff;color:#1577a6;font-weight:800;font-size:15.5px;padding:15px 27px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.14);transition:.2s}
+.tgband:hover .cta{gap:13px}
+@media(max-width:760px){.tgband{flex-direction:column;align-items:flex-start;padding:30px 26px;gap:18px}.tgband .cta{width:100%;justify-content:center}}
+
 /* подход: манифест, медиа-банд, стена учителей (база ДО медиазапросов, иначе мобайл затирается) */
 .manifesto{background-image:linear-gradient(rgba(9,11,30,.84),rgba(12,18,50,.8)),var(--bg);background-size:cover;background-position:center;color:#fff;padding:104px 0}
 .manifesto .wrap{max-width:980px;text-align:center}

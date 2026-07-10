@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from build import *
+from build import _TG
 
 U='https://thebodymindcode.github.io/'
 # продукты: (крыло, чип, имя, формат, цена, url)
@@ -124,7 +125,15 @@ home_reviews = ('<section id="otzyvy"><div class="wrap"><div class="sec-h"><span
   + '</div></div></section>')
 home_stats = '<section class="soft"><div class="wrap">' + statband([('2 500+','человек прошли программы'),('92%','отмечают изменения после программ'),('23 200','читателей канала'),('наука','за каждой техникой')], hi=1) + '</div></section>'
 
-page('index','АРХИТЕКТУРА СОЗНАНИЯ — портал','\n'+home+home_steps+home_reviews+home_stats,'Портал по осознанности: знание о покое, теле и достатке, проверенное наукой и собранное в программы. Один вход, все курсы в одном месте.',active='index')
+home_tg = ('<section class="tgjoin"><div class="wrap">'
+  '<a class="tgband" href="https://t.me/+bo3a92A06cQ3NWMy" target="_blank" rel="noopener">'
+  '<span class="ic">'+_TG+'</span>'
+  '<span class="tx"><b>Телеграм-канал «Архитектура сознания»</b>'
+  '<small>Разборы, техники и живые эфиры про мозг, тело и достаток. 23 200 читателей уже внутри.</small></span>'
+  '<span class="cta">Присоединиться <span class="arr">→</span></span>'
+  '</a></div></section>')
+
+page('index','АРХИТЕКТУРА СОЗНАНИЯ — портал','\n'+home+home_steps+home_reviews+home_tg+home_stats,'Портал по осознанности: знание о покое, теле и достатке, проверенное наукой и собранное в программы. Один вход, все курсы в одном месте.',active='index')
 
 # ============ КРЫЛО: шаблон ============
 def wing_page(slug,img,sci_img,cap,ew,title,lead,intro,states,progs,bullets,cls,labels,quote,fact,extra='',stats=None,shi=0):
