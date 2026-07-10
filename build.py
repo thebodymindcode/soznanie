@@ -84,22 +84,43 @@ def soc(name, url):
     return '<a href="%s" target="_blank" rel="noopener">%s%s</a>' % (url, SOC_IC.get(name,''), name)
 
 def phero(img, eyebrow, h1, p, crumb, labels=None):
-    # плавающие слова-метки поверх картинки (как на KEO), позиции заданы вручную
-    pos = ['top:16%;right:6%','top:40%;right:18%','top:62%;right:9%','top:30%;right:34%','top:74%;right:26%']
+    # слова-метки поверх картинки, СОЕДИНЁННЫЕ линиями в единую систему-созвездие.
+    # координаты в % области картинки (центр чипа): подобраны, чтобы линии шли красиво
+    node = [(70,26),(85,46),(74,66),(58,40),(64,80)]
     lab = ''
     if labels:
-        chips = ''.join('<span style="%s">%s</span>' % (pos[i % len(pos)], w) for i, w in enumerate(labels))
-        lab = '<div class="labels">%s</div>' % chips
+        n = min(len(labels), len(node))
+        pts = node[:n]
+        # линии между соседними узлами + пара перекрёстных, тонкие, полупрозрачные
+        segs = [(0,1),(1,2),(3,0),(3,2),(2,4)]
+        lines = ''.join(
+            '<line x1="%s" y1="%s" x2="%s" y2="%s"/>' % (pts[a][0],pts[a][1],pts[b][0],pts[b][1])
+            for a,b in segs if a<n and b<n)
+        svg = '<svg class="net" viewBox="0 0 100 100" preserveAspectRatio="none">%s</svg>' % lines
+        chips = ''.join('<span style="left:%s%%;top:%s%%">%s</span>' % (pts[i][0], pts[i][1], w) for i, w in enumerate(labels[:n]))
+        lab = '<div class="labels">%s%s</div>' % (svg, chips)
     return '''<section class="phero"><div class="wrap"><div class="phero-card"><img class="bg" src="%s" alt="">%s
 <div class="phero-in"><div class="crumbs"><a href="index.html">Главная</a> · %s</div>
 <div class="eyebrow" style="margin-top:14px">%s</div><h1>%s</h1><p>%s</p></div></div></div></section>''' % (img, lab, crumb, eyebrow, h1, p)
 
+def hero_labels(labels):
+    node = [(70,26),(85,46),(74,66),(58,40),(64,80)]
+    n = min(len(labels), len(node)); pts = node[:n]
+    segs = [(0,1),(1,2),(3,0),(3,2),(2,4)]
+    lines = ''.join('<line x1="%s" y1="%s" x2="%s" y2="%s"/>'%(pts[a][0],pts[a][1],pts[b][0],pts[b][1]) for a,b in segs if a<n and b<n)
+    svg = '<svg class="net" viewBox="0 0 100 100" preserveAspectRatio="none">%s</svg>'%lines
+    chips = ''.join('<span style="left:%s%%;top:%s%%">%s</span>'%(pts[i][0],pts[i][1],w) for i,w in enumerate(labels[:n]))
+    return '<div class="labels">%s%s</div>'%(svg,chips)
+
 def factbox(th, body, src, cls=''):
-    return '<div class="factbox %s"><div class="th">%s</div><p>%s</p><div class="src">%s</div></div>' % (cls, th, body, src)
+    srch = '<div class="src">%s</div>' % src if src else ''
+    return '<div class="factbox %s"><div class="th">%s</div><p>%s</p>%s</div>' % (cls, th, body, srch)
 def pullq(text, cite, cls=''):
     return '<div class="pullquote %s">«%s»<cite>%s</cite></div>' % (cls, text, cite)
 def statband(items):
     return '<div class="stats">%s</div>' % ''.join('<div class="stat"><b>%s</b><span>%s</span></div>'%(n,l) for n,l in items)
+def fgrid(*boxes):
+    return '<div class="factgrid">%s</div>' % ''.join(boxes)
 
 def cta_band(h, p, btn, url):
     return '''<section><div class="wrap"><div class="ctaband"><h2>%s</h2><p>%s</p>

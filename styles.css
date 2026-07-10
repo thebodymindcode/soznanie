@@ -254,11 +254,14 @@ section{padding:78px 0}
 .miniquote q{font-family:var(--display);font-weight:800;font-size:19px;line-height:1.3;letter-spacing:-.01em;quotes:none}
 .miniquote cite{display:block;font-weight:600;font-size:13px;opacity:.85;margin-top:14px;font-style:normal}
 
-/* hero floating labels (как на KEO) */
+/* hero floating labels, соединённые в единую систему-созвездие */
 .phero-card .labels,.hero-card .labels{position:absolute;inset:0;z-index:3;pointer-events:none}
-.phero-card .labels span,.hero-card .labels span{position:absolute;background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.34);backdrop-filter:blur(7px);border-radius:100px;padding:9px 17px;
-  font-weight:600;font-size:14px;color:#fff;white-space:nowrap;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.phero-card .labels .net,.hero-card .labels .net{position:absolute;inset:0;width:100%;height:100%}
+.phero-card .labels .net line,.hero-card .labels .net line{stroke:rgba(140,190,255,.5);stroke-width:1.3;
+  vector-effect:non-scaling-stroke;stroke-dasharray:4 4}
+.phero-card .labels span,.hero-card .labels span{position:absolute;transform:translate(-50%,-50%);
+  background:rgba(18,22,44,.42);border:1px solid rgba(255,255,255,.36);backdrop-filter:blur(8px);border-radius:100px;
+  padding:9px 17px;font-weight:600;font-size:14px;color:#fff;white-space:nowrap;box-shadow:0 8px 22px rgba(0,0,0,.28)}
 
 /* prose */
 .prose{max-width:760px}
