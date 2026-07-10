@@ -627,6 +627,10 @@ ARTICLE_RELATED.update({
  'st-dofamin':   related_block([_V, _N, _KALK]),
  'st-son':       related_block([_T, _N, _PRAK]),
 })
+ARTICLE_FIGURE.update({
+ 'st-dofamin': fig_dopamine(),
+ 'st-son':     fig_sleep(),
+})
 
 article_page('st-vnimanie','img/art-vnimanie.jpg','Мозг','11 минут чтения',
   'Почему ум крадёт половину жизни',

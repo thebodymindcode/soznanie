@@ -552,6 +552,13 @@ footer .bot{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;font-size
 .kcta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
 @media(max-width:560px){.kalk{padding:32px 22px}.kcta{flex-direction:column}.kcta .btn{width:100%}}
 
+/* своя инфографика в статьях */
+.infofig{margin:34px 0;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:26px 28px 20px;box-shadow:var(--sh)}
+.infofig .if-h{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.01em;margin-bottom:14px;color:var(--ink)}
+.infofig .if-svg{overflow-x:auto}
+.infofig .if-svg svg{width:100%;min-width:520px;height:auto;display:block}
+.infofig figcaption{margin-top:14px;font-size:14px;color:var(--ink2);line-height:1.55}
+
 /* связанные материалы в конце статей */
 .relgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .relcard{display:flex;flex-direction:column;gap:9px;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:24px 24px 22px;box-shadow:var(--sh);transition:.22s;min-height:152px}

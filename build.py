@@ -270,7 +270,47 @@ def infobars(title, bars, cls=''):
     rows=''.join('<div class="bar"><span>%s</span><div class="track"><div class="fill %s" style="width:%s%%"></div></div><b>%s</b></div>'%(l,cls,p,v) for l,p,v in bars)
     return '<figure class="info"><div class="ct">%s</div><div class="bars">%s</div></figure>'%(title,rows)
 
+# ---------- своя SVG-инфографика ----------
+def infofig(title, svg, cap):
+    return ('<figure class="infofig"><div class="if-h">%s</div><div class="if-svg">%s</div>'
+            '<figcaption>%s</figcaption></figure>') % (title, svg, cap)
+
+def fig_dopamine():
+    svg=('<svg viewBox="0 0 760 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="График дофаминовой волны">'
+      '<defs><linearGradient id="dw" x1="0" y1="0" x2="760" y2="0"><stop stop-color="#2f6bff"/><stop offset="1" stop-color="#7a4bd0"/></linearGradient></defs>'
+      '<line x1="60" y1="170" x2="720" y2="170" stroke="#c9d2ea" stroke-width="1.5" stroke-dasharray="5 6"/>'
+      '<text x="724" y="174" font-size="12.5" fill="#8a90b3" font-family="sans-serif">норма</text>'
+      '<path d="M60,170 C150,170 175,58 235,54 C300,50 320,150 360,192 C405,238 430,244 495,235 C585,222 640,176 720,171" stroke="url(#dw)" stroke-width="3.4" stroke-linecap="round"/>'
+      '<circle cx="235" cy="54" r="5.5" fill="#2f6bff"/><circle cx="470" cy="238" r="5.5" fill="#e0603a"/>'
+      '<text x="235" y="38" font-size="13.5" fill="#1a1f36" font-weight="700" text-anchor="middle" font-family="sans-serif">пик удовольствия</text>'
+      '<text x="470" y="268" font-size="13.5" fill="#c0492a" font-weight="700" text-anchor="middle" font-family="sans-serif">провал ниже нормы</text>'
+      '<text x="60" y="196" font-size="12.5" fill="#8a90b3" font-family="sans-serif">стимул</text>'
+      '<text x="690" y="150" font-size="12.5" fill="#8a90b3" text-anchor="end" font-family="sans-serif">медленный возврат</text>'
+      '</svg>')
+    return infofig('Дофаминовая волна', svg,
+      'Чем выше пик от сильного удовольствия, тем глубже откат под норму. Обычная жизнь после этого кажется пресной, пока уровень медленно возвращается.')
+
+def fig_sleep():
+    pts=[(80,54),(120,54),(120,150),(160,150),(160,232),(220,232),(220,150),(258,150),(258,100),(300,100),
+         (300,150),(340,150),(340,222),(392,222),(392,150),(432,150),(432,100),(500,100),(500,150),(536,150),
+         (536,205),(576,205),(576,150),(612,150),(612,100),(682,100),(682,54),(720,54)]
+    poly=' '.join('%d,%d'%(x,y) for x,y in pts)
+    rows=[('Бодрствование',54),('REM, сны',100),('Лёгкий сон',150),('Глубокий сон',232)]
+    grid=''.join('<line x1="80" y1="%d" x2="720" y2="%d" stroke="#eef1f8" stroke-width="1.5"/>'
+                 '<text x="72" y="%d" font-size="12" fill="#8a90b3" text-anchor="end" font-family="sans-serif">%s</text>'%(y,y,y+4,l) for l,y in rows)
+    svg=('<svg viewBox="-78 0 838 280" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Гипнограмма ночного сна">'
+      '<defs><linearGradient id="sw" x1="0" y1="0" x2="760" y2="0"><stop stop-color="#221a5e"/><stop offset="1" stop-color="#2f6bff"/></linearGradient></defs>'
+      + grid +
+      '<polyline points="'+poly+'" stroke="url(#sw)" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round" fill="none"/>'
+      '<text x="80" y="270" font-size="12" fill="#8a90b3" font-family="sans-serif">засыпание</text>'
+      '<text x="400" y="270" font-size="12" fill="#8a90b3" text-anchor="middle" font-family="sans-serif">~7,5 часа, 5 циклов по 90 минут</text>'
+      '<text x="720" y="270" font-size="12" fill="#8a90b3" text-anchor="end" font-family="sans-serif">пробуждение</text>'
+      '</svg>')
+    return infofig('Что происходит за ночь', svg,
+      'Глубокий сон идёт в первых циклах: тело чинит себя и укладывает память. К утру больше быстрого сна со снами, когда мозг разбирает эмоции.')
+
 ARTICLE_RELATED={}  # заполняется в pages.py: slug -> HTML блока «связанные материалы»
+ARTICLE_FIGURE={}   # slug -> HTML своей инфографики (вставляется после лида)
 def related_block(links):
     # links: [(href, kicker, title), ...]
     cards=''.join('<a class="relcard" href="%s"><span class="rk">%s</span><span class="rt">%s</span><span class="rl">Открыть →</span></a>'%(h,k,t) for h,k,t in links)
@@ -279,10 +319,11 @@ def related_block(links):
 
 def article_page(slug, cover, tag, readtime, title, lead, sections_html, related=''):
     related = ARTICLE_RELATED.get(slug,'') + related  # связанные материалы, затем финальный CTA
+    figure = ARTICLE_FIGURE.get(slug,'')  # своя инфографика после лида
     hero=('<section class="phero"><div class="wrap"><div class="arthero"><img class="bg" src="%s" alt="">'
           '<div class="in"><div class="artmeta"><a href="blog.html" style="color:#c3caea">← Все статьи</a>'
           '<span class="tg">%s</span><span>%s</span></div><h1>%s</h1></div></div></div></section>' % (cover, tag, readtime, title))
-    body=hero+'<section><div class="article"><p class="lead dropcap">%s</p>%s</div></section>%s' % (lead, sections_html, related)
+    body=hero+'<section><div class="article"><p class="lead dropcap">%s</p>%s%s</div></section>%s' % (lead, figure, sections_html, related)
     art_schema=('{"@context":"https://schema.org","@type":"Article","headline":%s,"description":%s,'
       '"image":"%s%s","author":{"@type":"Organization","name":"Архитектура сознания"},'
       '"publisher":{"@type":"Organization","name":"Архитектура сознания","logo":{"@type":"ImageObject","url":"%sapple-touch-icon.png"}},'
