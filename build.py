@@ -15,34 +15,46 @@ def wing_ic(w,s=22):
 NAVLINKS=[('index','Главная',''),('mozg','Мозг','wb'),('telo','Тело','wt'),('dengi','Деньги','wm'),
           ('programs','Программы',''),('sessions','Сессии',''),('knigi','Книги',''),
           ('nauka','Наука','')]
-# выпадающий блок «Ещё»: всё, что можно убрать из основного меню, сгруппировано
-MORE_MENU=[
-  ('Практики и тесты',[('kviz','Индекс ясности')]),
-  ('Знание',[('podhod','Подход'),('blog','Статьи')]),
-  ('Портал',[('o-nas','О нас'),('kontakty','Контакты'),('faq','Вопросы')]),
+NAVEND=[('o-nas','О нас','')]  # отдельный пункт в самом конце меню
+# выпадающая «Библиотека»: ровный список с иконкой и подписью
+MORE_TITLE='Библиотека'
+MORE_ITEMS=[
+  ('kviz','Индекс ясности','Тест на шум ума за две минуты','target'),
+  ('podhod','Подход','Во что мы верим и почему','compass'),
+  ('blog','Статьи','Разборы, лонгриды и наука','doc'),
 ]
-MORE_SLUGS={s for _,items in MORE_MENU for s,_ in items}
+MORE_SLUGS={s for s,_,_,_ in MORE_ITEMS}
+MENU_IC={
+ 'target':'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.2" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="1.7"/></svg>',
+ 'compass':'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M15.5 8.5l-2.2 4.8-4.8 2.2 2.2-4.8 4.8-2.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+ 'doc':'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 3.5h7l5 5V20.5H6z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M13 3.5v5h5M9 13h6M9 16.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>',
+}
 
 def header(active=''):
     links=''
     for slug,label,cls in NAVLINKS:
         on=' on' if slug==active else ''
         links+='<a class="%s%s" href="%s.html">%s</a>' % (cls,on,slug,label)
-    groups=''
-    for gtitle,items in MORE_MENU:
-        gl=''.join('<a class="%s" href="%s.html">%s</a>'%(('on' if s==active else ''),s,lbl) for s,lbl in items)
-        groups+='<div class="mgroup"><span class="mh">%s</span>%s</div>'%(gtitle,gl)
+    rows=''
+    for s,lbl,desc,ic in MORE_ITEMS:
+        on=' on' if s==active else ''
+        rows+=('<a class="mrow%s" href="%s.html"><span class="mi">%s</span>'
+               '<span class="mtx"><b>%s</b><small>%s</small></span></a>')%(on,s,MENU_IC.get(ic,''),lbl,desc)
     trigon=' on' if active in MORE_SLUGS else ''
-    more=('<div class="hasmenu"><button class="mtrig%s" aria-expanded="false" aria-haspopup="true">Ещё'
+    more=('<div class="hasmenu"><button class="mtrig%s" aria-expanded="false" aria-haspopup="true">%s'
           '<svg class="car" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'
-          '<div class="mmenu">%s</div></div>')%(trigon,groups)
+          '<div class="mmenu">%s</div></div>')%(trigon,MORE_TITLE,rows)
+    endlinks=''
+    for slug,label,cls in NAVEND:
+        on=' on' if slug==active else ''
+        endlinks+='<a class="%s%s" href="%s.html">%s</a>'%(cls,on,slug,label)
     return '''<header><div class="wrap nav">
 <a class="brand" href="index.html" aria-label="Архитектура сознания">%s<span class="bt"><b>АРХИТЕКТУРА</b><span>сознания</span></span></a>
-<nav class="menu">%s%s</nav>
+<nav class="menu">%s%s%s</nav>
 <div class="nav-r"><a class="shop" href="https://thebodymindcode.github.io/shop/" target="_blank" rel="noopener">Магазин</a>
 <a class="enter" href="kontakty.html"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM5 20a7 7 0 0 1 14 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Войти</a>
 <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button></div>
-</div></header>''' % (MARK, links, more)
+</div></header>''' % (MARK, links, more, endlinks)
 
 # премиум-иконки соцсетей (моно, currentColor)
 _IG='<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5.4" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="1.7"/><circle cx="17.4" cy="6.6" r="1.25" fill="currentColor"/></svg>'
@@ -88,6 +100,10 @@ FOOTER=('<footer><div class="wrap"><div class="fgrid">'
 
 BURGER_JS='''<script>document.querySelector('.burger').addEventListener('click',function(){var m=document.querySelector('.menu');var open=m.style.display==='flex';m.style.cssText=open?'':'display:flex;position:absolute;top:88px;left:0;right:0;background:#fff;flex-direction:column;padding:20px 24px;border-bottom:1px solid var(--line);gap:16px;box-shadow:var(--sh2);z-index:90'});</script>'''
 
+import hashlib
+try: _CSSV=hashlib.md5(open('styles.css','rb').read()).hexdigest()[:8]
+except Exception: _CSSV='1'
+
 def page(slug, title, body, desc, active=''):
     html='''<!doctype html><html lang="ru"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -97,6 +113,8 @@ def page(slug, title, body, desc, active=''):
 <link rel="stylesheet" href="styles.css"></head><body>%s%s%s%s</body></html>''' % (title, desc, header(active), body, FOOTER, BURGER_JS)
     # гейт бренда: ни одного длинного тире в выводе (em → разделитель «·», en между числами → дефис)
     html = html.replace('—', '·').replace('–', '-')
+    # версия CSS для кэш-бастинга: правки видны сразу, без старого кэша
+    html = html.replace('href="styles.css"', 'href="styles.css?v=%s"' % _CSSV)
     open(slug+'.html','w',encoding='utf-8').write(html)
     print('written', slug+'.html', len(html))
 

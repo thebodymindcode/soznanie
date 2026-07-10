@@ -39,8 +39,7 @@ home='''
 <div class="hero-in"><span class="hero-badge"><span class="dot"></span> Портал по осознанности</span>
 <h1>Архитектура<br>сознания</h1>
 <p class="sub">Знание о покое, теле и достатке, <span class="hl">проверенное наукой</span> и собранное в программы-маршруты.</p>
-<div class="hero-cta"><a class="btn primary bracket" href="programs.html">Найти свою программу</a><a class="btn tg" href="https://t.me/+bo3a92A06cQ3NWMy" target="_blank" rel="noopener"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M21.3 4.3 2.9 11.4c-1 .38-.98 1.78.03 2.13l4.55 1.56 1.76 5.4c.28.85 1.37 1.03 1.9.28l2.5-3.55 4.55 3.36c.7.52 1.7.13 1.87-.72L22.9 5.7c.2-1-.68-1.82-1.6-1.4Z" fill="currentColor"/></svg>Присоединиться в Telegram</a></div>
-<a class="hero-startlink" href="#wings">С чего начать<span class="arr">→</span></a>
+<div class="hero-cta"><a class="btn primary bracket" href="programs.html">Найти свою программу</a><a class="btn tg" href="https://t.me/+bo3a92A06cQ3NWMy" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21.3 4.3 2.9 11.4c-1 .38-.98 1.78.03 2.13l4.55 1.56 1.76 5.4c.28.85 1.37 1.03 1.9.28l2.5-3.55 4.55 3.36c.7.52 1.7.13 1.87-.72L22.9 5.7c.2-1-.68-1.82-1.6-1.4Z" fill="currentColor"/></svg>Присоединиться в Telegram</a><a class="btn light bracket" href="#wings">С чего начать</a></div>
 <div class="hero-trust"><div><b>2 500+</b><span>человек в программах</span></div><div><b>23 200</b><span>читателей канала</span></div><div><b>наука</b><span>за каждой техникой</span></div></div>
 </div></div></div></section>
 
