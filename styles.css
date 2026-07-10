@@ -535,6 +535,23 @@ footer .bot{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;font-size
 .pbtn:hover{background:var(--blue-d);transform:translateY(-2px);box-shadow:0 10px 24px rgba(47,107,255,.34)}
 @media(max-width:760px){.prg{grid-template-columns:1fr}.tdisplay{font-size:46px}}
 
+/* калькулятор блуждающего ума */
+.kalk{max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:44px 44px 40px;box-shadow:var(--sh);text-align:center}
+.kalk .klabel{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:16px}
+.kinput{display:flex;align-items:center;gap:18px;max-width:460px;margin:0 auto 30px}
+.kinput output{font-family:var(--display);font-weight:800;font-size:26px;min-width:52px;color:var(--blue)}
+.kinput input[type=range]{-webkit-appearance:none;appearance:none;flex:1;height:8px;border-radius:99px;background:linear-gradient(90deg,var(--blue) var(--fill,21%),#e9edf6 var(--fill,21%));outline:none}
+.kinput input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--blue);box-shadow:0 3px 10px rgba(47,107,255,.4);cursor:pointer}
+.kinput input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--blue);box-shadow:0 3px 10px rgba(47,107,255,.4);cursor:pointer}
+.kres{padding:20px 0 6px}
+.kbig{font-family:var(--display);font-weight:700;font-size:clamp(24px,4vw,34px);color:var(--ink2)}
+.kbig b{font-size:clamp(58px,10vw,92px);font-weight:800;color:var(--blue);letter-spacing:-.03em;line-height:1}
+.kres p{color:var(--ink2);font-size:17px;line-height:1.55;max-width:44ch;margin:10px auto 0}
+.knote{margin-top:26px;padding-top:24px;border-top:1px solid var(--line);color:var(--ink2);font-size:14.5px;line-height:1.62;max-width:56ch;margin-left:auto;margin-right:auto}
+.knote b{color:var(--ink)}
+.kcta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+@media(max-width:560px){.kalk{padding:32px 22px}.kcta{flex-direction:column}.kcta .btn{width:100%}}
+
 /* подход: манифест, медиа-банд, стена учителей (база ДО медиазапросов, иначе мобайл затирается) */
 .manifesto{background-image:linear-gradient(rgba(9,11,30,.84),rgba(12,18,50,.8)),var(--bg);background-size:cover;background-position:center;color:#fff;padding:104px 0}
 .manifesto .wrap{max-width:980px;text-align:center}

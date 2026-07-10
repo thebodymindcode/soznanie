@@ -995,6 +995,39 @@ page('praktiki','Практики: дыхание, отдых, холод | Ар
   'Живые таймеры практик: дыхание 4-7-8, сердечная когерентность, NSDR и холод. Включаются прямо на странице, без скачиваний.',
   active='praktiki')
 
+# ============ КАЛЬКУЛЯТОР «СКОЛЬКО КРАДЁТ БЛУЖДАЮЩИЙ УМ» ============
+KALK_JS = r'''<script>
+(function(){
+ var age=document.getElementById('kage'), val=document.getElementById('kageval'),
+     yrs=document.getElementById('kyears'), txt=document.getElementById('ktext');
+ if(!age) return;
+ function upd(){
+   var a=+age.value; val.textContent=a;
+   var y=Math.round(a*16/24*0.47);
+   yrs.textContent=y;
+   txt.textContent='из '+a+' прожитых лет около '+y+' прошли не здесь, в мыслях о прошлом и будущем.';
+   var pct=(a-14)/(90-14)*100; age.style.setProperty('--fill',pct+'%');
+ }
+ age.addEventListener('input',upd); upd();
+})();
+</script>'''
+kalk = phero('img/art-vnimanie.jpg','Калькулятор','Сколько крадёт блуждающий ум',
+  'Почти половину времени голова не здесь, а в мыслях о другом. Подвинь возраст и посмотри, сколько лет жизни уже прошло не в настоящем.',
+  'Калькулятор',['внимание','время','сейчас','жизнь','фокус'])
+kalk += ('<section class="qwrap"><div class="wrap"><div class="kalk">'
+  '<div class="klabel">Сколько тебе лет</div>'
+  '<div class="kinput"><input type="range" id="kage" min="14" max="90" value="30"><output id="kageval">30</output></div>'
+  '<div class="kres"><div class="kbig">около <b id="kyears">9</b> лет</div>'
+  '<p id="ktext">из 30 прожитых лет около 9 прошли не здесь, в мыслях о прошлом и будущем.</p></div>'
+  '<div class="knote">По данным Гарварда, около <b>47%</b> времени бодрствования ум занят не тем, что происходит сейчас. Это почти <b>7 часов каждый день</b>. Расчёт берёт эту долю от прожитых лет. Не приговор, а повод чаще возвращаться в момент.</div>'
+  '<div class="kcta"><a class="btn primary bracket" href="kviz.html">Пройти «Индекс ясности»</a>'
+  '<a class="btn tg" href="https://t.me/+bo3a92A06cQ3NWMy" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21.3 4.3 2.9 11.4c-1 .38-.98 1.78.03 2.13l4.55 1.56 1.76 5.4c.28.85 1.37 1.03 1.9.28l2.5-3.55 4.55 3.36c.7.52 1.7.13 1.87-.72L22.9 5.7c.2-1-.68-1.82-1.6-1.4Z" fill="currentColor"/></svg>Практики в Телеграме</a></div>'
+  '</div></div></section>')
+kalk += KALK_JS
+page('kalkulyator','Калькулятор: сколько крадёт блуждающий ум | Архитектура сознания', kalk,
+  'Посчитай, сколько лет жизни забирает блуждающий ум: по данным Гарварда, почти половину времени голова не в настоящем.',
+  active='', ogimg='img/art-vnimanie.jpg')
+
 # ============ SEO-АКТИВЫ: favicon, манифест, sitemap, robots ============
 import json as _json, glob as _glob
 open('favicon.svg','w',encoding='utf-8').write(brand_mark('', None))
