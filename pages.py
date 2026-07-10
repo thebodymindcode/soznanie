@@ -125,7 +125,7 @@ home_reviews = ('<section id="otzyvy"><div class="wrap"><div class="sec-h"><span
   + '</div></div></section>')
 home_stats = '<section class="soft"><div class="wrap">' + statband([('2 500+','человек прошли программы'),('92%','отмечают изменения после программ'),('23 200','читателей канала'),('наука','за каждой техникой')], hi=1) + '</div></section>'
 
-page('index','АРХИТЕКТУРА СОЗНАНИЯ — портал','\n'+home+home_steps+home_reviews+home_stats,'Портал по осознанности: знание о покое, теле и достатке, проверенное наукой и собранное в программы. Один вход, все курсы в одном месте.',active='index')
+page('index','АРХИТЕКТУРА СОЗНАНИЯ — портал','\n'+home+fig_mechanism()+home_steps+home_reviews+home_stats,'Портал по осознанности: знание о покое, теле и достатке, проверенное наукой и собранное в программы. Один вход, все курсы в одном месте.',active='index')
 
 # ============ КРЫЛО: шаблон ============
 def wing_page(slug,img,sci_img,cap,ew,title,lead,intro,states,progs,bullets,cls,labels,quote,fact,extra='',stats=None,shi=0):
@@ -630,6 +630,9 @@ ARTICLE_RELATED.update({
 ARTICLE_FIGURE.update({
  'st-dofamin': fig_dopamine(),
  'st-son':     fig_sleep(),
+ 'st-dengi':   fig_hormones(),
+ 'st-vnimanie':fig_dmn(),
+ 'st-telo':    fig_vagus(),
 })
 
 article_page('st-vnimanie','img/art-vnimanie.jpg','Мозг','11 минут чтения',

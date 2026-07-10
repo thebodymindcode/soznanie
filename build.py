@@ -309,6 +309,107 @@ def fig_sleep():
     return infofig('Что происходит за ночь', svg,
       'Глубокий сон идёт в первых циклах: тело чинит себя и укладывает память. К утру больше быстрого сна со снами, когда мозг разбирает эмоции.')
 
+import math as _math
+def fig_hormones():
+    hs=[('Кортизол','режим тревоги','#e0603a'),('Тестостерон','смелость заявить','#d9992f'),
+        ('Дофамин','топливо движения','#2f6bff'),('Серотонин','планка достатка','#25a06e'),
+        ('Окситоцин','доверие и обмен','#7a4bd0'),('Глюкоза','ясность решений','#c74a86')]
+    cx,cy,R=400,195,140; n=len(hs); nodes=''; lines=''
+    for i,(name,role,col) in enumerate(hs):
+        a=_math.radians(-90+i*360.0/n); x=cx+R*_math.cos(a); y=cy+R*_math.sin(a)
+        lx=cx+(R+34)*_math.cos(a); ly=cy+(R+34)*_math.sin(a)
+        anch='middle'; dyn=-6
+        if _math.cos(a)>0.35: anch='start'
+        elif _math.cos(a)<-0.35: anch='end'
+        if _math.sin(a)>0.5: dyn=14
+        lines+='<line x1="%.0f" y1="%.0f" x2="%.0f" y2="%.0f" stroke="#e0e5f2" stroke-width="1.5"/>'%(cx,cy,x,y)
+        nodes+='<circle cx="%.0f" cy="%.0f" r="15" fill="%s"/>'%(x,y,col)
+        nodes+='<text x="%.0f" y="%.1f" font-size="14" font-weight="800" fill="#1a1f36" text-anchor="%s" font-family="sans-serif">%s</text>'%(lx,ly+dyn,anch,name)
+        nodes+='<text x="%.0f" y="%.1f" font-size="12" fill="#7a80a0" text-anchor="%s" font-family="sans-serif">%s</text>'%(lx,ly+dyn+16,anch,role)
+    svg=('<svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Шесть гормонов денежного решения">'
+      +lines+'<circle cx="%d" cy="%d" r="58" fill="#0f1226"/>'%(cx,cy)
+      +'<text x="%d" y="%d" font-size="14" font-weight="800" fill="#fff" text-anchor="middle" font-family="sans-serif">РЕШЕНИЕ</text>'%(cx,cy-4)
+      +'<text x="%d" y="%d" font-size="12" fill="#aeb6da" text-anchor="middle" font-family="sans-serif">о деньгах</text>'%(cx,cy+15)
+      +nodes+'</svg>')
+    return infofig('Шесть гормонов, что решают за вас', svg,
+      'Соотношение этих гормонов в крови решает, рискнёте вы или затаитесь, назовёте свою цену или промолчите. Химия тела идёт раньше логики.')
+
+def _brain(ox,oy,s,col,nodes,links,op='1'):
+    # мозг из двух полушарий + сеть узлов; s масштаб
+    g=('<g transform="translate(%.0f,%.0f) scale(%.2f)" opacity="%s">'%(ox,oy,s,op)
+      +'<g stroke="%s" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round">'%col
+      +'<path d="M24 6c-4-3-11-2-12 4-5 1-7 7-3 11-3 4-1 11 4 12 1 4 5 6 9 4"/>'
+      +'<path d="M24 6c4-3 11-2 12 4 5 1 7 7 3 11 3 4 1 11-4 12-1 4-5 6-9 4"/>'
+      +'<path d="M24 8v33" opacity=".5"/></g>')
+    for x,y in nodes: g+='<circle cx="%d" cy="%d" r="2.6" fill="%s"/>'%(x,y,col)
+    for a,b in links: g+='<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="%s" stroke-width="1.2" opacity=".7"/>'%(nodes[a][0],nodes[a][1],nodes[b][0],nodes[b][1],col)
+    return g+'</g>'
+
+def fig_dmn():
+    noisy=[(16,16),(30,12),(34,24),(20,26),(28,30),(15,32),(33,34),(24,20),(22,38)]
+    nl=[(0,3),(0,7),(1,2),(1,7),(2,6),(3,4),(4,8),(5,8),(6,4),(7,3)]
+    calm=[(20,20),(28,22),(24,32)]; cl=[(0,2),(1,2)]
+    svg=('<svg viewBox="0 0 760 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Сеть пассивного режима: шум и тишина">'
+      +'<text x="190" y="34" font-size="15" font-weight="800" fill="#c0492a" text-anchor="middle" font-family="sans-serif">ШУМ УМА</text>'
+      +_brain(110,70,4.0,'#e0603a',noisy,nl)
+      +'<text x="190" y="300" font-size="13" fill="#5a6080" text-anchor="middle" font-family="sans-serif">сеть гоняет мысли по кругу</text>'
+      +'<line x1="380" y1="70" x2="380" y2="250" stroke="#e6eaf4" stroke-width="1.5" stroke-dasharray="4 6"/>'
+      +'<text x="570" y="34" font-size="15" font-weight="800" fill="#2f6bff" text-anchor="middle" font-family="sans-serif">ТИШИНА</text>'
+      +_brain(490,70,4.0,'#2f6bff',calm,cl)
+      +'<text x="570" y="300" font-size="13" fill="#5a6080" text-anchor="middle" font-family="sans-serif">внимание тренировано, фон затих</text>'
+      +'</svg>')
+    return infofig('Сеть пассивного режима', svg,
+      'Когда ты не занят делом, включается сеть пассивного режима и гоняет мысли о себе, прошлом и будущем. У тех, кто тренирует внимание, она затихает, и в голове становится тише.')
+
+def fig_vagus():
+    svg=('<svg viewBox="0 0 760 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Блуждающий нерв как переключатель режимов">'
+      +'<defs><linearGradient id="vg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#7a4bd0"/><stop offset="1" stop-color="#2f6bff"/></linearGradient></defs>'
+      # мозг сверху
+      +_brain(150,30,3.0,'#2f6bff',[(24,18)],[])
+      +'<text x="186" y="26" font-size="12.5" fill="#5a6080" font-family="sans-serif">мозг</text>'
+      # нерв вниз к органам
+      +'<path d="M186,140 C186,180 150,190 160,230 C168,262 150,278 186,300" stroke="url(#vg)" stroke-width="4" stroke-linecap="round"/>'
+      +'<text x="196" y="215" font-size="12.5" fill="#7a4bd0" font-weight="700" font-family="sans-serif" transform="rotate(0)">блуждающий нерв</text>'
+      # органы
+      +'<circle cx="150" cy="190" r="8" fill="#e0603a"/><text x="132" y="194" font-size="12.5" fill="#5a6080" text-anchor="end" font-family="sans-serif">сердце</text>'
+      +'<circle cx="160" cy="235" r="8" fill="#25a06e"/><text x="140" y="239" font-size="12.5" fill="#5a6080" text-anchor="end" font-family="sans-serif">дыхание</text>'
+      +'<circle cx="186" cy="300" r="8" fill="#d9992f"/><text x="200" y="304" font-size="12.5" fill="#5a6080" font-family="sans-serif">живот</text>'
+      # две карточки-режима справа
+      +'<rect x="420" y="60" width="300" height="90" rx="16" fill="#fbeeea" stroke="#f0c8bd"/>'
+      +'<text x="444" y="96" font-size="15" font-weight="800" fill="#c0492a" font-family="sans-serif">Режим борьбы</text>'
+      +'<text x="444" y="122" font-size="13" fill="#8a6a62" font-family="sans-serif">рваное дыхание, зажатость, тревога</text>'
+      +'<rect x="420" y="190" width="300" height="90" rx="16" fill="#e8f0fb" stroke="#c5d7f2"/>'
+      +'<text x="444" y="226" font-size="15" font-weight="800" fill="#2456c7" font-family="sans-serif">Режим покоя</text>'
+      +'<text x="444" y="252" font-size="13" fill="#5a6a8a" font-family="sans-serif">ровный выдох, тепло, восстановление</text>'
+      +'<path d="M300,175 C360,175 370,150 418,120" stroke="#e0603a" stroke-width="2" stroke-dasharray="4 5" opacity=".6"/>'
+      +'<path d="M300,235 C360,235 372,250 418,235" stroke="#2f6bff" stroke-width="2.5"/>'
+      +'</svg>')
+    return infofig('Блуждающий нерв: переключатель тела', svg,
+      'Он тянется от мозга к сердцу, лёгким и животу и решает, в каком режиме тело: борьба и тревога или покой и восстановление. Длинный выдох и мягкие практики поворачивают его к покою.')
+
+def fig_mechanism():
+    svg=('<svg viewBox="0 0 860 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Как состояние собирает жизнь">'
+      +'<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#b9c2dd" stroke-width="1.4"/></marker></defs>')
+    ins=[('Тело','дыхание, осанка',90),('Фокус','куда идёт внимание',175),('Слова','внутренняя речь',260)]
+    outs=[('Покой','в голове тихо',90),('Ясность','видно решение',175),('Достаток','поднимается норма',260)]
+    for nm,rl,y in ins:
+        svg+='<rect x="30" y="%d" width="188" height="60" rx="14" fill="#fff" stroke="#e2e7f2"/>'%(y-30)
+        svg+='<text x="50" y="%d" font-size="15" font-weight="800" fill="#1a1f36" font-family="sans-serif">%s</text>'%(y-2,nm)
+        svg+='<text x="50" y="%d" font-size="12" fill="#7a80a0" font-family="sans-serif">%s</text>'%(y+16,rl)
+        svg+='<line x1="220" y1="%d" x2="352" y2="175" stroke="#b9c2dd" stroke-width="1.6" marker-end="url(#ah)"/>'%y
+    svg+='<circle cx="430" cy="175" r="74" fill="#0f1226"/>'
+    svg+='<text x="430" y="170" font-size="17" font-weight="800" fill="#fff" text-anchor="middle" font-family="sans-serif">СОСТОЯНИЕ</text>'
+    svg+='<text x="430" y="192" font-size="12" fill="#aeb6da" text-anchor="middle" font-family="sans-serif">первично</text>'
+    for nm,rl,y in outs:
+        svg+='<line x1="508" y1="175" x2="640" y2="%d" stroke="#b9c2dd" stroke-width="1.6" marker-end="url(#ah)"/>'%y
+        svg+='<rect x="642" y="%d" width="188" height="60" rx="14" fill="#f4f7fd" stroke="#e2e7f2"/>'%(y-30)
+        svg+='<text x="662" y="%d" font-size="15" font-weight="800" fill="#2456c7" font-family="sans-serif">%s</text>'%(y-2,nm)
+        svg+='<text x="662" y="%d" font-size="12" fill="#7a80a0" font-family="sans-serif">%s</text>'%(y+16,rl)
+    svg+='</svg>'
+    return ('<section class="soft"><div class="wrap"><div class="sec-h"><span class="eyebrow">Как это устроено</span>'
+            '<h2>Состояние решает, остальное подтягивается</h2><p>Три рычага меняют состояние за секунды, а из состояния собирается покой, ясность и достаток.</p></div>'
+            '<figure class="infofig" style="margin:0"><div class="if-svg">%s</div></figure></div></section>')%svg
+
 ARTICLE_RELATED={}  # заполняется в pages.py: slug -> HTML блока «связанные материалы»
 ARTICLE_FIGURE={}   # slug -> HTML своей инфографики (вставляется после лида)
 def related_block(links):
