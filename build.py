@@ -68,6 +68,13 @@ BICONS = {
  'book': '<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5V5.5Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20" stroke="#fff" stroke-width="1.7"/></svg>',
  'heart': '<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.35-7-9.5A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 7 2.5C19 15.65 12 20 12 20Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg>',
 }
+def cardx(w, chip, name, fmt, price, url, desc):
+    cic='<span class="cic">%s</span>' % wing_ic(w)
+    return '''<div class="card %s"><div class="top"><span class="chip %s">%s</span>%s</div>
+<h3>%s</h3><div class="fmt">%s%s</div><p class="desc">%s</p>
+<div class="foot"><span class="price">%s</span><a class="go" href="%s" target="_blank" rel="noopener">Открыть →</a></div></div>''' % (
+        w, {'b':'brain','t':'body','m':'money'}[w], chip, cic, name, IC_CLOCK, fmt, desc, price, url)
+
 def bullet(text, icon='dna'):
     return '<li><span class="bm">%s</span><span>%s</span></li>' % (BICONS.get(icon, DNA), text)
 

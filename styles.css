@@ -177,7 +177,8 @@ section{padding:78px 0}
 .card.t .cic{background:rgba(15,165,150,.09);color:var(--body)}
 .card.m .cic{background:rgba(200,145,42,.11);color:var(--money)}
 .card h3{font-size:21px;font-weight:800;margin-bottom:10px;letter-spacing:-.02em;line-height:1.15}
-.card .fmt{color:var(--mut);font-size:14px;margin-bottom:24px;display:flex;align-items:center;gap:8px}
+.card .fmt{color:var(--mut);font-size:14px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card .desc{color:var(--ink2);font-size:14px;line-height:1.55;margin:0 0 20px}
 .card .foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:20px;border-top:1px solid var(--line)}
 .card .price{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.03em}
 .card .go{display:inline-flex;align-items:center;gap:7px;font-weight:700;color:var(--blue);font-size:14.5px;border:1.5px solid var(--line2);border-radius:10px;padding:9px 15px;transition:.2s}

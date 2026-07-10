@@ -17,6 +17,20 @@ P={
  'session':('b','Личное','Персональная сессия с Дарьей','60-90 минут, один на один','12 500 ₽',U+'session1/'),
 }
 def C(k): return card(*P[k])
+DESC={
+ 'money17':'Перенастройка денежной программы за 17 дней. Платформа с личным кабинетом, аудио и заданиями на каждый день.',
+ 'stop':'Голова перестаёт гудеть, внутренний диалог затихает. Маршрут на 28 дней по 16 минут, изменения видно на МРТ.',
+ 'codemoney':'Находишь свой денежный потолок, видишь, как сам сливаешь деньги, и переписываешь код. 19 техник, часть авторские.',
+ 'authority':'Вернуть себе право решать и перестать спрашивать разрешения. Три встречи, рабочая тетрадь и закрытый чат.',
+ 'biohim':'Почему доход управляется не мышлением, а биохимией. Шесть гормонов и биохимический потолок дохода.',
+ 'choice':'Почему всё понятно, но ничего не меняется. Пять скрытых программ, которые блокируют действие.',
+ 'beyond':'Почему мы каждое утро воссоздаём свои диагнозы, и как тело выходит из режима борьбы.',
+ 'beauty':'Где в детстве было решено, что красота не для меня, и как тело перестаёт её прятать.',
+ 'newyear':'Три дня трансформации и персональная фраза-код, которая переключает состояние за секунды.',
+ 'book':'Книга про биохимию денег: шесть механизмов, четыре архетипа и протокол сдвига на 30 дней.',
+ 'session':'Работа один на один с корнем запроса. Часто сдвиг случается уже за одну встречу.',
+}
+def CX(k): return cardx(*P[k], DESC[k])
 
 # ============ ГЛАВНАЯ ============
 home='''
@@ -87,7 +101,17 @@ home='''
        bullet('<b>Гиппокамп растёт</b> от практики. У лондонских таксистов серое вещество прибавило в объёме.','grow'),
        bullet('<b>Внутренний шум затихает</b> у тех, кто тренирует внимание. Сеть пассивного режима успокаивается.','waves'),
        U,U, C('biohim'),C('beyond'),C('authority'),C('beauty'),C('choice'),C('codemoney'), U, U)
-page('index','АРХИТЕКТУРА СОЗНАНИЯ — портал','\n'+home,'Портал по осознанности: знание о покое, теле и достатке, проверенное наукой и собранное в программы. Один вход, все курсы в одном месте.',active='index')
+
+# главная: отзывы + стат-блок доверия перед кабинетом
+home_reviews = '''<section id="otzyvy"><div class="wrap"><div class="sec-h"><span class="eyebrow">Истории перемен</span><h2>Что меняется у людей</h2><p>Живые слова участников. Мы не выдумываем отзывы и не обещаем результат, каждый путь свой.</p></div>
+<div class="tgrid" style="grid-template-columns:repeat(3,1fr)">
+<div class="tcard"><div class="stars">★★★★★</div><div class="q">«Вырубаюсь за 10 минут вместо часа. Думала, так не бывает».</div><div class="who"><span class="av">А</span>Алёна</div></div>
+<div class="tcard"><div class="stars">★★★★★</div><div class="q">«Три ночи подряд без пробуждений. Такого не было два года».</div><div class="who"><span class="av">Н</span>Наталья</div></div>
+<div class="tcard"><div class="stars">★★★★★</div><div class="q">«Третий день, а уже так хорошо. Впервые за месяц уснула легко».</div><div class="who"><span class="av">М</span>Мария</div></div>
+</div></div></section>'''
+home_stats = '<section class="soft"><div class="wrap">' + statband([('2 500+','человек прошли программы'),('92%','отмечают изменения после программ'),('23 200','читателей канала'),('наука','за каждой техникой')], hi=1) + '</div></section>'
+
+page('index','АРХИТЕКТУРА СОЗНАНИЯ — портал','\n'+home+home_reviews+home_stats,'Портал по осознанности: знание о покое, теле и достатке, проверенное наукой и собранное в программы. Один вход, все курсы в одном месте.',active='index')
 
 # ============ КРЫЛО: шаблон ============
 def wing_page(slug,img,sci_img,cap,ew,title,lead,intro,states,progs,bullets,cls,labels,quote,fact,extra='',stats=None,shi=0):
@@ -225,15 +249,22 @@ wing_page('dengi','img/dengi-1.jpg','img/dengi-sci.jpg','Биохимия реш
   stats=[('6','гормонов управляют денежным решением'),('4','финансовых архетипа по книге'),('~250%','рост дофамина от короткого холода'),('утро','гормоны предсказывают поведение с деньгами днём')], shi=1)
 
 # ============ ПРОГРАММЫ ============
-allcards=''.join(C(k) for k in ['money17','stop','biohim','beyond','authority','beauty','session','choice','newyear','codemoney','book'])
+allcards=''.join(CX(k) for k in ['money17','stop','biohim','beyond','authority','beauty','session','choice','newyear','codemoney','book'])
+startblock='''<section class="soft"><div class="wrap"><div class="sec-h"><span class="eyebrow">С чего начать</span><h2>Если не знаешь, куда идти</h2><p>Выбери по тому, что ближе прямо сейчас. Внутри каждого крыла программы уже подобраны под состояние.</p></div>
+<div class="wings">
+<a class="wing w1" href="mozg.html"><div class="ic">%s</div><h3>Шумит голова</h3><p>Гонка мыслей, тревога, трудно уснуть. Тебе в крыло «Мозг»: покой, сон, ясность.</p><span class="more">Войти в крыло →</span></a>
+<a class="wing w2" href="telo.html"><div class="ic">%s</div><h3>Подводит тело</h3><p>Симптомы, зажимы, усталость. Тебе в крыло «Тело»: здоровье и нервная система.</p><span class="more">Войти в крыло →</span></a>
+<a class="wing w3" href="dengi.html"><div class="ic">%s</div><h3>Потолок в деньгах</h3><p>Доход упирается в невидимую норму. Тебе в крыло «Деньги»: потолок и биохимия решений.</p><span class="more">Войти в крыло →</span></a>
+</div></div></section>''' % (wing_ic('b',30), wing_ic('t',30), wing_ic('m',30))
 prog='''
 %s
 <section><div class="wrap"><div class="sec-h"><span class="eyebrow">Каталог</span><h2>Все программы и записи</h2>
 <p>Одиннадцать продуктов: короткие записи, книга, длинные маршруты и личная работа. Фильтруй по крылу.</p></div>
 <div class="filterbar"><button class="on" data-f="all">Все</button><button data-f="b">Мозг</button><button data-f="t">Тело</button><button data-f="m">Деньги</button></div>
 <div class="pgrid" id="pg">%s</div></div></section>
+%s
 <script>document.querySelectorAll('.filterbar button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.filterbar button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');var f=b.dataset.f;document.querySelectorAll('#pg .card').forEach(function(c){c.style.display=(f==='all'||c.classList.contains(f))?'':'none'})}});</script>
-''' % (phero('img/hero-1.jpg','Портал','Программы','Всё, что собрано в портале: записи, книга, длинные маршруты и личная сессия. Выбирай по крылу и формату.','Программы',['мозг','тело','деньги','маршрут','практика']), allcards)
+''' % (phero('img/hero-1.jpg','Портал','Программы','Всё, что собрано в портале: записи, книга, длинные маршруты и личная сессия. Выбирай по крылу и формату.','Программы',['мозг','тело','деньги','маршрут','практика']), allcards, startblock)
 page('programs','Программы — Архитектура сознания',prog,'Каталог всех программ портала: мозг, тело, деньги. Записи, книга, длинные маршруты, личная сессия.',active='programs')
 
 # ============ СЕССИИ (продающий лонгрид) ============
