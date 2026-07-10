@@ -230,6 +230,36 @@ section{padding:78px 0}
 .bmini .cv{aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;color:#fff}
 .bmini .cv h4{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:20px;line-height:1;letter-spacing:-.01em}
 
+/* premium text system */
+.introg{display:grid;grid-template-columns:1.55fr 1fr;gap:50px;align-items:start}
+.introg .aside{display:flex;flex-direction:column;gap:20px}
+.introg .lead{font-size:clamp(20px,2.2vw,25px);color:var(--ink);font-weight:500;line-height:1.45;margin:0 0 24px;letter-spacing:-.01em}
+.twocol{columns:2;column-gap:44px}
+.twocol p{margin:0 0 16px;break-inside:avoid;font-size:16.5px;color:var(--ink2);line-height:1.62}
+.pullquote{border-left:4px solid var(--blue);padding:4px 0 4px 24px;margin:0;font-family:var(--display);font-weight:800;
+  text-transform:none;font-size:clamp(20px,2vw,25px);line-height:1.24;letter-spacing:-.01em;color:var(--ink)}
+.pullquote.t{border-color:var(--body)} .pullquote.m{border-color:var(--money)}
+.pullquote cite{display:block;font-family:var(--sans);font-weight:600;font-size:13px;color:var(--mut);margin-top:14px;font-style:normal}
+.factbox{background:#fff;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:var(--r-md);
+  padding:26px 28px;box-shadow:var(--sh)}
+.factbox.t{border-left-color:var(--body)} .factbox.m{border-left-color:var(--money)}
+.factbox .th{font-weight:800;font-size:18px;letter-spacing:-.01em;margin-bottom:9px;line-height:1.25}
+.factbox p{margin:0 0 12px;color:var(--ink2);font-size:15.5px;line-height:1.6}
+.factbox .src{font-size:12.5px;color:var(--mut);font-weight:600;display:flex;align-items:center;gap:7px}
+.factbox .src:before{content:"";width:14px;height:2px;background:var(--blue);border-radius:2px}
+.factbox.t .src:before{background:var(--body)} .factbox.m .src:before{background:var(--money)}
+.factgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.miniquote{background:linear-gradient(150deg,var(--indigo),#2f6bff);color:#fff;border-radius:var(--r-md);padding:28px;box-shadow:var(--sh2)}
+.miniquote.t{background:linear-gradient(150deg,#0c6b62,#0fa596)} .miniquote.m{background:linear-gradient(150deg,#7a5713,#c8912a)}
+.miniquote q{font-family:var(--display);font-weight:800;font-size:19px;line-height:1.3;letter-spacing:-.01em;quotes:none}
+.miniquote cite{display:block;font-weight:600;font-size:13px;opacity:.85;margin-top:14px;font-style:normal}
+
+/* hero floating labels (как на KEO) */
+.phero-card .labels,.hero-card .labels{position:absolute;inset:0;z-index:3;pointer-events:none}
+.phero-card .labels span,.hero-card .labels span{position:absolute;background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.34);backdrop-filter:blur(7px);border-radius:100px;padding:9px 17px;
+  font-weight:600;font-size:14px;color:#fff;white-space:nowrap;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+
 /* prose */
 .prose{max-width:760px}
 .prose p{font-size:17px;color:var(--ink2);margin:0 0 18px;line-height:1.62}
@@ -297,8 +327,10 @@ footer .bot{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;font-size
 @media(max-width:1000px){
   .menu,.nav-r .shop{display:none}
   .burger{display:flex}
-  .wings,.pgrid,.flag,.why,.why.rev,.bookwrap,.duo,.hub,.bgrid,.b2grid{grid-template-columns:1fr}
+  .wings,.pgrid,.flag,.why,.why.rev,.bookwrap,.duo,.hub,.bgrid,.b2grid,.introg,.factgrid{grid-template-columns:1fr}
   .bk{flex-direction:column;align-items:flex-start}
+  .twocol{columns:1}
+  .phero-card .labels,.hero-card .labels{display:none}
   .stats{grid-template-columns:repeat(2,1fr)}
   footer .grid{grid-template-columns:1fr 1fr}
   section{padding:56px 0}

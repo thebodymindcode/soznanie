@@ -83,10 +83,16 @@ SOC_IC = {
 def soc(name, url):
     return '<a href="%s" target="_blank" rel="noopener">%s%s</a>' % (url, SOC_IC.get(name,''), name)
 
-def phero(img, eyebrow, h1, p, crumb):
-    return '''<section class="phero"><div class="wrap"><div class="phero-card"><img class="bg" src="%s" alt="">
+def phero(img, eyebrow, h1, p, crumb, labels=None):
+    # плавающие слова-метки поверх картинки (как на KEO), позиции заданы вручную
+    pos = ['top:16%;right:6%','top:40%;right:18%','top:62%;right:9%','top:30%;right:34%','top:74%;right:26%']
+    lab = ''
+    if labels:
+        chips = ''.join('<span style="%s">%s</span>' % (pos[i % len(pos)], w) for i, w in enumerate(labels))
+        lab = '<div class="labels">%s</div>' % chips
+    return '''<section class="phero"><div class="wrap"><div class="phero-card"><img class="bg" src="%s" alt="">%s
 <div class="phero-in"><div class="crumbs"><a href="index.html">Главная</a> · %s</div>
-<div class="eyebrow" style="margin-top:14px">%s</div><h1>%s</h1><p>%s</p></div></div></div></section>''' % (img, crumb, eyebrow, h1, p)
+<div class="eyebrow" style="margin-top:14px">%s</div><h1>%s</h1><p>%s</p></div></div></div></section>''' % (img, lab, crumb, eyebrow, h1, p)
 
 def cta_band(h, p, btn, url):
     return '''<section><div class="wrap"><div class="ctaband"><h2>%s</h2><p>%s</p>
