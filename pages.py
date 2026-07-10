@@ -25,7 +25,7 @@ home='''
 <h1>Архитектура<br>сознания</h1>
 <p class="sub">Знание о покое, теле и достатке, <span class="hl">проверенное наукой</span> и собранное в программы-маршруты.</p>
 <div class="hero-cta"><a class="btn primary bracket" href="programs.html">Найти свою программу</a><a class="btn light bracket" href="#wings">С чего начать</a></div>
-<div class="hero-trust"><div><b>1000+</b><span>человек в программах</span></div><div><b>23 000</b><span>читателей канала</span></div><div><b>наука</b><span>за каждой техникой</span></div></div>
+<div class="hero-trust"><div><b>2 500+</b><span>человек в программах</span></div><div><b>23 200</b><span>читателей канала</span></div><div><b>наука</b><span>за каждой техникой</span></div></div>
 </div></div></div></section>
 
 <section class="soft" id="wings"><div class="wrap"><div class="sec-h"><span class="eyebrow">Дом с тремя крыльями</span>
@@ -40,7 +40,7 @@ home='''
 </div></section>
 
 <section id="why"><div class="wrap"><div class="why">
-<div class="why-media"><img src="img/sci-a.jpg" alt=""><span class="cap"><span class="d"></span> Нейронные связи</span></div>
+<div class="why-media"><img src="img/sci-c.jpg" alt=""><span class="cap"><span class="d"></span> За каждой техникой данные</span></div>
 <div><span class="eyebrow">Проверено наукой</span>
 <h2 class="disp" style="font-size:clamp(26px,3.4vw,42px);margin:14px 0 4px">За каждой техникой стоит <span class="hl">исследование</span></h2>
 <p class="mut" style="font-size:17px;margin:14px 0 0;max-width:48ch">То, что веками знали мудрецы, сегодня видно на приборах. Мы берём то, что проверено, и собираем в понятные шаги.</p>
@@ -55,7 +55,7 @@ home='''
 <p>Ты идёшь маршрутом, день за днём, в своём темпе, и видишь <span class="hl">прогресс в личном кабинете</span>.</p></div>
 <div class="flag">
 <div class="fcard"><img class="bg" src="img/money-1.jpg" alt=""><div class="fin"><span class="kick">17 дней · платформа с кабинетом</span><h3>Протокол денег</h3><p>Перенастройка денежной программы. Каждый день открывается по расписанию, с аудио и заданиями.</p><a class="btn light bracket" href="%smoneyaccess/" target="_blank" rel="noopener">Смотреть программу</a></div></div>
-<div class="fcard b"><div class="fin"><span class="kick">28 дней · 16 минут в день</span><h3>Протокол остановки ума</h3><p>Голова перестаёт гудеть, внутренний диалог затихает. Маршрут на четыре недели.</p><a class="btn light bracket" href="%sprotocol/" target="_blank" rel="noopener">Смотреть программу</a></div></div>
+<div class="fcard"><img class="bg" src="img/stopum-1.jpg" alt=""><div class="fin"><span class="kick">28 дней · 16 минут в день</span><h3>Протокол остановки ума</h3><p>Голова перестаёт гудеть, внутренний диалог затихает. Маршрут на четыре недели.</p><a class="btn light bracket" href="%sprotocol/" target="_blank" rel="noopener">Смотреть программу</a></div></div>
 </div></div></section>
 
 <section id="catalog"><div class="wrap"><div class="sec-h"><span class="eyebrow">Каталог</span>
@@ -63,13 +63,17 @@ home='''
 <div class="pgrid">%s%s%s%s%s%s</div>
 <div class="catf"><a class="btn ghost bracket" href="programs.html">Смотреть все программы</a></div></div></section>
 
-<section class="soft" id="books"><div class="wrap"><div class="bookwrap">
-<div class="bookcover"><span class="kbook">Книга бренда</span><h3>Механизмы сдвига</h3><span class="bmeta">144 страницы · 20 глав</span></div>
-<div class="book-info"><span class="eyebrow m">Книги</span>
-<h2 style="margin:14px 0 0">Знание, которое остаётся с тобой</h2>
-<p class="mut" style="font-size:17px;margin:16px 0 0;max-width:46ch">Книги это опора бренда: <span class="hl m">глубоко, по делу</span>. Читаешь в своём темпе и возвращаешься к главному.</p>
-<div class="book-buy"><span class="price">690 ₽</span><a class="btn primary bracket" href="%smoneybook/" target="_blank" rel="noopener">Открыть книгу</a><a class="btn ghost bracket" href="knigi.html">Все книги</a></div>
-</div></div></div></section>
+<section class="soft" id="books"><div class="wrap"><div class="sec-h"><span class="eyebrow m">Книги</span>
+<h2>Знание, которое остаётся с тобой</h2>
+<p>Две книги бренда: <span class="hl m">глубоко и по делу</span>. Читаешь в своём темпе и возвращаешься к главному.</p></div>
+<div class="b2grid">
+<div class="bk"><div class="cv gold"><span class="kb">Книга бренда</span><h4>Механизмы сдвига</h4><span class="bm2">144 стр · 20 глав</span></div>
+<div class="bi"><h3>Механизмы сдвига</h3><p>Шесть гормональных механизмов денег, четыре финансовых архетипа, протокол сдвига и дневник на 30 дней.</p>
+<div class="row"><span class="price">690 ₽</span><a class="btn primary bracket" href="%smoneybook/" target="_blank" rel="noopener">Открыть книгу</a></div></div></div>
+<div class="bk"><div class="cv teal"><span class="kb">Книга бренда</span><h4>Тело говорит первым</h4><span class="bm2">40 стр · 30 сигналов</span></div>
+<div class="bi"><h3>Тело говорит первым</h3><p>30 сигналов тела и 50+ анализов: как услышать организм раньше, чем он перейдёт на крик.</p>
+<div class="row"><span class="tagf">в комплекте программы</span><a class="btn ghost bracket" href="%sBeyond/" target="_blank" rel="noopener">Смотреть программу</a></div></div></div>
+</div></div></section>
 
 <section id="cabinet"><div class="wrap"><div class="cab"><span class="eyebrow">Личный кабинет</span>
 <h2>Одна почта. Все твои программы</h2>
@@ -78,11 +82,11 @@ home='''
 <div class="cabf"><div>Мои курсы</div><div>Прогресс по дням</div><div>Аудио и практики</div><div>Доступ навсегда</div></div>
 </div></div></section>
 ''' % (wing_ic('b',30),wing_ic('t',30),wing_ic('m',30),
-       bullet('<b>Мозг перестраивается</b> в любом возрасте, вопрос метода. Нейропластичность работает всю жизнь.'),
-       bullet('<b>47% времени</b> ум занят не тем, что происходит, и там прячется тревога. Гарвард, Science.'),
-       bullet('<b>Гиппокамп растёт</b> от практики. У лондонских таксистов серое вещество прибавило в объёме.'),
-       bullet('<b>Внутренний шум затихает</b> у тех, кто тренирует внимание. Сеть пассивного режима успокаивается.'),
-       U,U, C('codemoney'),C('authority'),C('biohim'),C('choice'),C('beyond'),C('beauty'), U)
+       bullet('<b>Мозг перестраивается</b> в любом возрасте, вопрос метода. Нейропластичность работает всю жизнь.','brain'),
+       bullet('<b>47% времени</b> ум занят не тем, что происходит, и там прячется тревога. Гарвард, Science.','clock'),
+       bullet('<b>Гиппокамп растёт</b> от практики. У лондонских таксистов серое вещество прибавило в объёме.','grow'),
+       bullet('<b>Внутренний шум затихает</b> у тех, кто тренирует внимание. Сеть пассивного режима успокаивается.','waves'),
+       U,U, C('biohim'),C('beyond'),C('authority'),C('beauty'),C('choice'),C('codemoney'), U, U)
 page('index','АРХИТЕКТУРА СОЗНАНИЯ — портал','\n'+home,'Портал по осознанности: знание о покое, теле и достатке, проверенное наукой и собранное в программы. Один вход, все курсы в одном месте.')
 
 # ============ КРЫЛО: шаблон ============
@@ -144,7 +148,7 @@ wing_page('dengi','img/dengi-1.jpg','Крыло портала','Деньги',
    '<b>Достаток начинается внутри</b>: сначала меняется норма, потом реальность.'],'w3')
 
 # ============ ПРОГРАММЫ ============
-allcards=''.join(C(k) for k in ['money17','stop','codemoney','authority','biohim','choice','beyond','beauty','newyear','book','session'])
+allcards=''.join(C(k) for k in ['money17','stop','biohim','beyond','authority','beauty','session','choice','newyear','codemoney','book'])
 prog='''
 %s
 <section><div class="wrap"><div class="sec-h"><span class="eyebrow">Каталог</span><h2>Все программы и записи</h2>
@@ -158,21 +162,26 @@ page('programs','Программы — Архитектура сознания'
 # ============ КНИГИ ============
 books='''
 %s
-<section><div class="wrap"><div class="bookwrap">
-<div class="bookcover"><span class="kbook">Книга бренда</span><h3>Механизмы сдвига</h3><span class="bmeta">144 страницы · 20 глав</span></div>
-<div class="book-info"><span class="eyebrow m">Книга</span><h2 style="margin:14px 0 0">Механизмы сдвига</h2>
-<p class="mut" style="font-size:17px;margin:16px 0 0;max-width:46ch">Шесть гормональных механизмов денег. Четыре финансовых архетипа. Протокол сдвига и дневник наблюдений на 30 дней. Самая мягкая точка входа в тему биохимии денег.</p>
-<div class="book-buy"><span class="price">690 ₽</span><a class="btn primary bracket" href="%smoneybook/" target="_blank" rel="noopener">Открыть книгу</a></div>
-</div></div></div></section>
+<section><div class="wrap"><div class="sec-h"><span class="eyebrow m">Библиотека</span><h2>Две книги бренда</h2>
+<p>Каждая написана по нашим программам: живой опыт Дарьи, проверка Алексея, механизм и практика внутри.</p></div>
+<div class="b2grid">
+<div class="bk"><div class="cv gold"><span class="kb">Книга бренда</span><h4>Механизмы сдвига</h4><span class="bm2">144 стр · 20 глав</span></div>
+<div class="bi"><h3>Механизмы сдвига</h3><p>Шесть гормональных механизмов денег, четыре финансовых архетипа, протокол сдвига и дневник наблюдений на 30 дней. Самая мягкая точка входа в тему биохимии денег.</p>
+<div class="row"><span class="price">690 ₽</span><a class="btn primary bracket" href="%smoneybook/" target="_blank" rel="noopener">Открыть книгу</a></div></div></div>
+<div class="bk"><div class="cv teal"><span class="kb">Книга бренда</span><h4>Тело говорит первым</h4><span class="bm2">40 стр · 30 сигналов</span></div>
+<div class="bi"><h3>Тело говорит первым</h3><p>30 сигналов тела и 50+ анализов: как услышать организм раньше, чем он перейдёт на крик. Плюс модуль про блуждающий нерв: как тело выходит из режима борьбы.</p>
+<div class="row"><span class="tagf">в комплекте программы</span><a class="btn ghost bracket" href="%sBeyond/" target="_blank" rel="noopener">Смотреть программу</a></div></div></div>
+</div></div></section>
 <section class="soft"><div class="wrap"><div class="sec-h center"><span class="eyebrow">Почему книги</span><h2>Опора, к которой возвращаешься</h2>
-<p style="margin-left:auto;margin-right:auto">Библиотека портала будет расти. Здесь появятся новые книги бренда.</p></div>
+<p style="margin-left:auto;margin-right:auto">Библиотека портала растёт: новые книги появятся здесь же.</p></div>
 <div class="prose center" style="margin:0 auto"><ul class="thm-list m" style="display:inline-block;text-align:left">%s%s%s</ul></div>
 <div class="catf"><a class="btn ghost bracket" href="%sshop/" target="_blank" rel="noopener">Все продукты в магазине</a></div>
 </div></section>
 ''' % (phero('img/books-1.jpg','Портал','Книги','Книги бренда: глубоко и по делу. Читаешь в своём темпе и возвращаешься к главному.','Книги'),
-       U, bullet('<b>Глубже поста</b>: то, что в ленте мелькает, здесь разложено по полкам.'),
-       bullet('<b>В своём темпе</b>: возвращаешься к главам, когда нужно.'),
-       bullet('<b>С практикой</b>: не только идеи, но и дневник и протокол на 30 дней.'), U)
+       U, U,
+       bullet('<b>Глубже поста</b>: то, что в ленте мелькает, здесь разложено по полкам.','book'),
+       bullet('<b>В своём темпе</b>: возвращаешься к главам, когда нужно.','clock'),
+       bullet('<b>С практикой</b>: внутри дневник и протокол на 30 дней.','grow'), U)
 page('knigi','Книги — Архитектура сознания',books,'Книги бренда «Архитектура сознания»: Механизмы сдвига и растущая библиотека.',active='knigi')
 
 # ============ НАУКА ============
@@ -199,27 +208,33 @@ nauka='''
        cta_band('Готов проверить на себе','Программы собраны из того, что проверено. Начни с крыла, которое ближе.','Смотреть программы',U+'shop/'))
 page('nauka','Наука — Архитектура сознания',nauka,'Доказательная база портала: исследования, цифры и механизмы за каждой техникой.',active='nauka')
 
+
+SD = soc('Instagram','https://instagram.com/daryarostovtseva')+soc('Threads','https://www.threads.com/@daryarostovtseva')+soc('Telegram','https://t.me/+bo3a92A06cQ3NWMy')
+SA = soc('Instagram','https://instagram.com/thebodymindcode')+soc('YouTube','https://www.youtube.com/@thebodymindcode')+soc('TikTok','https://www.tiktok.com/@thebodymindcode')
+SA2 = SA + soc('Telegram','https://t.me/+aEgupwOOOq84YTNi')
+
 # ============ О НАС ============
 onas='''
 %s
 <section><div class="wrap"><div class="prose">
-<p class="lead">За «Архитектурой сознания» стоят два живых человека, которые много лет копают одну тему, потому что не могут иначе.</p>
+<p class="lead">За «Архитектурой сознания» стоят два живых человека. Дарья находит технику в живой практике. Алексей сверяет её с исследованиями: механизм, источник, цифры. В программы попадает то, что прошло обе проверки.</p>
 <p>Шесть лет назад мы оказались в одном поле. Одни вопросы, одна одержимость: как на самом деле устроены мозг, тело, сознание. С тех пор идём вместе. Дарья чувствует и находит: инсайт, технику, живой ключ. Алексей видит структуру и проверяет: исследование, механизм, цифры. Она летит, он приземляет.</p>
 <p>Каждая техника проходит два фильтра: живой опыт и проверку наукой. То, что проходит, попадает в программы и работает у сотен людей. То, что нет, остаётся за бортом.</p>
 </div></div></section>
-<section class="soft"><div class="wrap"><div class="sec-h"><span class="eyebrow">Дуэт</span><h2>Она находит, он проверяет</h2></div>
+<section class="soft"><div class="wrap"><div class="sec-h"><span class="eyebrow">Дуэт</span><h2>Двое за каждой программой</h2></div>
 <div class="duo">
-<div class="person"><div class="pav" style="background:linear-gradient(145deg,#2f6bff,#221a5e)">Д</div><h3>Дарья Ростовцева</h3><div class="role">Инсайт, техники, эфиры</div><p>Ведёт эфиры и программы, создаёт техники, работает с людьми один на один. Чувствует, где болит, и находит ключ.</p><div class="socs"><a href="https://instagram.com/daryarostovtseva" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.com/@daryarostovtseva" target="_blank" rel="noopener">Threads</a><a href="https://t.me/+bo3a92A06cQ3NWMy" target="_blank" rel="noopener">Telegram</a></div></div>
-<div class="person d"><div class="pav">А</div><h3>Алексей</h3><div class="role">Структура, наука, проверка</div><p>Находит исследования, проверяет каждый факт и цифру, приземляет технику в понятный механизм. Пока за кадром, но в каждой детали.</p><div class="socs"><a href="https://instagram.com/thebodymindcode" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@thebodymindcode" target="_blank" rel="noopener">YouTube</a><a href="https://www.tiktok.com/@thebodymindcode" target="_blank" rel="noopener">TikTok</a></div></div>
+<div class="person"><div class="pav" style="background:linear-gradient(145deg,#2f6bff,#221a5e)">Д</div><h3>Дарья Ростовцева</h3><div class="role">Инсайт, техники, эфиры</div><p>Ведёт эфиры и программы, создаёт техники, работает с людьми один на один. Чувствует, где болит, и находит ключ.</p><div class="socs">%s</div></div>
+<div class="person d"><div class="pav">А</div><h3>Алексей</h3><div class="role">Структура, наука, проверка</div><p>Находит исследования, проверяет каждый факт и цифру, приземляет технику в понятный механизм. Пока за кадром, но в каждой детали.</p><div class="socs">%s</div></div>
 </div>
 <div class="stats" style="margin-top:22px">
-<div class="stat"><b>1000+</b><span>человек в программах</span></div>
-<div class="stat"><b>23 000</b><span>читателей канала</span></div>
+<div class="stat"><b>2 500+</b><span>человек в программах</span></div>
+<div class="stat"><b>23 200</b><span>читателей канала</span></div>
 <div class="stat"><b>6 лет</b><span>вместе копаем одну тему</span></div>
 <div class="stat"><b>2</b><span>живых человека за каждой программой</span></div>
 </div></div></section>
 %s
-''' % (phero('img/about-1.jpg','О проекте','Два человека, одна одержимость','Дарья находит инсайт, Алексей проверяет исследованием. Так рождается каждая программа портала.','О нас'),
+''' % (phero('img/about-1.jpg','О проекте','Два человека, одна одержимость','Дарья приносит технику из живой практики, Алексей сверяет её с исследованиями. В программы попадает то, что прошло обе проверки.','О нас'),
+       SD, SA,
        cta_band('Познакомься ближе','Мы ведём каналы и делимся тем, что находим и проверяем. Заходи.','Каналы и контакты','kontakty.html'))
 onas=onas.replace('rel="noopener">Каналы и контакты</a></div></div></section>','rel="noopener">Каналы и контакты</a></div></div></section>').replace('target="_blank" rel="noopener">Каналы и контакты</a>','>Каналы и контакты</a>')
 page('o-nas','О нас — Архитектура сознания',onas,'За «Архитектурой сознания» два человека: Дарья находит инсайт, Алексей проверяет наукой.',active='o-nas')
@@ -229,12 +244,12 @@ kont='''
 %s
 <section><div class="wrap"><div class="sec-h"><span class="eyebrow">Ресурсы</span><h2>Где мы есть</h2><p>Каналы, соцсети и поддержка. Заходи, куда удобнее.</p></div>
 <div class="hub">
-<div class="hcard"><h3>Дарья Ростовцева</h3><div class="role">Инсайт, техники, эфиры</div><div class="socs"><a href="https://instagram.com/daryarostovtseva" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.com/@daryarostovtseva" target="_blank" rel="noopener">Threads</a><a href="https://t.me/+bo3a92A06cQ3NWMy" target="_blank" rel="noopener">Telegram</a></div></div>
-<div class="hcard"><h3>Алексей</h3><div class="role">Структура, наука, проверка</div><div class="socs"><a href="https://instagram.com/thebodymindcode" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@thebodymindcode" target="_blank" rel="noopener">YouTube</a><a href="https://www.tiktok.com/@thebodymindcode" target="_blank" rel="noopener">TikTok</a><a href="https://t.me/+aEgupwOOOq84YTNi" target="_blank" rel="noopener">Telegram</a></div></div>
+<div class="hcard"><h3>Дарья Ростовцева</h3><div class="role">Инсайт, техники, эфиры</div><div class="socs">%s</div></div>
+<div class="hcard"><h3>Алексей</h3><div class="role">Структура, наука, проверка</div><div class="socs">%s</div></div>
 </div>
 <div class="cab" style="margin-top:22px"><span class="eyebrow">Поддержка</span><h2>Нужна помощь или доступ</h2><p>Напиши в поддержку, поможем с доступом к программам и ответим на вопросы.</p><a class="btn light bracket" href="https://t.me/TheBodyMindCode_support" target="_blank" rel="noopener">Написать в поддержку</a></div>
 </div></section>
-''' % phero('img/hero-1.jpg','Связь','Контакты','Каналы, соцсети и поддержка портала «Архитектура сознания».','Контакты')
+''' % (phero('img/hero-1.jpg','Связь','Контакты','Каналы, соцсети и поддержка портала «Архитектура сознания».','Контакты'), SD, SA2)
 page('kontakty','Контакты — Архитектура сознания',kont,'Каналы, соцсети и поддержка портала «Архитектура сознания».',active='')
 
 # ============ FAQ ============

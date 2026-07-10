@@ -56,8 +56,31 @@ def card(w, chip, name, fmt, price, url):
 <div class="foot"><span class="price">%s</span><a class="go" href="%s" target="_blank" rel="noopener">Открыть →</a></div></div>''' % (
         w, {'b':'brain','t':'body','m':'money'}[w], chip, cic, name, IC_CLOCK, fmt, price, url)
 
-def bullet(text):
-    return '<li><span class="bm">%s</span><span>%s</span></li>' % (DNA, text)
+# иконки буллетов по СМЫСЛУ (заказ Алексея: каждый буллет рисуется под своё содержание)
+BICONS = {
+ 'dna': DNA,
+ 'brain': '<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-1.5 5.6A3 3 0 0 0 6 18a3 3 0 0 0 3 2V4Zm6 0a3 3 0 0 1 3 3 3 3 0 0 1 1.5 5.6A3 3 0 0 1 18 18a3 3 0 0 1-3 2V4Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg>',
+ 'clock': '<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.7"/><path d="M12 7v5l3 2" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>',
+ 'grow': '<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 20h16M6 20V11m6 9V6m6 14v-9" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M5 8l4-3 4 3 5-4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/></svg>',
+ 'waves': '<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M3 9c3-2.5 6-2.5 9 0s6 2.5 9 0M3 15c3-2.5 6-2.5 9 0s6 2.5 9 0" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>',
+ 'moon': '<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M20 13.5A8 8 0 1 1 10.5 4 6.5 6.5 0 0 0 20 13.5Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg>',
+ 'book': '<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5V5.5Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20" stroke="#fff" stroke-width="1.7"/></svg>',
+ 'heart': '<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.35-7-9.5A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 7 2.5C19 15.65 12 20 12 20Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg>',
+}
+def bullet(text, icon='dna'):
+    return '<li><span class="bm">%s</span><span>%s</span></li>' % (BICONS.get(icon, DNA), text)
+
+# иконки соцсетей (крутые SVG вместо голого текста)
+SOC_IC = {
+ 'Instagram': '<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.3" fill="currentColor"/></svg>',
+ 'YouTube': '<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="6" width="19" height="12.5" rx="4" stroke="currentColor" stroke-width="1.8"/><path d="M10.5 9.8l4.5 2.45-4.5 2.45V9.8Z" fill="currentColor"/></svg>',
+ 'TikTok': '<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M14 4v9.5a3.75 3.75 0 1 1-3.2-3.71" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M14 6.5c.9 1.9 2.6 3.1 4.7 3.3" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>',
+ 'Telegram': '<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20.5 4.5 3.8 11c-.8.3-.75 1.4.06 1.66l4.2 1.34 1.6 4.9c.25.77 1.24.9 1.7.23l2.1-3.1 4.3 3.2c.62.46 1.5.12 1.66-.63l2-12.9c.14-.9-.74-1.6-1.62-1.3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+ 'Threads': '<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 21c-4.5 0-7.5-3.2-7.5-9S7.5 3 12 3c3.8 0 6.3 2 7.1 5.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M9.5 13.6c0-2 1.6-3.1 3.4-3.1 2.1 0 3.6 1.3 3.6 3.5 0 2.4-1.7 3.9-3.7 3.9-1.6 0-3-.9-3-2.3 0-1.3 1.1-2.1 2.7-2.2 1.9-.15 4.5.4 5.5 1.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+ 'Поддержка': '<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v10.5H9L5.5 20v-3.5H4V6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 10h8M8 13h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+}
+def soc(name, url):
+    return '<a href="%s" target="_blank" rel="noopener">%s%s</a>' % (url, SOC_IC.get(name,''), name)
 
 def phero(img, eyebrow, h1, p, crumb):
     return '''<section class="phero"><div class="wrap"><div class="phero-card"><img class="bg" src="%s" alt="">

@@ -189,7 +189,27 @@ section{padding:78px 0}
 .filterbar button:hover{border-color:var(--blue);color:var(--blue)}
 .filterbar button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
 
-/* books */
+/* books: пара книг компактными карточками */
+.b2grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.bk{display:flex;gap:26px;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);
+  padding:28px;box-shadow:var(--sh);align-items:center;transition:.25s}
+.bk:hover{transform:translateY(-5px);box-shadow:var(--sh2)}
+.bk .cv{flex:none;width:148px;aspect-ratio:3/4;border-radius:10px;display:flex;flex-direction:column;
+  justify-content:flex-end;padding:16px 14px;color:#fff;position:relative;overflow:hidden;
+  box-shadow:0 14px 30px rgba(31,26,94,.28)}
+.bk .cv:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:rgba(0,0,0,.22)}
+.bk .cv.gold{background:linear-gradient(155deg,#2a1f66 0%,#3a2c86 50%,#c8912a 135%)}
+.bk .cv.teal{background:linear-gradient(155deg,#12203c 0%,#155e57 70%,#0fa596 135%)}
+.bk .cv .kb{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin-bottom:7px}
+.bk .cv h4{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:16px;line-height:1;letter-spacing:-.01em;margin:0}
+.bk .cv .bm2{margin-top:8px;font-size:10px;opacity:.8;font-weight:600}
+.bk .bi h3{font-size:21px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+.bk .bi p{color:var(--mut);font-size:14.5px;margin:0 0 16px;line-height:1.55}
+.bk .bi .row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.bk .bi .price{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.02em}
+.bk .bi .tagf{font-size:12.5px;font-weight:700;color:var(--body);background:rgba(15,165,150,.1);border-radius:100px;padding:6px 12px}
+
+/* books (старый большой разворот, оставлен для страницы) */
 .bookwrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
 .bookcover{position:relative;aspect-ratio:3/4;border-radius:14px;overflow:hidden;box-shadow:0 26px 60px rgba(31,26,94,.32);
   background:linear-gradient(150deg,#2a1f66 0%,#3a2c86 45%,#c8912a 130%);display:flex;flex-direction:column;justify-content:flex-end;
@@ -275,7 +295,8 @@ footer .bot{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;font-size
 @media(max-width:1000px){
   .menu,.nav-r .shop{display:none}
   .burger{display:flex}
-  .wings,.pgrid,.flag,.why,.why.rev,.bookwrap,.duo,.hub,.bgrid{grid-template-columns:1fr}
+  .wings,.pgrid,.flag,.why,.why.rev,.bookwrap,.duo,.hub,.bgrid,.b2grid{grid-template-columns:1fr}
+  .bk{flex-direction:column;align-items:flex-start}
   .stats{grid-template-columns:repeat(2,1fr)}
   footer .grid{grid-template-columns:1fr 1fr}
   section{padding:56px 0}
