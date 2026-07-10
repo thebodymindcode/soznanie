@@ -37,6 +37,7 @@ NAVEND=[('o-nas','О нас','')]  # отдельный пункт в самом
 MORE_TITLE='Библиотека'
 MORE_ITEMS=[
   ('kviz','Индекс ясности','Тест на шум ума за две минуты','target'),
+  ('praktiki','Практики','Таймеры дыхания и восстановления','breath'),
   ('podhod','Подход','Во что мы верим и почему','compass'),
   ('blog','Статьи','Разборы, лонгриды и наука','doc'),
 ]
@@ -45,6 +46,7 @@ MENU_IC={
  'target':'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.2" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="1.7"/></svg>',
  'compass':'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M15.5 8.5l-2.2 4.8-4.8 2.2 2.2-4.8 4.8-2.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
  'doc':'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 3.5h7l5 5V20.5H6z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M13 3.5v5h5M9 13h6M9 16.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>',
+ 'breath':'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 10c3-2 6-2 9 0s6 2 9 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M4 15c2.7-1.7 5.3-1.7 8 0s5.3 1.7 8 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" opacity=".65"/></svg>',
 }
 
 def header(active=''):

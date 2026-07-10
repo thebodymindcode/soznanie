@@ -515,6 +515,26 @@ footer .bot{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;font-size
 .qr-again:hover{color:var(--blue)}
 @media(max-width:640px){.q-intro,.q-card,.q-result{padding:30px 22px}.qr-head{flex-direction:column;text-align:center;gap:20px}.qr-tg{flex-direction:column;text-align:center}}
 
+/* практики: таймеры и дыхательный пейсер */
+.prg{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 30px 32px;box-shadow:var(--sh);display:flex;flex-direction:column;transition:box-shadow .2s}
+.pcard.on{box-shadow:var(--sh2)}
+.pcard .ptop{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+.pcard h3{font-family:var(--display);font-weight:800;font-size:21px;margin:0;letter-spacing:-.01em}
+.pcard p{color:var(--ink2);font-size:15px;line-height:1.56;margin:10px 0 20px}
+.pacer{display:grid;place-items:center;height:210px;margin-bottom:4px}
+.pcircle{width:118px;height:118px;border-radius:50%;background:radial-gradient(circle at 50% 38%,rgba(47,107,255,.28),rgba(47,107,255,.06));border:2px solid var(--blue);display:grid;place-items:center;transform:scale(1);transition:transform .6s ease;box-shadow:0 0 0 8px rgba(47,107,255,.06)}
+.plabel{font-weight:700;color:var(--blue);font-size:15px}
+.psub{text-align:center;color:var(--mut);font-size:13px;height:17px;margin-bottom:14px}
+.tpresets{display:flex;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.tpresets button{border:1.5px solid var(--line);background:#f7f9fd;border-radius:10px;padding:9px 15px;font-weight:600;font-size:14px;cursor:pointer;color:var(--ink);transition:.15s}
+.tpresets button.sel{border-color:var(--blue);background:rgba(47,107,255,.08);color:var(--blue)}
+.tdisplay{font-family:var(--display);font-weight:800;font-size:54px;text-align:center;letter-spacing:-.02em;color:var(--ink);margin:14px 0 20px;font-variant-numeric:tabular-nums}
+.pcard.done .tdisplay{color:var(--blue)}
+.pbtn{margin-top:auto;align-self:flex-start;background:var(--blue);color:#fff;border:0;border-radius:12px;padding:13px 30px;font-weight:700;font-size:15px;cursor:pointer;transition:.2s}
+.pbtn:hover{background:var(--blue-d);transform:translateY(-2px);box-shadow:0 10px 24px rgba(47,107,255,.34)}
+@media(max-width:760px){.prg{grid-template-columns:1fr}.tdisplay{font-size:46px}}
+
 /* подход: манифест, медиа-банд, стена учителей (база ДО медиазапросов, иначе мобайл затирается) */
 .manifesto{background-image:linear-gradient(rgba(9,11,30,.84),rgba(12,18,50,.8)),var(--bg);background-size:cover;background-position:center;color:#fff;padding:104px 0}
 .manifesto .wrap{max-width:980px;text-align:center}
