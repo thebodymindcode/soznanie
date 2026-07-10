@@ -20,7 +20,7 @@ def C(k): return card(*P[k])
 
 # ============ ГЛАВНАЯ ============
 home='''
-<section class="hero"><div class="wrap"><div class="hero-card"><img class="bg" src="img/hero-1.jpg" alt="">'''+hero_labels(['тишина','опора','достаток','ясность','покой'])+'''
+<section class="hero"><div class="wrap"><div class="hero-card"><img class="bg" src="img/hero-1.jpg" alt="">
 <div class="hero-in"><span class="hero-badge"><span class="dot"></span> Портал по осознанности</span>
 <h1>Архитектура<br>сознания</h1>
 <p class="sub">Знание о покое, теле и достатке, <span class="hl">проверенное наукой</span> и собранное в программы-маршруты.</p>

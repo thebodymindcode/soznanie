@@ -84,33 +84,32 @@ def soc(name, url):
     return '<a href="%s" target="_blank" rel="noopener">%s%s</a>' % (url, SOC_IC.get(name,''), name)
 
 def phero(img, eyebrow, h1, p, crumb, labels=None):
-    # слова-метки поверх картинки, СОЕДИНЁННЫЕ линиями в единую систему-созвездие.
-    # координаты в % области картинки (центр чипа): подобраны, чтобы линии шли красиво
-    node = [(70,26),(85,46),(74,66),(58,40),(64,80)]
-    lab = ''
-    if labels:
-        n = min(len(labels), len(node))
-        pts = node[:n]
-        # линии между соседними узлами + пара перекрёстных, тонкие, полупрозрачные
-        segs = [(0,1),(1,2),(3,0),(3,2),(2,4)]
-        lines = ''.join(
-            '<line x1="%s" y1="%s" x2="%s" y2="%s"/>' % (pts[a][0],pts[a][1],pts[b][0],pts[b][1])
-            for a,b in segs if a<n and b<n)
-        svg = '<svg class="net" viewBox="0 0 100 100" preserveAspectRatio="none">%s</svg>' % lines
-        chips = ''.join('<span style="left:%s%%;top:%s%%">%s</span>' % (pts[i][0], pts[i][1], w) for i, w in enumerate(labels[:n]))
-        lab = '<div class="labels">%s%s</div>' % (svg, chips)
+    lab = hero_labels(labels) if labels else ''
     return '''<section class="phero"><div class="wrap"><div class="phero-card"><img class="bg" src="%s" alt="">%s
 <div class="phero-in"><div class="crumbs"><a href="index.html">Главная</a> · %s</div>
 <div class="eyebrow" style="margin-top:14px">%s</div><h1>%s</h1><p>%s</p></div></div></div></section>''' % (img, lab, crumb, eyebrow, h1, p)
 
 def hero_labels(labels):
+    # чипы соединены в нейросеть: линии + светящиеся узлы-точки (на чипах и в узлах сегментов),
+    # плюс пара свободных точек-созвездий, как на фоновой картинке
     node = [(70,26),(85,46),(74,66),(58,40),(64,80)]
+    extra = [(90,32),(52,58),(80,74)]  # свободные точки-звёзды
     n = min(len(labels), len(node)); pts = node[:n]
-    segs = [(0,1),(1,2),(3,0),(3,2),(2,4)]
-    lines = ''.join('<line x1="%s" y1="%s" x2="%s" y2="%s"/>'%(pts[a][0],pts[a][1],pts[b][0],pts[b][1]) for a,b in segs if a<n and b<n)
-    svg = '<svg class="net" viewBox="0 0 100 100" preserveAspectRatio="none">%s</svg>'%lines
-    chips = ''.join('<span style="left:%s%%;top:%s%%">%s</span>'%(pts[i][0],pts[i][1],w) for i,w in enumerate(labels[:n]))
-    return '<div class="labels">%s%s</div>'%(svg,chips)
+    segs = [(a,b) for a,b in [(0,1),(1,2),(3,0),(3,2),(2,4)] if a<n and b<n]
+    # линии чип-чип и чип-свободная точка
+    lines = ''.join('<line x1="%s" y1="%s" x2="%s" y2="%s"/>'%(pts[a][0],pts[a][1],pts[b][0],pts[b][1]) for a,b in segs)
+    if n>=2: lines += '<line x1="%s" y1="%s" x2="%s" y2="%s"/>'%(pts[1][0],pts[1][1],extra[0][0],extra[0][1])
+    if n>=4: lines += '<line x1="%s" y1="%s" x2="%s" y2="%s"/>'%(pts[3][0],pts[3][1],extra[1][0],extra[1][1])
+    if n>=3: lines += '<line x1="%s" y1="%s" x2="%s" y2="%s"/>'%(pts[2][0],pts[2][1],extra[2][0],extra[2][1])
+    svg = '<svg class="net" viewBox="0 0 100 100" preserveAspectRatio="none">%s</svg>' % lines
+    dots = ''
+    for x,y in pts: dots += '<i class="node" style="left:%s%%;top:%s%%"></i>'%(x,y)
+    for x,y in extra[:max(0,n-1)]: dots += '<i class="node sm" style="left:%s%%;top:%s%%"></i>'%(x,y)
+    for a,b in segs:  # узел в середине сегмента
+        mx=(pts[a][0]+pts[b][0])/2; my=(pts[a][1]+pts[b][1])/2
+        dots += '<i class="node sm" style="left:%s%%;top:%s%%"></i>'%(mx,my)
+    chips = ''.join('<span style="left:%s%%;top:%s%%">%s</span>'%(pts[i][0],pts[i][1],labels[i]) for i in range(n))
+    return '<div class="labels">%s%s%s</div>' % (svg, dots, chips)
 
 def factbox(th, body, src, cls=''):
     srch = '<div class="src">%s</div>' % src if src else ''

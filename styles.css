@@ -140,10 +140,10 @@ section{padding:78px 0}
 .thm-list.m .bm{background:linear-gradient(150deg,#7a5713,var(--money));box-shadow:0 7px 16px rgba(200,145,42,.28)}
 
 /* science / media split */
-.why{display:grid;grid-template-columns:1fr 1.05fr;gap:52px;align-items:center}
+.why{display:grid;grid-template-columns:1fr 1.05fr;gap:52px;align-items:stretch}
 .why.rev{grid-template-columns:1.05fr 1fr}
-.why-media{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh2);aspect-ratio:5/4;isolation:isolate}
-.why-media img{width:100%;height:100%;object-fit:cover}
+.why-media{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh2);isolation:isolate;min-height:360px}
+.why-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .why-media:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(18,20,45,.15),rgba(18,20,45,.5))}
 .why-media .cap{position:absolute;left:22px;bottom:20px;z-index:2;color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;opacity:.92}
 .why-media .cap .d{width:7px;height:7px;border-radius:50%;background:var(--azure);box-shadow:0 0 10px var(--azure)}
@@ -257,10 +257,14 @@ section{padding:78px 0}
 /* hero floating labels, соединённые в единую систему-созвездие */
 .phero-card .labels,.hero-card .labels{position:absolute;inset:0;z-index:3;pointer-events:none}
 .phero-card .labels .net,.hero-card .labels .net{position:absolute;inset:0;width:100%;height:100%}
-.phero-card .labels .net line,.hero-card .labels .net line{stroke:rgba(140,190,255,.5);stroke-width:1.3;
-  vector-effect:non-scaling-stroke;stroke-dasharray:4 4}
-.phero-card .labels span,.hero-card .labels span{position:absolute;transform:translate(-50%,-50%);
-  background:rgba(18,22,44,.42);border:1px solid rgba(255,255,255,.36);backdrop-filter:blur(8px);border-radius:100px;
+.phero-card .labels .net line,.hero-card .labels .net line{stroke:rgba(150,200,255,.42);stroke-width:1;vector-effect:non-scaling-stroke}
+.phero-card .labels .node,.hero-card .labels .node{position:absolute;width:7px;height:7px;border-radius:50%;
+  background:rgba(180,215,255,.95);transform:translate(-50%,-50%);z-index:2;
+  box-shadow:0 0 9px rgba(130,185,255,.95),0 0 3px rgba(255,255,255,.9)}
+.phero-card .labels .node.sm,.hero-card .labels .node.sm{width:4px;height:4px;background:rgba(160,200,255,.75);
+  box-shadow:0 0 6px rgba(130,185,255,.7)}
+.phero-card .labels span,.hero-card .labels span{position:absolute;transform:translate(-50%,-50%);z-index:3;
+  background:rgba(18,22,44,.5);border:1px solid rgba(255,255,255,.36);backdrop-filter:blur(8px);border-radius:100px;
   padding:9px 17px;font-weight:600;font-size:14px;color:#fff;white-space:nowrap;box-shadow:0 8px 22px rgba(0,0,0,.28)}
 
 /* prose */
