@@ -163,6 +163,13 @@ def tcard(q, name, tag='', w='b'):
     tagh = '<span class="chip %s" style="align-self:flex-start;margin-bottom:14px">%s</span>' % ({'b':'brain','t':'body','m':'money'}[w], tag) if tag else ''
     return '<div class="tcard">%s<div class="stars">★★★★★</div><div class="q">«%s»</div><div class="who"><span class="av">%s</span>%s</div></div>' % (tagh, q, ini, name)
 
+def afig(img, cap=''):
+    caph = '<figcaption>%s</figcaption>' % cap if cap else ''
+    return '<figure class="afig"><img src="%s" alt="" loading="lazy">%s</figure>' % (img, caph)
+
+def artstats(items, hi=0, hic=''):
+    return '<div class="artstats">' + statband(items, hi=hi, hic=hic) + '</div>'
+
 def cta_band(h, p, btn, url):
     return '''<section><div class="wrap"><div class="ctaband"><h2>%s</h2><p>%s</p>
 <a class="btn light bracket" href="%s" target="_blank" rel="noopener">%s</a></div></div></section>''' % (h,p,url,btn)

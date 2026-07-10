@@ -420,3 +420,13 @@ footer .bot{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;font-size
   .why.rev{direction:ltr}
 }
 @media(max-width:560px){ footer .grid{grid-template-columns:1fr} .stats{grid-template-columns:1fr} }
+
+/* article magazine extras */
+.afig{margin:32px 0}
+.afig img{width:100%;border-radius:var(--r-md);display:block;box-shadow:var(--sh)}
+.afig figcaption{margin-top:11px;font-size:14px;color:var(--ink2);text-align:center;font-style:italic}
+.artstats{margin:28px 0}
+.artstats .stats{grid-template-columns:repeat(3,1fr)}
+.article h2{position:relative;padding-left:20px}
+.article h2::before{content:"";position:absolute;left:0;top:.18em;bottom:.18em;width:5px;border-radius:4px;background:linear-gradient(180deg,var(--blue),var(--indigo))}
+@media(max-width:720px){.artstats .stats{grid-template-columns:1fr}}
