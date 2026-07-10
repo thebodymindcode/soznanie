@@ -388,27 +388,26 @@ def fig_vagus():
       'Он тянется от мозга к сердцу, лёгким и животу и решает, в каком режиме тело: борьба и тревога или покой и восстановление. Длинный выдох и мягкие практики поворачивают его к покою.')
 
 def fig_mechanism():
-    svg=('<svg viewBox="0 0 860 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Как состояние собирает жизнь">'
-      +'<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#b9c2dd" stroke-width="1.4"/></marker></defs>')
-    ins=[('Тело','дыхание, осанка',90),('Фокус','куда идёт внимание',175),('Слова','внутренняя речь',260)]
-    outs=[('Покой','в голове тихо',90),('Ясность','видно решение',175),('Достаток','поднимается норма',260)]
-    for nm,rl,y in ins:
-        svg+='<rect x="30" y="%d" width="188" height="60" rx="14" fill="#fff" stroke="#e2e7f2"/>'%(y-30)
-        svg+='<text x="50" y="%d" font-size="15" font-weight="800" fill="#1a1f36" font-family="sans-serif">%s</text>'%(y-2,nm)
-        svg+='<text x="50" y="%d" font-size="12" fill="#7a80a0" font-family="sans-serif">%s</text>'%(y+16,rl)
-        svg+='<line x1="220" y1="%d" x2="352" y2="175" stroke="#b9c2dd" stroke-width="1.6" marker-end="url(#ah)"/>'%y
-    svg+='<circle cx="430" cy="175" r="74" fill="#0f1226"/>'
-    svg+='<text x="430" y="170" font-size="17" font-weight="800" fill="#fff" text-anchor="middle" font-family="sans-serif">СОСТОЯНИЕ</text>'
-    svg+='<text x="430" y="192" font-size="12" fill="#aeb6da" text-anchor="middle" font-family="sans-serif">первично</text>'
-    for nm,rl,y in outs:
-        svg+='<line x1="508" y1="175" x2="640" y2="%d" stroke="#b9c2dd" stroke-width="1.6" marker-end="url(#ah)"/>'%y
-        svg+='<rect x="642" y="%d" width="188" height="60" rx="14" fill="#f4f7fd" stroke="#e2e7f2"/>'%(y-30)
-        svg+='<text x="662" y="%d" font-size="15" font-weight="800" fill="#2456c7" font-family="sans-serif">%s</text>'%(y-2,nm)
-        svg+='<text x="662" y="%d" font-size="12" fill="#7a80a0" font-family="sans-serif">%s</text>'%(y+16,rl)
-    svg+='</svg>'
-    return ('<section class="soft"><div class="wrap"><div class="sec-h"><span class="eyebrow">Как это устроено</span>'
-            '<h2>Состояние решает, остальное подтягивается</h2><p>Три рычага меняют состояние за секунды, а из состояния собирается покой, ясность и достаток.</p></div>'
-            '<figure class="infofig" style="margin:0"><div class="if-svg">%s</div></figure></div></section>')%svg
+    IC={'body':'<svg viewBox="0 0 24 24" fill="none"><path d="M3 9c3-2 6-2 9 0s6 2 9 0M4 14c2.7-1.7 5.3-1.7 8 0s5.3 1.7 8 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+        'focus':'<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.2" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>',
+        'words':'<svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v10.5H9L5.5 20v-3.5H4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 10h8M8 13h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+        'calm':'<svg viewBox="0 0 24 24" fill="none"><path d="M20 13.5A8 8 0 1 1 10.5 4 6.5 6.5 0 0 0 20 13.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+        'clarity':'<svg viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 1 4 10.5c-.7.6-1 1.2-1 2h-6c0-.8-.3-1.4-1-2A6 6 0 0 1 12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>',
+        'wealth':'<svg viewBox="0 0 24 24" fill="none"><path d="M4 20V11m5 9V6m5 14v-9m5 9V4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>'}
+    def lev(ic,n,r): return '<div class="mnode"><span class="mi">%s</span><span class="mt"><b>%s</b><span>%s</span></span></div>'%(IC[ic],n,r)
+    ins=lev('body','Тело','дыхание, осанка')+lev('focus','Фокус','куда идёт внимание')+lev('words','Слова','внутренняя речь')
+    outs=lev('calm','Покой','в голове тихо')+lev('clarity','Ясность','видно решение')+lev('wealth','Достаток','поднимается норма')
+    return ('<section class="mech"><div class="wrap">'
+      '<div class="sec-h center"><span class="eyebrow">Как это устроено</span>'
+      '<h2>Состояние решает, остальное подтягивается</h2>'
+      '<p>Три рычага меняют состояние за секунды. А уже из состояния собирается покой, ясность и достаток.</p></div>'
+      '<div class="mflow">'
+      '<div class="mcol in">'+ins+'</div>'
+      '<div class="marrow"></div>'
+      '<div class="morb"><span class="orb-glow"></span><b>СОСТОЯНИЕ</b><span>первично</span></div>'
+      '<div class="marrow"></div>'
+      '<div class="mcol out">'+outs+'</div>'
+      '</div></div></section>')
 
 ARTICLE_RELATED={}  # заполняется в pages.py: slug -> HTML блока «связанные материалы»
 ARTICLE_FIGURE={}   # slug -> HTML своей инфографики (вставляется после лида)
