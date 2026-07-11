@@ -47,7 +47,16 @@ MENU_IC={
  'compass':'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M15.5 8.5l-2.2 4.8-4.8 2.2 2.2-4.8 4.8-2.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
  'doc':'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 3.5h7l5 5V20.5H6z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M13 3.5v5h5M9 13h6M9 16.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>',
  'breath':'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 10c3-2 6-2 9 0s6 2 9 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M4 15c2.7-1.7 5.3-1.7 8 0s5.3 1.7 8 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" opacity=".65"/></svg>',
+ 'person':'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8.5" r="3.6" stroke="currentColor" stroke-width="1.7"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+ 'duo':'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="8.5" cy="9" r="3" stroke="currentColor" stroke-width="1.7"/><circle cx="16" cy="10" r="2.4" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 19a5 5 0 0 1 10 0M14 19a4.3 4.3 0 0 1 6.5-3.7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
 }
+# выпадающее «О нас» (последним в меню): О проекте + Дарья Ростовцева
+ABOUT_TITLE='О нас'
+ABOUT_ITEMS=[
+  ('o-nas','О проекте','Двое и одна идея','duo'),
+  ('daria','Дарья Ростовцева','Сооснователь и практик','person'),
+]
+ABOUT_SLUGS={s for s,_,_,_ in ABOUT_ITEMS}
 
 def header(active=''):
     links=''
@@ -63,10 +72,15 @@ def header(active=''):
     more=('<div class="hasmenu"><button class="mtrig%s" aria-expanded="false" aria-haspopup="true">%s'
           '<svg class="car" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'
           '<div class="mmenu">%s</div></div>')%(trigon,MORE_TITLE,rows)
-    endlinks=''
-    for slug,label,cls in NAVEND:
-        on=' on' if slug==active else ''
-        endlinks+='<a class="%s%s" href="%s.html">%s</a>'%(cls,on,slug,label)
+    arows=''
+    for s,lbl,desc,ic in ABOUT_ITEMS:
+        on=' on' if s==active else ''
+        arows+=('<a class="mrow%s" href="%s.html"><span class="mi">%s</span>'
+                '<span class="mtx"><b>%s</b><small>%s</small></span></a>')%(on,s,MENU_IC.get(ic,''),lbl,desc)
+    atrigon=' on' if active in ABOUT_SLUGS else ''
+    endlinks=('<div class="hasmenu"><button class="mtrig%s" aria-expanded="false" aria-haspopup="true">%s'
+          '<svg class="car" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'
+          '<div class="mmenu">%s</div></div>')%(atrigon,ABOUT_TITLE,arows)
     return '''<header><div class="wrap nav">
 <a class="brand" href="index.html" aria-label="Архитектура сознания">%s<span class="bt"><b>АРХИТЕКТУРА</b><span>сознания</span></span></a>
 <nav class="menu">%s%s%s</nav>
@@ -408,6 +422,48 @@ def fig_mechanism():
       '<div class="marrow"></div>'
       '<div class="mcol out">'+outs+'</div>'
       '</div></div></section>')
+
+def fig_daria_journey():
+    stops=[('Красноярск','школа, институт, руки'),('Египет','аниматор, свобода'),
+           ('Красноярск','сын один, бизнес с нуля'),('Сочи','турфирма, выгорание'),
+           ('Бали','тета-хилинг, старт'),('Access CF','статус фасилитатора'),
+           ('14 стран','мир и своя система')]
+    n=len(stops); x0,x1=95,865; pts=[]
+    for i in range(n):
+        x=x0+i*(x1-x0)/(n-1); y=126 if i%2==0 else 172; pts.append((x,y))
+    line='<polyline points="'+' '.join('%.0f,%.0f'%(x,y) for x,y in pts)+'" fill="none" stroke="url(#jg)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>'
+    dots=''
+    for i,(pl,ev) in enumerate(stops):
+        x,y=pts[i]; above=(i%2==0)
+        pl_y=y-20 if above else y+30; ev_y=y-38 if above else y+47
+        dots+='<circle cx="%.0f" cy="%.0f" r="7" fill="#2f6bff" stroke="#fff" stroke-width="2.5"/>'%(x,y)
+        dots+='<text x="%.0f" y="%.0f" font-size="14" font-weight="800" fill="#1a1f36" text-anchor="middle" font-family="sans-serif">%s</text>'%(x,pl_y,pl)
+        dots+='<text x="%.0f" y="%.0f" font-size="11.5" fill="#7a80a0" text-anchor="middle" font-family="sans-serif">%s</text>'%(x,ev_y,ev)
+    svg=('<svg viewBox="-30 0 1020 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Маршрут переездов Дарьи">'
+      '<defs><linearGradient id="jg" x1="0" y1="0" x2="960" y2="0"><stop stop-color="#7a4bd0"/><stop offset="1" stop-color="#2f6bff"/></linearGradient></defs>'
+      +line+dots+'</svg>')
+    return infofig('Путь по миру и к себе', svg,
+      'Красноярск, Египет, Сочи, Бали и ещё десяток стран. Каждый переезд и разворот добавлял глубины и той практики, которой Дарья делится сейчас.')
+
+def fig_daria_study():
+    fields=[('brain','Нейробиология','как работает мозг'),('gland','Эндокринология','язык гормонов'),
+            ('nerve','Нервная система','режимы тела'),('quant','Квантовая физика','сознание и наблюдатель'),
+            ('mind','Исследования сознания','что говорят учёные'),('hours','Сотни часов практики','живая работа с людьми')]
+    IC={'brain':'<svg viewBox="0 0 24 24" fill="none"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-1.5 5.6A3 3 0 0 0 6 18a3 3 0 0 0 3 2V4Zm6 0a3 3 0 0 1 3 3 3 3 0 0 1 1.5 5.6A3 3 0 0 1 18 18a3 3 0 0 1-3 2V4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>',
+        'gland':'<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="4.5" stroke="currentColor" stroke-width="1.7"/><path d="M12 13.5V21M8.5 17h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+        'nerve':'<svg viewBox="0 0 24 24" fill="none"><path d="M4 6c4 0 4 12 8 12s4-12 8-12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="4" cy="6" r="1.6" fill="currentColor"/><circle cx="20" cy="6" r="1.6" fill="currentColor"/></svg>',
+        'quant':'<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="2" fill="currentColor"/><ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" stroke-width="1.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" stroke-width="1.5" transform="rotate(120 12 12)"/></svg>',
+        'mind':'<svg viewBox="0 0 24 24" fill="none"><path d="M12 3a6 6 0 0 1 4 10.5c-.7.6-1 1.2-1 2H9c0-.8-.3-1.4-1-2A6 6 0 0 1 12 3ZM9 18h6M10 21h4" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+        'hours':'<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>'}
+    chips=''.join('<div class="stf"><span class="mi">%s</span><span class="mt"><b>%s</b><span>%s</span></span></div>'%(IC[k],n,d) for k,n,d in fields)
+    return ('<section class="mech studysec"><div class="wrap">'
+      '<div class="sec-h center"><span class="eyebrow">Годы изучения, собранные в систему</span>'
+      '<h2>Она давно и глубоко копает, как устроен человек</h2>'
+      '<p>Мозг, гормоны, нервная система. Дарья изучает их не первый год и сводит разрозненные знания в одну рабочую картину, а не в набор красивых фраз.</p></div>'
+      '<div class="st-fields">'+chips+'</div>'
+      '<div class="st-down"><svg width="26" height="34" viewBox="0 0 26 34" fill="none"><path d="M13 2v26M4 21l9 9 9-9" stroke="#8fb4ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
+      '<div class="st-core"><b>Архитектура сознания</b><span>единая система, из которой идут быстрые честные сдвиги: деньги, тело, отношения, энергия</span></div>'
+      '</div></section>')
 
 ARTICLE_RELATED={}  # заполняется в pages.py: slug -> HTML блока «связанные материалы»
 ARTICLE_FIGURE={}   # slug -> HTML своей инфографики (вставляется после лида)
