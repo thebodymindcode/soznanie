@@ -1012,7 +1012,7 @@ QUIZ_JS = r'''<script>
    '<div class="qr-rec"><span class="qr-recey">С чего честнее начать</span>'+
     '<div class="qr-card"><span class="chip '+r.cls+'">'+r.tag+'</span><h3>'+r.name+'</h3><p>'+r.desc+'</p>'+
     '<a class="btn primary bracket" href="'+r.url+'" target="_blank" rel="noopener">Смотреть программу</a></div></div>'+
-   '<a class="qr-tg" href="'+TG+'" target="_blank" rel="noopener"><span class="qr-tgic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21.3 4.3 2.9 11.4c-1 .38-.98 1.78.03 2.13l4.55 1.56 1.76 5.4c.28.85 1.37 1.03 1.9.28l2.5-3.55 4.55 3.36c.7.52 1.7.13 1.87-.72L22.9 5.7c.2-1-.68-1.82-1.6-1.4Z" fill="currentColor"/></svg></span><span class="qr-tgtx"><b>Забирай практики в Телеграм-канале</b><small>Каждую неделю разбор и техника, чтобы шум в голове тише. Бесплатно.</small></span><span class="qr-arr">→</span></a>'+
+   '<a class="qr-tg" href="'+TG+'" target="_blank" rel="noopener"><span class="qr-tgic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21.3 4.3 2.9 11.4c-1 .38-.98 1.78.03 2.13l4.55 1.56 1.76 5.4c.28.85 1.37 1.03 1.9.28l2.5-3.55 4.55 3.36c.7.52 1.7.13 1.87-.72L22.9 5.7c.2-1-.68-1.82-1.6-1.4Z" fill="currentColor"/></svg></span><span class="qr-tgtx"><b>Забирай практики в Телеграм-канале</b><small>Каждую неделю разбор и техника, чтобы шум в голове тише.</small></span><span class="qr-arr">→</span></a>'+
    '<button class="qr-again" id="qagain">Пройти заново</button>'+
    '</div>';
   document.getElementById('qagain').onclick=function(){ans=new Array(Q.length).fill(null);intro();window.scrollTo({top:0,behavior:'smooth'});};
@@ -1021,7 +1021,7 @@ QUIZ_JS = r'''<script>
 })();
 </script>'''
 
-kviz = phero('img/podhod-1.jpg','Бесплатный тест','Индекс ясности',
+kviz = phero('img/podhod-1.jpg','Короткий тест','Индекс ясности',
   'Короткий тест на две минуты. Покажет, сколько сейчас шума в голове и с чего честнее начать. Не диагноз, а зеркало.',
   'Индекс ясности',['внимание','покой','ясность','тело','достаток'])
 kviz += ('<section class="qwrap"><div class="wrap">'
@@ -1032,7 +1032,7 @@ kviz += ('<section class="qwrap"><div class="wrap">'
   '</div></div></section>')
 kviz += QUIZ_JS
 page('kviz','Индекс ясности — тест на шум ума | Архитектура сознания', kviz,
-  'Бесплатный тест «Индекс ясности»: за две минуты покажет уровень внутреннего шума и подскажет, с какой программы портала честнее начать.',
+  'Тест «Индекс ясности»: за две минуты покажет уровень внутреннего шума и подскажет, с какой программы портала честнее начать.',
   active='kviz')
 
 # ============ ПРАКТИКИ ============
