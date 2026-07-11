@@ -668,3 +668,17 @@ footer .bot{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;font-size
 .article h2{position:relative;padding-left:20px}
 .article h2::before{content:"";position:absolute;left:0;top:.18em;bottom:.18em;width:5px;border-radius:4px;background:linear-gradient(180deg,var(--blue),var(--indigo))}
 @media(max-width:720px){.artstats .stats{grid-template-columns:1fr}}
+
+/* страница автора: таймлайн, слот фото, портрет */
+.tl{position:relative;display:flex;flex-direction:column}
+.tl .it{position:relative;padding:0 0 30px 42px;border-left:2px solid var(--line2)}
+.tl .it:last-child{border-left-color:transparent;padding-bottom:0}
+.tl .it::before{content:"";position:absolute;left:-9px;top:1px;width:16px;height:16px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px #fff,0 0 0 6px rgba(47,107,255,.18)}
+.tl .st{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.tl .it h4{font-family:var(--display);font-weight:800;font-size:18px;margin:0 0 7px;letter-spacing:-.01em}
+.tl .it p{margin:0;color:var(--ink2);font-size:15.5px;line-height:1.6}
+.photoslot{aspect-ratio:4/5;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--sh);background:linear-gradient(160deg,var(--soft2),#e9ecf7);border:1px dashed var(--line2);display:grid;place-items:center;text-align:center;padding:24px}
+.photoslot img{width:100%;height:100%;object-fit:cover}
+.photoslot .ph{color:var(--mut);font-size:14px;line-height:1.5}
+.photoslot .ph b{display:block;color:var(--ink2);font-weight:800;margin-bottom:4px;font-size:15px}
+.authwrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
