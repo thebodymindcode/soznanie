@@ -465,6 +465,25 @@ def fig_daria_study():
       '<div class="st-core"><b>Архитектура сознания</b><span>единая система, из которой жизнь меняется быстро и по-честному: деньги, тело, отношения, энергия</span></div>'
       '</div></section>')
 
+# ---------- досье: три бесплатных статьи-лидмагнита ----------
+DOSSIER=[
+ ('https://thebodymindcode.github.io/peace/','img/art-vnimanie.jpg','brain','Мозг и DMN','14 мин',
+  'Почему мозг никогда не замолкает','Девять фактов про внутренний шум. Сеть пассивного режима, миндалина, серотонин, и что с этим делают в Гарварде.'),
+ ('https://thebodymindcode.github.io/body/','img/art-telo.jpg','body','Нейробиология','18 мин',
+  'То, что держит болезнь на месте','Механика здоровья, о которой молчат на приёме. Исследования Бехтеревой, три мозга и один блуждающий нерв.'),
+ ('https://thebodymindcode.github.io/moneyprotocol/','img/art-dengi.jpg','money','Нейробиология денег','15 мин',
+  'Кто решает, сколько у тебя денег','Внутри тебя есть тот, кто назначил доходу потолок. Ты его не видел, но подчиняешься каждый день.'),
+]
+def dossier_section(soft=False):
+    cards=''
+    for url,cov,cls,tag,rt,title,hook in DOSSIER:
+        cards+=('<a class="dcard" href="%s" target="_blank" rel="noopener">'
+          '<div class="dcov"><img src="%s" alt="" loading="lazy"><span class="dbadge">Бесплатно</span><span class="dtag %s">%s</span></div>'
+          '<div class="dbd"><h3>%s</h3><p>%s</p><div class="dmeta"><span>%s чтения</span><span class="dgo">Читать досье →</span></div></div></a>')%(url,cov,cls,tag,title,hook,rt)
+    return ('<section class="dossier%s"><div class="wrap"><div class="sec-h"><span class="eyebrow">Досье · бесплатно</span>'
+      '<h2>С этого стоит начать</h2><p>Три глубоких разбора, которые обычно открывают людям глаза. Собрано то, о чём не говорят на приёме и не преподают в вузе. Читаются бесплатно, каждый ведёт к своей программе.</p></div>'
+      '<div class="dgrid">%s</div></div></section>')%(' soft' if soft else '',cards)
+
 ARTICLE_RELATED={}  # заполняется в pages.py: slug -> HTML блока «связанные материалы»
 ARTICLE_FIGURE={}   # slug -> HTML своей инфографики (вставляется после лида)
 def related_block(links):
