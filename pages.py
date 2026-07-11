@@ -550,7 +550,7 @@ page('o-nas','О нас — Архитектура сознания',onas,'За 
 # ============ ДАРЬЯ РОСТОВЦЕВА ============
 def tl(st,t,p): return '<div class="it"><div class="st">%s</div><h4>%s</h4><p>%s</p></div>'%(st,t,p)
 dar = ('<section class="darohero"><div class="wrap"><div class="dh-grid">'
-  '<div class="dh-photo"><img src="img/daria.jpg" alt="Дарья Ростовцева"><span class="dh-badge">Сооснователь портала</span></div>'
+  '<div class="dh-photo"><img src="img/daria.jpg" alt="Дарья Ростовцева"><span class="dh-badge">Сооснователь проекта</span></div>'
   '<div class="dh-text"><span class="eyebrow">Архитектура сознания</span><h1>Дарья Ростовцева</h1>'
   '<p class="dh-lead">Прикладная нейробиология и живая практика. Дарья помогает выключить шум в голове и сменить состояние, из которого собирается вся жизнь: доход, тело, отношения, энергия.</p>'
   '<ul class="dh-list">'
@@ -606,7 +606,7 @@ _dfaq=[
 ]
 dar += '<section class="soft"><div class="wrap"><div class="sec-h center"><span class="eyebrow">Частые вопросы</span><h2>Кто ведёт и почему ей доверяют</h2></div><div class="faq">'+''.join('<details%s><summary>%s<span></span></summary><p>%s</p></details>'%(' open' if i==0 else '',q,a) for i,(q,a) in enumerate(_dfaq))+'</div></div></section>'
 dar += cta_band('Поработать с Дарьей','Личная консультация под твой запрос или работа в группе. Напиши, и подберём формат.','Смотреть программы',U+'shop/')
-page('daria','Дарья Ростовцева — Архитектура сознания',dar,'Дарья Ростовцева, сооснователь портала «Архитектура сознания»: сертифицированный фасилитатор, больше шести лет практики. Её путь, изучение мозга и гормонов, подход.',active='')
+page('daria','Дарья Ростовцева — Архитектура сознания',dar,'Дарья Ростовцева, сооснователь проекта «Архитектура сознания»: сертифицированный фасилитатор, больше шести лет практики. Её путь, изучение мозга и гормонов, подход.',active='')
 
 # ============ КОНТАКТЫ ============
 kont='''
