@@ -425,7 +425,7 @@ def fig_mechanism():
 
 def fig_daria_journey():
     stops=[('Красноярск','школа, институт, руки'),('Египет','аниматор, свобода'),
-           ('Красноярск','сын один, бизнес с нуля'),('Сочи','турфирма, выгорание'),
+           ('Снова дом','сын один, бизнес с нуля'),('Сочи','турфирма, выгорание'),
            ('Бали','тета-хилинг, старт'),('Access CF','статус фасилитатора'),
            ('14 стран','мир и своя система')]
     n=len(stops); x0,x1=95,865; pts=[]
@@ -443,7 +443,7 @@ def fig_daria_journey():
       '<defs><linearGradient id="jg" x1="0" y1="0" x2="960" y2="0"><stop stop-color="#7a4bd0"/><stop offset="1" stop-color="#2f6bff"/></linearGradient></defs>'
       +line+dots+'</svg>')
     return infofig('Путь по миру и к себе', svg,
-      'Красноярск, Египет, Сочи, Бали и ещё десяток стран. Каждый переезд и разворот добавлял глубины и той практики, которой Дарья делится сейчас.')
+      'Красноярск, Египет, Сочи, Бали и ещё десяток стран. Каждый переезд и разворот добавлял опыта, который она несёт в работу сегодня.')
 
 def fig_daria_study():
     fields=[('brain','Нейробиология','как работает мозг'),('gland','Эндокринология','язык гормонов'),
@@ -457,12 +457,12 @@ def fig_daria_study():
         'hours':'<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>'}
     chips=''.join('<div class="stf"><span class="mi">%s</span><span class="mt"><b>%s</b><span>%s</span></span></div>'%(IC[k],n,d) for k,n,d in fields)
     return ('<section class="mech studysec"><div class="wrap">'
-      '<div class="sec-h center"><span class="eyebrow">Годы изучения, собранные в систему</span>'
+      '<div class="sec-h center"><span class="eyebrow">Годы изучения, сложенные в одну картину</span>'
       '<h2>Она давно и глубоко копает, как устроен человек</h2>'
-      '<p>Мозг, гормоны, нервная система. Дарья изучает их не первый год и сводит разрозненные знания в одну рабочую картину, а не в набор красивых фраз.</p></div>'
+      '<p>Мозг, гормоны, нервная система. Дарья изучает их годами и сводит разрозненные знания в одну рабочую картину.</p></div>'
       '<div class="st-fields">'+chips+'</div>'
       '<div class="st-down"><svg width="26" height="34" viewBox="0 0 26 34" fill="none"><path d="M13 2v26M4 21l9 9 9-9" stroke="#8fb4ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
-      '<div class="st-core"><b>Архитектура сознания</b><span>единая система, из которой идут быстрые честные сдвиги: деньги, тело, отношения, энергия</span></div>'
+      '<div class="st-core"><b>Архитектура сознания</b><span>единая система, из которой жизнь меняется быстро и по-честному: деньги, тело, отношения, энергия</span></div>'
       '</div></section>')
 
 ARTICLE_RELATED={}  # заполняется в pages.py: slug -> HTML блока «связанные материалы»
