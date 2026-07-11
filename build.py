@@ -99,7 +99,7 @@ _TG='<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21.3 
 FOOTER=('<footer><div class="wrap"><div class="fgrid">'
 '<div class="fbrand-col">'
 '<div class="fbrand">'+brand_mark('',44)+'<b>АРХИТЕКТУРА<span>сознания</span></b></div>'
-'<p class="fl">Портал по осознанности. Знание о покое, теле и достатке, проверенное наукой и собранное в программы.</p>'
+'<p class="fl">Портал «Архитектура сознания». Знание о покое, теле и достатке, проверенное наукой и собранное в программы.</p>'
 '<a class="ftg" href="https://t.me/+bo3a92A06cQ3NWMy" target="_blank" rel="noopener">'
 '<span class="ic">'+_TG+'</span>'
 '<span class="tx"><b>Телеграм-канал</b><small>Присоединиться к «Архитектуре сознания»</small></span>'

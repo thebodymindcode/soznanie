@@ -36,7 +36,7 @@ def CX(k): return cardx(*P[k], DESC[k])
 # ============ ГЛАВНАЯ ============
 home='''
 <section class="hero"><div class="wrap"><div class="hero-card"><img class="bg" src="img/hero-1.jpg" alt="">
-<div class="hero-in"><span class="hero-badge"><span class="dot"></span> Портал по осознанности</span>
+<div class="hero-in"><span class="hero-badge"><span class="dot"></span> Портал</span>
 <h1>Архитектура<br>сознания</h1>
 <p class="sub">Знание о покое, теле и достатке, <span class="hl">проверенное наукой</span> и собранное в программы-маршруты.</p>
 <div class="hero-cta"><a class="btn primary bracket" href="programs.html">Найти свою программу</a><a class="btn tg" href="https://t.me/+bo3a92A06cQ3NWMy" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21.3 4.3 2.9 11.4c-1 .38-.98 1.78.03 2.13l4.55 1.56 1.76 5.4c.28.85 1.37 1.03 1.9.28l2.5-3.55 4.55 3.36c.7.52 1.7.13 1.87-.72L22.9 5.7c.2-1-.68-1.82-1.6-1.4Z" fill="currentColor"/></svg>Присоединиться в Telegram</a><a class="btn light bracket" href="#wings">С чего начать</a></div>
@@ -125,7 +125,7 @@ home_reviews = ('<section id="otzyvy"><div class="wrap"><div class="sec-h"><span
   + '</div></div></section>')
 home_stats = '<section class="soft"><div class="wrap">' + statband([('2 500+','человек прошли программы'),('92%','отмечают изменения после программ'),('23 200','читателей канала'),('наука','за каждой техникой')], hi=1) + '</div></section>'
 
-page('index','АРХИТЕКТУРА СОЗНАНИЯ — портал','\n'+home+dossier_section()+fig_mechanism()+home_steps+home_reviews+home_stats,'Портал по осознанности: знание о покое, теле и достатке, проверенное наукой и собранное в программы. Один вход, все курсы в одном месте.',active='index')
+page('index','АРХИТЕКТУРА СОЗНАНИЯ — портал','\n'+home+dossier_section()+fig_mechanism()+home_steps+home_reviews+home_stats,'Портал «Архитектура сознания»: знание о покое, теле и достатке, проверенное наукой и собранное в программы. Один вход, все курсы в одном месте.',active='index')
 
 # ============ КРЫЛО: шаблон ============
 def wing_page(slug,img,sci_img,cap,ew,title,lead,intro,states,progs,bullets,cls,labels,quote,fact,extra='',stats=None,shi=0):
@@ -1141,7 +1141,7 @@ page('kalkulyator','Калькулятор: сколько крадёт блуж
 import json as _json, glob as _glob
 open('favicon.svg','w',encoding='utf-8').write(brand_mark('', None))
 _manifest={"name":"Архитектура сознания","short_name":"Сознание",
-  "description":"Портал по осознанности: покой, тело и достаток, проверенное наукой.",
+  "description":"Портал «Архитектура сознания»: покой, тело и достаток, проверенное наукой.",
   "icons":[{"src":"favicon-32.png","sizes":"32x32","type":"image/png"},
            {"src":"apple-touch-icon.png","sizes":"180x180","type":"image/png"},
            {"src":"icon-192.png","sizes":"192x192","type":"image/png"}],
