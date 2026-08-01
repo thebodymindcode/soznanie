@@ -439,6 +439,8 @@ section{padding:clamp(72px,11vh,132px) 0}
 /* ── кто ведёт ───────────────── */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
 .person{background:var(--paper);padding:34px 32px}
+.person .pface{margin:-34px -32px 26px;padding:0}
+.person .pface img{width:100%;height:clamp(280px,32vw,400px);object-fit:cover;object-position:center 15%;display:block}
 .person .role{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-d)}
 .person h3{font-size:clamp(22px,2.4vw,28px);margin:12px 0 12px}
 .person p{color:var(--body);font-size:17px;margin:0;line-height:1.55}
@@ -1270,12 +1272,13 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
 <!-- ── КТО ВЕДЁТ ───────────────── -->
 <section id="s15" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="kicker">Кто ведёт</div>
+    <div class="sec-head reveal" style="max-width:none">
+      <div class="kicker">Люди</div>
       <h2>Кто ведёт&nbsp;программу</h2>
     </div>
     <div class="duo">
       <div class="person reveal">
+        <div class="pface"><img src="images/daria.jpg" alt="Дарья Ростовцева"></div>
         <div class="role">Ведёт программу</div>
         <h3>Дарья Ростовцева</h3>
         <p>Голос всех настроек и аудио. Шесть лет ведёт программы о мозге, теле и деньгах: «Протокол денег», практики тишины. Каждое утро задаёт направление дня: мягко и по&nbsp;делу.</p>
