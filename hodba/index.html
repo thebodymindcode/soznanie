@@ -85,7 +85,8 @@ header{position:absolute;top:0;left:0;right:0;z-index:40;padding-top:26px}
 .hero h1 .l span{display:block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
 .hero h1 .l:nth-child(2) span{animation-delay:.16s}
 @keyframes rise{to{transform:none}}
-.hero .sub{font-family:var(--f-mono);font-size:clamp(12px,1.15vw,14px);letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-top:24px}
+.hero .sub{font-family:var(--f-mono);font-size:clamp(12px,1.15vw,14px);letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-top:24px;text-shadow:0 1px 12px rgba(15,21,24,.85)}
+.hero .sub span+span::before{content:" · ";opacity:.55}
 .hero .lead{color:rgba(242,245,244,.9);margin-top:24px;max-width:56ch}
 .hero .lead b{color:#fff;font-weight:600}
 .facts{display:flex;flex-wrap:wrap;gap:0;margin-top:32px;border-top:1px solid rgba(242,245,244,.18)}
@@ -244,13 +245,13 @@ section{padding:clamp(72px,11vh,132px) 0}
 .sess{margin-top:20px}
 
 /* ── сравнение: почему ходьба ───────────────── */
-.cmp{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
-.cmp>div{background:var(--paper);padding:16px 18px;font-size:16px;color:var(--body);line-height:1.45;display:flex;align-items:center}
-.cmp .ch{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
-.cmp .rh{font-family:var(--f-display);font-weight:600;font-size:17.5px;color:var(--ink)}
-.cmp .hot{background:#fff;color:var(--ink)}
-.cmp .hot.ch{color:var(--orange-d)}
-.cmp .yes{color:var(--orange-d);font-family:var(--f-mono)}
+.cmp{margin-top:52px;border:1px solid var(--line);background:var(--line);display:flex;flex-direction:column;gap:1px}
+.crow{display:grid;grid-template-columns:1.25fr 1fr 1fr .8fr;gap:1px;background:var(--line)}
+.crow>div{background:var(--paper);padding:16px 18px;font-size:16px;color:var(--body);line-height:1.45;display:flex;align-items:center}
+.crow .rh{font-family:var(--f-display);font-weight:600;font-size:17.5px;color:var(--ink)}
+.crow .hot{background:#fff;color:var(--orange-d);font-family:var(--f-mono);font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.chead>div{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);padding:14px 18px}
+.chead .hot{color:var(--orange-d)}
 /* ── полноэкранная передышка ───────────────── */
 .break{position:relative;overflow:hidden;padding:0;background:var(--graphite)}
 .break img{width:100%;height:clamp(380px,72vh,720px);object-fit:cover;display:block}
@@ -287,71 +288,6 @@ section{padding:clamp(72px,11vh,132px) 0}
 #sticky .st-t{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,245,244,.75)}
 #sticky .st-t b{color:#FBFDFC;font-weight:400}
 #sticky .btn{padding:13px 22px}
-@media(max-width:640px){#sticky .st-t span.hide{display:none}}
-/* ── отсчёт ───────────────── */
-.count{margin-top:22px;font-family:var(--f-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,245,244,.7)}
-.count b{color:var(--orange);font-weight:400;font-variant-numeric:tabular-nums}
-/* ── как попасть ───────────────── */
-.enter3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px;counter-reset:en}
-.en{background:var(--paper);padding:30px 28px;position:relative}
-.en .n{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;color:var(--orange-d)}
-.en h3{font-size:20px;margin:12px 0 8px}
-.en p{font-size:16.5px;color:var(--body);margin:0;line-height:1.5}
-
-
-/* ── живая графика ───────────────── */
-.pulse{fill:#FF6A2B;transform-box:fill-box;transform-origin:center;animation:pl 2.4s ease-out infinite}
-@keyframes pl{0%{opacity:.75;transform:scale(.55)}70%{opacity:0;transform:scale(1.9)}100%{opacity:0;transform:scale(1.9)}}
-.chart.in .area{opacity:1;transition:opacity 1.2s .9s ease}
-.got .ic svg *{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1.1s ease}
-.got .g.in .ic svg *{stroke-dashoffset:0}
-.got .g:nth-child(2) .ic svg *{transition-delay:.12s}
-.got .g:nth-child(3) .ic svg *{transition-delay:.24s}
-.got .g:nth-child(4) .ic svg *{transition-delay:.1s}
-.got .g:nth-child(5) .ic svg *{transition-delay:.22s}
-.got .g:nth-child(6) .ic svg *{transition-delay:.34s}
-.g,.w,.tr,.en,.mode,.sc,.ws{transition:transform .35s ease,background .3s ease}
-.g:hover,.w:hover,.tr:hover,.en:hover,.sc:hover,.ws:hover{transform:translateY(-3px)}
-.why .w:nth-child(2),.got .g:nth-child(2),.try .tr:nth-child(2),.enter3 .en:nth-child(2){transition-delay:.08s}
-.why .w:nth-child(3),.got .g:nth-child(3),.try .tr:nth-child(3),.enter3 .en:nth-child(3){transition-delay:.16s}
-.why .w:nth-child(4),.got .g:nth-child(4){transition-delay:.08s}
-.why .w:nth-child(5),.got .g:nth-child(5){transition-delay:.16s}
-.why .w:nth-child(6),.got .g:nth-child(6){transition-delay:.24s}
-.dots21{display:flex;gap:7px;flex-wrap:wrap;margin-top:30px;max-width:560px}
-.dots21 i{width:16px;height:16px;border-radius:3px;background:rgba(242,245,244,.16);opacity:0;transform:scale(.4);transition:all .4s cubic-bezier(.3,.7,.3,1);transition-delay:calc(var(--i)*45ms)}
-.dots21 i.hot{background:var(--orange)}
-.dots21.in i{opacity:1;transform:none}
-[data-plx]{will-change:transform}
-
-/* ── технология ───────────────── */
-.grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
-.mode{background:var(--paper);padding:30px 28px 26px;transition:.3s;position:relative;display:flex;flex-direction:column}
-.mode .dials{margin-top:auto}
-.mode:hover{background:#fff}
-.mode .idx{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;color:var(--orange-d)}
-.mode h3{margin:14px 0 10px}
-.mode p{color:var(--body);font-size:17px;line-height:1.5;margin:0 0 20px}
-.dials{display:flex;flex-direction:column;gap:9px;border-top:1px solid var(--line);padding-top:18px}
-.dial{display:flex;align-items:center;gap:12px}
-.dial span{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);width:74px;flex:none}
-.dial i{flex:1;height:3px;background:var(--line);position:relative;overflow:hidden}
-.dial i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:var(--steel);transition:width 1.1s cubic-bezier(.2,.7,.3,1)}
-.mode.in .dial i::after{width:var(--w)}
-.mode:hover .dial i::after{background:var(--orange)}
-.locked{margin-top:26px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;color:var(--muted);font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em}
-.locked b{color:var(--ink);font-weight:400}
-.locked b,.locked span{text-wrap:pretty}
-.phases{margin-top:64px;border-top:1px solid var(--line);padding-top:40px}
-.phase-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
-.ph{background:var(--paper);padding:22px 20px;display:flex;flex-direction:column}
-.ph .bar{margin-top:auto}
-.ph .n{font-family:var(--f-mono);font-size:11.5px;color:var(--orange-d);letter-spacing:.14em}
-.ph h3{font-size:20px;margin:10px 0 8px}
-.ph p{font-size:15.5px;color:var(--muted);margin:0 0 16px;line-height:1.45}
-.ph .bar{height:3px;background:var(--steel);width:0;transition:width 1s ease}
-.ph .blurred{filter:blur(6px);user-select:none;pointer-events:none}
-.phase-row.in .ph .bar{width:var(--w)}
-
 
 /* ── подбор входа ───────────────── */
 .qz{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
@@ -359,6 +295,7 @@ section{padding:clamp(72px,11vh,132px) 0}
 .qz .qb:hover{border-color:var(--orange);color:var(--ink);transform:translateY(-2px)}
 .qz .qb.on{background:var(--orange);border-color:var(--orange);color:#0F1518}
 .mode.lit{outline:2px solid var(--orange);outline-offset:-2px;background:#fff}
+
 /* ── лента доказательств ───────────────── */
 .proofline{margin-top:64px;border-top:1px solid var(--line);padding-top:40px}
 .pl-row{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
@@ -366,134 +303,55 @@ section{padding:clamp(72px,11vh,132px) 0}
 .pl .y{font-family:var(--f-display);font-weight:600;font-size:clamp(24px,2.6vw,34px);letter-spacing:-.02em;color:var(--orange-d)}
 .pl p{font-size:14.5px;color:var(--body);margin:10px 0 0;line-height:1.45}
 .pl .src{margin-top:10px;font-size:10.5px}
-/* ── общий старт ───────────────── */
-.together{font-family:var(--f-display);font-size:clamp(20px,2.2vw,28px);color:rgba(242,245,244,.92);margin:28px 0 0}
-.together b{color:var(--orange);font-weight:600}
 
-/* ── вход ───────────────── */
-.diag{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start;margin-top:20px}
-.diag-card{border:1px solid var(--line);background:var(--paper);padding:34px 32px}
-.diag-card .kicker{color:var(--orange-d)}
-.diag-card h3{font-size:clamp(22px,2.6vw,30px);margin:14px 0 14px}
-.diag-card p{color:var(--body);font-size:17.5px;margin:0}
-.warn{margin-top:26px;border-left:3px solid var(--orange);padding:6px 0 6px 20px}
-.warn p{margin:0;font-size:17.5px;color:var(--body)}
-.warn b{color:var(--ink)}
-
-/* ── три ошибки ───────────────── */
-.mistakes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:52px}
-.mk{background:var(--graphite);padding:34px 30px;display:flex;flex-direction:column;min-height:340px}
-.mk .n{font-family:var(--f-display);font-size:clamp(44px,5vw,72px);line-height:1;color:var(--orange);letter-spacing:-.03em}
-.mk h3{color:#FBFDFC;margin:18px 0 12px}
-.mk p{color:rgba(233,238,236,.75);font-size:17px;line-height:1.5;margin:0 0 16px}
-.mk .fix{margin-top:auto;border-top:1px solid var(--line-dark);padding-top:16px;font-size:16px;color:rgba(233,238,236,.9);text-wrap:pretty}
-.mk .fix b{color:var(--orange);font-weight:400;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:6px}
-
-/* ── день ───────────────── */
-.day{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,72px);align-items:start;margin-top:20px}
-.day-img{position:sticky;top:40px;overflow:hidden}
-.day-img img{width:100%;height:clamp(320px,60vh,620px);object-fit:cover}
-.tl{display:flex;flex-direction:column;position:relative}
-.tl::before{content:"";position:absolute;left:9px;top:16px;bottom:16px;width:1px;background:var(--line)}
-.step{position:relative;padding:0 0 30px 44px}
-.step::before{content:"";position:absolute;left:3px;top:7px;width:13px;height:13px;border-radius:50%;background:var(--fog);border:2px solid var(--steel)}
-.step.hot::before{background:var(--orange);border-color:var(--orange)}
-.step .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-d)}
-.step h3{font-size:21px;margin:8px 0 6px}
-.step p{font-size:17px;color:var(--body);margin:0;line-height:1.5}
-
-/* ── карта 21 дня ───────────────── */
-.stages{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:52px}
-.st{background:var(--graphite);padding:28px 26px;display:flex;flex-direction:column;min-height:230px}
-.st .d{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;color:var(--orange)}
-.st h3{color:#FBFDFC;margin:12px 0 10px;font-size:22px}
-.st p{color:rgba(233,238,236,.72);font-size:16.5px;line-height:1.5;margin:0}
-.st .load{margin-top:auto;padding-top:18px}
-.st .load i{display:block;height:3px;background:rgba(233,238,236,.14);position:relative;overflow:hidden}
-.st .load i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:var(--orange);transition:width 1.2s ease}
-.stages.in .st .load i::after{width:var(--w)}
-.after21{margin-top:26px;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;color:rgba(233,238,236,.75)}
-.after21 b{color:#FBFDFC;font-weight:600}
-
-/* ── что получаете ───────────────── */
-.got{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
-.g{background:var(--paper);padding:30px 28px}
-.g .ic{width:40px;height:40px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.g .ic svg{width:20px;height:20px;stroke:var(--orange-d);fill:none;stroke-width:1.6}
-.g h3{font-size:20px;margin:0 0 8px}
-.g p{font-size:16.5px;color:var(--body);margin:0;line-height:1.5}
-
-/* ── замеры ───────────────── */
-.meas{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:52px}
-.mcol{background:var(--graphite);padding:32px 30px}
-.mcol.right{background:var(--graphite-2)}
-.mcol h3{color:#FBFDFC;margin-bottom:20px}
-.mcol ol{list-style:none;margin:0;padding:0;counter-reset:m;display:flex;flex-direction:column;gap:0}
-.mcol li{counter-increment:m;display:flex;gap:16px;align-items:baseline;padding:13px 0;border-top:1px solid var(--line-dark);font-size:17px;color:rgba(233,238,236,.82)}
-.mcol li::before{content:"0" counter(m);font-family:var(--f-mono);font-size:12px;color:var(--orange);flex:none}
-.meas-note{margin-top:26px;color:rgba(233,238,236,.7);font-size:17px;max-width:70ch}
-.meas-note b{color:#FBFDFC}
-
-/* ── кому ───────────────── */
-.fit{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
-.f{background:var(--paper);padding:32px 30px}
-.f h3{margin-bottom:18px}
-.f ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px}
-.f li{display:flex;gap:12px;font-size:17px;line-height:1.5;color:var(--body)}
-.f li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange-d);margin-top:10px;flex:none}
-.f.no li::before{background:var(--muted)}
-.safe{margin-top:26px;border:1px solid var(--line);background:var(--paper);padding:24px 28px}
-.safe p{margin:0;font-size:16px;color:var(--muted);line-height:1.55}
-
-/* ── кто ведёт ───────────────── */
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
+/* ── соло-карточка ведущей ───────────────── */
 .solo{display:grid;grid-template-columns:.9fr 1.1fr;border:1px solid var(--line);background:var(--paper);margin-top:52px}
 .solo-img img{width:100%;height:100%;min-height:340px;object-fit:cover;object-position:center 15%;display:block}
 .solo-txt{padding:clamp(28px,4vw,48px)}
 .solo-txt .role{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-d)}
 .solo-txt h3{font-size:clamp(24px,2.8vw,34px);margin:12px 0 14px}
 .solo-txt p{color:var(--body);font-size:18px;margin:0;line-height:1.6;max-width:52ch}
-.person{background:var(--paper);padding:34px 32px}
-.person .pface{margin:-34px -32px 26px;padding:0}
-.person .pface img{width:100%;height:clamp(280px,32vw,400px);object-fit:cover;object-position:center 15%;display:block}
-.person .role{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-d)}
-.person h3{font-size:clamp(22px,2.4vw,28px);margin:12px 0 12px}
-.person p{color:var(--body);font-size:17px;margin:0;line-height:1.55}
-.proof{display:flex;flex-wrap:wrap;gap:0;margin-top:26px;border-top:1px solid var(--line)}
-.proof div{padding:18px 30px 0 0;margin-right:30px;border-right:1px solid var(--line)}
-.proof div:last-child{border-right:0}
-.proof .n{font-family:var(--f-display);font-size:clamp(24px,2.6vw,34px);line-height:1}
-.proof .t{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:8px}
 
-/* ── вопросы ───────────────── */
-.faq{margin-top:44px;border-top:1px solid var(--line)}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-family:var(--f-display);font-size:clamp(19px,2vw,24px);font-weight:600}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:var(--f-mono);font-size:22px;color:var(--orange-d);flex:none;transition:.3s}
-.faq details[open] summary::after{transform:rotate(45deg)}
-.faq .a{padding:0 0 24px;max-width:70ch}
-.faq .a p{color:var(--body);font-size:17.5px;margin:0}
+/* ── как попасть ───────────────── */
+.enter3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
+.en{background:var(--paper);padding:30px 28px;position:relative}
+.en .n{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;color:var(--orange-d)}
+.en h3{font-size:20px;margin:12px 0 8px}
+.en p{font-size:16.5px;color:var(--body);margin:0;line-height:1.5}
 
 /* ── финал ───────────────── */
 .final{position:relative;overflow:hidden;background:var(--graphite);padding:0}
 .final-img{position:absolute;inset:0}
 .final-img img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
-.final-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,21,24,.96) 12%,rgba(15,21,24,.72) 55%,rgba(15,21,24,.55) 100%)}
-.final-in{position:relative;z-index:2;padding:clamp(90px,16vh,180px) 0;color:#F2F5F4;text-align:left}
+.final-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,21,24,.96) 12%,rgba(15,21,24,.78) 55%,rgba(15,21,24,.6) 100%)}
+.final-in{position:relative;z-index:2;padding:clamp(90px,16vh,180px) var(--pad);color:#F2F5F4;text-align:left}
 .final h2{font-size:clamp(34px,5.4vw,68px);color:#FBFDFC;max-width:16ch}
 .final .lead{color:rgba(242,245,244,.88);margin-top:22px;max-width:52ch}
+.final .kicker{color:rgba(242,245,244,.6)}
 .price-row{display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;margin-top:30px;border-top:1px solid rgba(242,245,244,.2);padding-top:26px;max-width:640px}
 .price-row .pr-num{font-family:var(--f-display);font-size:clamp(40px,5vw,64px);color:#FBFDFC;letter-spacing:-.03em;line-height:1}
 .price-row .pr-txt{font-size:16.5px;color:rgba(242,245,244,.75);max-width:38ch;line-height:1.5}
+.together{font-family:var(--f-display);font-size:clamp(20px,2.2vw,28px);color:rgba(242,245,244,.92);margin:28px 0 0}
+.together b{color:var(--orange);font-weight:600}
+.count{margin-top:22px;font-family:var(--f-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,245,244,.7)}
+.count b{color:var(--orange);font-weight:400;font-variant-numeric:tabular-nums}
 .honest{margin-top:30px;border-left:3px solid var(--orange);padding:4px 0 4px 20px;max-width:60ch}
 .honest p{margin:0;font-size:16.5px;color:rgba(242,245,244,.75)}
 
+/* ── низ страницы ───────────────── */
 .note{background:var(--paper);border-top:1px solid var(--line);padding:40px 0}
 .note p{color:var(--muted);font-size:15.5px;margin:0}
 footer{background:var(--paper);border-top:1px solid var(--line);padding:28px 0}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* ── липкая кнопка ───────────────── */
+#sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(15,21,24,.94);backdrop-filter:blur(8px);border-top:1px solid rgba(238,241,240,.14);transform:translateY(110%);transition:transform .4s cubic-bezier(.2,.7,.3,1);padding:12px 0;padding-bottom:calc(12px + env(safe-area-inset-bottom))}
+#sticky.on{transform:none}
+#sticky .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+#sticky .st-t{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,245,244,.75)}
+#sticky .st-t b{color:#FBFDFC;font-weight:400}
+#sticky .btn{padding:13px 22px}
 
 @media(max-width:1000px){
   .head-split{grid-template-columns:1fr;gap:32px}
@@ -506,29 +364,109 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   .day-img{position:static}
   .grid6,.sci,.mistakes,.why{grid-template-columns:1fr 1fr}
   .phase-row{grid-template-columns:1fr 1fr}
-  .numbers,.stages,.got{grid-template-columns:1fr 1fr}
+  .numbers,.stages,.got,.charts,.try,.enter3{grid-template-columns:1fr 1fr}
+  .pl-row{grid-template-columns:1fr 1fr 1fr}
   .window-strip{grid-template-columns:1fr}
+  .crow{grid-template-columns:1fr 1fr 1fr .8fr}
 }
 @media(max-width:640px){
-  body{font-size:18px}
-  .hero-in{padding-top:96px}
-  .facts div{padding-right:20px;margin-right:20px}
+  :root{--pad:20px}
+  body{font-size:17.5px;line-height:1.6;padding-bottom:74px}
+  h2{font-size:clamp(28px,7.6vw,34px);line-height:1.1}
+  h3{font-size:19.5px}
+  .lead{font-size:17.5px;line-height:1.55}
+  section{padding:56px 0}
+  .sec-head h2{margin:12px 0 18px}
+
+  /* HERO */
+  .hero-in{padding-top:84px;padding-bottom:26px}
+  .hero-img img{object-position:58% 22%}
+  .hero-img::after{background:
+    radial-gradient(120% 70% at 70% 26%,rgba(255,138,74,.2) 0%,rgba(255,106,43,0) 55%),
+    linear-gradient(to bottom,rgba(15,21,24,.78) 0%,rgba(15,21,24,.42) 34%,rgba(15,21,24,.86) 74%,rgba(15,21,24,.96) 100%)}
+  .stamp{font-size:11px;letter-spacing:.26em;padding:9px 14px 8px 18px}
+  .hero h1{font-size:clamp(42px,13vw,58px);letter-spacing:-.028em;margin-top:20px}
+  .hero .sub{font-size:11px;letter-spacing:.1em;line-height:1.75;margin-top:18px}
+  .hero .lead{font-size:17px;margin-top:18px;line-height:1.5}
+  .hero .sub{margin-top:16px}
+  .hero .sub span{display:block}
+  .hero .sub span+span::before{content:none}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:24px;border-top:1px solid rgba(242,245,244,.2)}
+  .facts div{padding:16px 0 14px;margin:0;border-right:0;border-top:0}
+  .facts div:nth-child(even){border-left:1px solid rgba(242,245,244,.2);padding-left:18px}
+  .facts div:nth-child(n+3){border-top:1px solid rgba(242,245,244,.2)}
+  .facts .n{font-size:29px}
+  .facts .t{font-size:10.5px;letter-spacing:.11em;margin-top:5px}
+  .cta{margin-top:26px;margin-bottom:0;gap:12px}
+  .hero .cta{flex-direction:column;align-items:stretch}
+  .hero .btn{text-align:center;padding:16px 20px}
+  .hero .btn-ghost{text-align:center;border:0;padding:2px 0 0}
+  .marquee{padding:11px 0}
+  .marquee span{font-size:11px;letter-spacing:.18em}
+
+  /* сетки в столбик */
   .grid6,.sci,.phase-row,.numbers,.biohack,.mistakes,.stages,.got,.meas,.fit,.duo,.window-strip,.why,.charts,.try,.enter3{grid-template-columns:1fr}
+  .mosaic{grid-template-columns:1fr 1fr}
   .pl-row{grid-template-columns:1fr 1fr}
   .solo{grid-template-columns:1fr}
-  .solo-img img{min-height:0;height:300px}
-  .mosaic{grid-template-columns:1fr 1fr}
-  .cmp{grid-template-columns:1fr;gap:0}
-  .cmp .ch:empty{display:none}
-  .mk{min-height:0}
-  .st{min-height:0}
-  .ring-list{display:flex;flex-direction:column;gap:10px;margin-top:24px;list-style:none;padding:0}
-  .ring-list li{display:flex;gap:12px;font-size:17px;color:rgba(233,238,236,.78);align-items:baseline}
-  .ring-list li b{font-family:var(--f-mono);font-size:12px;color:var(--orange);flex:none}
+  .solo-img img{min-height:0;height:290px}
+  .formula{grid-template-columns:1fr}
+  .fop{justify-self:start;padding:2px 0}
+  .loop,.split,.goal,.diag,.day,.health-top{grid-template-columns:1fr}
+  .day-img{position:static}
+  .mk,.st{min-height:0}
+
+  /* таблица сравнения карточками */
+  .cmp{border:0;background:transparent;gap:14px}
+  .chead{display:none}
+  .crow{grid-template-columns:1fr;gap:0;background:var(--line);border:1px solid var(--line)}
+  .crow>div{padding:13px 16px}
+  .crow .rh{background:var(--paper);font-size:17px;padding:16px}
+  .crow>div:not(.rh)::before{content:attr(data-l) " · ";font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+  .crow .hot{background:#fff}
+  .crow .hot::before{color:var(--orange-d)}
+
+  /* кольцо и подписи */
   .ring text.lbl{display:none}
-  /* мобильный кроп фото: узкая высокая рамка иначе центрирует фигуру ровно под текстом (голова под заголовком) */
-  .hero-img img{object-position:8% 30%}
-  .final-img img{object-position:94% center}
+  .ring-list{display:flex;flex-direction:column;gap:10px;margin-top:20px;list-style:none;padding:0}
+  .ring-list li{display:flex;gap:12px;font-size:16.5px;color:rgba(233,238,236,.78);align-items:baseline}
+  .ring-list li b{font-family:var(--f-mono);font-size:12px;color:var(--orange);flex:none}
+  .entry{flex-direction:column}
+  .ecard{flex:none}
+
+  /* графики и ленты */
+  .chart,.sess,.dayline,.progress21{padding:22px 18px 18px}
+  .chart .lbl,.sess .lbl,.dayline .lbl{font-size:15px}
+  .dayline svg{min-height:120px}
+  .p21 .mlb,.p21 .dlb{font-size:10px}
+  .p21 .dlb{top:54px}
+
+  /* финал */
+  .final-in{padding:64px var(--pad) 56px}
+  .final h2{font-size:clamp(30px,8.4vw,38px);max-width:none}
+  .price-row{gap:12px;padding-top:20px;margin-top:22px}
+  .price-row .pr-num{font-size:38px}
+  .price-row .pr-txt{font-size:15.5px;max-width:none}
+  .together{font-size:17.5px;margin-top:22px}
+  .count{font-size:12px;margin-top:20px}
+  .final .cta{flex-direction:column;align-items:stretch}
+  .final .btn{text-align:center}
+  .honest{margin-top:24px;padding-left:16px}
+  .honest p{font-size:15.5px}
+
+  /* прочее */
+  .qz .qb{font-size:12.5px;padding:11px 14px}
+  .faq summary{font-size:18.5px;padding:18px 0;gap:14px}
+  .faq .a p{font-size:16.5px}
+  .break img{height:clamp(300px,52vh,420px)}
+  .break .cap p{font-size:20px;max-width:none}
+  .evening-img figcaption{padding:26px 18px 20px;font-size:15.5px}
+  .proof div{padding-right:18px;margin-right:18px}
+  .proof .n{font-size:26px}
+  footer .wrap{flex-direction:column;gap:8px}
+  #sticky .btn{padding:12px 18px;font-size:12px}
+  #sticky .st-t{font-size:11.5px}
+  #sticky .st-t span.hide{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -558,7 +496,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
     <div class="wrap hero-in">
       <div class="stamp">Протокол 21</div>
       <h1><span class="l"><span>Денежная</span></span><span class="l"><span>ходьба</span></span></h1>
-      <div class="sub">75 минут в день · 21 день · две оси: деньги и тело</div>
+      <div class="sub"><span>75 минут в день · 21 день</span><span>две оси: деньги и тело</span></div>
       <p class="lead">Каждое утро сессия движения по точной технологии, и сразу после неё денежное действие, пока держится эффект. <b>Одно действие, два результата:</b> денежное состояние и здоровье.</p>
       <div class="facts">
         <div><div class="n">75</div><div class="t">минут в день</div></div>
@@ -690,11 +628,11 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <p class="lead">Стэнфордские замеры делали именно на ходьбе: темп остаётся разговорным, и голова продолжает думать. Бег и зал так не умеют, там внимание забирает тело.</p>
     </div>
     <div class="cmp reveal">
-      <div class="ch"></div><div class="ch">Бег</div><div class="ch">Зал</div><div class="ch hot">Ходьба</div>
-      <div class="rh">Можно каждый день без адаптации</div><div>Нужны восстановление и форма</div><div>Обычно 3 раза в неделю</div><div class="hot"><span class="yes">да</span></div>
-      <div class="rh">Голова остаётся в рабочем режиме</div><div>Дыхание забирает внимание</div><div>Внимание на упражнении</div><div class="hot"><span class="yes">да</span></div>
-      <div class="rh">Вход с любого уровня, сегодня</div><div>Порог по форме и суставам</div><div>Зал, форма, расписание</div><div class="hot"><span class="yes">да</span></div>
-      <div class="rh">Встраивается в обычный день</div><div>Отдельное окно и душ</div><div>Дорога и абонемент</div><div class="hot"><span class="yes">да</span></div>
+      <div class="crow chead"><div class="rh"></div><div data-l="Бег">Бег</div><div data-l="Зал">Зал</div><div class="hot" data-l="Ходьба">Ходьба</div></div>
+      <div class="crow"><div class="rh">Можно каждый день без адаптации</div><div data-l="Бег">Нужны восстановление и форма</div><div data-l="Зал">Обычно 3 раза в неделю</div><div class="hot" data-l="Ходьба">Да</div></div>
+      <div class="crow"><div class="rh">Голова остаётся в рабочем режиме</div><div data-l="Бег">Дыхание забирает внимание</div><div data-l="Зал">Внимание на упражнении</div><div class="hot" data-l="Ходьба">Да</div></div>
+      <div class="crow"><div class="rh">Вход с любого уровня, сегодня</div><div data-l="Бег">Порог по форме и суставам</div><div data-l="Зал">Зал, форма, расписание</div><div class="hot" data-l="Ходьба">Да</div></div>
+      <div class="crow"><div class="rh">Встраивается в обычный день</div><div data-l="Бег">Отдельное окно и душ</div><div data-l="Зал">Дорога и абонемент</div><div class="hot" data-l="Ходьба">Да</div></div>
     </div>
   </div>
 </section>
@@ -793,7 +731,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <h2>Пока вы работаете с деньгами, тело получает свою&nbsp;половину</h2>
     </div>
     <div class="health-top">
-      <p class="lead reveal">Эта часть доказана лучше денежной. Ходьба одно из самых изученных вмешательств в медицине, и протокол собран так, чтобы за 21 день набрался объём, на котором эффекты вообще фиксируются.</p>
+      <p class="lead reveal">Эта часть доказана лучше денежной. Ходьба одно из самых изученных вмешательств в медицине, и протокол собран так, чтобы за 21 день набрался объём, на котором эффекты вообще&nbsp;фиксируются.</p>
       <div class="reveal">
         <img src="images/steps.jpg" alt="Стопы в кроссовках на утреннем асфальте" style="width:100%;height:clamp(200px,26vh,280px);object-fit:cover">
       </div>
@@ -981,7 +919,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <article class="mode reveal">
         <div class="idx">Режим 04</div>
         <h3>Право назвать&nbsp;цену</h3>
-        <p>Когда цифра застревает в горле, а после названной суммы хочется сразу оправдаться.</p>
+        <p>Когда цифра застревает в горле, а после названной суммы хочется сразу&nbsp;оправдаться.</p>
         <div class="dials">
           <div class="dial"><span>темп</span><i style="--w:78%"></i></div>
           <div class="dial"><span>дыхание</span><i style="--w:40%"></i></div>
@@ -1182,7 +1120,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
     <div class="stages reveal">
       <div class="st"><div class="d">Дни 1-5</div><h3>Фундамент</h3><p>Диагностика входа, выход из сжатия, первые лёгкие победы. Никаких сумм и целей:&nbsp;сознательно.</p><div class="load"><i style="--w:30%"></i></div></div>
       <div class="st"><div class="d">Дни 6-11</div><h3>Разгон</h3><p>Возвращение драйва, работа с внутренним потолком, первое действие из новой точки.</p><div class="load"><i style="--w:60%"></i></div></div>
-      <div class="st"><div class="d">Дни 12-17</div><h3>Голос</h3><p>Самая денежная неделя: цена вслух, прямые просьбы, способность принимать. Задания идут в реальные деньги.</p><div class="load"><i style="--w:100%"></i></div></div>
+      <div class="st"><div class="d">Дни 12-17</div><h3>Голос</h3><p>Самая денежная неделя: цена вслух, прямые просьбы, способность принимать. Задания идут в реальные&nbsp;деньги.</p><div class="load"><i style="--w:100%"></i></div></div>
       <div class="st"><div class="d">Дни 18-21</div><h3>Новая норма</h3><p>Горизонт и стратегия, сборка личного плана на следующие 45 дней, передача протокола вам&nbsp;насовсем.</p><div class="load"><i style="--w:80%"></i></div></div>
     </div>
 
@@ -1227,7 +1165,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4" pathLength="100"/></svg></div><h3>Аудио в дорогу</h3><p>Голос ведёт первую часть сессии: темп, дыхание, вход в состояние. Слушается на ходу.</p></div>
       <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 6c-2-1.6-5-2-8-2v15c3 0 6 .4 8 2 2-1.6 5-2 8-2V4c-3 0-6 .4-8 2z" pathLength="100"/><path d="M12 6v15" pathLength="100"/></svg></div><h3>Практикум PDF</h3><p>Вся система целиком: исследование, механизмы, режимы, план до 66 дня. Остаётся у&nbsp;вас.</p></div>
       <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19l5-5 3 3 7-8" pathLength="100"/><path d="M15 9h4v4" pathLength="100"/></svg></div><h3>Личный кабинет</h3><p>Отдельная платформа, как у «Протокола денег»: карта 21 дня, цели и километры, графики прогресса, дневник. С телефона и&nbsp;компьютера.</p></div>
-      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h4l2-5 4 10 2-5h6" pathLength="100"/></svg></div><h3>Замеры до и после</h3><p>Пять цифр по деньгам и пять по телу: старт, контрольная точка на 11 день и финал.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h4l2-5 4 10 2-5h6" pathLength="100"/></svg></div><h3>Замеры до и после</h3><p>Пять цифр по деньгам и пять по телу: старт, контрольная точка на 11 день и&nbsp;финал.</p></div>
       <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 21V4" pathLength="100"/><path d="M6 5c4-2 8 2 12 0v8c-4 2-8-2-12 0" pathLength="100"/></svg></div><h3>План после финала</h3><p>Личный протокол на следующие 45 дней собирается в последнюю неделю: путь не обрывается.</p></div>
     </div>
   </div>
@@ -1298,7 +1236,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
         <h3>Подойдёт, если</h3>
         <ul>
           <li>Доход упёрся в цифру, и мышлением её не сдвинуть</li>
-          <li>Про здоровье всё понятно, но «нет времени», и нужен формат, где оно встроено</li>
+          <li>Про здоровье всё понятно, но «нет времени», и нужен формат, где оно&nbsp;встроено</li>
           <li>Вы пробовали марафоны прогулок, стало легче, но эффект растаял</li>
           <li>Хочется системы с механизмом вместо набора&nbsp;ритуалов</li>
           <li>Есть 75 минут в день и готовность делать реальные шаги в деньгах</li>
@@ -1308,7 +1246,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
         <h3>Не подойдёт, если</h3>
         <ul>
           <li>Ждёте точную сумму к конкретной дате: этого здесь не&nbsp;обещают</li>
-          <li>Нужен результат без ежедневного участия</li>
+          <li>Нужен результат без ежедневного&nbsp;участия</li>
           <li>Идёте за магией: тут будет техника, дневник и работа&nbsp;голосом</li>
           <li>Сейчас острое состояние, где сначала нужен врач или&nbsp;психотерапевт</li>
         </ul>
@@ -1352,8 +1290,8 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
     </div>
     <div class="faq reveal">
       <details>
-        <summary>А если дождь, мороз или тёмная зима?</summary>
-        <div class="a"><p>В протоколе есть план плохого дня: короткий формат в помещении, по лестнице и коридору. День засчитывается, серия не рвётся. А холод сам по себе не противопоказание, одежда решает почти всё.</p></div>
+        <summary>А если дождь, мороз или тёмная&nbsp;зима?</summary>
+        <div class="a"><p>В протоколе есть план плохого дня: короткий формат в помещении, по лестнице и коридору. День засчитывается, серия не рвётся. А холод сам по себе не противопоказание, одежда решает почти&nbsp;всё.</p></div>
       </details>
       <details>
         <summary>У меня город без парка.&nbsp;Получится?</summary>
@@ -1376,7 +1314,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
         <div class="a"><p>Для этого и есть диагностика первого дня и адаптированная версия: короче и мягче, с тем же смыслом. Начать можно с десяти минут, объём догоняется по&nbsp;неделям.</p></div>
       </details>
       <details>
-        <summary>У меня наёмная работа, не бизнес. Подойдёт?</summary>
+        <summary>У меня наёмная работа, не бизнес.&nbsp;Подойдёт?</summary>
         <div class="a"><p>Да. Денежные действия подбираются под вашу ситуацию: разговор о пересмотре зарплаты, отклик на позицию уровнем выше, первые отложенные десять процентов, продажа ненужного. Протокол работает с состоянием и действиями, а они есть у всех, независимо от формы&nbsp;дохода.</p></div>
       </details>
       <details>
@@ -1419,7 +1357,6 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <div class="pr-txt">за весь протокол: личный кабинет на платформе, 21 карточка дня, аудио в дорогу, практикум и план до 66&nbsp;дня</div>
     </div>
     <p class="together">Поток один, без догоняющих продаж: <b>5 августа</b> вся группа выходит в одно&nbsp;утро.</p>
-    <div class="dots21 reveal" aria-label="21 день протокола"><i style="--i:1" class=hot></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11" class=hot></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21" class=hot></i></div>
     <div class="count" id="count" hidden>До старта <b id="cd">…</b></div>
     <div class="cta" style="margin-bottom:0">
       <a class="btn" href="#">Войти в протокол</a>
