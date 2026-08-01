@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Протокол ходьбы · макет четырёх экранов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fog:#EEF1F0;
+  --paper:#F8FAF9;
+  --graphite:#0F1518;
+  --graphite-2:#18232A;
+  --ink:#151D21;
+  --body:#3A474D;
+  --muted:#6E7C82;
+  --line:#D9DFDD;
+  --line-dark:rgba(238,241,240,.14);
+  --orange:#FF6A2B;
+  --orange-d:#C9491A;
+  --steel:#34505C;
+  --f-display:'Fraunces',Georgia,serif;
+  --f-body:'Source Serif 4',Georgia,serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,monospace;
+  --wrap:1180px;
+  --pad:clamp(20px,5vw,64px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--fog);color:var(--ink);
+  font-family:var(--f-body);font-size:19px;line-height:1.62;
+  font-optical-sizing:auto;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.06;letter-spacing:-.015em;margin:0}
+h2{font-size:clamp(30px,4.6vw,58px)}
+h3{font-size:clamp(20px,2.2vw,26px);line-height:1.2}
+p{margin:0 0 1em}
+.lead{font-size:clamp(19px,1.55vw,23px);line-height:1.55;color:var(--body);text-wrap:pretty;max-width:62ch}
+.kicker{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--f-mono)}
+
+/* ── линия прогресса чтения ───────────────── */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--orange);z-index:60}
+
+/* ── шапка ───────────────── */
+header{position:absolute;top:0;left:0;right:0;z-index:40;padding-top:26px}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(248,250,249,.78)}
+.hd a.enter{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#F8FAF9;text-decoration:none;border-bottom:1px solid rgba(248,250,249,.4);padding-bottom:3px}
+
+/* ── левый рельс шагов ───────────────── */
+#rail{position:fixed;left:26px;top:50%;transform:translateY(-50%);z-index:30;display:flex;flex-direction:column;gap:16px;mix-blend-mode:difference}
+#rail b{display:block;width:7px;height:7px;border-radius:50%;background:rgba(238,241,240,.35);transition:.45s}
+#rail b.on{background:var(--orange);transform:scale(1.55)}
+@media(max-width:1100px){#rail{display:none}}
+
+/* ── экран 1 ───────────────── */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--graphite)}
+.hero-img{position:absolute;inset:0}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:62% center;transform:scale(1.06);animation:drift 28s ease-in-out infinite alternate}
+@keyframes drift{to{transform:scale(1.12) translate3d(-1.4%,-1%,0)}}
+.hero-img::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 90% at 78% 34%,rgba(255,138,74,.22) 0%,rgba(255,106,43,0) 52%),
+             linear-gradient(100deg,rgba(15,21,24,.95) 0%,rgba(15,21,24,.8) 32%,rgba(15,21,24,.18) 64%,rgba(15,21,24,.38) 100%),
+             linear-gradient(to top,rgba(15,21,24,.92),transparent 52%)}
+.sunline{position:absolute;left:52%;right:0;top:31%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,106,43,.8),rgba(255,106,43,.15));opacity:.7;animation:breathe 7s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.28;transform:translateY(0)}50%{opacity:.85;transform:translateY(-6px)}}
+.hero-in{position:relative;z-index:3;width:100%;padding-bottom:clamp(48px,8vh,96px);padding-top:120px;color:#F2F5F4}
+.hero h1{font-size:clamp(52px,9.4vw,132px);font-weight:400;letter-spacing:-.035em;color:#FBFDFC}
+.hero .sub{font-family:var(--f-mono);font-size:clamp(12px,1.15vw,14px);letter-spacing:.16em;text-transform:uppercase;color:rgba(242,245,244,.62);margin-top:22px}
+.hero .lead{color:rgba(242,245,244,.9);margin-top:26px;max-width:54ch}
+.hero .lead b{color:#fff;font-weight:600}
+.facts{display:flex;flex-wrap:wrap;gap:0;margin-top:34px;border-top:1px solid rgba(242,245,244,.18)}
+.facts div{padding:18px 30px 0 0;margin-right:30px;border-right:1px solid rgba(242,245,244,.18)}
+.facts div:last-child{border-right:0;margin-right:0}
+.facts .n{font-family:var(--f-display);font-size:clamp(26px,3vw,38px);color:#FBFDFC;line-height:1}
+.facts .t{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(242,245,244,.6);margin-top:8px}
+.cta{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:40px}
+.btn{display:inline-block;background:var(--orange);color:#0F1518;text-decoration:none;font-family:var(--f-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:17px 30px;border-radius:2px;transition:.25s}
+.btn:hover{background:#fff}
+.btn-ghost{font-family:var(--f-mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:rgba(242,245,244,.8);text-decoration:none;border-bottom:1px solid rgba(242,245,244,.32);padding-bottom:4px}
+.btn-ghost:hover{color:#fff;border-color:var(--orange)}
+
+/* ── общие секции ───────────────── */
+section{padding:clamp(72px,11vh,132px) 0}
+.dark{background:var(--graphite);color:#E9EEEC}
+.dark h2{color:#FBFDFC}
+.dark .lead{color:rgba(233,238,236,.78)}
+.dark .kicker{color:rgba(233,238,236,.5)}
+.sec-head{max-width:58ch}
+.sec-head h2{margin:14px 0 22px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ── экран 2: контур ───────────────── */
+.head-split{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(28px,5vw,72px);align-items:end}
+.entry{display:flex;flex-direction:column;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark)}
+.entry .kicker{background:var(--graphite);padding:16px 20px 14px}
+.ecard{background:var(--graphite);padding:18px 20px;display:flex;align-items:baseline;gap:16px}
+.ecard b{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;color:var(--orange);font-weight:400}
+.ecard span{font-family:var(--f-display);font-size:24px;color:#FBFDFC}
+.loop{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,64px);align-items:center;margin-top:52px}
+.ring{width:100%;max-width:640px;margin:0 auto}
+.ring text{font-family:var(--f-mono);font-size:15px;letter-spacing:.06em;fill:rgba(233,238,236,.82)}
+.ring .num{font-family:var(--f-display);font-size:19px;fill:#0F1518}
+.ring .arc{fill:none;stroke:rgba(233,238,236,.26);stroke-width:1.5}
+.ring .arc-live{fill:none;stroke:var(--orange);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:1445;stroke-dashoffset:1445;transition:stroke-dashoffset 1.6s cubic-bezier(.3,.7,.3,1)}
+.ring.in .arc-live{stroke-dashoffset:361}
+.ring .dot{fill:#E9EEEC}
+.ring .dot.hot{fill:var(--orange)}
+.ring .hit{font-family:var(--f-mono);font-size:12px;fill:var(--orange);letter-spacing:.1em}
+.points{display:flex;flex-direction:column;gap:2px}
+.pt{border-top:1px solid var(--line-dark);padding:22px 0}
+.pt h3{color:#FBFDFC;font-size:22px}
+.pt p{margin:10px 0 0;color:rgba(233,238,236,.72);font-size:17.5px;line-height:1.55}
+.src{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;color:rgba(233,238,236,.42);margin-top:10px;display:block}
+.loop-note{margin-top:44px;border-top:1px solid var(--line-dark);padding-top:26px;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.loop-note .big{font-family:var(--f-display);font-size:clamp(22px,2.4vw,30px);color:#FBFDFC}
+.ring-list{display:none}
+
+/* ── экран 3: технология ───────────────── */
+.grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
+.mode{background:var(--paper);padding:30px 28px 26px;transition:.3s;position:relative}
+.mode:hover{background:#fff}
+.mode .idx{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;color:var(--orange-d)}
+.mode h3{margin:14px 0 10px}
+.mode p{color:var(--body);font-size:17px;line-height:1.5;margin:0 0 20px}
+.dials{display:flex;flex-direction:column;gap:9px;border-top:1px solid var(--line);padding-top:18px}
+.dial{display:flex;align-items:center;gap:12px}
+.dial span{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);width:74px;flex:none}
+.dial i{flex:1;height:3px;background:var(--line);position:relative;overflow:hidden}
+.dial i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:var(--steel);transition:width 1.1s cubic-bezier(.2,.7,.3,1)}
+.mode.in .dial i::after{width:var(--w)}
+.mode:hover .dial i::after{background:var(--orange)}
+.locked{margin-top:26px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;color:var(--muted);font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em}
+.locked b{color:var(--ink);font-weight:400}
+.phases{margin-top:64px;border-top:1px solid var(--line);padding-top:40px}
+.phase-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
+.ph{background:var(--paper);padding:22px 20px}
+.ph .n{font-family:var(--f-mono);font-size:11.5px;color:var(--orange-d);letter-spacing:.14em}
+.ph h3{font-size:20px;margin:10px 0 8px}
+.ph p{font-size:15.5px;color:var(--muted);margin:0;line-height:1.45}
+.ph .bar{height:3px;background:var(--steel);margin-top:16px;width:0;transition:width 1s ease}
+.phase-row.in .ph .bar{width:var(--w)}
+
+/* ── экран 4: здоровье ───────────────── */
+.health-top{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,4vw,60px);align-items:end}
+.numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dark);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);margin-top:56px}
+.num{background:var(--graphite);padding:30px 24px 28px}
+.num .v{font-family:var(--f-display);font-size:clamp(38px,5.2vw,64px);line-height:1;color:#FBFDFC;letter-spacing:-.03em}
+.num .v small{font-size:.42em;letter-spacing:0;margin-left:4px;color:rgba(233,238,236,.6)}
+.num .t{margin-top:14px;font-size:16.5px;color:rgba(233,238,236,.76);line-height:1.42}
+.num .s{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:rgba(233,238,236,.42);margin-top:12px;display:block}
+.biohack{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-dark);margin-top:56px;border:1px solid var(--line-dark)}
+.bh{background:var(--graphite);padding:32px 30px}
+.bh.right{background:var(--graphite-2)}
+.bh h3{color:#FBFDFC;margin-bottom:18px}
+.bh ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.bh li{display:flex;gap:12px;font-size:17px;line-height:1.45;color:rgba(233,238,236,.78)}
+.bh li::before{content:"";width:6px;height:6px;border-radius:50%;background:rgba(233,238,236,.3);margin-top:9px;flex:none}
+.bh.right li::before{background:var(--orange)}
+.measure{margin-top:56px;border-top:1px solid var(--line-dark);padding-top:34px}
+.mrow{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:24px}
+.mcell{background:var(--graphite);padding:22px 18px}
+.mcell .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(233,238,236,.45)}
+.mcell .val{font-family:var(--f-display);font-size:20px;color:#FBFDFC;margin-top:10px;line-height:1.2}
+.evening-img{margin-top:56px;position:relative;overflow:hidden}
+.evening-img img{width:100%;height:clamp(240px,38vh,420px);object-fit:cover}
+.evening-img figcaption{position:absolute;left:0;bottom:0;right:0;padding:26px 28px;background:linear-gradient(to top,rgba(15,21,24,.92),transparent);color:rgba(233,238,236,.9);font-size:17px}
+.evening-img figcaption b{color:#fff;font-weight:600}
+
+/* ── финал макета ───────────────── */
+.note{background:var(--paper);border-top:1px solid var(--line);padding:44px 0}
+.note p{color:var(--muted);font-size:16px;margin:0}
+
+@media(max-width:1000px){
+  .head-split{grid-template-columns:1fr;gap:32px}
+  .entry{flex-direction:row;flex-wrap:wrap}
+  .entry .kicker{flex:1 0 100%}
+  .ecard{flex:1}
+  .loop{grid-template-columns:1fr}
+  .grid6{grid-template-columns:1fr 1fr}
+  .phase-row{grid-template-columns:1fr 1fr}
+  .numbers{grid-template-columns:1fr 1fr}
+  .health-top{grid-template-columns:1fr}
+  .mrow{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  body{font-size:18px}
+  .hero-in{padding-top:96px}
+  .facts div{padding-right:20px;margin-right:20px}
+  .grid6,.phase-row,.numbers,.biohack,.mrow{grid-template-columns:1fr}
+  .ring-list{display:flex;flex-direction:column;gap:10px;margin-top:24px;list-style:none;padding:0}
+  .ring-list li{display:flex;gap:12px;font-size:17px;color:rgba(233,238,236,.78);align-items:baseline}
+  .ring-list li b{font-family:var(--f-mono);font-size:12px;color:var(--orange);flex:none}
+  .ring text.lbl{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  .ring .arc-live{stroke-dashoffset:392}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="rail" aria-hidden="true"><b class="on"></b><b></b><b></b><b></b></div>
+
+<header>
+  <div class="wrap hd">
+    <div class="brand">Архитектура сознания</div>
+    <a class="enter" href="#">Войти</a>
+  </div>
+</header>
+
+<!-- ── ЭКРАН 1 ───────────────── -->
+<section class="hero" id="s1" style="padding:0">
+  <div class="hero-img"><img src="images/hero.jpg" alt="Рассветная набережная, женщина идёт одна"></div>
+  <div class="sunline"></div>
+  <div class="wrap hero-in">
+    <h1>Протокол<br>ходьбы</h1>
+    <div class="sub">Денежная ходьба по протоколу · 21 день · две оси: деньги и тело</div>
+    <p class="lead">Каждый день одна сессия ходьбы по технологии и денежное действие сразу после неё, пока держится эффект. <b>Одно действие, два результата:</b> денежное поведение и здоровье.</p>
+    <div class="facts">
+      <div><div class="n">75</div><div class="t">минут в день</div></div>
+      <div><div class="n">21</div><div class="t">день протокола</div></div>
+      <div><div class="n">6</div><div class="t">режимов ходьбы</div></div>
+    </div>
+    <div class="cta">
+      <a class="btn" href="#">Войти в протокол</a>
+      <a class="btn-ghost" href="#s2">Что происходит, пока вы идёте</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── ЭКРАН 2: КОНТУР ───────────────── -->
+<section class="dark" id="s2">
+  <div class="wrap">
+    <div class="head-split">
+      <div class="sec-head reveal">
+        <div class="kicker">Механизм</div>
+        <h2>Тело и деньги стоят на одном круге</h2>
+        <p class="lead">Их принято разводить: здоровье когда будет время, деньги прямо сейчас. В физиологии это один контур, и он замкнут. Ходьба входит в него сразу в трёх точках.</p>
+      </div>
+      <aside class="entry reveal">
+        <div class="kicker">Три точки входа</div>
+        <div class="ecard"><b>01</b><span>Кортизол</span></div>
+        <div class="ecard"><b>02</b><span>Сон</span></div>
+        <div class="ecard"><b>03</b><span>Сахар</span></div>
+      </aside>
+    </div>
+
+    <div class="loop">
+      <svg class="ring reveal" viewBox="0 0 720 660" role="img" aria-label="Замкнутый круг: кортизол, сон, сахар, энергия, действия">
+        <circle class="arc" cx="360" cy="330" r="230"/>
+        <circle class="arc-live" cx="360" cy="330" r="230" transform="rotate(-90 360 330)"/>
+        <g>
+          <circle class="dot hot" cx="360" cy="100" r="13"/><text class="num" x="360" y="106" text-anchor="middle">1</text>
+          <text class="lbl" x="360" y="62" text-anchor="middle">Кортизол растёт</text>
+          <text class="hit" x="360" y="146" text-anchor="middle">сюда входит ходьба</text>
+        </g>
+        <g>
+          <circle class="dot hot" cx="579" cy="259" r="13"/><text class="num" x="579" y="265" text-anchor="middle">2</text>
+          <text class="lbl" x="602" y="254" text-anchor="start">Сон короче</text>
+          <text class="hit" x="602" y="276" text-anchor="start">точка входа</text>
+        </g>
+        <g>
+          <circle class="dot hot" cx="495" cy="516" r="13"/><text class="num" x="495" y="522" text-anchor="middle">3</text>
+          <text class="lbl" x="518" y="540" text-anchor="start">Сахар скачет</text>
+          <text class="hit" x="518" y="562" text-anchor="start">точка входа</text>
+        </g>
+        <g>
+          <circle class="dot" cx="225" cy="516" r="13"/><text class="num" x="225" y="522" text-anchor="middle">4</text>
+          <text class="lbl" x="202" y="540" text-anchor="end">Энергия падает</text>
+        </g>
+        <g>
+          <circle class="dot" cx="141" cy="259" r="13"/><text class="num" x="141" y="265" text-anchor="middle">5</text>
+          <text class="lbl" x="124" y="254" text-anchor="end">Денег меньше</text>
+        </g>
+        <text x="360" y="322" text-anchor="middle" style="font-family:var(--f-display);font-size:27px;fill:#FBFDFC;letter-spacing:-.02em">и круг</text>
+        <text x="360" y="358" text-anchor="middle" style="font-family:var(--f-display);font-size:27px;fill:#FBFDFC;letter-spacing:-.02em">замыкается</text>
+      </svg>
+
+      <ol class="ring-list">
+        <li><b>1</b> Кортизол растёт, горизонт решений сужается</li>
+        <li><b>2</b> Сон становится короче</li>
+        <li><b>3</b> Сахар скачет, стратегия выключается</li>
+        <li><b>4</b> Энергия и настроение падают</li>
+        <li><b>5</b> Действий и денег становится меньше</li>
+      </ol>
+
+      <div class="points reveal">
+        <div class="pt">
+          <h3>Кортизол сужает поле решений</h3>
+          <p>При высоком кортизоле оценка риска перенастраивается физически. Человек не боится назвать цену, он просто не видит вариантов, где это возможно.</p>
+          <span class="src">Kandasamy, Coates et al., PNAS, 2014</span>
+        </div>
+        <div class="pt">
+          <h3>Недосып двигает денежные решения</h3>
+          <p>После ночи без сна мозг сильнее откликается на выигрыш и слабее на потерю. Выбор смещается к риску, а сам человек этого не замечает.</p>
+          <span class="src">Обзор 25 исследований принятия решений при недосыпе</span>
+        </div>
+        <div class="pt">
+          <h3>Настроение это доход</h3>
+          <p>У работающих людей с депрессией фиксируется около 23 лишних дней потерянной продуктивности в год. Это ровно те дни, когда не отправлено предложение и не названа цена.</p>
+          <span class="src">Оценки потерь продуктивности, ВОЗ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="loop-note reveal">
+      <div class="big">Не сначала здоровье, потом деньги.</div>
+      <p class="lead" style="margin:0">Одно действие каждый день, и то, и другое.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── ЭКРАН 3: ТЕХНОЛОГИЯ ───────────────── -->
+<section id="s3">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Технология</div>
+      <h2>У всех ходьба одна на 21 день. Здесь она разная каждый день</h2>
+      <p class="lead">Денежный потолок держат шесть механизмов, и под каждый собран свой режим ходьбы. Настраиваются темп, дыхание, взгляд, среда, голос и окно действия сразу после прогулки. Ваш стартовый режим определяется на первой сессии, потому что универсальный протокол части людей просто вредит.</p>
+    </div>
+
+    <div class="grid6">
+      <article class="mode reveal">
+        <div class="idx">Режим 01</div>
+        <h3>Выход из замирания</h3>
+        <p>Когда о деньгах думать физически тяжело и хочется отложить всё на завтра.</p>
+        <div class="dials">
+          <div class="dial"><span>темп</span><i style="--w:24%"></i></div>
+          <div class="dial"><span>дыхание</span><i style="--w:86%"></i></div>
+          <div class="dial"><span>взгляд</span><i style="--w:40%"></i></div>
+          <div class="dial"><span>среда</span><i style="--w:70%"></i></div>
+          <div class="dial"><span>голос</span><i style="--w:12%"></i></div>
+        </div>
+      </article>
+      <article class="mode reveal">
+        <div class="idx">Режим 02</div>
+        <h3>Возвращение азарта</h3>
+        <p>Когда всё серое и ни одна цель больше не тянет вперёд.</p>
+        <div class="dials">
+          <div class="dial"><span>темп</span><i style="--w:58%"></i></div>
+          <div class="dial"><span>дыхание</span><i style="--w:44%"></i></div>
+          <div class="dial"><span>взгляд</span><i style="--w:66%"></i></div>
+          <div class="dial"><span>среда</span><i style="--w:95%"></i></div>
+          <div class="dial"><span>голос</span><i style="--w:36%"></i></div>
+        </div>
+      </article>
+      <article class="mode reveal">
+        <div class="idx">Режим 03</div>
+        <h3>Подъём потолка</h3>
+        <p>Когда доход упирается в одну и ту же цифру и всякий раз откатывается назад.</p>
+        <div class="dials">
+          <div class="dial"><span>темп</span><i style="--w:62%"></i></div>
+          <div class="dial"><span>дыхание</span><i style="--w:52%"></i></div>
+          <div class="dial"><span>взгляд</span><i style="--w:74%"></i></div>
+          <div class="dial"><span>среда</span><i style="--w:80%"></i></div>
+          <div class="dial"><span>голос</span><i style="--w:58%"></i></div>
+        </div>
+      </article>
+      <article class="mode reveal">
+        <div class="idx">Режим 04</div>
+        <h3>Право назвать цену</h3>
+        <p>Когда цифра застревает в горле, а после названной суммы хочется сразу оправдаться.</p>
+        <div class="dials">
+          <div class="dial"><span>темп</span><i style="--w:78%"></i></div>
+          <div class="dial"><span>дыхание</span><i style="--w:40%"></i></div>
+          <div class="dial"><span>взгляд</span><i style="--w:92%"></i></div>
+          <div class="dial"><span>среда</span><i style="--w:46%"></i></div>
+          <div class="dial"><span>голос</span><i style="--w:100%"></i></div>
+        </div>
+      </article>
+      <article class="mode reveal">
+        <div class="idx">Режим 05</div>
+        <h3>Способность брать</h3>
+        <p>Когда отдавать легко, а принимать деньги, помощь и похвалу неловко.</p>
+        <div class="dials">
+          <div class="dial"><span>темп</span><i style="--w:44%"></i></div>
+          <div class="dial"><span>дыхание</span><i style="--w:38%"></i></div>
+          <div class="dial"><span>взгляд</span><i style="--w:84%"></i></div>
+          <div class="dial"><span>среда</span><i style="--w:100%"></i></div>
+          <div class="dial"><span>голос</span><i style="--w:64%"></i></div>
+        </div>
+      </article>
+      <article class="mode reveal">
+        <div class="idx">Режим 06</div>
+        <h3>Горизонт вместо сегодня</h3>
+        <p>Когда деньги приходят и тут же расходятся, а плана дальше месяца нет.</p>
+        <div class="dials">
+          <div class="dial"><span>темп</span><i style="--w:50%"></i></div>
+          <div class="dial"><span>дыхание</span><i style="--w:48%"></i></div>
+          <div class="dial"><span>взгляд</span><i style="--w:70%"></i></div>
+          <div class="dial"><span>среда</span><i style="--w:60%"></i></div>
+          <div class="dial"><span>голос</span><i style="--w:42%"></i></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="locked reveal">
+      <b>Точные настройки шести режимов внутри протокола.</b>
+      <span>Здесь показано, что именно меняется, а не как.</span>
+    </div>
+
+    <div class="phases reveal">
+      <div class="kicker">Одна сессия</div>
+      <h3 style="margin-top:14px;font-size:clamp(24px,3vw,34px)">Пять фаз, и каждая делает свою работу</h3>
+      <div class="phase-row">
+        <div class="ph"><div class="n">Фаза 1</div><h3>Сброс</h3><p>Заходим в денежную тему с холодной головой</p><div class="bar" style="--w:35%"></div></div>
+        <div class="ph"><div class="n">Фаза 2</div><h3>Разгон</h3><p>Интенсивность, которая даёт эффект сверх объёма</p><div class="bar" style="--w:60%"></div></div>
+        <div class="ph"><div class="n">Фаза 3</div><h3>Ядро</h3><p>Работа механизма дня на пике мышления</p><div class="bar" style="--w:100%"></div></div>
+        <div class="ph"><div class="n">Фаза 4</div><h3>Пик</h3><p>Самое трудное: голос, цена, прямая просьба</p><div class="bar" style="--w:80%"></div></div>
+        <div class="ph"><div class="n">Фаза 5</div><h3>Сборка</h3><p>Состояние переводится в решение и действие</p><div class="bar" style="--w:45%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ЭКРАН 4: ЗДОРОВЬЕ ───────────────── -->
+<section class="dark" id="s4">
+  <div class="wrap">
+    <div class="health-top">
+      <div class="sec-head reveal">
+        <div class="kicker">Вторая ось</div>
+        <h2>Пока вы работаете с деньгами, тело получает свою половину</h2>
+        <p class="lead">Эта часть доказана лучше денежной. Ходьба одно из самых изученных вмешательств в медицине, и протокол собран так, чтобы за 21 день набрался объём, на котором эффекты вообще фиксируются.</p>
+      </div>
+      <div class="reveal">
+        <img src="images/steps.jpg" alt="Стопы в кроссовках на утреннем асфальте" style="width:100%;height:clamp(200px,26vh,280px);object-fit:cover">
+      </div>
+    </div>
+
+    <div class="numbers reveal">
+      <div class="num">
+        <div class="v" data-count="25" data-pre="−" data-suf="%">−25%</div>
+        <div class="t">риска депрессии при недельном объёме, который даёт протокол</div>
+        <span class="s">JAMA Psychiatry, 2022 · 190 000 участников</span>
+      </div>
+      <div class="num">
+        <div class="v" data-count="2" data-pre="+" data-suf="%">+2%</div>
+        <div class="t">объёма гиппокампа за год ходьбы там, где обычно идёт убыль</div>
+        <span class="s">Erickson et al., PNAS, 2011</span>
+      </div>
+      <div class="num">
+        <div class="v" data-count="21">21</div>
+        <div class="t">прогулка после ужина, лучший режим по контролю сахара</div>
+        <span class="s">DiPietro et al., Diabetes Care, 2013</span>
+      </div>
+      <div class="num">
+        <div class="v" data-count="27" data-suf=" ч">27 ч</div>
+        <div class="t">ходьбы за практикум, из них около шести в бодром темпе</div>
+        <span class="s">Расчёт протокола: 75 минут в день</span>
+      </div>
+    </div>
+
+    <div class="biohack">
+      <div class="bh reveal">
+        <h3>За это обычно платят</h3>
+        <ul>
+          <li>Сенсор сахара и разбор пиков глюкозы</li>
+          <li>Трекер сна и работа с бессонницей</li>
+          <li>Курс добавок на энергию и настроение</li>
+          <li>Программа тренировок для сосудов и сердца</li>
+        </ul>
+      </div>
+      <div class="bh right reveal">
+        <h3>Здесь это делает протокол</h3>
+        <ul>
+          <li>Пятнадцать минут после ужина сбивают вечерний пик сахара сильнее, чем одна длинная прогулка днём</li>
+          <li>Утренний свет и ежедневная нагрузка чинят сон без таблеток</li>
+          <li>Медитативная часть снижает кортизол и маркеры воспаления, что видно в анализах крови</li>
+          <li>Бодрые отрезки в каждой сессии работают на сосуды, давление и сердце</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="measure reveal">
+      <div class="kicker">Замеры до и после</div>
+      <h3 style="margin-top:14px;color:#FBFDFC;font-size:clamp(24px,3vw,34px)">Пять цифр по телу, которые вы увидите сами</h3>
+      <div class="mrow">
+        <div class="mcell"><div class="k">Замер 1</div><div class="val">Пульс покоя утром</div></div>
+        <div class="mcell"><div class="k">Замер 2</div><div class="val">Сон: часы и качество</div></div>
+        <div class="mcell"><div class="k">Замер 3</div><div class="val">Энергия днём</div></div>
+        <div class="mcell"><div class="k">Замер 4</div><div class="val">Объём талии</div></div>
+        <div class="mcell"><div class="k">Замер 5</div><div class="val">Тяга к сладкому</div></div>
+      </div>
+    </div>
+
+    <figure class="evening-img reveal" style="margin-left:0;margin-right:0">
+      <img src="images/evening.jpg" alt="Вечерняя прогулка после ужина вдоль домов">
+      <figcaption><b>Вечерние пятнадцать минут стоят в протоколе каждый день и не меняются.</b> Это лучший из доступных метаболических эффектов ходьбы и одновременно условие для стратегического мышления, которому нужен ровный сахар.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="note">
+  <div class="wrap"><p>Макет четырёх экранов. Тексты черновые, цифры и источники настоящие, финальный текст пишет словесник после утверждения дизайна.</p></div>
+</div>
+
+<script>
+(function(){
+  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // прогресс чтения
+  var pr = document.getElementById('progress');
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    pr.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // появление блоков
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.18, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal,.mode,.phase-row,.ring').forEach(function(el){ io.observe(el); });
+
+  // счётчики цифр
+  var ioN = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target, to = parseFloat(el.dataset.count), pre = el.dataset.pre || '', suf = el.dataset.suf || '';
+      ioN.unobserve(el);
+      if(rm){ el.textContent = pre + to + suf; return; }
+      var t0 = null, dur = 1100;
+      requestAnimationFrame(function step(t){
+        if(!t0) t0 = t;
+        var p = Math.min((t - t0) / dur, 1), v = Math.round(to * (1 - Math.pow(1 - p, 3)));
+        el.textContent = pre + v + suf;
+        if(p < 1) requestAnimationFrame(step);
+      });
+    });
+  }, {threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(function(el){ ioN.observe(el); });
+
+  // рельс шагов
+  var secs = ['s1','s2','s3','s4'].map(function(id){ return document.getElementById(id); });
+  var dots = document.querySelectorAll('#rail b');
+  var ioR = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var i = secs.indexOf(e.target);
+      dots.forEach(function(d, k){ d.classList.toggle('on', k === i); });
+    });
+  }, {threshold:.5});
+  secs.forEach(function(s){ if(s) ioR.observe(s); });
+})();
+</script>
+</body>
+</html>
