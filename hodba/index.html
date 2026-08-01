@@ -281,13 +281,6 @@ section{padding:clamp(72px,11vh,132px) 0}
 .tr p{font-size:16.5px;color:var(--body);margin:0;line-height:1.5}
 
 
-/* ── липкая кнопка ───────────────── */
-#sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(15,21,24,.94);backdrop-filter:blur(8px);border-top:1px solid rgba(238,241,240,.14);transform:translateY(110%);transition:transform .4s cubic-bezier(.2,.7,.3,1);padding:12px 0;padding-bottom:calc(12px + env(safe-area-inset-bottom))}
-#sticky.on{transform:none}
-#sticky .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
-#sticky .st-t{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,245,244,.75)}
-#sticky .st-t b{color:#FBFDFC;font-weight:400}
-#sticky .btn{padding:13px 22px}
 
 /* ── подбор входа ───────────────── */
 .qz{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
@@ -345,13 +338,6 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:28px 0}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 
-/* ── липкая кнопка ───────────────── */
-#sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(15,21,24,.94);backdrop-filter:blur(8px);border-top:1px solid rgba(238,241,240,.14);transform:translateY(110%);transition:transform .4s cubic-bezier(.2,.7,.3,1);padding:12px 0;padding-bottom:calc(12px + env(safe-area-inset-bottom))}
-#sticky.on{transform:none}
-#sticky .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
-#sticky .st-t{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,245,244,.75)}
-#sticky .st-t b{color:#FBFDFC;font-weight:400}
-#sticky .btn{padding:13px 22px}
 
 @media(max-width:1000px){
   .head-split{grid-template-columns:1fr;gap:32px}
@@ -371,7 +357,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
 }
 @media(max-width:640px){
   :root{--pad:20px}
-  body{font-size:17.5px;line-height:1.6;padding-bottom:74px}
+  body{font-size:17.5px;line-height:1.6}
   h2{font-size:clamp(28px,7.6vw,34px);line-height:1.1}
   h3{font-size:19.5px}
   .lead{font-size:17.5px;line-height:1.55}
@@ -464,9 +450,6 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   .proof div{padding-right:18px;margin-right:18px}
   .proof .n{font-size:26px}
   footer .wrap{flex-direction:column;gap:8px}
-  #sticky .btn{padding:12px 18px;font-size:12px}
-  #sticky .st-t{font-size:11.5px}
-  #sticky .st-t span.hide{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -1367,13 +1350,6 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   </div>
 </section>
 
-<div id="sticky" aria-hidden="true">
-  <div class="wrap">
-    <div class="st-t"><b>Протокол 21</b><span class="hide"> · Денежная ходьба · старт 5 августа</span></div>
-    <a class="btn" href="#vhod">Войти · 3 500 ₽</a>
-  </div>
-</div>
-
 <div class="note">
   <div class="wrap"><p>Макет страницы. Тексты черновые, цифры и источники настоящие. Финальный текст проходит словесника, редактора и детектор, цена и кнопка оплаты подключаются после решения по условиям.</p></div>
 </div>
@@ -1457,16 +1433,6 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
     window.addEventListener('scroll', function(){ if(!ticking){ requestAnimationFrame(plxTick); ticking = true; } }, {passive:true});
     plxTick();
   }
-
-  // липкая кнопка: после первого экрана, прячется у финала
-  var sticky = document.getElementById('sticky');
-  var vhod = document.getElementById('vhod');
-  function stickyTick(){
-    var past = window.scrollY > window.innerHeight * .9;
-    var nearEnd = vhod && vhod.getBoundingClientRect().top < window.innerHeight * .8;
-    sticky.classList.toggle('on', past && !nearEnd);
-  }
-  window.addEventListener('scroll', stickyTick, {passive:true}); stickyTick();
 
   // отсчёт до старта 5 августа
   (function(){
