@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Протокол 21. Денежная ходьба</title>
 <meta name="description" content="Протокол 21: денежная ходьба по технологии. 21 день, 75 минут в день. Одно действие, два результата: денежное состояние и здоровье.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Протокол 21. Денежная ходьба">
+<meta property="og:description" content="21 день, 75 минут в день. Технология из шести режимов, наука с именами, замеры до и после. Старт 5 августа.">
+<meta property="og:image" content="https://thebodymindcode.github.io/soznanie/hodba/images/og.jpg">
+<meta property="og:url" content="https://thebodymindcode.github.io/soznanie/hodba/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -262,6 +270,25 @@ section{padding:clamp(72px,11vh,132px) 0}
 .tr h3{font-size:20px;margin:12px 0 8px}
 .tr p{font-size:16.5px;color:var(--body);margin:0;line-height:1.5}
 
+
+/* ── липкая кнопка ───────────────── */
+#sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(15,21,24,.94);backdrop-filter:blur(8px);border-top:1px solid rgba(238,241,240,.14);transform:translateY(110%);transition:transform .4s cubic-bezier(.2,.7,.3,1);padding:12px 0;padding-bottom:calc(12px + env(safe-area-inset-bottom))}
+#sticky.on{transform:none}
+#sticky .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+#sticky .st-t{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,245,244,.75)}
+#sticky .st-t b{color:#FBFDFC;font-weight:400}
+#sticky .btn{padding:13px 22px}
+@media(max-width:640px){#sticky .st-t span.hide{display:none}}
+/* ── отсчёт ───────────────── */
+.count{margin-top:22px;font-family:var(--f-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,245,244,.7)}
+.count b{color:var(--orange);font-weight:400;font-variant-numeric:tabular-nums}
+/* ── как попасть ───────────────── */
+.enter3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px;counter-reset:en}
+.en{background:var(--paper);padding:30px 28px;position:relative}
+.en .n{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;color:var(--orange-d)}
+.en h3{font-size:20px;margin:12px 0 8px}
+.en p{font-size:16.5px;color:var(--body);margin:0;line-height:1.5}
+
 /* ── технология ───────────────── */
 .grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
 .mode{background:var(--paper);padding:30px 28px 26px;transition:.3s;position:relative;display:flex;flex-direction:column}
@@ -426,7 +453,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   body{font-size:18px}
   .hero-in{padding-top:96px}
   .facts div{padding-right:20px;margin-right:20px}
-  .grid6,.sci,.phase-row,.numbers,.biohack,.mistakes,.stages,.got,.meas,.fit,.duo,.window-strip,.why,.charts,.try{grid-template-columns:1fr}
+  .grid6,.sci,.phase-row,.numbers,.biohack,.mistakes,.stages,.got,.meas,.fit,.duo,.window-strip,.why,.charts,.try,.enter3{grid-template-columns:1fr}
   .mosaic{grid-template-columns:1fr 1fr}
   .cmp{grid-template-columns:1fr;gap:0}
   .cmp .ch:empty{display:none}
@@ -1212,6 +1239,10 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
         <div class="a"><p>Для этого и есть диагностика первого дня и адаптированная версия: короче и мягче, с тем же смыслом. Начать можно с десяти минут, объём догоняется по&nbsp;неделям.</p></div>
       </details>
       <details>
+        <summary>У меня наёмная работа, не бизнес. Подойдёт?</summary>
+        <div class="a"><p>Да. Денежные действия подбираются под вашу ситуацию: разговор о пересмотре зарплаты, отклик на позицию уровнем выше, первые отложенные десять процентов, продажа ненужного. Протокол работает с состоянием и действиями, а они есть у всех, независимо от формы&nbsp;дохода.</p></div>
+      </details>
+      <details>
         <summary>Где проходит программа?</summary>
         <div class="a"><p>На отдельной платформе с личным кабинетом, как «Протокол денег»: вход по вашей почте, внутри карта дней, аудио, задания, дневник, цели и километры с графиками прогресса. Работает с телефона и компьютера, ставить ничего не&nbsp;нужно.</p></div>
       </details>
@@ -1219,6 +1250,22 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
         <summary>Чем это отличается от обычных марафонов ходьбы?</summary>
         <div class="a"><p>Тремя вещами: режим каждый день свой, под механизм дня; каждая сессия заканчивается действием в реальные деньги; и у всего есть проверяемое объяснение, от дыхания до времени вечерней прогулки.</p></div>
       </details>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── КАК ПОПАСТЬ ───────────────── -->
+<section id="s16b" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Как попасть</div>
+      <h2>Три шага до первой&nbsp;сессии</h2>
+    </div>
+    <div class="enter3">
+      <div class="en reveal"><div class="n">Шаг 1</div><h3>Оплачиваете&nbsp;участие</h3><p>Кнопка ниже. Оплата картой, доступ закрепляется за вашей&nbsp;почтой.</p></div>
+      <div class="en reveal"><div class="n">Шаг 2</div><h3>Получаете вход на&nbsp;платформу</h3><p>Личный кабинет откроется до старта: осмотритесь, пройдите замеры первого дня.</p></div>
+      <div class="en reveal"><div class="n">Шаг 3</div><h3>5 августа первая&nbsp;настройка</h3><p>Утром Дарья задаёт направление, и вы выходите на первую сессию. Дальше 21 день по&nbsp;карте.</p></div>
     </div>
   </div>
 </section>
@@ -1234,6 +1281,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <div class="pr-num">3 500&nbsp;₽</div>
       <div class="pr-txt">за весь протокол: личный кабинет на платформе, 21 карточка дня, аудио в дорогу, практикум и план до 66&nbsp;дня</div>
     </div>
+    <div class="count" id="count" hidden>До старта <b id="cd">…</b></div>
     <div class="cta" style="margin-bottom:0">
       <a class="btn" href="#">Войти в протокол</a>
     </div>
@@ -1242,6 +1290,13 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
     </div>
   </div>
 </section>
+
+<div id="sticky" aria-hidden="true">
+  <div class="wrap">
+    <div class="st-t"><b>Протокол 21</b><span class="hide"> · Денежная ходьба · старт 5 августа</span></div>
+    <a class="btn" href="#vhod">Войти · 3 500 ₽</a>
+  </div>
+</div>
 
 <div class="note">
   <div class="wrap"><p>Макет страницы. Тексты черновые, цифры и источники настоящие. Финальный текст проходит словесника, редактора и детектор, цена и кнопка оплаты подключаются после решения по условиям.</p></div>
@@ -1298,6 +1353,34 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
     });
   }, {threshold:.5});
   document.querySelectorAll('[data-count]').forEach(function(el){ ioN.observe(el); });
+
+  // липкая кнопка: после первого экрана, прячется у финала
+  var sticky = document.getElementById('sticky');
+  var vhod = document.getElementById('vhod');
+  function stickyTick(){
+    var past = window.scrollY > window.innerHeight * .9;
+    var nearEnd = vhod && vhod.getBoundingClientRect().top < window.innerHeight * .8;
+    sticky.classList.toggle('on', past && !nearEnd);
+  }
+  window.addEventListener('scroll', stickyTick, {passive:true}); stickyTick();
+
+  // отсчёт до старта 5 августа
+  (function(){
+    var box = document.getElementById('count'), out = document.getElementById('cd');
+    if(!box || !out) return;
+    var t0 = new Date('2026-08-05T00:00:00+03:00').getTime();
+    function pad(n){ return (n<10?'0':'')+n; }
+    function tick(){
+      var d = t0 - Date.now();
+      if(d <= 0){ box.hidden = true; return; }
+      var days = Math.floor(d/86400000), hh = Math.floor(d%86400000/3600000), mm = Math.floor(d%3600000/60000), ss = Math.floor(d%60000/1000);
+      var dw = (days%10===1&&days%100!==11)?'день':(days%10>=2&&days%10<=4&&(days%100<10||days%100>=20))?'дня':'дней';
+      out.textContent = days + ' ' + dw + ' ' + pad(hh) + ':' + pad(mm) + ':' + pad(ss);
+      box.hidden = false;
+      setTimeout(tick, 1000);
+    }
+    tick();
+  })();
 
   var secs = ['s1','s4','s7','s11','vhod'].map(function(id){ return document.getElementById(id); });
   var dots = document.querySelectorAll('#rail b');
