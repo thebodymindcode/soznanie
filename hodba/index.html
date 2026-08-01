@@ -127,7 +127,8 @@ section{padding:clamp(72px,11vh,132px) 0}
 
 /* ── экран 3: технология ───────────────── */
 .grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
-.mode{background:var(--paper);padding:30px 28px 26px;transition:.3s;position:relative}
+.mode{background:var(--paper);padding:30px 28px 26px;transition:.3s;position:relative;display:flex;flex-direction:column}
+.mode .dials{margin-top:auto}
 .mode:hover{background:#fff}
 .mode .idx{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;color:var(--orange-d)}
 .mode h3{margin:14px 0 10px}
@@ -143,7 +144,8 @@ section{padding:clamp(72px,11vh,132px) 0}
 .locked b{color:var(--ink);font-weight:400}
 .phases{margin-top:64px;border-top:1px solid var(--line);padding-top:40px}
 .phase-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
-.ph{background:var(--paper);padding:22px 20px}
+.ph{background:var(--paper);padding:22px 20px;display:flex;flex-direction:column}
+.ph .bar{margin-top:auto}
 .ph .n{font-family:var(--f-mono);font-size:11.5px;color:var(--orange-d);letter-spacing:.14em}
 .ph h3{font-size:20px;margin:10px 0 8px}
 .ph p{font-size:15.5px;color:var(--muted);margin:0;line-height:1.45}
@@ -151,7 +153,8 @@ section{padding:clamp(72px,11vh,132px) 0}
 .phase-row.in .ph .bar{width:var(--w)}
 
 /* ── экран 4: здоровье ───────────────── */
-.health-top{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,4vw,60px);align-items:end}
+.health-top{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,60px);align-items:end;margin-top:34px}
+.health-top .lead{margin:0}
 .numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dark);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);margin-top:56px}
 .num{background:var(--graphite);padding:30px 24px 28px}
 .num .v{font-family:var(--f-display);font-size:clamp(38px,5.2vw,64px);line-height:1;color:#FBFDFC;letter-spacing:-.03em}
@@ -173,7 +176,7 @@ section{padding:clamp(72px,11vh,132px) 0}
 .mcell .val{font-family:var(--f-display);font-size:20px;color:#FBFDFC;margin-top:10px;line-height:1.2}
 .evening-img{margin-top:56px;position:relative;overflow:hidden}
 .evening-img img{width:100%;height:clamp(240px,38vh,420px);object-fit:cover}
-.evening-img figcaption{position:absolute;left:0;bottom:0;right:0;padding:26px 28px;background:linear-gradient(to top,rgba(15,21,24,.92),transparent);color:rgba(233,238,236,.9);font-size:17px}
+.evening-img figcaption{position:absolute;left:0;bottom:0;right:0;padding:34px 28px 26px;background:linear-gradient(to top,rgba(15,21,24,.97) 0%,rgba(15,21,24,.92) 62%,rgba(15,21,24,0) 100%);color:rgba(233,238,236,.92);font-size:17px}
 .evening-img figcaption b{color:#fff;font-weight:600}
 
 /* ── финал макета ───────────────── */
@@ -247,7 +250,7 @@ section{padding:clamp(72px,11vh,132px) 0}
     <div class="head-split">
       <div class="sec-head reveal">
         <div class="kicker">Механизм</div>
-        <h2>Тело и деньги стоят на одном круге</h2>
+        <h2>Тело и деньги стоят на одном&nbsp;круге</h2>
         <p class="lead">Их принято разводить: здоровье когда будет время, деньги прямо сейчас. В физиологии это один контур, и он замкнут. Ходьба входит в него сразу в трёх точках.</p>
       </div>
       <aside class="entry reveal">
@@ -290,7 +293,7 @@ section{padding:clamp(72px,11vh,132px) 0}
       </svg>
 
       <ol class="ring-list">
-        <li><b>1</b> Кортизол растёт, горизонт решений сужается</li>
+        <li><b>1</b> Кортизол растёт, горизонт решений&nbsp;сужается</li>
         <li><b>2</b> Сон становится короче</li>
         <li><b>3</b> Сахар скачет, стратегия выключается</li>
         <li><b>4</b> Энергия и настроение падают</li>
@@ -299,12 +302,12 @@ section{padding:clamp(72px,11vh,132px) 0}
 
       <div class="points reveal">
         <div class="pt">
-          <h3>Кортизол сужает поле решений</h3>
-          <p>При высоком кортизоле оценка риска перенастраивается физически. Человек не боится назвать цену, он просто не видит вариантов, где это возможно.</p>
+          <h3>Кортизол сужает поле&nbsp;решений</h3>
+          <p>При высоком кортизоле оценка риска перенастраивается физически. Человек не боится назвать цену, он просто не видит вариантов, где это&nbsp;возможно.</p>
           <span class="src">Kandasamy, Coates et al., PNAS, 2014</span>
         </div>
         <div class="pt">
-          <h3>Недосып двигает денежные решения</h3>
+          <h3>Недосып двигает денежные&nbsp;решения</h3>
           <p>После ночи без сна мозг сильнее откликается на выигрыш и слабее на потерю. Выбор смещается к риску, а сам человек этого не замечает.</p>
           <span class="src">Обзор 25 исследований принятия решений при недосыпе</span>
         </div>
@@ -317,7 +320,7 @@ section{padding:clamp(72px,11vh,132px) 0}
     </div>
 
     <div class="loop-note reveal">
-      <div class="big">Не сначала здоровье, потом деньги.</div>
+      <div class="big">Не сначала здоровье, потом&nbsp;деньги.</div>
       <p class="lead" style="margin:0">Одно действие каждый день, и то, и другое.</p>
     </div>
   </div>
@@ -335,8 +338,8 @@ section{padding:clamp(72px,11vh,132px) 0}
     <div class="grid6">
       <article class="mode reveal">
         <div class="idx">Режим 01</div>
-        <h3>Выход из замирания</h3>
-        <p>Когда о деньгах думать физически тяжело и хочется отложить всё на завтра.</p>
+        <h3>Выход из&nbsp;замирания</h3>
+        <p>Когда о деньгах думать физически тяжело и хочется отложить всё на&nbsp;завтра.</p>
         <div class="dials">
           <div class="dial"><span>темп</span><i style="--w:24%"></i></div>
           <div class="dial"><span>дыхание</span><i style="--w:86%"></i></div>
@@ -347,7 +350,7 @@ section{padding:clamp(72px,11vh,132px) 0}
       </article>
       <article class="mode reveal">
         <div class="idx">Режим 02</div>
-        <h3>Возвращение азарта</h3>
+        <h3>Возвращение&nbsp;азарта</h3>
         <p>Когда всё серое и ни одна цель больше не тянет вперёд.</p>
         <div class="dials">
           <div class="dial"><span>темп</span><i style="--w:58%"></i></div>
@@ -359,7 +362,7 @@ section{padding:clamp(72px,11vh,132px) 0}
       </article>
       <article class="mode reveal">
         <div class="idx">Режим 03</div>
-        <h3>Подъём потолка</h3>
+        <h3>Подъём&nbsp;потолка</h3>
         <p>Когда доход упирается в одну и ту же цифру и всякий раз откатывается назад.</p>
         <div class="dials">
           <div class="dial"><span>темп</span><i style="--w:62%"></i></div>
@@ -371,7 +374,7 @@ section{padding:clamp(72px,11vh,132px) 0}
       </article>
       <article class="mode reveal">
         <div class="idx">Режим 04</div>
-        <h3>Право назвать цену</h3>
+        <h3>Право назвать&nbsp;цену</h3>
         <p>Когда цифра застревает в горле, а после названной суммы хочется сразу оправдаться.</p>
         <div class="dials">
           <div class="dial"><span>темп</span><i style="--w:78%"></i></div>
@@ -383,8 +386,8 @@ section{padding:clamp(72px,11vh,132px) 0}
       </article>
       <article class="mode reveal">
         <div class="idx">Режим 05</div>
-        <h3>Способность брать</h3>
-        <p>Когда отдавать легко, а принимать деньги, помощь и похвалу неловко.</p>
+        <h3>Способность&nbsp;брать</h3>
+        <p>Когда отдавать легко, а принимать деньги, помощь и похвалу&nbsp;неловко.</p>
         <div class="dials">
           <div class="dial"><span>темп</span><i style="--w:44%"></i></div>
           <div class="dial"><span>дыхание</span><i style="--w:38%"></i></div>
@@ -395,8 +398,8 @@ section{padding:clamp(72px,11vh,132px) 0}
       </article>
       <article class="mode reveal">
         <div class="idx">Режим 06</div>
-        <h3>Горизонт вместо сегодня</h3>
-        <p>Когда деньги приходят и тут же расходятся, а плана дальше месяца нет.</p>
+        <h3>Горизонт вместо&nbsp;сегодня</h3>
+        <p>Когда деньги приходят и тут же расходятся, а плана дальше месяца&nbsp;нет.</p>
         <div class="dials">
           <div class="dial"><span>темп</span><i style="--w:50%"></i></div>
           <div class="dial"><span>дыхание</span><i style="--w:48%"></i></div>
@@ -408,19 +411,19 @@ section{padding:clamp(72px,11vh,132px) 0}
     </div>
 
     <div class="locked reveal">
-      <b>Точные настройки шести режимов внутри протокола.</b>
-      <span>Здесь показано, что именно меняется, а не как.</span>
+      <b>Точные настройки шести режимов внутри&nbsp;протокола.</b>
+      <span>Здесь показано, что именно меняется, а не&nbsp;как.</span>
     </div>
 
     <div class="phases reveal">
       <div class="kicker">Одна сессия</div>
       <h3 style="margin-top:14px;font-size:clamp(24px,3vw,34px)">Пять фаз, и каждая делает свою работу</h3>
       <div class="phase-row">
-        <div class="ph"><div class="n">Фаза 1</div><h3>Сброс</h3><p>Заходим в денежную тему с холодной головой</p><div class="bar" style="--w:35%"></div></div>
+        <div class="ph"><div class="n">Фаза 1</div><h3>Сброс</h3><p>Заходим в денежную тему с холодной&nbsp;головой</p><div class="bar" style="--w:35%"></div></div>
         <div class="ph"><div class="n">Фаза 2</div><h3>Разгон</h3><p>Интенсивность, которая даёт эффект сверх объёма</p><div class="bar" style="--w:60%"></div></div>
-        <div class="ph"><div class="n">Фаза 3</div><h3>Ядро</h3><p>Работа механизма дня на пике мышления</p><div class="bar" style="--w:100%"></div></div>
-        <div class="ph"><div class="n">Фаза 4</div><h3>Пик</h3><p>Самое трудное: голос, цена, прямая просьба</p><div class="bar" style="--w:80%"></div></div>
-        <div class="ph"><div class="n">Фаза 5</div><h3>Сборка</h3><p>Состояние переводится в решение и действие</p><div class="bar" style="--w:45%"></div></div>
+        <div class="ph"><div class="n">Фаза 3</div><h3>Ядро</h3><p>Работа механизма дня на пике&nbsp;мышления</p><div class="bar" style="--w:100%"></div></div>
+        <div class="ph"><div class="n">Фаза 4</div><h3>Пик</h3><p>Самое трудное: голос, цена, прямая&nbsp;просьба</p><div class="bar" style="--w:80%"></div></div>
+        <div class="ph"><div class="n">Фаза 5</div><h3>Сборка</h3><p>Состояние переводится в решение и&nbsp;действие</p><div class="bar" style="--w:45%"></div></div>
       </div>
     </div>
   </div>
@@ -429,12 +432,12 @@ section{padding:clamp(72px,11vh,132px) 0}
 <!-- ── ЭКРАН 4: ЗДОРОВЬЕ ───────────────── -->
 <section class="dark" id="s4">
   <div class="wrap">
+    <div class="sec-head reveal" style="max-width:min(780px,100%)">
+      <div class="kicker">Вторая ось</div>
+      <h2>Пока вы работаете с деньгами, тело получает свою&nbsp;половину</h2>
+    </div>
     <div class="health-top">
-      <div class="sec-head reveal">
-        <div class="kicker">Вторая ось</div>
-        <h2>Пока вы работаете с деньгами, тело получает свою половину</h2>
-        <p class="lead">Эта часть доказана лучше денежной. Ходьба одно из самых изученных вмешательств в медицине, и протокол собран так, чтобы за 21 день набрался объём, на котором эффекты вообще фиксируются.</p>
-      </div>
+      <p class="lead reveal">Эта часть доказана лучше денежной. Ходьба одно из самых изученных вмешательств в медицине, и протокол собран так, чтобы за 21 день набрался объём, на котором эффекты вообще фиксируются.</p>
       <div class="reveal">
         <img src="images/steps.jpg" alt="Стопы в кроссовках на утреннем асфальте" style="width:100%;height:clamp(200px,26vh,280px);object-fit:cover">
       </div>
@@ -467,17 +470,17 @@ section{padding:clamp(72px,11vh,132px) 0}
       <div class="bh reveal">
         <h3>За это обычно платят</h3>
         <ul>
-          <li>Сенсор сахара и разбор пиков глюкозы</li>
-          <li>Трекер сна и работа с бессонницей</li>
-          <li>Курс добавок на энергию и настроение</li>
-          <li>Программа тренировок для сосудов и сердца</li>
+          <li>Сенсор сахара и разбор пиков&nbsp;глюкозы</li>
+          <li>Трекер сна и работа с&nbsp;бессонницей</li>
+          <li>Курс добавок на энергию и&nbsp;настроение</li>
+          <li>Программа тренировок для сосудов и&nbsp;сердца</li>
         </ul>
       </div>
       <div class="bh right reveal">
         <h3>Здесь это делает протокол</h3>
         <ul>
           <li>Пятнадцать минут после ужина сбивают вечерний пик сахара сильнее, чем одна длинная прогулка днём</li>
-          <li>Утренний свет и ежедневная нагрузка чинят сон без таблеток</li>
+          <li>Утренний свет и ежедневная нагрузка чинят сон без&nbsp;таблеток</li>
           <li>Медитативная часть снижает кортизол и маркеры воспаления, что видно в анализах крови</li>
           <li>Бодрые отрезки в каждой сессии работают на сосуды, давление и сердце</li>
         </ul>
@@ -488,17 +491,17 @@ section{padding:clamp(72px,11vh,132px) 0}
       <div class="kicker">Замеры до и после</div>
       <h3 style="margin-top:14px;color:#FBFDFC;font-size:clamp(24px,3vw,34px)">Пять цифр по телу, которые вы увидите сами</h3>
       <div class="mrow">
-        <div class="mcell"><div class="k">Замер 1</div><div class="val">Пульс покоя утром</div></div>
-        <div class="mcell"><div class="k">Замер 2</div><div class="val">Сон: часы и качество</div></div>
-        <div class="mcell"><div class="k">Замер 3</div><div class="val">Энергия днём</div></div>
+        <div class="mcell"><div class="k">Замер 1</div><div class="val">Пульс покоя&nbsp;утром</div></div>
+        <div class="mcell"><div class="k">Замер 2</div><div class="val">Сон: часы и&nbsp;качество</div></div>
+        <div class="mcell"><div class="k">Замер 3</div><div class="val">Энергия&nbsp;днём</div></div>
         <div class="mcell"><div class="k">Замер 4</div><div class="val">Объём талии</div></div>
-        <div class="mcell"><div class="k">Замер 5</div><div class="val">Тяга к сладкому</div></div>
+        <div class="mcell"><div class="k">Замер 5</div><div class="val">Тяга к&nbsp;сладкому</div></div>
       </div>
     </div>
 
     <figure class="evening-img reveal" style="margin-left:0;margin-right:0">
       <img src="images/evening.jpg" alt="Вечерняя прогулка после ужина вдоль домов">
-      <figcaption><b>Вечерние пятнадцать минут стоят в протоколе каждый день и не меняются.</b> Это лучший из доступных метаболических эффектов ходьбы и одновременно условие для стратегического мышления, которому нужен ровный сахар.</figcaption>
+      <figcaption><b>Вечерние пятнадцать минут стоят в протоколе каждый день и не меняются.</b> Это лучший из доступных метаболических эффектов ходьбы и одновременно условие для стратегического мышления, которому нужен ровный&nbsp;сахар.</figcaption>
     </figure>
   </div>
 </section>
@@ -510,6 +513,12 @@ section{padding:clamp(72px,11vh,132px) 0}
 <script>
 (function(){
   var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // старый браузер без наблюдателя: показываем всё сразу, без анимации
+  if(!('IntersectionObserver' in window)){
+    document.querySelectorAll('.reveal,.mode,.phase-row,.ring').forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
 
   // прогресс чтения
   var pr = document.getElementById('progress');
@@ -524,6 +533,13 @@ section{padding:clamp(72px,11vh,132px) 0}
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:.18, rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal,.mode,.phase-row,.ring').forEach(function(el){ io.observe(el); });
+
+  // страховка: то, что уже попало на экран, показываем через 2 секунды в любом случае
+  setTimeout(function(){
+    document.querySelectorAll('.reveal:not(.in),.mode:not(.in)').forEach(function(el){
+      if(el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+    });
+  }, 2000);
 
   // счётчики цифр
   var ioN = new IntersectionObserver(function(es){
