@@ -111,8 +111,24 @@ section{padding:clamp(72px,11vh,132px) 0}
 
 /* ── узнавание ───────────────── */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:start}
-.quote-big{font-family:var(--f-display);font-size:clamp(26px,3.2vw,42px);line-height:1.18;letter-spacing:-.015em;color:var(--ink)}
-.quote-big em{font-style:normal;color:var(--orange-d)}
+.rit{margin-top:30px;display:flex;flex-direction:column;gap:10px}
+.rit .r{display:block;font-family:var(--f-display);font-weight:600;font-size:clamp(28px,4.4vw,56px);letter-spacing:-.02em;line-height:1.12;color:var(--muted);position:relative;width:max-content;max-width:100%}
+.rit .r i{position:absolute;left:-1%;top:55%;height:3px;background:var(--orange);width:0;transform:rotate(-1.8deg);transition:width .5s cubic-bezier(.3,.7,.3,1)}
+.rit.in .r:nth-child(1) i{width:102%;transition-delay:.15s}
+.rit.in .r:nth-child(2) i{width:102%;transition-delay:.45s}
+.rit.in .r:nth-child(3) i{width:102%;transition-delay:.75s}
+.punch{font-family:var(--f-display);font-weight:600;font-size:clamp(40px,6.4vw,92px);line-height:1.04;letter-spacing:-.028em;color:var(--ink);margin-top:44px}
+.punch em{font-style:normal;color:var(--orange-d)}
+
+/* ── почему сюда ───────────────── */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:52px}
+.w{background:var(--graphite);padding:30px 28px;transition:.3s}
+.w:hover{background:var(--graphite-2)}
+.w .wn{font-family:var(--f-display);font-size:clamp(34px,3.6vw,52px);line-height:1;color:var(--orange);letter-spacing:-.02em}
+.w h3{color:#FBFDFC;margin:14px 0 10px}
+.w p{color:rgba(233,238,236,.74);font-size:17px;line-height:1.52;margin:0}
+.why-punch{font-family:var(--f-display);font-weight:600;font-size:clamp(28px,4vw,54px);letter-spacing:-.02em;line-height:1.1;color:#FBFDFC;margin-top:48px}
+.why-punch em{font-style:normal;color:var(--orange)}
 
 /* ── наука ───────────────── */
 .sci{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
@@ -207,6 +223,7 @@ section{padding:clamp(72px,11vh,132px) 0}
 .ph h3{font-size:20px;margin:10px 0 8px}
 .ph p{font-size:15.5px;color:var(--muted);margin:0 0 16px;line-height:1.45}
 .ph .bar{height:3px;background:var(--steel);width:0;transition:width 1s ease}
+.ph .blurred{filter:blur(6px);user-select:none;pointer-events:none}
 .phase-row.in .ph .bar{width:var(--w)}
 
 /* ── вход ───────────────── */
@@ -333,7 +350,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   .ecard{flex:1}
   .loop,.split,.goal,.diag,.day,.health-top{grid-template-columns:1fr}
   .day-img{position:static}
-  .grid6,.sci,.mistakes{grid-template-columns:1fr 1fr}
+  .grid6,.sci,.mistakes,.why{grid-template-columns:1fr 1fr}
   .phase-row{grid-template-columns:1fr 1fr}
   .numbers,.stages,.got{grid-template-columns:1fr 1fr}
   .window-strip{grid-template-columns:1fr}
@@ -342,13 +359,16 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   body{font-size:18px}
   .hero-in{padding-top:96px}
   .facts div{padding-right:20px;margin-right:20px}
-  .grid6,.sci,.phase-row,.numbers,.biohack,.mistakes,.stages,.got,.meas,.fit,.duo,.window-strip{grid-template-columns:1fr}
+  .grid6,.sci,.phase-row,.numbers,.biohack,.mistakes,.stages,.got,.meas,.fit,.duo,.window-strip,.why{grid-template-columns:1fr}
   .mk{min-height:0}
   .st{min-height:0}
   .ring-list{display:flex;flex-direction:column;gap:10px;margin-top:24px;list-style:none;padding:0}
   .ring-list li{display:flex;gap:12px;font-size:17px;color:rgba(233,238,236,.78);align-items:baseline}
   .ring-list li b{font-family:var(--f-mono);font-size:12px;color:var(--orange);flex:none}
   .ring text.lbl{display:none}
+  /* мобильный кроп фото: узкая высокая рамка иначе центрирует фигуру ровно под текстом (голова под заголовком) */
+  .hero-img img{object-position:8% 30%}
+  .final-img img{object-position:94% center}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -402,15 +422,34 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
 
 <!-- ── УЗНАВАНИЕ ───────────────── -->
 <section id="s2">
-  <div class="wrap split">
-    <div class="reveal">
-      <div class="kicker">Вы это уже видели</div>
-      <h2 style="margin-top:14px">Вы ходили правильно. Объясняли вам не&nbsp;то</h2>
+  <div class="wrap">
+    <div class="kicker reveal">Вы это уже видели</div>
+    <div class="rit reveal">
+      <span class="r">Выйди на прогулку.<i></i></span>
+      <span class="r">Произнеси намерение.<i></i></span>
+      <span class="r">Благодари и жди.<i></i></span>
     </div>
-    <div class="reveal">
-      <p class="lead">Про денежную ходьбу говорят третий год: выйди на прогулку, произнеси намерение, благодари. Тысячи людей платят за марафоны, и у многих после прогулок правда легче. А потом эффект тает, и человек решает, что дело в нём.</p>
-      <p class="lead">Дело не в вас. Люди чувствовали верно: движение действительно меняет отношения с деньгами. Просто объясняли это не тем и требовали не того. Под практикой лежит настоящий механизм, у него есть имена исследователей и цифры. Ниже он разобран целиком.</p>
+    <div class="punch reveal">Ритуал согревает.<br><em>Механизм работает.</em></div>
+    <p class="lead reveal" style="margin-top:30px">Про денежную ходьбу говорят третий год, и у многих после прогулок правда легче. Потом эффект тает, и человек решает, что дело в нём. Дело не в вас: вам дали форму, механизм остался за кадром. Ниже он разобран целиком: имена, цифры и что с ним&nbsp;делать.</p>
+  </div>
+</section>
+
+<!-- ── ПОЧЕМУ СЮДА ───────────────── -->
+<section class="dark" id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Шесть доводов</div>
+      <h2>Почему за этим&nbsp;сюда</h2>
     </div>
+    <div class="why">
+      <article class="w reveal"><div class="wn">01</div><h3>Технология вместо&nbsp;пожеланий</h3><p>У каждой сессии прописаны темп, дыхание, взгляд, среда и голос. Это инструкция, по которой можно идти буквально с первого утра.</p></article>
+      <article class="w reveal"><div class="wn">02</div><h3>Режим под ваш&nbsp;механизм</h3><p>Потолок у каждого держит своё. Тест первого дня определяет вход, дальше настройки меняются под то, что чинится сегодня.</p></article>
+      <article class="w reveal"><div class="wn">03</div><h3>Наука с&nbsp;именами</h3><p>За каждой настройкой стоит исследование: Стэнфорд, PNAS, JAMA Psychiatry. Всё проверяемо, источники открыты.</p></article>
+      <article class="w reveal"><div class="wn">04</div><h3>Деньги каждый&nbsp;день</h3><p>Сессия заканчивается действием в реальные деньги, в открытое окно эффекта. За три недели таких шагов не меньше десяти.</p></article>
+      <article class="w reveal"><div class="wn">05</div><h3>Тело получает&nbsp;половину</h3><p>27 часов движения и замеры до и после: пульс, сон, талия, сахар. Биохакинг без единого гаджета и добавки.</p></article>
+      <article class="w reveal"><div class="wn">06</div><h3>Сделано под&nbsp;жизнь</h3><p>План плохой погоды, адаптированная версия, пропуск не обнуляет. Конструкция держит, даже когда неделя рушится.</p></article>
+    </div>
+    <div class="why-punch reveal">Технология. Настройки. Замеры. <em>Остальное сделают ноги.</em></div>
   </div>
 </section>
 
@@ -713,11 +752,12 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <h3 style="margin-top:14px;font-size:clamp(24px,3vw,34px)">Пять фаз, и каждая делает свою&nbsp;работу</h3>
       <div class="phase-row">
         <div class="ph"><div class="n">Фаза 1</div><h3>Сброс</h3><p>Заходим в денежную тему с холодной&nbsp;головой</p><div class="bar" style="--w:35%"></div></div>
-        <div class="ph"><div class="n">Фаза 2</div><h3>Разгон</h3><p>Интенсивность, которая даёт эффект сверх объёма</p><div class="bar" style="--w:60%"></div></div>
-        <div class="ph"><div class="n">Фаза 3</div><h3>Ядро</h3><p>Работа механизма дня на пике&nbsp;мышления</p><div class="bar" style="--w:100%"></div></div>
-        <div class="ph"><div class="n">Фаза 4</div><h3>Пик</h3><p>Самое трудное: голос, цена, прямая&nbsp;просьба</p><div class="bar" style="--w:80%"></div></div>
-        <div class="ph"><div class="n">Фаза 5</div><h3>Сборка</h3><p>Состояние переводится в решение и&nbsp;действие</p><div class="bar" style="--w:45%"></div></div>
+        <div class="ph"><div class="n">Фаза 2</div><h3>Разгон</h3><p class="blurred">Интенсивность, которая даёт эффект сверх объёма</p><div class="bar" style="--w:60%"></div></div>
+        <div class="ph"><div class="n">Фаза 3</div><h3>Ядро</h3><p class="blurred">Работа механизма дня на пике мышления</p><div class="bar" style="--w:100%"></div></div>
+        <div class="ph"><div class="n">Фаза 4</div><h3>Пик</h3><p class="blurred">Самое трудное: голос, цена и просьба</p><div class="bar" style="--w:80%"></div></div>
+        <div class="ph"><div class="n">Фаза 5</div><h3>Сборка</h3><p class="blurred">Состояние переводится в решение</p><div class="bar" style="--w:45%"></div></div>
       </div>
+      <div class="locked" style="margin-top:22px"><b>Открыта только первая фаза.</b><span>Остальные четыре разворачиваются внутри протокола.</span></div>
     </div>
   </div>
 </section>
@@ -736,8 +776,8 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       </div>
       <div class="diag-card reveal">
         <div class="kicker">Тест первого дня</div>
-        <h3>Умножьте привычный месячный доход на&nbsp;три</h3>
-        <p>Произнесите получившееся число вслух на ходу и заметьте, что произошло в теле в первые две секунды. Сжатие, азарт, пустота или торг: реакция и есть ваша карта входа. Что она означает и куда ведёт, разбирается в первый день&nbsp;протокола.</p>
+        <h3>Одна цифра, произнесённая вслух на&nbsp;ходу</h3>
+        <p>Реакция тела в первые две секунды: сжатие, азарт, пустота или торг. Она и есть ваша карта входа. Какая цифра, как её произносить и что означает каждая реакция: в первый день, внутри&nbsp;протокола.</p>
       </div>
     </div>
   </div>
@@ -762,13 +802,13 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
         <div class="n">10 000</div>
         <h3>«Десять тысяч&nbsp;шагов»</h3>
         <p>Норма родилась в японской рекламе шагомера 1965 года, наука её не задавала. Метаанализы видят пользу раньше, а решает не только объём, но и интенсивность с&nbsp;таймингом.</p>
-        <div class="fix"><b>Как здесь</b>Вместо круглой цифры: бодрые отрезки, медитативная часть и прогулка после ужина, у каждого элемента своя работа.</div>
+        <div class="fix"><b>Как здесь</b>Вместо круглой цифры: точная конструкция сессии, где у каждого элемента своя задача и своё время.</div>
       </article>
       <article class="mk reveal">
         <div class="n">✕</div>
         <h3>Визуализация вместо&nbsp;действия</h3>
         <p>Красочные мечты о результате в экспериментах снижали энергию и реальные шаги: мозг частично засчитывает желаемое как полученное, и напряжение цели&nbsp;падает.</p>
-        <div class="fix"><b>Как здесь</b>Намерение строится по схеме с препятствием и планом, а сессия всегда заканчивается действием в реальные деньги.</div>
+        <div class="fix"><b>Как здесь</b>Намерение здесь собирается по другой схеме, проверенной в экспериментах. По какой: внутри. А сессия всегда заканчивается действием.</div>
       </article>
     </div>
   </div>
@@ -845,7 +885,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
         <h3>По деньгам</h3>
         <ol>
           <li>Привычная месячная сумма</li>
-          <li>Реакция тела на «умножь на&nbsp;три»</li>
+          <li>Реакция тела на цифру теста</li>
           <li>Три слова о своём состоянии с&nbsp;деньгами</li>
           <li>Текущая цена за основную&nbsp;работу</li>
           <li>Сколько денежных действий было за&nbsp;месяц</li>
