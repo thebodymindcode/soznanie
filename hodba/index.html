@@ -234,6 +234,15 @@ section{padding:clamp(72px,11vh,132px) 0}
 .ws p{font-size:16.5px;color:var(--body);margin:0;line-height:1.5}
 
 
+/* ── график ходьбы ───────────────── */
+.dayline{margin-top:44px;border:1px solid var(--line);background:var(--paper);padding:30px 28px 18px}
+.dayline svg{width:100%;height:auto;display:block}
+.dayline .lbl{font-family:var(--f-mono);font-size:12px;fill:var(--muted);letter-spacing:.05em}
+.dayline .lbl.hot{fill:var(--orange-d)}
+.dayline .win{fill:rgba(255,106,43,.16);stroke:var(--orange);stroke-width:1.6}
+.dayline .axl{stroke:var(--muted);stroke-width:1}
+.sess{margin-top:20px}
+
 /* ── сравнение: почему ходьба ───────────────── */
 .cmp{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
 .cmp>div{background:var(--paper);padding:16px 18px;font-size:16px;color:var(--body);line-height:1.45;display:flex;align-items:center}
@@ -1089,6 +1098,50 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <h2>Как устроен один&nbsp;день</h2>
     </div>
 
+    <div class="day">
+      <div class="day-img reveal"><img src="images/park.jpg" alt="Утренняя аллея в тумане, женщина идёт вперёд"></div>
+      <div class="tl reveal">
+        <div class="step"><div class="k">Утро · 2 минуты</div><h3>Карточка дня</h3><p>Какой сегодня режим, зачем он и что будет на пике. Читается за пару минут до выхода.</p></div>
+        <div class="step"><div class="k">Сессия · 60 минут</div><h3>Аудио ведёт первую часть</h3><p>Голос задаёт темп, дыхание и фокус. Потом наушники снимаются, и остаток пути идёт в тишине: это&nbsp;принципиально.</p></div>
+        <div class="step hot"><div class="k">Сразу после</div><h3>Действие в открытое окно</h3><p>Одно конкретное движение в реальные деньги: отправить, назвать, отложить, спросить. Пока эффект сессии ещё&nbsp;держится.</p></div>
+        <div class="step"><div class="k">Вечер · 15 минут</div><h3>Прогулка после ужина</h3><p>Метаболический блок, который не меняется все три недели. Сахар ровнее, сон глубже, утро легче.</p></div>
+        <div class="step"><div class="k">Перед сном · 3 минуты</div><h3>Строка дневника</h3><p>Четыре поля: состояние до и после, что заметили, что сделали. По этим строкам вы увидите собственный&nbsp;сдвиг.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── ГРАФИК ХОДЬБЫ ───────────────── -->
+<section id="s10b" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Расписание</div>
+      <h2>График&nbsp;ходьбы</h2>
+      <p class="lead">Два выхода в день: утренняя сессия в удобное вам окно и пятнадцать минут после ужина. Остальное время дня полностью&nbsp;ваше.</p>
+    </div>
+    <div class="dayline reveal">
+      <svg viewBox="0 0 560 150" role="img" aria-label="Лента суток с двумя выходами: утренняя сессия и вечерняя прогулка">
+        <defs>
+          <linearGradient id="gDay" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#18232A"/><stop offset=".14" stop-color="#C9491A" stop-opacity=".55"/>
+            <stop offset=".38" stop-color="#B9C4C0"/><stop offset=".72" stop-color="#8FA0A6"/>
+            <stop offset=".9" stop-color="#2A3A44"/><stop offset="1" stop-color="#18232A"/>
+          </linearGradient>
+        </defs>
+        <rect x="20" y="64" width="520" height="10" rx="5" fill="url(#gDay)"/>
+        <rect class="win" x="78" y="52" width="118" height="34" rx="4"/>
+        <rect class="win" x="398" y="52" width="46" height="34" rx="4"/>
+        <text class="lbl" x="24" y="40">ночь</text>
+        <text class="lbl hot" x="78" y="30">утро · сессия 60 минут</text>
+        <text class="lbl" x="250" y="40">ваш день</text>
+        <text class="lbl hot" x="352" y="30">после ужина · 15 минут</text>
+        <text class="lbl" x="78" y="112">выход 1</text>
+        <text class="lbl" x="398" y="112">выход 2</text>
+        <line class="axl" x1="137" y1="86" x2="137" y2="98"/>
+        <line class="axl" x1="421" y1="86" x2="421" y2="98"/>
+      </svg>
+    </div>
     <div class="sess reveal">
       <h3>Состояние внутри одного&nbsp;часа</h3>
       <p class="sub">Схема сессии: сначала снимается напряжение, к середине мышление выходит на пик, а после остановки эффект держится, и в это окно ставится денежное&nbsp;действие.</p>
@@ -1115,16 +1168,6 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       </svg>
     </div>
 
-    <div class="day">
-      <div class="day-img reveal"><img src="images/park.jpg" alt="Утренняя аллея в тумане, женщина идёт вперёд"></div>
-      <div class="tl reveal">
-        <div class="step"><div class="k">Утро · 2 минуты</div><h3>Карточка дня</h3><p>Какой сегодня режим, зачем он и что будет на пике. Читается за пару минут до выхода.</p></div>
-        <div class="step"><div class="k">Сессия · 60 минут</div><h3>Аудио ведёт первую часть</h3><p>Голос задаёт темп, дыхание и фокус. Потом наушники снимаются, и остаток пути идёт в тишине: это&nbsp;принципиально.</p></div>
-        <div class="step hot"><div class="k">Сразу после</div><h3>Действие в открытое окно</h3><p>Одно конкретное движение в реальные деньги: отправить, назвать, отложить, спросить. Пока эффект сессии ещё&nbsp;держится.</p></div>
-        <div class="step"><div class="k">Вечер · 15 минут</div><h3>Прогулка после ужина</h3><p>Метаболический блок, который не меняется все три недели. Сахар ровнее, сон глубже, утро легче.</p></div>
-        <div class="step"><div class="k">Перед сном · 3 минуты</div><h3>Строка дневника</h3><p>Четыре поля: состояние до и после, что заметили, что сделали. По этим строкам вы увидите собственный&nbsp;сдвиг.</p></div>
-      </div>
-    </div>
   </div>
 </section>
 
