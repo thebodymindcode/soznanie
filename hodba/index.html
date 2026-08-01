@@ -343,6 +343,24 @@ section{padding:clamp(72px,11vh,132px) 0}
 .ph .blurred{filter:blur(6px);user-select:none;pointer-events:none}
 .phase-row.in .ph .bar{width:var(--w)}
 
+
+/* ── подбор входа ───────────────── */
+.qz{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.qz .qb{font-family:var(--f-mono);font-size:13px;letter-spacing:.05em;padding:12px 18px;background:var(--paper);border:1px solid var(--line);cursor:pointer;transition:.25s;color:var(--body)}
+.qz .qb:hover{border-color:var(--orange);color:var(--ink);transform:translateY(-2px)}
+.qz .qb.on{background:var(--orange);border-color:var(--orange);color:#0F1518}
+.mode.lit{outline:2px solid var(--orange);outline-offset:-2px;background:#fff}
+/* ── лента доказательств ───────────────── */
+.proofline{margin-top:64px;border-top:1px solid var(--line);padding-top:40px}
+.pl-row{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
+.pl{background:var(--paper);padding:22px 20px}
+.pl .y{font-family:var(--f-display);font-weight:600;font-size:clamp(24px,2.6vw,34px);letter-spacing:-.02em;color:var(--orange-d)}
+.pl p{font-size:14.5px;color:var(--body);margin:10px 0 0;line-height:1.45}
+.pl .src{margin-top:10px;font-size:10.5px}
+/* ── общий старт ───────────────── */
+.together{font-family:var(--f-display);font-size:clamp(20px,2.2vw,28px);color:rgba(242,245,244,.92);margin:28px 0 0}
+.together b{color:var(--orange);font-weight:600}
+
 /* ── вход ───────────────── */
 .diag{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start;margin-top:20px}
 .diag-card{border:1px solid var(--line);background:var(--paper);padding:34px 32px}
@@ -479,6 +497,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   .hero-in{padding-top:96px}
   .facts div{padding-right:20px;margin-right:20px}
   .grid6,.sci,.phase-row,.numbers,.biohack,.mistakes,.stages,.got,.meas,.fit,.duo,.window-strip,.why,.charts,.try,.enter3{grid-template-columns:1fr}
+  .pl-row{grid-template-columns:1fr 1fr}
   .mosaic{grid-template-columns:1fr 1fr}
   .cmp{grid-template-columns:1fr;gap:0}
   .cmp .ch:empty{display:none}
@@ -622,6 +641,19 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
         <span class="src">Bratman et al. · PNAS · 2015</span>
       </article>
     </div>
+
+    <div class="proofline reveal">
+      <div class="kicker">Линия доказательств</div>
+      <div class="pl-row">
+        <div class="pl"><div class="y">2011</div><p>Год ходьбы развернул возрастную убыль гиппокампа</p><span class="src">Erickson · PNAS</span></div>
+        <div class="pl"><div class="y">2013</div><p>Прогулка после еды срезает пик сахара лучше длинной днём</p><span class="src">DiPietro · Diabetes Care</span></div>
+        <div class="pl"><div class="y">2014</div><p>Шаг поднял поток свежих идей у 81% участников</p><span class="src">Oppezzo · Стэнфорд</span></div>
+        <div class="pl"><div class="y">2014</div><p>Рост кортизола сдвигает выбор к избеганию риска</p><span class="src">Kandasamy · PNAS</span></div>
+        <div class="pl"><div class="y">2015</div><p>Прогулка в зелени гасит прокручивание мыслей</p><span class="src">Bratman · PNAS</span></div>
+        <div class="pl"><div class="y">2022</div><p>Объём движения протокола связан с риском депрессии ниже на четверть</p><span class="src">Pearce · JAMA Psychiatry</span></div>
+      </div>
+    </div>
+
     <div class="after-note reveal">
       <div class="big">Эффект держится и после&nbsp;остановки.</div>
       <p class="lead" style="margin:0">Поэтому главное денежное действие дня стоит сразу за сессией, в открытое окно.</p>
@@ -879,6 +911,15 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <div class="kicker">Технология</div>
       <h2>У всех ходьба одна на 21 день. Здесь она разная каждый&nbsp;день</h2>
       <p class="lead">Денежный потолок держат шесть механизмов, и под каждый собран свой режим движения. Настраиваются темп, дыхание, взгляд, среда, голос и окно действия после сессии. Стартовый режим определяется на первой прогулке, потому что универсальный план части людей просто вредит.</p>
+      <div class="qz reveal" role="group" aria-label="Что про вас, выберите">
+        <span class="kicker" style="flex-basis:100%">Что из этого про вас? Нажмите</span>
+        <button class="qb" data-m="0">Откладываю всё на завтра</button>
+        <button class="qb" data-m="1">Всё стало серым</button>
+        <button class="qb" data-m="2">Доход упёрся в цифру</button>
+        <button class="qb" data-m="3">Цена застревает в горле</button>
+        <button class="qb" data-m="4">Неловко брать</button>
+        <button class="qb" data-m="5">Деньги сразу расходятся</button>
+      </div>
     </div>
 
     <div class="grid6">
@@ -1328,6 +1369,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <div class="pr-num">3 500&nbsp;₽</div>
       <div class="pr-txt">за весь протокол: личный кабинет на платформе, 21 карточка дня, аудио в дорогу, практикум и план до 66&nbsp;дня</div>
     </div>
+    <p class="together">Поток один, без догоняющих продаж: <b>5 августа</b> вся группа выходит в одно&nbsp;утро.</p>
     <div class="dots21 reveal" aria-label="21 день протокола"><i style="--i:1" class=hot></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11" class=hot></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21" class=hot></i></div>
     <div class="count" id="count" hidden>До старта <b id="cd">…</b></div>
     <div class="cta" style="margin-bottom:0">
@@ -1401,6 +1443,18 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
     });
   }, {threshold:.5});
   document.querySelectorAll('[data-count]').forEach(function(el){ ioN.observe(el); });
+
+  // подбор входа: кнопка подсвечивает карточку режима
+  var qbs = document.querySelectorAll('.qb');
+  var modes = document.querySelectorAll('.mode');
+  qbs.forEach(function(b){
+    b.addEventListener('click', function(){
+      qbs.forEach(function(x){ x.classList.toggle('on', x === b); });
+      modes.forEach(function(m){ m.classList.remove('lit'); });
+      var m = modes[parseInt(b.dataset.m, 10)];
+      if(m){ m.classList.add('lit'); m.classList.add('in'); m.scrollIntoView({behavior:'smooth', block:'center'}); }
+    });
+  });
 
   // параллакс фоновых картинок
   var plx = Array.prototype.slice.call(document.querySelectorAll('[data-plx]'));
