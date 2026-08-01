@@ -209,8 +209,8 @@ section{padding:clamp(72px,11vh,132px) 0}
 .p21 .fill{position:absolute;left:0;top:34px;height:2px;width:0;background:var(--orange);transition:width 2s cubic-bezier(.3,.7,.3,1)}
 .progress21.in .p21 .fill{width:100%}
 .p21 .tick{position:absolute;top:30px;width:1px;height:10px;background:rgba(233,238,236,.25)}
-.p21 .mk{position:absolute;top:24px;width:22px;height:22px;border-radius:50%;background:var(--graphite);border:2px solid var(--orange);transform:translateX(-50%);display:flex;align-items:center;justify-content:center}
-.p21 .mk i{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.p21 .pmk{position:absolute;top:24px;width:22px;height:22px;border-radius:50%;background:var(--graphite);border:2px solid var(--orange);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;padding:0;min-height:0}
+.p21 .pmk i{width:8px;height:8px;border-radius:50%;background:var(--orange)}
 .p21 .mlb{position:absolute;top:0;transform:translateX(-50%);font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:rgba(233,238,236,.6);white-space:nowrap}
 .p21 .dlb{position:absolute;top:56px;transform:translateX(-50%);font-family:var(--f-mono);font-size:11px;color:rgba(233,238,236,.45);white-space:nowrap}
 
@@ -224,6 +224,43 @@ section{padding:clamp(72px,11vh,132px) 0}
 .ws .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-d)}
 .ws h3{font-size:21px;margin:12px 0 8px}
 .ws p{font-size:16.5px;color:var(--body);margin:0;line-height:1.5}
+
+
+/* ── сравнение: почему ходьба ───────────────── */
+.cmp{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
+.cmp>div{background:var(--paper);padding:16px 18px;font-size:16px;color:var(--body);line-height:1.45;display:flex;align-items:center}
+.cmp .ch{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.cmp .rh{font-family:var(--f-display);font-weight:600;font-size:17.5px;color:var(--ink)}
+.cmp .hot{background:#fff;color:var(--ink)}
+.cmp .hot.ch{color:var(--orange-d)}
+.cmp .yes{color:var(--orange-d);font-family:var(--f-mono)}
+/* ── полноэкранная передышка ───────────────── */
+.break{position:relative;overflow:hidden;padding:0;background:var(--graphite)}
+.break img{width:100%;height:clamp(380px,72vh,720px);object-fit:cover;display:block}
+.break .cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(28px,5vh,56px) 0;background:linear-gradient(to top,rgba(15,21,24,.88),transparent)}
+.break .cap p{margin:0;font-family:var(--f-display);font-weight:600;font-size:clamp(22px,3vw,40px);letter-spacing:-.02em;color:#FBFDFC;max-width:26ch;line-height:1.15}
+/* ── кривая сессии ───────────────── */
+.sess{margin-top:52px;border:1px solid var(--line);background:var(--paper);padding:30px 28px 24px}
+.sess h3{font-size:20px;margin-bottom:6px}
+.sess .sub{font-size:15.5px;color:var(--muted);margin:0 0 18px;line-height:1.45}
+.sess svg{width:100%;height:auto;display:block}
+.sess .ax{stroke:var(--line);stroke-width:1}
+.sess .lbl{font-family:var(--f-mono);font-size:12px;fill:var(--muted);letter-spacing:.05em}
+.sess .lbl.hot{fill:var(--orange-d)}
+.sess .curve{fill:none;stroke:var(--steel);stroke-width:2.4;stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 1.8s ease}
+.sess.in .curve{stroke-dashoffset:0}
+.sess .zone{fill:rgba(255,106,43,.12)}
+/* ── мозаика цифр ───────────────── */
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:52px}
+.mo{background:var(--graphite);padding:24px 22px}
+.mo .v{font-family:var(--f-display);font-size:clamp(28px,3.4vw,44px);line-height:1;color:#FBFDFC;letter-spacing:-.02em}
+.mo .t{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,238,236,.55);margin-top:10px;line-height:1.5}
+/* ── попробовать сегодня ───────────────── */
+.try{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
+.tr{background:var(--paper);padding:30px 28px}
+.tr .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-d)}
+.tr h3{font-size:20px;margin:12px 0 8px}
+.tr p{font-size:16.5px;color:var(--body);margin:0;line-height:1.5}
 
 /* ── технология ───────────────── */
 .grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
@@ -389,7 +426,10 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   body{font-size:18px}
   .hero-in{padding-top:96px}
   .facts div{padding-right:20px;margin-right:20px}
-  .grid6,.sci,.phase-row,.numbers,.biohack,.mistakes,.stages,.got,.meas,.fit,.duo,.window-strip,.why,.charts{grid-template-columns:1fr}
+  .grid6,.sci,.phase-row,.numbers,.biohack,.mistakes,.stages,.got,.meas,.fit,.duo,.window-strip,.why,.charts,.try{grid-template-columns:1fr}
+  .mosaic{grid-template-columns:1fr 1fr}
+  .cmp{grid-template-columns:1fr;gap:0}
+  .cmp .ch:empty{display:none}
   .mk{min-height:0}
   .st{min-height:0}
   .ring-list{display:flex;flex-direction:column;gap:10px;margin-top:24px;list-style:none;padding:0}
@@ -533,6 +573,25 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
     <div class="after-note reveal">
       <div class="big">Эффект держится и после&nbsp;остановки.</div>
       <p class="lead" style="margin:0">Поэтому главное денежное действие дня стоит сразу за сессией, в открытое окно.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── ПОЧЕМУ ХОДЬБА ───────────────── -->
+<section id="s3b" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Почему не бег и не зал</div>
+      <h2>Протоколу нужна ежедневность и работающая&nbsp;голова</h2>
+      <p class="lead">Стэнфордский эффект измеряли именно на ходьбе: темп остаётся разговорным, и мышление работает вместе с телом, а не вместо него. Отсюда выбор инструмента.</p>
+    </div>
+    <div class="cmp reveal">
+      <div class="ch"></div><div class="ch">Бег</div><div class="ch">Зал</div><div class="ch hot">Ходьба</div>
+      <div class="rh">Можно каждый день без адаптации</div><div>Нужны восстановление и форма</div><div>Обычно 3 раза в неделю</div><div class="hot"><span class="yes">да</span></div>
+      <div class="rh">Голова остаётся в рабочем режиме</div><div>Дыхание забирает внимание</div><div>Внимание на упражнении</div><div class="hot"><span class="yes">да</span></div>
+      <div class="rh">Вход с любого уровня, сегодня</div><div>Порог по форме и суставам</div><div>Зал, форма, расписание</div><div class="hot"><span class="yes">да</span></div>
+      <div class="rh">Встраивается в обычный день</div><div>Отдельное окно и душ</div><div>Дорога и абонемент</div><div class="hot"><span class="yes">да</span></div>
     </div>
   </div>
 </section>
@@ -742,6 +801,13 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   </div>
 </section>
 
+
+<!-- ── ПЕРЕДЫШКА ───────────────── -->
+<section class="break" id="break1">
+  <img src="images/plaza.jpg" alt="Одинокая фигура пересекает пустую площадь на рассвете">
+  <div class="cap"><div class="wrap"><p>Час утром. Пятнадцать минут вечером. Двадцать один&nbsp;день.</p></div></div>
+</section>
+
 <!-- ── ТЕХНОЛОГИЯ ───────────────── -->
 <section id="s7" style="padding-top:0">
   <div class="wrap">
@@ -907,6 +973,23 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <div class="kicker">Изнутри</div>
       <h2>Как устроен один&nbsp;день</h2>
     </div>
+
+    <div class="sess reveal">
+      <h3>Состояние внутри одного&nbsp;часа</h3>
+      <p class="sub">Схема сессии: сначала снимается напряжение, к середине мышление выходит на пик, а после остановки эффект держится, и в это окно ставится денежное&nbsp;действие.</p>
+      <svg viewBox="0 0 560 240" role="img" aria-label="Кривая состояния за час сессии и окно действия после">
+        <rect class="zone" x="424" y="26" width="112" height="176"/>
+        <line class="ax" x1="40" y1="202" x2="540" y2="202"/>
+        <path class="curve" d="M44 176 C 120 168, 160 120, 250 84 C 320 58, 380 54, 424 58"/>
+        <text class="lbl" x="40" y="226">0 мин</text>
+        <text class="lbl" x="236" y="226">30</text>
+        <text class="lbl" x="404" y="226">60</text>
+        <text class="lbl" x="60" y="150">сброс напряжения</text>
+        <text class="lbl" x="212" y="66">пик мышления</text>
+        <text class="lbl hot" x="430" y="46">окно действия</text>
+      </svg>
+    </div>
+
     <div class="day">
       <div class="day-img reveal"><img src="images/park.jpg" alt="Утренняя аллея в тумане, женщина идёт вперёд"></div>
       <div class="tl reveal">
@@ -940,10 +1023,22 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <div class="p21">
         <div class="base"></div><div class="fill"></div>
         <div class="tick" style="left:4.7%"></div><div class="tick" style="left:23.8%"></div><div class="tick" style="left:42.8%"></div><div class="tick" style="left:61.9%"></div><div class="tick" style="left:81%"></div>
-        <div class="mk" style="left:0%"><i></i></div><div class="mlb" style="left:2%">замер</div><div class="dlb" style="left:2%">день 1</div>
-        <div class="mk" style="left:50%"><i></i></div><div class="mlb" style="left:50%">замер</div><div class="dlb" style="left:50%">день 11</div>
-        <div class="mk" style="left:100%"><i></i></div><div class="mlb" style="left:97%">замер</div><div class="dlb" style="left:97%">день 21</div>
+        <div class="pmk" style="left:0%"><i></i></div><div class="mlb" style="left:2%">замер</div><div class="dlb" style="left:2%">день 1</div>
+        <div class="pmk" style="left:50%"><i></i></div><div class="mlb" style="left:50%">замер</div><div class="dlb" style="left:50%">день 11</div>
+        <div class="pmk" style="left:100%"><i></i></div><div class="mlb" style="left:97%">замер</div><div class="dlb" style="left:97%">день 21</div>
       </div>
+    </div>
+
+
+    <div class="mosaic reveal">
+      <div class="mo"><div class="v">75</div><div class="t">минут в день</div></div>
+      <div class="mo"><div class="v">6</div><div class="t">режимов ходьбы</div></div>
+      <div class="mo"><div class="v">5</div><div class="t">фаз в каждой сессии</div></div>
+      <div class="mo"><div class="v">10+</div><div class="t">действий в реальные деньги</div></div>
+      <div class="mo"><div class="v">21</div><div class="t">вечерняя прогулка</div></div>
+      <div class="mo"><div class="v">3</div><div class="t">контрольных замера</div></div>
+      <div class="mo"><div class="v">10</div><div class="t">показателей до и после</div></div>
+      <div class="mo"><div class="v">45</div><div class="t">дней в плане после финала</div></div>
     </div>
 
     <div class="after21 reveal">
@@ -971,8 +1066,10 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
 </section>
 
 <!-- ── ЗАМЕРЫ ───────────────── -->
-<section class="dark" id="s13">
-  <div class="wrap">
+<section class="dark" id="s13" style="position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;opacity:.3"><img src="images/rain.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,21,24,.88),rgba(15,21,24,.78) 45%,rgba(15,21,24,.92))"></div>
+  <div class="wrap" style="position:relative;z-index:2">
     <div class="sec-head reveal">
       <div class="kicker">Замеры до и после</div>
       <h2>Десять цифр, которые вы увидите&nbsp;сами</h2>
@@ -1001,6 +1098,23 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       </div>
     </div>
     <p class="meas-note reveal"><b>Есть глюкометр или сенсор?</b> Добавьте замер сахара через час после ужина: разницу от вечерних прогулок видно с первых дней.</p>
+  </div>
+</section>
+
+
+<!-- ── ПОПРОБОВАТЬ СЕГОДНЯ ───────────────── -->
+<section id="s13b">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Проверить можно сегодня</div>
+      <h2>Три вещи из открытой части&nbsp;науки</h2>
+      <p class="lead">Протокол стартует 5 августа, а физиология работает уже сейчас. Вот что можно проверить на себе до&nbsp;старта.</p>
+    </div>
+    <div class="try">
+      <div class="tr reveal"><div class="k">Сегодня вечером</div><h3>15 минут после&nbsp;ужина</h3><p>Короткая прогулка сразу после еды срезает вечерний подъём сахара. Если есть сенсор или глюкометр, разницу видно с первого&nbsp;раза.</p></div>
+      <div class="tr reveal"><div class="k">Завтра утром</div><h3>10 минут без&nbsp;наушников</h3><p>Выйдите без контента и заметьте, куда идут мысли. Это черновой замер собственной руминации, без приложений.</p></div>
+      <div class="tr reveal"><div class="k">После прогулки</div><h3>Одно отложенное&nbsp;дело</h3><p>Вернувшись, сразу сядьте за задачу, которую откладывали. Сравните, как она выглядит после часа движения.</p></div>
+    </div>
   </div>
 </section>
 
@@ -1145,7 +1259,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if(!('IntersectionObserver' in window)){
-    document.querySelectorAll('.reveal,.mode,.phase-row,.ring,.stages,.chart,.progress21').forEach(function(el){ el.classList.add('in'); });
+    document.querySelectorAll('.reveal,.mode,.phase-row,.ring,.stages,.chart,.progress21,.sess').forEach(function(el){ el.classList.add('in'); });
     return;
   }
 
@@ -1159,7 +1273,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   var io = new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:.16, rootMargin:'0px 0px -6% 0px'});
-  document.querySelectorAll('.reveal,.mode,.phase-row,.ring,.stages,.chart,.progress21').forEach(function(el){ io.observe(el); });
+  document.querySelectorAll('.reveal,.mode,.phase-row,.ring,.stages,.chart,.progress21,.sess').forEach(function(el){ io.observe(el); });
 
   // страховка: видимое показываем через 2 секунды в любом случае
   setTimeout(function(){
