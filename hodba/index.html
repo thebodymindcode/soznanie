@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Протокол 21. Денежная ходьба</title>
-<meta name="description" content="Протокол 21: денежная ходьба по технологии. 21 день, 75 минут в день. Одно действие, два результата: денежное поведение и здоровье.">
+<meta name="description" content="Протокол 21: денежная ходьба по технологии. 21 день, 75 минут в день. Одно действие, два результата: денежное состояние и здоровье.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -109,16 +109,18 @@ section{padding:clamp(72px,11vh,132px) 0}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
 .reveal.in{opacity:1;transform:none}
 
+
+/* ── формула биг-идеи ───────────────── */
+.formula{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:clamp(10px,2vw,26px);align-items:stretch;margin-top:52px}
+.fx{border:1px solid var(--line);background:var(--paper);padding:28px 26px}
+.fx .fk{font-family:var(--f-display);font-weight:600;font-size:clamp(22px,2.6vw,32px);letter-spacing:-.015em}
+.fx p{color:var(--body);font-size:16.5px;line-height:1.5;margin:12px 0 0}
+.fx.hot{border-color:var(--orange);background:#fff}
+.fx.hot .fk{color:var(--orange-d)}
+.fop{font-family:var(--f-display);font-size:clamp(30px,3.6vw,52px);color:var(--orange-d);align-self:center;line-height:1}
+
 /* ── узнавание ───────────────── */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:start}
-.rit{margin-top:30px;display:flex;flex-direction:column;gap:10px}
-.rit .r{display:block;font-family:var(--f-display);font-weight:600;font-size:clamp(28px,4.4vw,56px);letter-spacing:-.02em;line-height:1.12;color:var(--muted);position:relative;width:max-content;max-width:100%}
-.rit .r i{position:absolute;left:-1%;top:55%;height:3px;background:var(--orange);width:0;transform:rotate(-1.8deg);transition:width .5s cubic-bezier(.3,.7,.3,1)}
-.rit.in .r:nth-child(1) i{width:102%;transition-delay:.15s}
-.rit.in .r:nth-child(2) i{width:102%;transition-delay:.45s}
-.rit.in .r:nth-child(3) i{width:102%;transition-delay:.75s}
-.punch{font-family:var(--f-display);font-weight:600;font-size:clamp(40px,6.4vw,92px);line-height:1.04;letter-spacing:-.028em;color:var(--ink);margin-top:44px}
-.punch em{font-style:normal;color:var(--orange-d)}
 
 /* ── почему сюда ───────────────── */
 .why{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:52px}
@@ -126,9 +128,7 @@ section{padding:clamp(72px,11vh,132px) 0}
 .w:hover{background:var(--graphite-2)}
 .w .wn{font-family:var(--f-display);font-size:clamp(34px,3.6vw,52px);line-height:1;color:var(--orange);letter-spacing:-.02em}
 .w h3{color:#FBFDFC;margin:14px 0 10px}
-.w p{color:rgba(233,238,236,.74);font-size:17px;line-height:1.52;margin:0}
-.why-punch{font-family:var(--f-display);font-weight:600;font-size:clamp(28px,4vw,54px);letter-spacing:-.02em;line-height:1.1;color:#FBFDFC;margin-top:48px}
-.why-punch em{font-style:normal;color:var(--orange)}
+.w p{color:rgba(233,238,236,.74);font-size:17px;line-height:1.52;margin:0;text-wrap:pretty}
 
 /* ── наука ───────────────── */
 .sci{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
@@ -187,6 +187,33 @@ section{padding:clamp(72px,11vh,132px) 0}
 .evening-img figcaption{position:absolute;left:0;bottom:0;right:0;padding:34px 28px 26px;background:linear-gradient(to top,rgba(15,21,24,.97) 0%,rgba(15,21,24,.92) 62%,rgba(15,21,24,0) 100%);color:rgba(233,238,236,.92);font-size:17px}
 .evening-img figcaption b{color:#fff;font-weight:600}
 
+
+/* ── научные графики ───────────────── */
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:56px}
+.chart{background:var(--graphite);padding:30px 28px 24px}
+.chart h3{color:#FBFDFC;font-size:20px;margin-bottom:6px}
+.chart .sub{font-size:15.5px;color:rgba(233,238,236,.62);margin:0 0 18px;line-height:1.45}
+.chart svg{width:100%;height:auto;display:block}
+.chart .ax{stroke:rgba(233,238,236,.22);stroke-width:1}
+.chart .lbl{font-family:var(--f-mono);font-size:12px;fill:rgba(233,238,236,.5);letter-spacing:.05em}
+.chart .lbl.hot{fill:var(--orange)}
+.chart .curve{fill:none;stroke:rgba(233,238,236,.55);stroke-width:2;stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 1.8s ease}
+.chart .curve.hot{stroke:var(--orange);stroke-width:2.6}
+.chart.in .curve{stroke-dashoffset:0}
+.chart .zone{fill:rgba(255,106,43,.10)}
+.chart .src{margin-top:14px}
+.progress21{margin-top:52px;border:1px solid var(--line-dark);background:var(--graphite);padding:30px 28px 24px}
+.progress21 h3{color:#FBFDFC;font-size:20px;margin-bottom:20px}
+.p21{position:relative;height:74px}
+.p21 .base{position:absolute;left:0;right:0;top:34px;height:2px;background:rgba(233,238,236,.16)}
+.p21 .fill{position:absolute;left:0;top:34px;height:2px;width:0;background:var(--orange);transition:width 2s cubic-bezier(.3,.7,.3,1)}
+.progress21.in .p21 .fill{width:100%}
+.p21 .tick{position:absolute;top:30px;width:1px;height:10px;background:rgba(233,238,236,.25)}
+.p21 .mk{position:absolute;top:24px;width:22px;height:22px;border-radius:50%;background:var(--graphite);border:2px solid var(--orange);transform:translateX(-50%);display:flex;align-items:center;justify-content:center}
+.p21 .mk i{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.p21 .mlb{position:absolute;top:0;transform:translateX(-50%);font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:rgba(233,238,236,.6);white-space:nowrap}
+.p21 .dlb{position:absolute;top:56px;transform:translateX(-50%);font-family:var(--f-mono);font-size:11px;color:rgba(233,238,236,.45);white-space:nowrap}
+
 /* ── цели ───────────────── */
 .goal{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,5vw,72px);align-items:center;margin-top:20px}
 .goal-img{position:relative;overflow:hidden}
@@ -215,6 +242,7 @@ section{padding:clamp(72px,11vh,132px) 0}
 .mode:hover .dial i::after{background:var(--orange)}
 .locked{margin-top:26px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;color:var(--muted);font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em}
 .locked b{color:var(--ink);font-weight:400}
+.locked b,.locked span{text-wrap:pretty}
 .phases{margin-top:64px;border-top:1px solid var(--line);padding-top:40px}
 .phase-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
 .ph{background:var(--paper);padding:22px 20px;display:flex;flex-direction:column}
@@ -242,7 +270,7 @@ section{padding:clamp(72px,11vh,132px) 0}
 .mk .n{font-family:var(--f-display);font-size:clamp(44px,5vw,72px);line-height:1;color:var(--orange);letter-spacing:-.03em}
 .mk h3{color:#FBFDFC;margin:18px 0 12px}
 .mk p{color:rgba(233,238,236,.75);font-size:17px;line-height:1.5;margin:0 0 16px}
-.mk .fix{margin-top:auto;border-top:1px solid var(--line-dark);padding-top:16px;font-size:16px;color:rgba(233,238,236,.9)}
+.mk .fix{margin-top:auto;border-top:1px solid var(--line-dark);padding-top:16px;font-size:16px;color:rgba(233,238,236,.9);text-wrap:pretty}
 .mk .fix b{color:var(--orange);font-weight:400;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:6px}
 
 /* ── день ───────────────── */
@@ -349,6 +377,8 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   .entry .kicker{flex:1 0 100%}
   .ecard{flex:1}
   .loop,.split,.goal,.diag,.day,.health-top{grid-template-columns:1fr}
+  .formula{grid-template-columns:1fr}
+  .fop{justify-self:start}
   .day-img{position:static}
   .grid6,.sci,.mistakes,.why{grid-template-columns:1fr 1fr}
   .phase-row{grid-template-columns:1fr 1fr}
@@ -359,7 +389,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   body{font-size:18px}
   .hero-in{padding-top:96px}
   .facts div{padding-right:20px;margin-right:20px}
-  .grid6,.sci,.phase-row,.numbers,.biohack,.mistakes,.stages,.got,.meas,.fit,.duo,.window-strip,.why{grid-template-columns:1fr}
+  .grid6,.sci,.phase-row,.numbers,.biohack,.mistakes,.stages,.got,.meas,.fit,.duo,.window-strip,.why,.charts{grid-template-columns:1fr}
   .mk{min-height:0}
   .st{min-height:0}
   .ring-list{display:flex;flex-direction:column;gap:10px;margin-top:24px;list-style:none;padding:0}
@@ -399,7 +429,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <div class="stamp">Протокол 21</div>
       <h1><span class="l"><span>Денежная</span></span><span class="l"><span>ходьба</span></span></h1>
       <div class="sub">75 минут в день · 21 день · две оси: деньги и тело</div>
-      <p class="lead">Каждое утро сессия движения по точной технологии, и сразу после неё денежное действие, пока держится эффект. <b>Одно действие, два результата:</b> денежное поведение и здоровье.</p>
+      <p class="lead">Каждое утро сессия движения по точной технологии, и сразу после неё денежное действие, пока держится эффект. <b>Одно действие, два результата:</b> денежное состояние и здоровье.</p>
       <div class="facts">
         <div><div class="n">75</div><div class="t">минут в день</div></div>
         <div><div class="n">21</div><div class="t">день</div></div>
@@ -420,17 +450,37 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   </div>
 </section>
 
+
+<!-- ── БОЛЬШАЯ ИДЕЯ ───────────────── -->
+<section id="idea">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Главная мысль</div>
+      <h2>Ходьба плюс&nbsp;направление</h2>
+      <p class="lead">Час ходьбы сам по себе одна из самых полезных вещей, которые человек может сделать для тела и мозга: это измерено лучше всего в медицине. Вопрос в том, куда уходит энергия и время этого часа.</p>
+    </div>
+    <div class="formula">
+      <div class="fx reveal"><div class="fk">Ходьба</div><p>Час движения: мозг в другом режиме, кортизол ниже, мышление шире. Энергия уже есть.</p></div>
+      <div class="fop reveal">+</div>
+      <div class="fx reveal"><div class="fk">Направление</div><p>Настройка на каждую сессию: намерение, видение, куда направить внимание. Её задаёт Дарья.</p></div>
+      <div class="fop reveal">=</div>
+      <div class="fx hot reveal"><div class="fk">Результат</div><p>Состояние, здоровье и цели, к которым доходят. Дорога к ним проверена на практике.</p></div>
+    </div>
+    <p class="lead reveal" style="margin-top:30px">Каждый элемент по отдельности известен давно. Результат даёт их соединение, и в этом весь&nbsp;протокол.</p>
+  </div>
+</section>
+
 <!-- ── УЗНАВАНИЕ ───────────────── -->
 <section id="s2">
-  <div class="wrap">
-    <div class="kicker reveal">Вы это уже видели</div>
-    <div class="rit reveal">
-      <span class="r">Выйди на прогулку.<i></i></span>
-      <span class="r">Произнеси намерение.<i></i></span>
-      <span class="r">Благодари и жди.<i></i></span>
+  <div class="wrap split">
+    <div class="reveal">
+      <div class="kicker">Вы это уже видели</div>
+      <h2 style="margin-top:14px">Денежная ходьба работает. Причина&nbsp;другая</h2>
     </div>
-    <div class="punch reveal">Ритуал согревает.<br><em>Механизм работает.</em></div>
-    <p class="lead reveal" style="margin-top:30px">Про денежную ходьбу говорят третий год, и у многих после прогулок правда легче. Потом эффект тает, и человек решает, что дело в нём. Дело не в вас: вам дали форму, механизм остался за кадром. Ниже он разобран целиком: имена, цифры и что с ним&nbsp;делать.</p>
+    <div class="reveal">
+      <p class="lead">Про неё говорят третий год: намерение, благодарность, прогулка. У многих правда становится легче, а потом эффект тает, и человек решает, что дело в&nbsp;нём.</p>
+      <p class="lead">Дело в физиологии: кортизол, режим мышления, свет и ритм шага. Этот механизм измерен в исследованиях, ниже он разобран с именами и&nbsp;цифрами.</p>
+    </div>
   </div>
 </section>
 
@@ -438,18 +488,17 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
 <section class="dark" id="why">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="kicker">Шесть доводов</div>
-      <h2>Почему за этим&nbsp;сюда</h2>
+      <div class="kicker">Шесть отличий</div>
+      <h2>Что здесь устроено&nbsp;иначе</h2>
     </div>
     <div class="why">
       <article class="w reveal"><div class="wn">01</div><h3>Технология вместо&nbsp;пожеланий</h3><p>У каждой сессии прописаны темп, дыхание, взгляд, среда и голос. Это инструкция, по которой можно идти буквально с первого утра.</p></article>
       <article class="w reveal"><div class="wn">02</div><h3>Режим под ваш&nbsp;механизм</h3><p>Потолок у каждого держит своё. Тест первого дня определяет вход, дальше настройки меняются под то, что чинится сегодня.</p></article>
       <article class="w reveal"><div class="wn">03</div><h3>Наука с&nbsp;именами</h3><p>За каждой настройкой стоит исследование: Стэнфорд, PNAS, JAMA Psychiatry. Всё проверяемо, источники открыты.</p></article>
-      <article class="w reveal"><div class="wn">04</div><h3>Деньги каждый&nbsp;день</h3><p>Сессия заканчивается действием в реальные деньги, в открытое окно эффекта. За три недели таких шагов не меньше десяти.</p></article>
-      <article class="w reveal"><div class="wn">05</div><h3>Тело получает&nbsp;половину</h3><p>27 часов движения и замеры до и после: пульс, сон, талия, сахар. Биохакинг без единого гаджета и добавки.</p></article>
+      <article class="w reveal"><div class="wn">04</div><h3>Действие каждый&nbsp;день</h3><p>Сессия заканчивается действием в реальные деньги, в открытое окно эффекта. За три недели таких шагов не меньше десяти.</p></article>
+      <article class="w reveal"><div class="wn">05</div><h3>Тело получает&nbsp;половину</h3><p>27 часов движения и замеры до и после: пульс, сон, талия, сахар. Обычно за этими эффектами идут к гаджетам и&nbsp;добавкам.</p></article>
       <article class="w reveal"><div class="wn">06</div><h3>Сделано под&nbsp;жизнь</h3><p>План плохой погоды, адаптированная версия, пропуск не обнуляет. Конструкция держит, даже когда неделя рушится.</p></article>
     </div>
-    <div class="why-punch reveal">Технология. Настройки. Замеры. <em>Остальное сделают ноги.</em></div>
   </div>
 </section>
 
@@ -628,6 +677,41 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       </div>
     </div>
 
+
+    <div class="charts">
+      <div class="chart reveal">
+        <h3>Доза и эффект</h3>
+        <p class="sub">Риск депрессии падает круче всего на первых часах движения в неделю. Объём протокола стоит в рабочей зоне&nbsp;кривой.</p>
+        <svg viewBox="0 0 560 260" role="img" aria-label="Кривая: риск депрессии падает с ростом объёма ходьбы">
+          <rect class="zone" x="300" y="30" width="90" height="190"/>
+          <line class="ax" x1="46" y1="220" x2="540" y2="220"/>
+          <line class="ax" x1="46" y1="220" x2="46" y2="24"/>
+          <path class="curve hot" d="M50 52 C 150 60, 200 140, 300 176 C 380 202, 470 208, 536 210"/>
+          <text class="lbl" x="46" y="246">0</text>
+          <text class="lbl" x="470" y="246">объём в неделю</text>
+          <text class="lbl" x="56" y="40">риск</text>
+          <text class="lbl hot" x="304" y="22">зона протокола</text>
+          <text class="lbl hot" x="308" y="166">−25%</text>
+        </svg>
+        <span class="src">Pearce et al., JAMA Psychiatry, 2022 · 190 000 участников</span>
+      </div>
+      <div class="chart reveal">
+        <h3>Вечер и сахар</h3>
+        <p class="sub">Пятнадцать минут шага после ужина срезают вечерний подъём глюкозы сильнее, чем одна длинная прогулка в другое&nbsp;время.</p>
+        <svg viewBox="0 0 560 260" role="img" aria-label="Две кривые сахара после ужина: с прогулкой ниже">
+          <line class="ax" x1="46" y1="220" x2="540" y2="220"/>
+          <line class="ax" x1="46" y1="220" x2="46" y2="24"/>
+          <path class="curve" d="M50 200 C 140 60, 260 60, 380 150 C 440 190, 500 204, 536 208"/>
+          <path class="curve hot" d="M50 200 C 140 132, 260 140, 380 186 C 440 202, 500 208, 536 210"/>
+          <text class="lbl" x="46" y="246">ужин</text>
+          <text class="lbl" x="480" y="246">3 часа</text>
+          <text class="lbl" x="212" y="52">сидя</text>
+          <text class="lbl hot" x="200" y="170">с прогулкой</text>
+        </svg>
+        <span class="src">DiPietro et al., Diabetes Care, 2013 · схематично</span>
+      </div>
+    </div>
+
     <figure class="evening-img reveal" style="margin-left:0;margin-right:0">
       <img src="images/evening.jpg" alt="Вечерняя прогулка после ужина вдоль домов">
       <figcaption><b>Вечерние пятнадцать минут стоят в протоколе каждый день и не меняются.</b> Это лучший из доступных метаболических эффектов ходьбы и одновременно условие для стратегического мышления, которому нужен ровный&nbsp;сахар.</figcaption>
@@ -753,11 +837,11 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <div class="phase-row">
         <div class="ph"><div class="n">Фаза 1</div><h3>Сброс</h3><p>Заходим в денежную тему с холодной&nbsp;головой</p><div class="bar" style="--w:35%"></div></div>
         <div class="ph"><div class="n">Фаза 2</div><h3>Разгон</h3><p class="blurred">Интенсивность, которая даёт эффект сверх объёма</p><div class="bar" style="--w:60%"></div></div>
-        <div class="ph"><div class="n">Фаза 3</div><h3>Ядро</h3><p class="blurred">Работа механизма дня на пике мышления</p><div class="bar" style="--w:100%"></div></div>
+        <div class="ph"><div class="n">Фаза 3</div><h3>Ядро</h3><p class="blurred">Работа механизма дня на пике&nbsp;мышления</p><div class="bar" style="--w:100%"></div></div>
         <div class="ph"><div class="n">Фаза 4</div><h3>Пик</h3><p class="blurred">Самое трудное: голос, цена и просьба</p><div class="bar" style="--w:80%"></div></div>
-        <div class="ph"><div class="n">Фаза 5</div><h3>Сборка</h3><p class="blurred">Состояние переводится в решение</p><div class="bar" style="--w:45%"></div></div>
+        <div class="ph"><div class="n">Фаза 5</div><h3>Сборка</h3><p class="blurred">Состояние переводится в&nbsp;решение</p><div class="bar" style="--w:45%"></div></div>
       </div>
-      <div class="locked" style="margin-top:22px"><b>Открыта только первая фаза.</b><span>Остальные четыре разворачиваются внутри протокола.</span></div>
+      <div class="locked" style="margin-top:22px"><b>Открыта только первая фаза.</b><span>Остальные четыре разворачиваются внутри&nbsp;протокола.</span></div>
     </div>
   </div>
 </section>
@@ -784,8 +868,10 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
 </section>
 
 <!-- ── ТРИ ОШИБКИ ───────────────── -->
-<section class="dark" id="s9">
-  <div class="wrap">
+<section class="dark" id="s9" style="position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;opacity:.35"><img src="images/road.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 62%"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,21,24,.86),rgba(15,21,24,.72) 40%,rgba(15,21,24,.9))"></div>
+  <div class="wrap" style="position:relative;z-index:2">
     <div class="sec-head reveal">
       <div class="kicker">Почему у других не сработало</div>
       <h2>Три ошибки обычных марафонов&nbsp;ходьбы</h2>
@@ -808,7 +894,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
         <div class="n">✕</div>
         <h3>Визуализация вместо&nbsp;действия</h3>
         <p>Красочные мечты о результате в экспериментах снижали энергию и реальные шаги: мозг частично засчитывает желаемое как полученное, и напряжение цели&nbsp;падает.</p>
-        <div class="fix"><b>Как здесь</b>Намерение здесь собирается по другой схеме, проверенной в экспериментах. По какой: внутри. А сессия всегда заканчивается действием.</div>
+        <div class="fix"><b>Как здесь</b>Намерение здесь собирается по другой схеме, проверенной в экспериментах. По какой: внутри. А сессия всегда заканчивается&nbsp;действием.</div>
       </article>
     </div>
   </div>
@@ -848,6 +934,18 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <div class="st"><div class="d">Дни 12-17</div><h3>Голос</h3><p>Самая денежная неделя: цена вслух, прямые просьбы, способность принимать. Задания идут в реальные деньги.</p><div class="load"><i style="--w:100%"></i></div></div>
       <div class="st"><div class="d">Дни 18-21</div><h3>Новая норма</h3><p>Горизонт и стратегия, сборка личного плана на следующие 45 дней, передача протокола вам&nbsp;насовсем.</p><div class="load"><i style="--w:80%"></i></div></div>
     </div>
+
+    <div class="progress21 reveal">
+      <h3>Контрольные точки&nbsp;замеров</h3>
+      <div class="p21">
+        <div class="base"></div><div class="fill"></div>
+        <div class="tick" style="left:4.7%"></div><div class="tick" style="left:23.8%"></div><div class="tick" style="left:42.8%"></div><div class="tick" style="left:61.9%"></div><div class="tick" style="left:81%"></div>
+        <div class="mk" style="left:0%"><i></i></div><div class="mlb" style="left:2%">замер</div><div class="dlb" style="left:2%">день 1</div>
+        <div class="mk" style="left:50%"><i></i></div><div class="mlb" style="left:50%">замер</div><div class="dlb" style="left:50%">день 11</div>
+        <div class="mk" style="left:100%"><i></i></div><div class="mlb" style="left:97%">замер</div><div class="dlb" style="left:97%">день 21</div>
+      </div>
+    </div>
+
     <div class="after21 reveal">
       <p style="margin:0"><b>Пропущенный день не обнуляет путь.</b> Это не поблажка, а данные: привычку строит повторение, идеальная серия ей не нужна. Догоняющий формат заложен в конструкцию.</p>
     </div>
@@ -862,12 +960,12 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <h2>Что вы&nbsp;получаете</h2>
     </div>
     <div class="got">
-      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>21 карточка дня</h3><p>Режим, смысл и задание каждого дня: коротко, без воды, читается перед выходом.</p></div>
-      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v10m0 0l-4-4m4 4l4-4M5 21h14"/></svg></div><h3>Аудио в дорогу</h3><p>Голос ведёт первую часть сессии: темп, дыхание, вход в состояние. Слушается на ходу.</p></div>
-      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>Практикум PDF</h3><p>Вся система целиком: исследование, механизмы, режимы, план до 66 дня. Остаётся у&nbsp;вас.</p></div>
-      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3>Личный кабинет</h3><p>Отдельная платформа, как у «Протокола денег»: карта 21 дня, цели и километры, графики прогресса, дневник. С телефона и&nbsp;компьютера.</p></div>
-      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-7-10a7 7 0 0114 0c0 5.4-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg></div><h3>Замеры до и после</h3><p>Пять цифр по деньгам и пять по телу: старт, контрольная точка на 11 день и финал.</p></div>
-      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M17 8a5 5 0 10-10 0v3l-2 4h14l-2-4V8zM10 19a2 2 0 004 0"/></svg></div><h3>План после финала</h3><p>Личный протокол на следующие 45 дней собирается в последнюю неделю: путь не обрывается.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></div><h3>21 настройка дня</h3><p>Каждое утро Дарья задаёт направление: режим, смысл и задание дня. Коротко, перед&nbsp;выходом.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg></div><h3>Аудио в дорогу</h3><p>Голос ведёт первую часть сессии: темп, дыхание, вход в состояние. Слушается на ходу.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 6c-2-1.6-5-2-8-2v15c3 0 6 .4 8 2 2-1.6 5-2 8-2V4c-3 0-6 .4-8 2z"/><path d="M12 6v15"/></svg></div><h3>Практикум PDF</h3><p>Вся система целиком: исследование, механизмы, режимы, план до 66 дня. Остаётся у&nbsp;вас.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19l5-5 3 3 7-8"/><path d="M15 9h4v4"/></svg></div><h3>Личный кабинет</h3><p>Отдельная платформа, как у «Протокола денег»: карта 21 дня, цели и километры, графики прогресса, дневник. С телефона и&nbsp;компьютера.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></div><h3>Замеры до и после</h3><p>Пять цифр по деньгам и пять по телу: старт, контрольная точка на 11 день и финал.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 21V4"/><path d="M6 5c4-2 8 2 12 0v8c-4 2-8-2-12 0"/></svg></div><h3>План после финала</h3><p>Личный протокол на следующие 45 дней собирается в последнюю неделю: путь не обрывается.</p></div>
     </div>
   </div>
 </section>
@@ -911,7 +1009,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="kicker">Честно</div>
-      <h2>Кому подойдёт. И кому&nbsp;нет</h2>
+      <h2>Кому подойдёт. И&nbsp;кому&nbsp;нет</h2>
     </div>
     <div class="fit">
       <div class="f reveal">
@@ -935,7 +1033,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       </div>
     </div>
     <div class="safe reveal">
-      <p>Это образовательная программа о физиологии и психологии денежного поведения. Она не заменяет медицинскую помощь и не даёт финансовых советов. При заболеваниях сердца, диабете, проблемах с суставами, беременности или долгом перерыве в движении согласуйте нагрузку с врачом: внутри есть адаптированная версия.</p>
+      <p>Это образовательная программа о физиологии и психологии денежного состояния. Она не заменяет медицинскую помощь и не даёт финансовых советов. При заболеваниях сердца, диабете, проблемах с суставами, беременности или долгом перерыве в движении согласуйте нагрузку с врачом: внутри есть адаптированная версия.</p>
     </div>
   </div>
 </section>
@@ -945,18 +1043,18 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="kicker">Кто ведёт</div>
-      <h2>Дуэт: практика и&nbsp;наука</h2>
+      <h2>Кто ведёт&nbsp;программу</h2>
     </div>
     <div class="duo">
       <div class="person reveal">
-        <div class="role">Ведёт практику</div>
+        <div class="role">Ведёт программу</div>
         <h3>Дарья Ростовцева</h3>
-        <p>Голос программы и всех аудио. Шесть лет ведёт людей в программах о мозге, теле и деньгах: от «Протокола денег» до практик тишины. Её задача, чтобы вы дошли: живо, тепло и без насилия над собой.</p>
+        <p>Голос всех настроек и аудио. Шесть лет ведёт программы о мозге, теле и деньгах: «Протокол денег», практики тишины. Каждое утро задаёт направление дня: мягко и по&nbsp;делу.</p>
       </div>
       <div class="person reveal">
-        <div class="role">Отвечает за механизм</div>
+        <div class="role">Практический специалист</div>
         <h3>Алексей</h3>
-        <p>Наука и проверка фактов. Каждое утверждение программы стоит на исследованиях с именами и годами, каждая цифра проверена по первоисточнику. Всё, что не подтвердилось, в протокол не&nbsp;вошло.</p>
+        <p>Собрал протокол и прошёл его сам: ставил конкретные денежные цели и доходил до них, соединяя движение с направлением. Каждый элемент программы проверен этой&nbsp;практикой.</p>
       </div>
     </div>
     <div class="proof reveal">
@@ -1013,7 +1111,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
 
 <!-- ── ФИНАЛ ───────────────── -->
 <section class="final" id="vhod">
-  <div class="final-img"><img src="images/hero.jpg" alt="Рассветная набережная в тумане"></div>
+  <div class="final-img"><img src="images/bridge.jpg" alt="Женщина идёт по мосту к рассветному свету"></div>
   <div class="wrap final-in">
     <div class="kicker" style="color:rgba(242,245,244,.6)">Протокол 21 · Денежная ходьба</div>
     <h2 style="margin-top:16px">Старт потока: 5&nbsp;августа</h2>
@@ -1047,7 +1145,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if(!('IntersectionObserver' in window)){
-    document.querySelectorAll('.reveal,.mode,.phase-row,.ring,.stages').forEach(function(el){ el.classList.add('in'); });
+    document.querySelectorAll('.reveal,.mode,.phase-row,.ring,.stages,.chart,.progress21').forEach(function(el){ el.classList.add('in'); });
     return;
   }
 
@@ -1061,7 +1159,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   var io = new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:.16, rootMargin:'0px 0px -6% 0px'});
-  document.querySelectorAll('.reveal,.mode,.phase-row,.ring,.stages').forEach(function(el){ io.observe(el); });
+  document.querySelectorAll('.reveal,.mode,.phase-row,.ring,.stages,.chart,.progress21').forEach(function(el){ io.observe(el); });
 
   // страховка: видимое показываем через 2 секунды в любом случае
   setTimeout(function(){
