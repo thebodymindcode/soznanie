@@ -289,6 +289,31 @@ section{padding:clamp(72px,11vh,132px) 0}
 .en h3{font-size:20px;margin:12px 0 8px}
 .en p{font-size:16.5px;color:var(--body);margin:0;line-height:1.5}
 
+
+/* ── живая графика ───────────────── */
+.pulse{fill:#FF6A2B;transform-box:fill-box;transform-origin:center;animation:pl 2.4s ease-out infinite}
+@keyframes pl{0%{opacity:.75;transform:scale(.55)}70%{opacity:0;transform:scale(1.9)}100%{opacity:0;transform:scale(1.9)}}
+.chart.in .area{opacity:1;transition:opacity 1.2s .9s ease}
+.got .ic svg *{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1.1s ease}
+.got .g.in .ic svg *{stroke-dashoffset:0}
+.got .g:nth-child(2) .ic svg *{transition-delay:.12s}
+.got .g:nth-child(3) .ic svg *{transition-delay:.24s}
+.got .g:nth-child(4) .ic svg *{transition-delay:.1s}
+.got .g:nth-child(5) .ic svg *{transition-delay:.22s}
+.got .g:nth-child(6) .ic svg *{transition-delay:.34s}
+.g,.w,.tr,.en,.mode,.sc,.ws{transition:transform .35s ease,background .3s ease}
+.g:hover,.w:hover,.tr:hover,.en:hover,.sc:hover,.ws:hover{transform:translateY(-3px)}
+.why .w:nth-child(2),.got .g:nth-child(2),.try .tr:nth-child(2),.enter3 .en:nth-child(2){transition-delay:.08s}
+.why .w:nth-child(3),.got .g:nth-child(3),.try .tr:nth-child(3),.enter3 .en:nth-child(3){transition-delay:.16s}
+.why .w:nth-child(4),.got .g:nth-child(4){transition-delay:.08s}
+.why .w:nth-child(5),.got .g:nth-child(5){transition-delay:.16s}
+.why .w:nth-child(6),.got .g:nth-child(6){transition-delay:.24s}
+.dots21{display:flex;gap:7px;flex-wrap:wrap;margin-top:30px;max-width:560px}
+.dots21 i{width:16px;height:16px;border-radius:3px;background:rgba(242,245,244,.16);opacity:0;transform:scale(.4);transition:all .4s cubic-bezier(.3,.7,.3,1);transition-delay:calc(var(--i)*45ms)}
+.dots21 i.hot{background:var(--orange)}
+.dots21.in i{opacity:1;transform:none}
+[data-plx]{will-change:transform}
+
 /* ── технология ───────────────── */
 .grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
 .mode{background:var(--paper);padding:30px 28px 26px;transition:.3s;position:relative;display:flex;flex-direction:column}
@@ -610,8 +635,8 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="kicker">Почему не бег и не зал</div>
-      <h2>Протоколу нужна ежедневность и работающая&nbsp;голова</h2>
-      <p class="lead">Стэнфордский эффект измеряли именно на ходьбе: темп остаётся разговорным, и мышление работает вместе с телом, а не вместо него. Отсюда выбор инструмента.</p>
+      <h2>Для протокола нужны две вещи: каждый день и ясная&nbsp;голова</h2>
+      <p class="lead">Стэнфордские замеры делали именно на ходьбе: темп остаётся разговорным, и голова продолжает думать. Бег и зал так не умеют, там внимание забирает тело.</p>
     </div>
     <div class="cmp reveal">
       <div class="ch"></div><div class="ch">Бег</div><div class="ch">Зал</div><div class="ch hot">Ходьба</div>
@@ -644,18 +669,22 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <svg class="ring reveal" viewBox="0 0 720 660" role="img" aria-label="Замкнутый круг: кортизол, сон, сахар, энергия, действия">
         <circle class="arc" cx="360" cy="330" r="230"/>
         <circle class="arc-live" cx="360" cy="330" r="230" transform="rotate(-90 360 330)"/>
+        <path id="loopPath" d="M360 100 A230 230 0 1 1 359.9 100" fill="none" stroke="none"/>
+        <circle class="runner" r="7" fill="#FF6A2B" opacity=".9">
+          <animateMotion dur="16s" repeatCount="indefinite" rotate="none"><mpath href="#loopPath"/></animateMotion>
+        </circle>
         <g>
-          <circle class="dot hot" cx="360" cy="100" r="13"/><text class="num" x="360" y="106" text-anchor="middle">1</text>
+          <circle class="pulse" cx="360" cy="100" r="14"/><circle class="dot hot" cx="360" cy="100" r="13"/><text class="num" x="360" y="106" text-anchor="middle">1</text>
           <text class="lbl" x="360" y="62" text-anchor="middle">Кортизол растёт</text>
           <text class="hit" x="360" y="146" text-anchor="middle">сюда входит ходьба</text>
         </g>
         <g>
-          <circle class="dot hot" cx="579" cy="259" r="13"/><text class="num" x="579" y="265" text-anchor="middle">2</text>
+          <circle class="pulse" cx="579" cy="259" r="14"/><circle class="dot hot" cx="579" cy="259" r="13"/><text class="num" x="579" y="265" text-anchor="middle">2</text>
           <text class="lbl" x="602" y="254" text-anchor="start">Сон короче</text>
           <text class="hit" x="602" y="276" text-anchor="start">точка входа</text>
         </g>
         <g>
-          <circle class="dot hot" cx="495" cy="516" r="13"/><text class="num" x="495" y="522" text-anchor="middle">3</text>
+          <circle class="pulse" cx="495" cy="516" r="14"/><circle class="dot hot" cx="495" cy="516" r="13"/><text class="num" x="495" y="522" text-anchor="middle">3</text>
           <text class="lbl" x="518" y="540" text-anchor="start">Сахар скачет</text>
           <text class="hit" x="518" y="562" text-anchor="start">точка входа</text>
         </g>
@@ -769,7 +798,11 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
         <h3>Доза и эффект</h3>
         <p class="sub">Риск депрессии падает круче всего на первых часах движения в неделю. Объём протокола стоит в рабочей зоне&nbsp;кривой.</p>
         <svg viewBox="0 0 560 260" role="img" aria-label="Кривая: риск депрессии падает с ростом объёма ходьбы">
+          <defs><linearGradient id="gOr" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#FF6A2B" stop-opacity=".28"/><stop offset="1" stop-color="#FF6A2B" stop-opacity="0"/>
+          </linearGradient></defs>
           <rect class="zone" x="300" y="30" width="90" height="190"/>
+          <path class="area" d="M50 52 C 150 60, 200 140, 300 176 C 380 202, 470 208, 536 210 L536 220 L50 220 Z" fill="url(#gOr)" opacity="0"/>
           <line class="ax" x1="46" y1="220" x2="540" y2="220"/>
           <line class="ax" x1="46" y1="220" x2="46" y2="24"/>
           <path class="curve hot" d="M50 52 C 150 60, 200 140, 300 176 C 380 202, 470 208, 536 210"/>
@@ -778,6 +811,8 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
           <text class="lbl" x="56" y="40">риск</text>
           <text class="lbl hot" x="304" y="22">зона протокола</text>
           <text class="lbl hot" x="308" y="166">−25%</text>
+          <circle class="pulse" cx="345" cy="186" r="7"/>
+          <circle cx="345" cy="186" r="4" fill="#FF6A2B"/>
         </svg>
         <span class="src">Pearce et al., JAMA Psychiatry, 2022 · 190 000 участников</span>
       </div>
@@ -793,6 +828,8 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
           <text class="lbl" x="480" y="246">3 часа</text>
           <text class="lbl" x="212" y="52">сидя</text>
           <text class="lbl hot" x="200" y="170">с прогулкой</text>
+          <circle class="pulse" cx="380" cy="186" r="7"/>
+          <circle cx="380" cy="186" r="4" fill="#FF6A2B"/>
         </svg>
         <span class="src">DiPietro et al., Diabetes Care, 2013 · схематично</span>
       </div>
@@ -962,7 +999,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
 
 <!-- ── ТРИ ОШИБКИ ───────────────── -->
 <section class="dark" id="s9" style="position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;opacity:.35"><img src="images/road.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 62%"></div>
+  <div style="position:absolute;inset:-12% 0;opacity:.35"><img data-plx src="images/road.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 62%"></div>
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,21,24,.86),rgba(15,21,24,.72) 40%,rgba(15,21,24,.9))"></div>
   <div class="wrap" style="position:relative;z-index:2">
     <div class="sec-head reveal">
@@ -1005,7 +1042,15 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <h3>Состояние внутри одного&nbsp;часа</h3>
       <p class="sub">Схема сессии: сначала снимается напряжение, к середине мышление выходит на пик, а после остановки эффект держится, и в это окно ставится денежное&nbsp;действие.</p>
       <svg viewBox="0 0 560 240" role="img" aria-label="Кривая состояния за час сессии и окно действия после">
+        <defs><linearGradient id="gSt" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#34505C" stop-opacity=".2"/><stop offset="1" stop-color="#34505C" stop-opacity="0"/>
+        </linearGradient></defs>
+        <g opacity=".5">
+          <line class="ax" x1="120" y1="30" x2="120" y2="202"/><line class="ax" x1="196" y1="30" x2="196" y2="202"/>
+          <line class="ax" x1="288" y1="30" x2="288" y2="202"/><line class="ax" x1="360" y1="30" x2="360" y2="202"/>
+        </g>
         <rect class="zone" x="424" y="26" width="112" height="176"/>
+        <path d="M44 176 C 120 168, 160 120, 250 84 C 320 58, 380 54, 424 58 L424 202 L44 202 Z" fill="url(#gSt)"/>
         <line class="ax" x1="40" y1="202" x2="540" y2="202"/>
         <path class="curve" d="M44 176 C 120 168, 160 120, 250 84 C 320 58, 380 54, 424 58"/>
         <text class="lbl" x="40" y="226">0 мин</text>
@@ -1014,6 +1059,8 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
         <text class="lbl" x="60" y="150">сброс напряжения</text>
         <text class="lbl" x="212" y="66">пик мышления</text>
         <text class="lbl hot" x="430" y="46">окно действия</text>
+        <circle class="pulse" cx="470" cy="70" r="7"/>
+        <circle cx="470" cy="70" r="4" fill="#FF6A2B"/>
       </svg>
     </div>
 
@@ -1058,14 +1105,14 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
 
 
     <div class="mosaic reveal">
-      <div class="mo"><div class="v">75</div><div class="t">минут в день</div></div>
+      <div class="mo"><div class="v" data-count="75">75</div><div class="t">минут в день</div></div>
       <div class="mo"><div class="v">6</div><div class="t">режимов ходьбы</div></div>
       <div class="mo"><div class="v">5</div><div class="t">фаз в каждой сессии</div></div>
       <div class="mo"><div class="v">10+</div><div class="t">действий в реальные деньги</div></div>
-      <div class="mo"><div class="v">21</div><div class="t">вечерняя прогулка</div></div>
+      <div class="mo"><div class="v" data-count="21">21</div><div class="t">вечерняя прогулка</div></div>
       <div class="mo"><div class="v">3</div><div class="t">контрольных замера</div></div>
-      <div class="mo"><div class="v">10</div><div class="t">показателей до и после</div></div>
-      <div class="mo"><div class="v">45</div><div class="t">дней в плане после финала</div></div>
+      <div class="mo"><div class="v" data-count="10">10</div><div class="t">показателей до и после</div></div>
+      <div class="mo"><div class="v" data-count="45">45</div><div class="t">дней в плане после финала</div></div>
     </div>
 
     <div class="after21 reveal">
@@ -1082,19 +1129,19 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <h2>Что вы&nbsp;получаете</h2>
     </div>
     <div class="got">
-      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></div><h3>21 настройка дня</h3><p>Каждое утро Дарья задаёт направление: режим, смысл и задание дня. Коротко, перед&nbsp;выходом.</p></div>
-      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg></div><h3>Аудио в дорогу</h3><p>Голос ведёт первую часть сессии: темп, дыхание, вход в состояние. Слушается на ходу.</p></div>
-      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 6c-2-1.6-5-2-8-2v15c3 0 6 .4 8 2 2-1.6 5-2 8-2V4c-3 0-6 .4-8 2z"/><path d="M12 6v15"/></svg></div><h3>Практикум PDF</h3><p>Вся система целиком: исследование, механизмы, режимы, план до 66 дня. Остаётся у&nbsp;вас.</p></div>
-      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19l5-5 3 3 7-8"/><path d="M15 9h4v4"/></svg></div><h3>Личный кабинет</h3><p>Отдельная платформа, как у «Протокола денег»: карта 21 дня, цели и километры, графики прогресса, дневник. С телефона и&nbsp;компьютера.</p></div>
-      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></div><h3>Замеры до и после</h3><p>Пять цифр по деньгам и пять по телу: старт, контрольная точка на 11 день и финал.</p></div>
-      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 21V4"/><path d="M6 5c4-2 8 2 12 0v8c-4 2-8-2-12 0"/></svg></div><h3>План после финала</h3><p>Личный протокол на следующие 45 дней собирается в последнюю неделю: путь не обрывается.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" pathLength="100"/><path d="M15.5 8.5l-2 5-5 2 2-5z" pathLength="100"/></svg></div><h3>21 настройка дня</h3><p>Каждое утро Дарья задаёт направление: режим, смысл и задание дня. Коротко, перед&nbsp;выходом.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4" pathLength="100"/></svg></div><h3>Аудио в дорогу</h3><p>Голос ведёт первую часть сессии: темп, дыхание, вход в состояние. Слушается на ходу.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 6c-2-1.6-5-2-8-2v15c3 0 6 .4 8 2 2-1.6 5-2 8-2V4c-3 0-6 .4-8 2z" pathLength="100"/><path d="M12 6v15" pathLength="100"/></svg></div><h3>Практикум PDF</h3><p>Вся система целиком: исследование, механизмы, режимы, план до 66 дня. Остаётся у&nbsp;вас.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19l5-5 3 3 7-8" pathLength="100"/><path d="M15 9h4v4" pathLength="100"/></svg></div><h3>Личный кабинет</h3><p>Отдельная платформа, как у «Протокола денег»: карта 21 дня, цели и километры, графики прогресса, дневник. С телефона и&nbsp;компьютера.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h4l2-5 4 10 2-5h6" pathLength="100"/></svg></div><h3>Замеры до и после</h3><p>Пять цифр по деньгам и пять по телу: старт, контрольная точка на 11 день и финал.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 21V4" pathLength="100"/><path d="M6 5c4-2 8 2 12 0v8c-4 2-8-2-12 0" pathLength="100"/></svg></div><h3>План после финала</h3><p>Личный протокол на следующие 45 дней собирается в последнюю неделю: путь не обрывается.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ── ЗАМЕРЫ ───────────────── -->
 <section class="dark" id="s13" style="position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;opacity:.3"><img src="images/rain.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div style="position:absolute;inset:-12% 0;opacity:.3"><img data-plx src="images/rain.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,21,24,.88),rgba(15,21,24,.78) 45%,rgba(15,21,24,.92))"></div>
   <div class="wrap" style="position:relative;z-index:2">
     <div class="sec-head reveal">
@@ -1281,6 +1328,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <div class="pr-num">3 500&nbsp;₽</div>
       <div class="pr-txt">за весь протокол: личный кабинет на платформе, 21 карточка дня, аудио в дорогу, практикум и план до 66&nbsp;дня</div>
     </div>
+    <div class="dots21 reveal" aria-label="21 день протокола"><i style="--i:1" class=hot></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11" class=hot></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21" class=hot></i></div>
     <div class="count" id="count" hidden>До старта <b id="cd">…</b></div>
     <div class="cta" style="margin-bottom:0">
       <a class="btn" href="#">Войти в протокол</a>
@@ -1353,6 +1401,22 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
     });
   }, {threshold:.5});
   document.querySelectorAll('[data-count]').forEach(function(el){ ioN.observe(el); });
+
+  // параллакс фоновых картинок
+  var plx = Array.prototype.slice.call(document.querySelectorAll('[data-plx]'));
+  if(plx.length && !rm){
+    var ticking = false;
+    function plxTick(){
+      plx.forEach(function(img){
+        var r = img.closest('section').getBoundingClientRect();
+        var k = (r.top + r.height/2 - window.innerHeight/2) / window.innerHeight;
+        img.style.transform = 'translateY(' + (k * 5.5) + '%)';
+      });
+      ticking = false;
+    }
+    window.addEventListener('scroll', function(){ if(!ticking){ requestAnimationFrame(plxTick); ticking = true; } }, {passive:true});
+    plxTick();
+  }
 
   // липкая кнопка: после первого экрана, прячется у финала
   var sticky = document.getElementById('sticky');
