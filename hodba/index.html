@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Протокол 21. Денежная ходьба</title>
-<meta name="description" content="Протокол 21: денежная ходьба по технологии. 21 день, 75 минут в день. Одно действие, два результата: денежное состояние и здоровье.">
+<meta name="description" content="Протокол 21: денежная ходьба по технологии. 21 день, 75 минут в день. Старт потока 11 августа.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Протокол 21. Денежная ходьба">
-<meta property="og:description" content="21 день, 75 минут в день. Технология из шести режимов, наука с именами, замеры до и после. Старт 5 августа.">
+<meta property="og:description" content="21 день, 75 минут в день. Технология из шести режимов, наука с именами, замеры до и после. Старт 11 августа.">
 <meta property="og:image" content="https://thebodymindcode.github.io/soznanie/hodba/images/og.jpg">
 <meta property="og:url" content="https://thebodymindcode.github.io/soznanie/hodba/">
 <meta name="twitter:card" content="summary_large_image">
@@ -335,7 +335,12 @@ section{padding:clamp(72px,11vh,132px) 0}
 .note{background:var(--paper);border-top:1px solid var(--line);padding:40px 0}
 .note p{color:var(--muted);font-size:15.5px;margin:0}
 footer{background:var(--paper);border-top:1px solid var(--line);padding:28px 0}
-footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer .wrap.fcols{display:grid;grid-template-columns:1.1fr .9fr 1.2fr;gap:clamp(20px,4vw,60px);align-items:start}
+.fc{display:flex;flex-direction:column;gap:8px}
+.fbrand{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.fnote{font-size:14px;color:var(--muted);margin:0;line-height:1.55}
+.fc a{font-size:15px;color:var(--body);text-decoration:none;border-bottom:1px solid var(--line);width:max-content;padding-bottom:2px;transition:.2s}
+.fc a:hover{color:var(--orange-d);border-color:var(--orange)}
 footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 
 
@@ -385,6 +390,52 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
 .faq .a{padding:0 0 24px;max-width:70ch}
 .faq .a p{color:var(--body);font-size:17.5px;margin:0}
 
+
+/* ── Lancet: столбцы рисков ───────────────── */
+.lancet{margin-top:52px;border:1px solid var(--line-dark);background:var(--graphite);padding:32px 30px 26px}
+.lancet .kicker{color:rgba(233,238,236,.5)}
+.lancet h3{color:#FBFDFC;font-size:clamp(20px,2.4vw,26px);margin:12px 0 6px}
+.lancet .sub{font-size:16px;color:rgba(233,238,236,.66);margin:0 0 26px;line-height:1.5;max-width:64ch}
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar-row{display:grid;grid-template-columns:190px 1fr 62px;gap:16px;align-items:center}
+.bar-row .bl{font-size:16.5px;color:rgba(233,238,236,.84)}
+.bar-row .bt{height:12px;background:rgba(233,238,236,.1);position:relative;overflow:hidden}
+.bar-row .bt i{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,var(--orange),#FF9A6B);transition:width 1.3s cubic-bezier(.25,.7,.3,1)}
+.lancet.in .bar-row .bt i{width:var(--w)}
+.bar-row .bv{font-family:var(--f-display);font-size:21px;color:#FBFDFC;text-align:right;letter-spacing:-.01em}
+.lancet .src{margin-top:22px}
+
+/* ── митохондрии ───────────────── */
+.mito{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
+.mi{background:var(--paper);padding:30px 28px}
+.mi.dark2{background:var(--graphite);color:rgba(233,238,236,.78)}
+.mi.dark2 h3{color:#FBFDFC}
+.mi .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-d)}
+.mi.dark2 .k{color:var(--orange)}
+.mi h3{font-size:21px;margin:12px 0 10px}
+.mi p{font-size:16.5px;line-height:1.52;margin:0;color:var(--body)}
+.mi.dark2 p{color:rgba(233,238,236,.78)}
+
+/* ── сжатие и расширение ───────────────── */
+.sr{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(16px,3vw,40px);align-items:stretch;margin-top:52px}
+.srb{border:1px solid var(--line-dark);background:var(--graphite);padding:30px 28px}
+.srb.open{border-color:var(--orange);background:var(--graphite-2)}
+.srb .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,238,236,.5)}
+.srb.open .k{color:var(--orange)}
+.srb h3{color:#FBFDFC;margin:12px 0 16px;font-size:23px}
+.srb ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+.srb li{display:flex;gap:11px;font-size:16.5px;color:rgba(233,238,236,.76);line-height:1.45}
+.srb li::before{content:"";width:5px;height:5px;border-radius:50%;background:rgba(233,238,236,.32);margin-top:9px;flex:none}
+.srb.open li::before{background:var(--orange)}
+.srarrow{align-self:center;font-family:var(--f-display);font-size:clamp(26px,3vw,40px);color:var(--orange);line-height:1}
+
+/* ── ссылка на разбор ───────────────── */
+.readmore{margin-top:52px;border:1px solid var(--line);background:var(--paper);padding:30px 28px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.readmore .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-d)}
+.readmore h3{font-size:22px;margin:12px 0 8px}
+.readmore p{margin:0;color:var(--body);font-size:16.5px;line-height:1.5;max-width:60ch}
+.readmore .btn{background:var(--ink);color:#F8FAF9;white-space:nowrap}
+.readmore .btn:hover{background:var(--orange);color:#0F1518}
 /* ── живая графика ───────────────── */
 .pulse{fill:#FF6A2B;transform-box:fill-box;transform-origin:center;animation:pl 2.4s ease-out infinite}
 @keyframes pl{0%{opacity:.75;transform:scale(.55)}70%{opacity:0;transform:scale(1.9)}100%{opacity:0;transform:scale(1.9)}}
@@ -526,7 +577,12 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   .marquee span{font-size:11px;letter-spacing:.18em}
 
   /* сетки в столбик */
-  .grid6,.sci,.phase-row,.numbers,.biohack,.mistakes,.stages,.got,.meas,.fit,.duo,.window-strip,.why,.charts,.try,.enter3{grid-template-columns:1fr}
+  .grid6,.sci,.phase-row,.numbers,.biohack,.mistakes,.stages,.got,.meas,.fit,.duo,.window-strip,.why,.charts,.try,.enter3,.mito,.readmore{grid-template-columns:1fr}
+  .sr{grid-template-columns:1fr;gap:12px}
+  .srarrow{transform:rotate(90deg);justify-self:start}
+  .bar-row{grid-template-columns:1fr 54px;gap:10px}
+  .bar-row .bt{grid-column:1/3;order:3;height:10px}
+  .lancet{padding:24px 18px 20px}
   .mosaic{grid-template-columns:1fr 1fr}
   .pl-row{grid-template-columns:1fr 1fr}
   .solo{grid-template-columns:1fr}
@@ -584,7 +640,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   .evening-img figcaption{padding:26px 18px 20px;font-size:15.5px}
   .proof div{padding-right:18px;margin-right:18px}
   .proof .n{font-size:26px}
-  footer .wrap{flex-direction:column;gap:8px}
+  footer .wrap.fcols{grid-template-columns:1fr;gap:26px}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -620,7 +676,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
         <div><div class="n">75</div><div class="t">минут в день</div></div>
         <div><div class="n">21</div><div class="t">день</div></div>
         <div><div class="n">6</div><div class="t">режимов ходьбы</div></div>
-        <div><div class="n">5 авг</div><div class="t">старт потока</div></div>
+        <div><div class="n">11 авг</div><div class="t">старт потока</div></div>
       </div>
       <div class="cta">
         <a class="btn" href="#vhod">Войти в протокол</a>
@@ -698,9 +754,9 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
     </div>
     <div class="sci">
       <article class="sc reveal">
-        <div class="n">81%</div>
+        <div class="n">+60%</div>
         <h3>Вариантов становится&nbsp;больше</h3>
-        <p>В стэнфордских экспериментах шаг поднял дивергентное мышление у 81% участников: люди на ходу порождали заметно больше свежих идей, чем сидя. Именно этого не хватает при денежном потолке: человек застрял не потому, что глуп, а потому, что не видит ходов.</p>
+        <p>В стэнфордских экспериментах поток решений на ходу вырастал в среднем на 60%, и эффект держался ещё какое-то время после остановки. Именно этого не хватает при денежном потолке: человек застрял не потому, что глуп, а потому, что не видит&nbsp;ходов.</p>
         <span class="src">Oppezzo, Schwartz · Стэнфорд · 2014</span>
       </article>
       <article class="sc reveal">
@@ -722,10 +778,24 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <div class="pl-row">
         <div class="pl"><div class="y">2011</div><p>Год ходьбы развернул возрастную убыль гиппокампа</p><span class="src">Erickson · PNAS</span></div>
         <div class="pl"><div class="y">2013</div><p>Прогулка после еды срезает пик сахара лучше длинной днём</p><span class="src">DiPietro · Diabetes Care</span></div>
-        <div class="pl"><div class="y">2014</div><p>Шаг поднял поток свежих идей у 81% участников</p><span class="src">Oppezzo · Стэнфорд</span></div>
+        <div class="pl"><div class="y">2014</div><p>Поток решений на ходу вырос в среднем на 60%</p><span class="src">Oppezzo · Стэнфорд</span></div>
         <div class="pl"><div class="y">2014</div><p>Рост кортизола сдвигает выбор к избеганию риска</p><span class="src">Kandasamy · PNAS</span></div>
         <div class="pl"><div class="y">2015</div><p>Прогулка в зелени гасит прокручивание мыслей</p><span class="src">Bratman · PNAS</span></div>
         <div class="pl"><div class="y">2022</div><p>Объём движения протокола связан с риском депрессии ниже на четверть</p><span class="src">Pearce · JAMA Psychiatry</span></div>
+      </div>
+    </div>
+
+
+    <div class="mito reveal">
+      <div class="mi">
+        <div class="k">Откуда берётся энергия</div>
+        <h3>Каждая сессия строит новые&nbsp;электростанции</h3>
+        <p>Энергию тела вырабатывают митохондрии, крошечные станции внутри клеток. Ходьба включает в мышцах белок PGC-1α, по команде которого тело собирает новые. Больше станций, больше собственной энергии, а не занятой у кофе.</p>
+      </div>
+      <div class="mi dark2">
+        <div class="k">Что стоит за словом «вялость»</div>
+        <h3>К вечеру не остаётся сил не&nbsp;случайно</h3>
+        <p>Обычно это значит одно: станций в теле стало мало. Кофе подстёгивает их на час, движение отстраивает заново. Поэтому энергия входит в замеры протокола наравне с пульсом и&nbsp;сном.</p>
       </div>
     </div>
 
@@ -878,6 +948,22 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       </div>
     </div>
 
+
+    <div class="lancet reveal">
+      <div class="kicker">Крупнейший разбор на сегодня</div>
+      <h3>Семь тысяч шагов против двух&nbsp;тысяч</h3>
+      <p class="sub">Июль 2025 года, The Lancet Public Health: 57 исследований и больше 160 000 человек. Сравнили тех, кто проходит около 7000 шагов в день, с теми, у кого около 2000. Семь тысяч это примерно час спокойного шага, ровно объём утренней сессии&nbsp;протокола.</p>
+      <div class="bars">
+        <div class="bar-row"><div class="bl">Смертность от всех причин</div><div class="bt"><i style="--w:100%"></i></div><div class="bv">−47%</div></div>
+        <div class="bar-row"><div class="bl">Деменция</div><div class="bt"><i style="--w:81%"></i></div><div class="bv">−38%</div></div>
+        <div class="bar-row"><div class="bl">Падения</div><div class="bt"><i style="--w:60%"></i></div><div class="bv">−28%</div></div>
+        <div class="bar-row"><div class="bl">Сердце и сосуды</div><div class="bt"><i style="--w:53%"></i></div><div class="bv">−25%</div></div>
+        <div class="bar-row"><div class="bl">Депрессия</div><div class="bt"><i style="--w:47%"></i></div><div class="bv">−22%</div></div>
+        <div class="bar-row"><div class="bl">Диабет второго типа</div><div class="bt"><i style="--w:30%"></i></div><div class="bv">−14%</div></div>
+      </div>
+      <span class="src">The Lancet Public Health, 2025 · метаанализ 57 исследований</span>
+    </div>
+
     <div class="biohack">
       <div class="bh reveal">
         <h3>За это обычно платят</h3>
@@ -954,7 +1040,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="kicker">Цели и расширение</div>
-      <h2>Цель, что стоит год, двигается не&nbsp;усилием</h2>
+      <h2>Цель, которая стоит годами, двигается не&nbsp;усилием</h2>
     </div>
     <div class="goal">
       <div class="goal-img reveal"><img src="images/stride.jpg" alt="Мужчина широким шагом переходит рассветную улицу"></div>
@@ -964,6 +1050,31 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
         <span class="src">Oettingen, Mayer · 2002 · Kappes, Oettingen · 2011</span>
       </div>
     </div>
+
+    <div class="sr reveal">
+      <div class="srb">
+        <div class="k">Сжатие</div>
+        <h3>Состояние, где не видно&nbsp;ходов</h3>
+        <ul>
+          <li>Плечи вверх, дыхание уходит в грудь</li>
+          <li>Поле зрения сужается, возможность рядом и не видна</li>
+          <li>Цена проглатывается, место занимается поменьше</li>
+          <li>Свежее решение не рождается, потому что тело в обороне</li>
+        </ul>
+      </div>
+      <div class="srarrow">→</div>
+      <div class="srb open">
+        <div class="k">Расширение</div>
+        <h3>Состояние, где живёт всё&nbsp;большое</h3>
+        <ul>
+          <li>Кортизол отпускает, тревожная петля размыкается</li>
+          <li>Вариантов становится больше в среднем на 60%</li>
+          <li>Цена называется, и после неё держится тишина</li>
+          <li>Тело выходит из обороны, и человек расправляется</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="window-strip reveal">
       <div class="ws"><div class="k">Шаг 1</div><h3>Сессия открывает&nbsp;окно</h3><p>Мышление шире, кортизол ниже, сопротивление слабее обычного.</p></div>
       <div class="ws"><div class="k">Шаг 2</div><h3>Действие в это&nbsp;окно</h3><p>Письмо, цифра в прайсе, просьба. Одно движение в реальные деньги,&nbsp;сразу.</p></div>
@@ -1246,7 +1357,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <h3>Контрольные точки&nbsp;замеров</h3>
       <div class="p21">
         <div class="base"></div><div class="fill"></div>
-        <div class="tick" style="left:4.7%"></div><div class="tick" style="left:23.8%"></div><div class="tick" style="left:42.8%"></div><div class="tick" style="left:61.9%"></div><div class="tick" style="left:81%"></div>
+        <div class="tick" style="left:4.7%"></div><div class="tick" style="left:23.8%"></div><div class="tick" style="left:42.8%"></div><div class="tick" style="left:61.9%"></div><div class="tick" style="left:60%"></div>
         <div class="pmk" style="left:0%"><i></i></div><div class="mlb" style="left:2%">замер</div><div class="dlb" style="left:2%">день 1</div>
         <div class="pmk" style="left:50%"><i></i></div><div class="mlb" style="left:50%">замер</div><div class="dlb" style="left:50%">день 11</div>
         <div class="pmk" style="left:100%"><i></i></div><div class="mlb" style="left:97%">замер</div><div class="dlb" style="left:97%">день 21</div>
@@ -1332,7 +1443,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
     <div class="sec-head reveal">
       <div class="kicker">Проверить можно сегодня</div>
       <h2>Три вещи из открытой части&nbsp;науки</h2>
-      <p class="lead">Протокол стартует 5 августа, а физиология работает уже сейчас. Вот что можно проверить на себе до&nbsp;старта.</p>
+      <p class="lead">Протокол стартует 11 августа, а физиология работает уже сейчас. Вот что можно проверить на себе до&nbsp;старта.</p>
     </div>
     <div class="try">
       <div class="tr reveal"><div class="k">Сегодня вечером</div><h3>15 минут после&nbsp;ужина</h3><p>Короткая прогулка сразу после еды срезает вечерний подъём сахара. Если есть сенсор или глюкометр, разницу видно с первого&nbsp;раза.</p></div>
@@ -1458,7 +1569,22 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
     <div class="enter3">
       <div class="en reveal"><div class="n">Шаг 1</div><h3>Оплачиваете&nbsp;участие</h3><p>Кнопка ниже. Оплата картой, доступ закрепляется за вашей&nbsp;почтой.</p></div>
       <div class="en reveal"><div class="n">Шаг 2</div><h3>Получаете вход на&nbsp;платформу</h3><p>Личный кабинет откроется до старта: осмотритесь, пройдите замеры первого дня.</p></div>
-      <div class="en reveal"><div class="n">Шаг 3</div><h3>5 августа первая&nbsp;настройка</h3><p>Утром Дарья задаёт направление, и вы выходите на первую сессию. Дальше 21 день по&nbsp;карте.</p></div>
+      <div class="en reveal"><div class="n">Шаг 3</div><h3>11 августа первая&nbsp;настройка</h3><p>Утром Дарья задаёт направление, и вы выходите на первую сессию. Дальше 21 день по&nbsp;карте.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── РАЗБОР ───────────────── -->
+<section id="s16c" style="padding-top:0">
+  <div class="wrap">
+    <div class="readmore reveal">
+      <div>
+        <div class="k">Открытый доступ</div>
+        <h3>Разбор «Ходьба: рассекреченный код&nbsp;тела»</h3>
+        <p>Тринадцать минут чтения: пять открытий о ходьбе, снимки мозга, цифры Lancet и Стэнфорда и разбор того, почему рост так часто идёт через боль. Читается до старта потока, бесплатно.</p>
+      </div>
+      <a class="btn" href="https://thebodymindcode.github.io/hodba/">Читать разбор</a>
     </div>
   </div>
 </section>
@@ -1468,13 +1594,13 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   <div class="final-img"><img src="images/bridge.jpg" alt="Женщина идёт по мосту к рассветному свету"></div>
   <div class="wrap final-in">
     <div class="kicker" style="color:rgba(242,245,244,.6)">Протокол 21 · Денежная ходьба</div>
-    <h2 style="margin-top:16px">Старт потока: 5&nbsp;августа</h2>
+    <h2 style="margin-top:16px">Старт потока: 11&nbsp;августа</h2>
     <p class="lead">21 день, 75 минут в день. Технология, дневник, замеры и действия в реальные деньги. Всё, что нужно, у вас уже есть: ноги, улица и 21 утро подряд.</p>
     <div class="price-row">
       <div class="pr-num">3 500&nbsp;₽</div>
       <div class="pr-txt">за весь протокол: личный кабинет на платформе, 21 карточка дня, аудио в дорогу, практикум и план до 66&nbsp;дня</div>
     </div>
-    <p class="together">Поток один, без догоняющих продаж: <b>5 августа</b> вся группа выходит в одно&nbsp;утро.</p>
+    <p class="together">Поток один, без догоняющих продаж: <b>11 августа</b> вся группа выходит в одно&nbsp;утро.</p>
     <div class="count" id="count" hidden>До старта <b id="cd">…</b></div>
     <div class="cta" style="margin-bottom:0">
       <a class="btn" href="#">Войти в протокол</a>
@@ -1490,9 +1616,21 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
 </div>
 
 <footer>
-  <div class="wrap">
-    <span>Архитектура сознания</span>
-    <span>Протокол 21 · Денежная ходьба</span>
+  <div class="wrap fcols">
+    <div class="fc">
+      <span class="fbrand">Архитектура сознания</span>
+      <p class="fnote">Мозг · тело · состояние</p>
+    </div>
+    <div class="fc">
+      <a href="https://t.me/+oSuGhJQlsr4zYmQy">Телеграм</a>
+      <a href="https://instagram.com/thebodymindcode">Инстаграм</a>
+      <a href="https://www.youtube.com/@thebodymindcode">Ютуб</a>
+      <a href="https://t.me/TheBodyMindCode_support">Поддержка</a>
+    </div>
+    <div class="fc">
+      <p class="fnote">ИП Ростовцева Дарья Валерьевна<br>ИНН 241103415641</p>
+      <p class="fnote">© 2026. Протокол 21 · Денежная ходьба</p>
+    </div>
   </div>
 </footer>
 
@@ -1501,7 +1639,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if(!('IntersectionObserver' in window)){
-    document.querySelectorAll('.reveal,.mode,.phase-row,.ring,.stages,.chart,.progress21,.sess').forEach(function(el){ el.classList.add('in'); });
+    document.querySelectorAll('.reveal,.mode,.phase-row,.ring,.stages,.chart,.progress21,.sess,.lancet').forEach(function(el){ el.classList.add('in'); });
     return;
   }
 
@@ -1515,7 +1653,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   var io = new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:.16, rootMargin:'0px 0px -6% 0px'});
-  document.querySelectorAll('.reveal,.mode,.phase-row,.ring,.stages,.chart,.progress21,.sess').forEach(function(el){ io.observe(el); });
+  document.querySelectorAll('.reveal,.mode,.phase-row,.ring,.stages,.chart,.progress21,.sess,.lancet').forEach(function(el){ io.observe(el); });
 
   // страховка: видимое показываем через 2 секунды в любом случае
   setTimeout(function(){
@@ -1569,11 +1707,11 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
     plxTick();
   }
 
-  // отсчёт до старта 5 августа
+  // отсчёт до старта 11 августа
   (function(){
     var box = document.getElementById('count'), out = document.getElementById('cd');
     if(!box || !out) return;
-    var t0 = new Date('2026-08-05T00:00:00+03:00').getTime();
+    var t0 = new Date('2026-08-11T00:00:00+03:00').getTime();
     function pad(n){ return (n<10?'0':'')+n; }
     function tick(){
       var d = t0 - Date.now();
