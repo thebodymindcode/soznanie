@@ -113,8 +113,9 @@ section{padding:clamp(72px,11vh,132px) 0}
 .dark .lead{color:rgba(233,238,236,.78)}
 .dark .kicker{color:rgba(233,238,236,.5)}
 .dark .src{color:rgba(233,238,236,.42)}
-.sec-head{max-width:58ch}
-.sec-head h2{margin:14px 0 22px}
+.sec-head{max-width:none;display:block}
+.sec-head h2{margin:16px 0 0;max-width:none;text-wrap:pretty}
+.sec-head>.lead{margin:24px 0 0;max-width:58ch}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
 .reveal.in{opacity:1;transform:none}
 
@@ -150,7 +151,8 @@ section{padding:clamp(72px,11vh,132px) 0}
 .after-note .big{font-family:var(--f-display);font-size:clamp(21px,2.3vw,29px)}
 
 /* ── контур ───────────────── */
-.head-split{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(28px,5vw,72px);align-items:end}
+.head-split{display:grid;grid-template-columns:1.5fr .5fr;gap:clamp(28px,5vw,72px);align-items:end}
+.head-split .sec-head>.lead{max-width:52ch}
 .entry{display:flex;flex-direction:column;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark)}
 .entry .kicker{background:var(--graphite);padding:16px 20px 14px}
 .ecard{background:var(--graphite);padding:18px 20px;display:flex;align-items:baseline;gap:16px}
@@ -318,7 +320,7 @@ section{padding:clamp(72px,11vh,132px) 0}
 .final-img img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
 .final-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,21,24,.96) 12%,rgba(15,21,24,.78) 55%,rgba(15,21,24,.6) 100%)}
 .final-in{position:relative;z-index:2;padding:clamp(90px,16vh,180px) var(--pad);color:#F2F5F4;text-align:left}
-.final h2{font-size:clamp(34px,5.4vw,68px);color:#FBFDFC;max-width:16ch}
+.final h2{font-size:clamp(34px,5.4vw,68px);color:#FBFDFC;max-width:none}
 .final .lead{color:rgba(242,245,244,.88);margin-top:22px;max-width:52ch}
 .final .kicker{color:rgba(242,245,244,.6)}
 .price-row{display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;margin-top:30px;border-top:1px solid rgba(242,245,244,.2);padding-top:26px;max-width:640px}
@@ -548,7 +550,9 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   h3{font-size:19.5px}
   .lead{font-size:17.5px;line-height:1.55}
   section{padding:56px 0}
-  .sec-head h2{margin:12px 0 18px}
+  .sec-head{display:block}
+  .sec-head h2{margin:12px 0 16px;max-width:none}
+  .sec-head>.lead{max-width:none;margin:0}
 
   /* HERO */
   .hero-in{padding-top:84px;padding-bottom:26px}
@@ -914,7 +918,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
 <!-- ── ЗДОРОВЬЕ ───────────────── -->
 <section class="dark" id="s5" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head reveal" style="max-width:min(780px,100%)">
+    <div class="sec-head reveal">
       <div class="kicker">Вторая ось</div>
       <h2>Пока вы работаете с деньгами, тело получает свою&nbsp;половину</h2>
     </div>
@@ -1652,13 +1656,13 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
 
   var io = new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, {threshold:.16, rootMargin:'0px 0px -6% 0px'});
+  }, {threshold:.08, rootMargin:'0px 0px 12% 0px'});
   document.querySelectorAll('.reveal,.mode,.phase-row,.ring,.stages,.chart,.progress21,.sess,.lancet').forEach(function(el){ io.observe(el); });
 
   // страховка: видимое показываем через 2 секунды в любом случае
   setTimeout(function(){
     document.querySelectorAll('.reveal:not(.in),.mode:not(.in)').forEach(function(el){
-      if(el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+      if(el.getBoundingClientRect().top < window.innerHeight * 1.8) el.classList.add('in');
     });
   }, 2000);
 
