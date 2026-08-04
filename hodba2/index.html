@@ -1,0 +1,1948 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Практика ходьбы · 21 день</title>
+<meta name="description" content="Практика ходьбы: 21 день, 75 минут в день. Привычная ходьба превращается в точный инструмент для тела, ясности, денег и целей. Старт потока 11 августа.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Практика ходьбы · 21 день">
+<meta property="og:description" content="21 день, 75 минут в день. Технология из шести режимов, наука с именами, замеры до и после. Старт 11 августа.">
+<meta property="og:image" content="https://thebodymindcode.github.io/soznanie/hodba/images/og.jpg">
+<meta property="og:url" content="https://thebodymindcode.github.io/soznanie/hodba/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fog:#EEF1F0;
+  --paper:#F8FAF9;
+  --graphite:#0F1518;
+  --graphite-2:#18232A;
+  --ink:#151D21;
+  --body:#3A474D;
+  --muted:#6E7C82;
+  --line:#D9DFDD;
+  --line-dark:rgba(238,241,240,.14);
+  --orange:#FF6A2B;
+  --orange-d:#C9491A;
+  --steel:#34505C;
+  --f-display:'Fraunces',Georgia,serif;
+  --f-body:'Source Serif 4',Georgia,serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,monospace;
+  --wrap:1180px;
+  --pad:clamp(20px,5vw,64px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--fog);color:var(--ink);
+  font-family:var(--f-body);font-size:19px;line-height:1.62;
+  font-optical-sizing:auto;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.06;letter-spacing:-.015em;margin:0}
+h2{font-size:clamp(30px,4.6vw,58px)}
+h3{font-size:clamp(20px,2.2vw,26px);line-height:1.2}
+p{margin:0 0 1em}
+.lead{font-size:clamp(19px,1.55vw,23px);line-height:1.55;color:var(--body);text-wrap:pretty;max-width:62ch}
+.kicker{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.src{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;color:var(--muted);display:block}
+
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--orange);z-index:60}
+
+header{position:absolute;top:0;left:0;right:0;z-index:40;padding-top:26px}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(248,250,249,.78)}
+.hd a.enter{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#F8FAF9;text-decoration:none;border-bottom:1px solid rgba(248,250,249,.4);padding:12px 4px 10px;display:inline-block;min-height:44px}
+
+#rail{position:fixed;left:26px;top:50%;transform:translateY(-50%);z-index:30;display:flex;flex-direction:column;gap:16px;mix-blend-mode:difference}
+#rail b{display:block;width:7px;height:7px;border-radius:50%;background:rgba(238,241,240,.35);transition:.45s}
+#rail b.on{background:var(--orange);transform:scale(1.55)}
+@media(max-width:1100px){#rail{display:none}}
+
+/* ── HERO ───────────────── */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--graphite)}
+.hero-img{position:absolute;inset:0}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scale(1.06);animation:drift 26s ease-in-out infinite alternate}
+@keyframes drift{to{transform:scale(1.13) translate3d(-1.6%,-1%,0)}}
+.hero-img::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 90% at 72% 30%,rgba(255,138,74,.16) 0%,rgba(255,106,43,0) 52%),
+             linear-gradient(100deg,rgba(15,21,24,.95) 0%,rgba(15,21,24,.78) 34%,rgba(15,21,24,.22) 66%,rgba(15,21,24,.42) 100%),
+             linear-gradient(to top,rgba(15,21,24,.94),transparent 54%)}
+.sunline{position:absolute;left:46%;right:0;top:30%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,106,43,.8),rgba(255,106,43,.12));opacity:.7;animation:breathe 7s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.26;transform:translateY(0)}50%{opacity:.85;transform:translateY(-6px)}}
+.hero-in{position:relative;z-index:3;width:100%;padding-bottom:0;padding-top:120px;color:#F2F5F4}
+.stamp{display:inline-flex;align-items:center;gap:12px;font-family:var(--f-mono);font-size:clamp(12px,1.2vw,15px);letter-spacing:.34em;text-transform:uppercase;color:var(--orange);border:1px solid rgba(255,106,43,.55);padding:10px 18px 9px 22px;border-radius:2px}
+.hero h1{font-size:clamp(44px,7.6vw,108px);font-weight:400;letter-spacing:-.03em;color:#FBFDFC;margin-top:26px}
+.hero h1 .l{display:block;overflow:hidden}
+.hero h1 .l span{display:block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+.hero h1 .l:nth-child(2) span{animation-delay:.16s}
+@keyframes rise{to{transform:none}}
+.hero .sub{font-family:var(--f-mono);font-size:clamp(12px,1.15vw,14px);letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-top:24px;text-shadow:0 1px 12px rgba(15,21,24,.85)}
+.hero .sub span+span::before{content:" · ";opacity:.55}
+.hero .lead{color:rgba(242,245,244,.9);margin-top:24px;max-width:56ch}
+.hero .lead b{color:#fff;font-weight:600}
+.facts{display:flex;flex-wrap:wrap;gap:0;margin-top:32px;border-top:1px solid rgba(242,245,244,.18)}
+.facts div{padding:18px 30px 0 0;margin-right:30px;border-right:1px solid rgba(242,245,244,.18)}
+.facts div:last-child{border-right:0;margin-right:0}
+.facts .n{font-family:var(--f-display);font-size:clamp(26px,3vw,38px);color:#FBFDFC;line-height:1}
+.facts .t{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(242,245,244,.6);margin-top:8px}
+.cta{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:38px;margin-bottom:46px}
+.btn{display:inline-block;background:var(--orange);color:#0F1518;text-decoration:none;font-family:var(--f-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:17px 30px;border-radius:2px;transition:.25s}
+.btn:hover{background:#fff}
+.btn-ghost{font-family:var(--f-mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:rgba(242,245,244,.8);text-decoration:none;border-bottom:1px solid rgba(242,245,244,.32);padding-bottom:4px}
+.btn-ghost:hover{color:#fff;border-color:var(--orange)}
+/* бегущая строка */
+.marquee{position:relative;z-index:3;border-top:1px solid rgba(242,245,244,.16);background:rgba(15,21,24,.55);backdrop-filter:blur(4px);overflow:hidden;padding:14px 0}
+.marquee .track{display:flex;gap:0;width:max-content;animation:mq 26s linear infinite}
+.marquee span{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(242,245,244,.62);white-space:nowrap;padding-right:38px}
+.marquee span b{color:var(--orange);font-weight:400}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ── общие ───────────────── */
+section{padding:clamp(72px,11vh,132px) 0}
+.dark{background:var(--graphite);color:#E9EEEC}
+.dark h2{color:#FBFDFC}
+.dark .lead{color:rgba(233,238,236,.78)}
+.dark .kicker{color:rgba(233,238,236,.5)}
+.dark .src{color:rgba(233,238,236,.42)}
+.sec-head{max-width:58ch}
+.sec-head h2{margin:14px 0 22px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+
+/* ── формула биг-идеи ───────────────── */
+.formula{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:clamp(10px,2vw,26px);align-items:stretch;margin-top:52px}
+.fx{border:1px solid var(--line);background:var(--paper);padding:28px 26px}
+.fx .fk{font-family:var(--f-display);font-weight:600;font-size:clamp(22px,2.6vw,32px);letter-spacing:-.015em}
+.fx p{color:var(--body);font-size:16.5px;line-height:1.5;margin:12px 0 0}
+.fx.hot{border-color:var(--orange);background:#fff}
+.fx.hot .fk{color:var(--orange-d)}
+.fop{font-family:var(--f-display);font-size:clamp(30px,3.6vw,52px);color:var(--orange-d);align-self:center;line-height:1}
+
+/* ── узнавание ───────────────── */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:start}
+
+/* ── почему сюда ───────────────── */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:52px}
+.w{background:var(--graphite);padding:30px 28px;transition:.3s}
+.w:hover{background:var(--graphite-2)}
+.w .wn{font-family:var(--f-display);font-size:clamp(34px,3.6vw,52px);line-height:1;color:var(--orange);letter-spacing:-.02em}
+.w h3{color:#FBFDFC;margin:14px 0 10px}
+.w p{color:rgba(233,238,236,.74);font-size:17px;line-height:1.52;margin:0;text-wrap:pretty}
+
+/* ── наука ───────────────── */
+.sci{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
+.sc{background:var(--paper);padding:30px 28px;display:flex;flex-direction:column}
+.sc .n{font-family:var(--f-display);font-size:clamp(40px,4.4vw,58px);line-height:1;color:var(--orange-d);letter-spacing:-.03em}
+.sc h3{margin:16px 0 10px}
+.sc p{color:var(--body);font-size:17px;line-height:1.5;margin:0 0 18px}
+.sc .src{margin-top:auto}
+.after-note{margin-top:26px;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.after-note .big{font-family:var(--f-display);font-size:clamp(21px,2.3vw,29px)}
+
+/* ── контур ───────────────── */
+.head-split{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(28px,5vw,72px);align-items:end}
+.entry{display:flex;flex-direction:column;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark)}
+.entry .kicker{background:var(--graphite);padding:16px 20px 14px}
+.ecard{background:var(--graphite);padding:18px 20px;display:flex;align-items:baseline;gap:16px}
+.ecard b{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;color:var(--orange);font-weight:400}
+.ecard span{font-family:var(--f-display);font-size:24px;color:#FBFDFC}
+.loop{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,64px);align-items:center;margin-top:52px}
+.ring{width:100%;max-width:640px;margin:0 auto}
+.ring text{font-family:var(--f-mono);font-size:15px;letter-spacing:.06em;fill:rgba(233,238,236,.82)}
+.ring .num{font-family:var(--f-display);font-size:19px;fill:#0F1518}
+.ring .arc{fill:none;stroke:rgba(233,238,236,.26);stroke-width:1.5}
+.ring .arc-live{fill:none;stroke:var(--orange);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:1445;stroke-dashoffset:1445;transition:stroke-dashoffset 1.6s cubic-bezier(.3,.7,.3,1)}
+.ring.in .arc-live{stroke-dashoffset:361}
+.ring .dot{fill:#E9EEEC}
+.ring .dot.hot{fill:var(--orange)}
+.ring .hit{font-family:var(--f-mono);font-size:12px;fill:var(--orange);letter-spacing:.1em}
+.points{display:flex;flex-direction:column;gap:2px}
+.pt{border-top:1px solid var(--line-dark);padding:22px 0}
+.pt h3{color:#FBFDFC;font-size:22px}
+.pt p{margin:10px 0 0;color:rgba(233,238,236,.72);font-size:17.5px;line-height:1.55}
+.pt .src{margin-top:10px}
+.loop-note{margin-top:44px;border-top:1px solid var(--line-dark);padding-top:26px;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.loop-note .big{font-family:var(--f-display);font-size:clamp(22px,2.4vw,30px);color:#FBFDFC}
+.ring-list{display:none}
+
+/* ── здоровье ───────────────── */
+.health-top{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,60px);align-items:end;margin-top:34px}
+.health-top .lead{margin:0}
+.numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dark);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);margin-top:56px}
+.num{background:var(--graphite);padding:30px 24px 28px}
+.num .v{font-family:var(--f-display);font-size:clamp(38px,5.2vw,64px);line-height:1;color:#FBFDFC;letter-spacing:-.03em}
+.num .t{margin-top:14px;font-size:16.5px;color:rgba(233,238,236,.76);line-height:1.42}
+.num .s{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:rgba(233,238,236,.42);margin-top:12px;display:block}
+.biohack{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-dark);margin-top:56px;border:1px solid var(--line-dark)}
+.bh{background:var(--graphite);padding:32px 30px}
+.bh.right{background:var(--graphite-2)}
+.bh h3{color:#FBFDFC;margin-bottom:18px}
+.bh ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.bh li{display:flex;gap:12px;font-size:17px;line-height:1.45;color:rgba(233,238,236,.78)}
+.bh li::before{content:"";width:6px;height:6px;border-radius:50%;background:rgba(233,238,236,.3);margin-top:9px;flex:none}
+.bh.right li::before{background:var(--orange)}
+.evening-img{margin-top:56px;position:relative;overflow:hidden}
+.evening-img img{width:100%;height:clamp(240px,38vh,420px);object-fit:cover}
+.evening-img figcaption{position:absolute;left:0;bottom:0;right:0;padding:34px 28px 26px;background:linear-gradient(to top,rgba(15,21,24,.97) 0%,rgba(15,21,24,.92) 62%,rgba(15,21,24,0) 100%);color:rgba(233,238,236,.92);font-size:17px}
+.evening-img figcaption b{color:#fff;font-weight:600}
+
+
+/* ── научные графики ───────────────── */
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:56px}
+.chart{background:var(--graphite);padding:30px 28px 24px}
+.chart h3{color:#FBFDFC;font-size:20px;margin-bottom:6px}
+.chart .sub{font-size:15.5px;color:rgba(233,238,236,.62);margin:0 0 18px;line-height:1.45}
+.chart svg{width:100%;height:auto;display:block}
+.chart .ax{stroke:rgba(233,238,236,.22);stroke-width:1}
+.chart .lbl{font-family:var(--f-mono);font-size:12px;fill:rgba(233,238,236,.5);letter-spacing:.05em}
+.chart .lbl.hot{fill:var(--orange)}
+.chart .curve{fill:none;stroke:rgba(233,238,236,.55);stroke-width:2;stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 1.8s ease}
+.chart .curve.hot{stroke:var(--orange);stroke-width:2.6}
+.chart.in .curve{stroke-dashoffset:0}
+.chart .zone{fill:rgba(255,106,43,.10)}
+.chart .src{margin-top:14px}
+.progress21{margin-top:52px;border:1px solid var(--line-dark);background:var(--graphite);padding:30px 28px 24px}
+.progress21 h3{color:#FBFDFC;font-size:20px;margin-bottom:20px}
+.p21{position:relative;height:74px}
+.p21 .base{position:absolute;left:0;right:0;top:34px;height:2px;background:rgba(233,238,236,.16)}
+.p21 .fill{position:absolute;left:0;top:34px;height:2px;width:0;background:var(--orange);transition:width 2s cubic-bezier(.3,.7,.3,1)}
+.progress21.in .p21 .fill{width:100%}
+.p21 .tick{position:absolute;top:30px;width:1px;height:10px;background:rgba(233,238,236,.25)}
+.p21 .pmk{position:absolute;top:24px;width:22px;height:22px;border-radius:50%;background:var(--graphite);border:2px solid var(--orange);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;padding:0;min-height:0}
+.p21 .pmk i{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.p21 .mlb{position:absolute;top:0;transform:translateX(-50%);font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:rgba(233,238,236,.6);white-space:nowrap}
+.p21 .dlb{position:absolute;top:56px;transform:translateX(-50%);font-family:var(--f-mono);font-size:11px;color:rgba(233,238,236,.45);white-space:nowrap}
+
+/* ── цели ───────────────── */
+.goal{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,5vw,72px);align-items:center;margin-top:20px}
+.goal-img{position:relative;overflow:hidden}
+.goal-img img{width:100%;height:clamp(320px,52vh,560px);object-fit:cover}
+.goal-img::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--orange),transparent)}
+.window-strip{margin-top:56px;border:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+.ws{background:var(--paper);padding:26px 24px}
+.ws .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-d)}
+.ws h3{font-size:21px;margin:12px 0 8px}
+.ws p{font-size:16.5px;color:var(--body);margin:0;line-height:1.5}
+
+
+/* ── график ходьбы ───────────────── */
+.dayline{margin-top:44px;border:1px solid var(--line);background:var(--paper);padding:30px 28px 18px}
+.dayline svg{width:100%;height:auto;display:block}
+.dayline .lbl{font-family:var(--f-mono);font-size:12px;fill:var(--muted);letter-spacing:.05em}
+.dayline .lbl.hot{fill:var(--orange-d)}
+.dayline .win{fill:rgba(255,106,43,.16);stroke:var(--orange);stroke-width:1.6}
+.dayline .axl{stroke:var(--muted);stroke-width:1}
+.sess{margin-top:20px}
+
+/* ── сравнение: почему ходьба ───────────────── */
+.cmp{margin-top:52px;border:1px solid var(--line);background:var(--line);display:flex;flex-direction:column;gap:1px}
+.crow{display:grid;grid-template-columns:1.25fr 1fr 1fr .8fr;gap:1px;background:var(--line)}
+.crow>div{background:var(--paper);padding:16px 18px;font-size:16px;color:var(--body);line-height:1.45;display:flex;align-items:center}
+.crow .rh{font-family:var(--f-display);font-weight:600;font-size:17.5px;color:var(--ink)}
+.crow .hot{background:#fff;color:var(--orange-d);font-family:var(--f-mono);font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.chead>div{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);padding:14px 18px}
+.chead .hot{color:var(--orange-d)}
+/* ── полноэкранная передышка ───────────────── */
+.break{position:relative;overflow:hidden;padding:0;background:var(--graphite)}
+.break img{width:100%;height:clamp(380px,72vh,720px);object-fit:cover;display:block}
+.break .cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(28px,5vh,56px) 0;background:linear-gradient(to top,rgba(15,21,24,.88),transparent)}
+.break .cap p{margin:0;font-family:var(--f-display);font-weight:600;font-size:clamp(22px,3vw,40px);letter-spacing:-.02em;color:#FBFDFC;max-width:26ch;line-height:1.15}
+/* ── кривая сессии ───────────────── */
+.sess{margin-top:52px;border:1px solid var(--line);background:var(--paper);padding:30px 28px 24px}
+.sess h3{font-size:20px;margin-bottom:6px}
+.sess .sub{font-size:15.5px;color:var(--muted);margin:0 0 18px;line-height:1.45}
+.sess svg{width:100%;height:auto;display:block}
+.sess .ax{stroke:var(--line);stroke-width:1}
+.sess .lbl{font-family:var(--f-mono);font-size:12px;fill:var(--muted);letter-spacing:.05em}
+.sess .lbl.hot{fill:var(--orange-d)}
+.sess .curve{fill:none;stroke:var(--steel);stroke-width:2.4;stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 1.8s ease}
+.sess.in .curve{stroke-dashoffset:0}
+.sess .zone{fill:rgba(255,106,43,.12)}
+/* ── мозаика цифр ───────────────── */
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:52px}
+.mo{background:var(--graphite);padding:24px 22px}
+.mo .v{font-family:var(--f-display);font-size:clamp(28px,3.4vw,44px);line-height:1;color:#FBFDFC;letter-spacing:-.02em}
+.mo .t{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,238,236,.55);margin-top:10px;line-height:1.5}
+/* ── попробовать сегодня ───────────────── */
+.try{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
+.tr{background:var(--paper);padding:30px 28px}
+.tr .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-d)}
+.tr h3{font-size:20px;margin:12px 0 8px}
+.tr p{font-size:16.5px;color:var(--body);margin:0;line-height:1.5}
+
+
+
+/* ── подбор входа ───────────────── */
+.qz{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.qz .qb{font-family:var(--f-mono);font-size:13px;letter-spacing:.05em;padding:14px 18px;min-height:46px;background:var(--paper);border:1px solid var(--line);cursor:pointer;transition:.25s;color:var(--body)}
+.qz .qb:hover{border-color:var(--orange);color:var(--ink);transform:translateY(-2px)}
+.qz .qb.on{background:var(--orange);border-color:var(--orange);color:#0F1518}
+.mode.lit{outline:2px solid var(--orange);outline-offset:-2px;background:#fff}
+
+/* ── лента доказательств ───────────────── */
+.proofline{margin-top:64px;border-top:1px solid var(--line);padding-top:40px}
+.pl-row{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
+.pl{background:var(--paper);padding:22px 20px}
+.pl .y{font-family:var(--f-display);font-weight:600;font-size:clamp(24px,2.6vw,34px);letter-spacing:-.02em;color:var(--orange-d)}
+.pl p{font-size:15.5px;color:var(--body);margin:10px 0 0;line-height:1.45}
+.pl .src{margin-top:10px;font-size:10.5px}
+
+/* ── соло-карточка ведущей ───────────────── */
+.solo{display:grid;grid-template-columns:.9fr 1.1fr;border:1px solid var(--line);background:var(--paper);margin-top:52px}
+.solo-img img{width:100%;height:100%;min-height:340px;object-fit:cover;object-position:center 15%;display:block}
+.solo-txt{padding:clamp(28px,4vw,48px)}
+.solo-txt .role{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-d)}
+.solo-txt h3{font-size:clamp(24px,2.8vw,34px);margin:12px 0 14px}
+.solo-txt p{color:var(--body);font-size:18px;margin:0;line-height:1.6;max-width:52ch}
+
+/* ── как попасть ───────────────── */
+.enter3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
+.en{background:var(--paper);padding:30px 28px;position:relative}
+.en .n{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;color:var(--orange-d)}
+.en h3{font-size:20px;margin:12px 0 8px}
+.en p{font-size:16.5px;color:var(--body);margin:0;line-height:1.5}
+
+/* ── финал ───────────────── */
+.final{position:relative;overflow:hidden;background:var(--graphite);padding:0}
+.final-img{position:absolute;inset:0}
+.final-img img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.final-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,21,24,.96) 12%,rgba(15,21,24,.78) 55%,rgba(15,21,24,.6) 100%)}
+.final-in{position:relative;z-index:2;padding:clamp(90px,16vh,180px) var(--pad);color:#F2F5F4;text-align:left}
+.final h2{font-size:clamp(34px,5.4vw,68px);color:#FBFDFC;max-width:16ch}
+.final .lead{color:rgba(242,245,244,.88);margin-top:22px;max-width:52ch}
+.final .kicker{color:rgba(242,245,244,.6)}
+.price-row{display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;margin-top:30px;border-top:1px solid rgba(242,245,244,.2);padding-top:26px;max-width:640px}
+.price-row .pr-num{font-family:var(--f-display);font-size:clamp(40px,5vw,64px);color:#FBFDFC;letter-spacing:-.03em;line-height:1}
+.price-row .pr-txt{font-size:16.5px;color:rgba(242,245,244,.75);max-width:38ch;line-height:1.5}
+.together{font-family:var(--f-display);font-size:clamp(20px,2.2vw,28px);color:rgba(242,245,244,.92);margin:28px 0 0}
+.together b{color:var(--orange);font-weight:600}
+.count{margin-top:22px;font-family:var(--f-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,245,244,.7)}
+.count b{color:var(--orange);font-weight:400;font-variant-numeric:tabular-nums}
+.honest{margin-top:30px;border-left:3px solid var(--orange);padding:4px 0 4px 20px;max-width:60ch}
+.honest p{margin:0;font-size:16.5px;color:rgba(242,245,244,.75)}
+
+/* ── низ страницы ───────────────── */
+.note{background:var(--paper);border-top:1px solid var(--line);padding:40px 0}
+.note p{color:var(--muted);font-size:15.5px;margin:0}
+footer{background:var(--paper);border-top:1px solid var(--line);padding:28px 0}
+footer .wrap.fcols{display:grid;grid-template-columns:1.1fr .9fr 1.2fr;gap:clamp(20px,4vw,60px);align-items:start}
+.fc{display:flex;flex-direction:column;gap:8px}
+.fbrand{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.fnote{font-size:14px;color:var(--muted);margin:0;line-height:1.55}
+.fc a{font-size:15px;color:var(--body);text-decoration:none;border-bottom:1px solid var(--line);width:max-content;padding-bottom:2px;transition:.2s}
+.fc a:hover{color:var(--orange-d);border-color:var(--orange)}
+footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+
+
+
+/* ── сетки карточек ───────────────── */
+.grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
+.mode{background:var(--paper);padding:30px 28px 26px;transition:.3s;position:relative;display:flex;flex-direction:column}
+.mode:hover{background:#fff}
+.mode h3{margin:14px 0 10px}
+.mode p{color:var(--body);font-size:17px;line-height:1.5;margin:0 0 20px}
+.mistakes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:52px}
+.mk{background:var(--graphite);padding:34px 30px;display:flex;flex-direction:column;min-height:340px}
+.mk .n{font-family:var(--f-display);font-size:clamp(44px,5vw,72px);line-height:1;color:var(--orange);letter-spacing:-.03em}
+.mk h3{color:#FBFDFC;margin:18px 0 12px}
+.mk p{color:rgba(233,238,236,.75);font-size:17px;line-height:1.5;margin:0 0 16px}
+.stages{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:52px}
+.st{background:var(--graphite);padding:28px 26px;display:flex;flex-direction:column;min-height:230px}
+.st h3{color:#FBFDFC;margin:12px 0 10px;font-size:22px}
+.st p{color:rgba(233,238,236,.72);font-size:16.5px;line-height:1.5;margin:0}
+.got{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
+.meas{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:52px}
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
+.day{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,72px);align-items:start;margin-top:20px}
+.day-img img{width:100%;height:clamp(320px,60vh,620px);object-fit:cover}
+.diag{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start;margin-top:20px}
+
+/* ── люди и доверие ───────────────── */
+.person{background:var(--paper);padding:34px 32px}
+.person .role{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-d)}
+.person h3{font-size:clamp(22px,2.4vw,28px);margin:12px 0 12px}
+.person p{color:var(--body);font-size:17px;margin:0;line-height:1.55}
+.proof{display:flex;flex-wrap:wrap;gap:0;margin-top:26px;border-top:1px solid var(--line)}
+.proof div{padding:18px 30px 0 0;margin-right:30px;border-right:1px solid var(--line)}
+.proof div:last-child{border-right:0}
+.proof .n{font-family:var(--f-display);font-size:clamp(24px,2.6vw,34px);line-height:1}
+.proof .t{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+
+/* ── вопросы ───────────────── */
+.faq{margin-top:44px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-family:var(--f-display);font-size:clamp(19px,2vw,24px);font-weight:600}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-mono);font-size:22px;color:var(--orange-d);flex:none;transition:.3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{padding:0 0 24px;max-width:70ch}
+.faq .a p{color:var(--body);font-size:17.5px;margin:0}
+
+
+/* ── Lancet: столбцы рисков ───────────────── */
+.lancet{margin-top:52px;border:1px solid var(--line-dark);background:var(--graphite);padding:32px 30px 26px}
+.lancet .kicker{color:rgba(233,238,236,.5)}
+.lancet h3{color:#FBFDFC;font-size:clamp(20px,2.4vw,26px);margin:12px 0 6px}
+.lancet .sub{font-size:16px;color:rgba(233,238,236,.66);margin:0 0 26px;line-height:1.5;max-width:64ch}
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar-row{display:grid;grid-template-columns:190px 1fr 62px;gap:16px;align-items:center}
+.bar-row .bl{font-size:16.5px;color:rgba(233,238,236,.84)}
+.bar-row .bt{height:12px;background:rgba(233,238,236,.1);position:relative;overflow:hidden}
+.bar-row .bt i{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,var(--orange),#FF9A6B);transition:width 1.3s cubic-bezier(.25,.7,.3,1)}
+.lancet.in .bar-row .bt i{width:var(--w)}
+.bar-row .bv{font-family:var(--f-display);font-size:21px;color:#FBFDFC;text-align:right;letter-spacing:-.01em}
+.lancet .src{margin-top:22px}
+
+/* ── митохондрии ───────────────── */
+.mito{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
+.mi{background:var(--paper);padding:30px 28px}
+.mi.dark2{background:var(--graphite);color:rgba(233,238,236,.78)}
+.mi.dark2 h3{color:#FBFDFC}
+.mi .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-d)}
+.mi.dark2 .k{color:var(--orange)}
+.mi h3{font-size:21px;margin:12px 0 10px}
+.mi p{font-size:16.5px;line-height:1.52;margin:0;color:var(--body)}
+.mi.dark2 p{color:rgba(233,238,236,.78)}
+
+/* ── сжатие и расширение ───────────────── */
+.sr{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(16px,3vw,40px);align-items:stretch;margin-top:52px}
+.srb{border:1px solid var(--line-dark);background:var(--graphite);padding:30px 28px}
+.srb.open{border-color:var(--orange);background:var(--graphite-2)}
+.srb .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,238,236,.5)}
+.srb.open .k{color:var(--orange)}
+.srb h3{color:#FBFDFC;margin:12px 0 16px;font-size:23px}
+.srb ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+.srb li{display:flex;gap:11px;font-size:16.5px;color:rgba(233,238,236,.76);line-height:1.45}
+.srb li::before{content:"";width:5px;height:5px;border-radius:50%;background:rgba(233,238,236,.32);margin-top:9px;flex:none}
+.srb.open li::before{background:var(--orange)}
+.srarrow{align-self:center;font-family:var(--f-display);font-size:clamp(26px,3vw,40px);color:var(--orange);line-height:1}
+
+/* ── ссылка на разбор ───────────────── */
+.readmore{margin-top:52px;border:1px solid var(--line);background:var(--paper);padding:30px 28px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.readmore .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-d)}
+.readmore h3{font-size:22px;margin:12px 0 8px}
+.readmore p{margin:0;color:var(--body);font-size:16.5px;line-height:1.5;max-width:60ch}
+.readmore .btn{background:var(--ink);color:#F8FAF9;white-space:nowrap}
+.readmore .btn:hover{background:var(--orange);color:#0F1518}
+
+/* ── наследие ───────────────── */
+.legacy{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:52px}
+.lg{background:var(--graphite);padding:26px 22px}
+.lg .nm{font-family:var(--f-display);font-size:20px;color:#FBFDFC;letter-spacing:-.01em}
+.lg p{font-size:15.5px;color:rgba(233,238,236,.72);margin:10px 0 0;line-height:1.45}
+.bigquote{margin-top:44px;border-left:3px solid var(--orange);padding:8px 0 8px 24px;max-width:62ch}
+.bigquote p{font-family:var(--f-display);font-size:clamp(22px,2.8vw,34px);line-height:1.22;color:#FBFDFC;margin:0;letter-spacing:-.015em}
+.bigquote .who{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,238,236,.5);margin-top:14px;display:block}
+
+/* ── открытия ───────────────── */
+.disc{border-top:1px solid var(--line);padding-top:40px;margin-top:52px;display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,4vw,64px);align-items:start}
+.disc:first-of-type{border-top:0;padding-top:0;margin-top:44px}
+.disc .num-rome{font-family:var(--f-display);font-size:clamp(44px,5.4vw,74px);line-height:.9;color:var(--orange-d);letter-spacing:-.03em}
+.disc h3{font-size:clamp(23px,2.7vw,32px);margin:16px 0 0;letter-spacing:-.015em}
+.disc p{color:var(--body);font-size:17.5px;line-height:1.58;margin:0 0 14px}
+.disc .fact{border-left:3px solid var(--orange);padding:6px 0 6px 18px;margin:18px 0 14px}
+.disc .fact b{display:block;font-family:var(--f-display);font-size:clamp(24px,2.8vw,34px);color:var(--ink);line-height:1.1}
+.disc .fact span{font-size:16px;color:var(--body);display:block;margin-top:6px;line-height:1.45}
+
+/* ── кривая шагов ───────────────── */
+.steps7{margin-top:52px;border:1px solid var(--line);background:var(--paper);padding:30px 28px 22px}
+.steps7 h3{font-size:21px;margin-bottom:6px}
+.steps7 .sub{font-size:16px;color:var(--muted);margin:0 0 20px;line-height:1.5;max-width:64ch}
+.steps7 svg{width:100%;height:auto;display:block}
+.steps7 .ax{stroke:var(--line);stroke-width:1}
+.steps7 .lbl{font-family:var(--f-mono);font-size:12.5px;fill:var(--muted);letter-spacing:.04em}
+.steps7 .lbl.hot{fill:var(--orange-d)}
+.steps7 .curve{fill:none;stroke:var(--steel);stroke-width:2.6;stroke-dasharray:800;stroke-dashoffset:800;transition:stroke-dashoffset 1.7s ease}
+.steps7.in .curve{stroke-dashoffset:0}
+.steps7 .zone{fill:rgba(255,106,43,.12)}
+
+/* ── тест двух вопросов ───────────────── */
+.test2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:44px}
+.t2{background:var(--graphite);padding:32px 30px}
+.t2 .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+.t2 h3{color:#FBFDFC;margin:14px 0 12px;font-size:21px}
+.t2 p{color:rgba(233,238,236,.78);font-size:17px;margin:0;line-height:1.5}
+.reveal-answer{margin-top:1px;background:var(--graphite-2);border:1px solid var(--line-dark);border-top:0}
+.reveal-answer summary{cursor:pointer;list-style:none;padding:22px 30px;font-family:var(--f-mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:56px}
+.reveal-answer summary::-webkit-details-marker{display:none}
+.reveal-answer summary::after{content:"+";font-size:20px;transition:.3s}
+.reveal-answer[open] summary::after{transform:rotate(45deg)}
+.reveal-answer .body{padding:0 30px 30px;color:rgba(233,238,236,.8);font-size:17px;line-height:1.6;max-width:74ch}
+.reveal-answer .body p{margin:0 0 14px}
+.reveal-answer .body p:last-child{margin:0}
+.reveal-answer .body b{color:#FBFDFC}
+
+/* ── четыре столпа ───────────────── */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
+.pil{background:var(--paper);padding:30px 26px;display:flex;flex-direction:column}
+.pil .pn{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;color:var(--orange-d)}
+.pil h3{font-size:20px;margin:14px 0 10px}
+.pil p{font-size:16.5px;color:var(--body);margin:0;line-height:1.5}
+
+/* ── норма по дням ───────────────── */
+.norma{margin-top:52px;border:1px solid var(--line-dark);background:var(--graphite);padding:30px 28px 22px}
+.norma h3{color:#FBFDFC;font-size:21px;margin-bottom:6px}
+.norma .sub{font-size:16px;color:rgba(233,238,236,.66);margin:0 0 22px;line-height:1.5;max-width:66ch}
+.norma svg{width:100%;height:auto;display:block}
+.norma .ax{stroke:rgba(233,238,236,.2);stroke-width:1}
+.norma .lbl{font-family:var(--f-mono);font-size:12.5px;fill:rgba(233,238,236,.55);letter-spacing:.05em}
+.norma .lbl.hot{fill:var(--orange)}
+.norma .old{fill:none;stroke:rgba(233,238,236,.35);stroke-width:2;stroke-dasharray:6 5}
+.norma .new{fill:none;stroke:var(--orange);stroke-width:2.8;stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 1.9s ease}
+.norma.in .new{stroke-dashoffset:0}
+/* ── живая графика ───────────────── */
+.pulse{fill:#FF6A2B;transform-box:fill-box;transform-origin:center;animation:pl 2.4s ease-out infinite}
+@keyframes pl{0%{opacity:.75;transform:scale(.55)}70%{opacity:0;transform:scale(1.9)}100%{opacity:0;transform:scale(1.9)}}
+.chart .area{opacity:0}
+.chart.in .area{opacity:1;transition:opacity 1.2s .9s ease}
+.runner{filter:drop-shadow(0 0 6px rgba(255,106,43,.6))}
+
+/* ── технология: карточки режимов ───────────────── */
+.mode .idx{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;color:var(--orange-d)}
+.dials{display:flex;flex-direction:column;gap:9px;border-top:1px solid var(--line);padding-top:18px;margin-top:auto}
+.dial{display:flex;align-items:center;gap:12px}
+.dial span{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);width:74px;flex:none}
+.dial i{flex:1;height:3px;background:var(--line);position:relative;overflow:hidden}
+.dial i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:var(--steel);transition:width 1.1s cubic-bezier(.2,.7,.3,1)}
+.mode.in .dial i::after{width:var(--w)}
+.mode:hover .dial i::after{background:var(--orange)}
+.locked{margin-top:26px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;color:var(--muted);font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em}
+.locked b{color:var(--ink);font-weight:400}
+.phases{margin-top:64px;border-top:1px solid var(--line);padding-top:40px}
+.phase-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
+.ph{background:var(--paper);padding:22px 20px;display:flex;flex-direction:column}
+.ph .n{font-family:var(--f-mono);font-size:11.5px;color:var(--orange-d);letter-spacing:.14em}
+.ph h3{font-size:20px;margin:10px 0 8px}
+.ph p{font-size:15.5px;color:var(--muted);margin:0 0 16px;line-height:1.45}
+.ph .bar{height:3px;background:var(--steel);width:0;transition:width 1s ease;margin-top:auto}
+.phase-row.in .ph .bar{width:var(--w)}
+.ph .blurred{filter:blur(6px);user-select:none;pointer-events:none}
+
+/* ── диагностика ───────────────── */
+.diag-card{border:1px solid var(--line);background:var(--paper);padding:34px 32px}
+.diag-card .kicker{color:var(--orange-d)}
+.diag-card h3{font-size:clamp(22px,2.6vw,30px);margin:14px 0 14px}
+.diag-card p{color:var(--body);font-size:17.5px;margin:0}
+.warn{margin-top:26px;border-left:3px solid var(--orange);padding:6px 0 6px 20px}
+.warn p{margin:0;font-size:17.5px;color:var(--body)}
+.warn b{color:var(--ink)}
+
+/* ── три ошибки: подпись решения ───────────────── */
+.mk .fix{margin-top:auto;border-top:1px solid var(--line-dark);padding-top:16px;font-size:16px;color:rgba(233,238,236,.9)}
+.mk .fix b{color:var(--orange);font-weight:400;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:6px}
+
+/* ── день: таймлайн ───────────────── */
+.tl{display:flex;flex-direction:column;position:relative}
+.tl::before{content:"";position:absolute;left:9px;top:16px;bottom:16px;width:1px;background:var(--line)}
+.step{position:relative;padding:0 0 30px 44px}
+.step::before{content:"";position:absolute;left:3px;top:7px;width:13px;height:13px;border-radius:50%;background:var(--fog);border:2px solid var(--steel)}
+.step.hot::before{background:var(--orange);border-color:var(--orange)}
+.step .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-d)}
+.step h3{font-size:21px;margin:8px 0 6px}
+.step p{font-size:17px;color:var(--body);margin:0;line-height:1.5}
+
+/* ── карта недель ───────────────── */
+.st .d{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;color:var(--orange)}
+.st .load{margin-top:auto;padding-top:18px}
+.st .load i{display:block;height:3px;background:rgba(233,238,236,.14);position:relative;overflow:hidden}
+.st .load i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:var(--orange);transition:width 1.2s ease}
+.stages.in .st .load i::after{width:var(--w)}
+.after21{margin-top:26px;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;color:rgba(233,238,236,.75)}
+.after21 b{color:#FBFDFC;font-weight:600}
+
+/* ── состав ───────────────── */
+.g{background:var(--paper);padding:30px 28px}
+.g .ic{width:40px;height:40px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.g .ic svg{width:20px;height:20px;stroke:var(--orange-d);fill:none;stroke-width:1.6}
+.g h3{font-size:20px;margin:0 0 8px}
+.g p{font-size:16.5px;color:var(--body);margin:0;line-height:1.5}
+.got .ic svg *{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1.1s ease}
+.got .g.in .ic svg *{stroke-dashoffset:0}
+
+/* ── замеры ───────────────── */
+.mcol{background:var(--graphite);padding:32px 30px}
+.mcol.right{background:var(--graphite-2)}
+.mcol h3{color:#FBFDFC;margin-bottom:20px}
+.mcol ol{list-style:none;margin:0;padding:0;counter-reset:m;display:flex;flex-direction:column;gap:0}
+.mcol li{counter-increment:m;display:flex;gap:16px;align-items:baseline;padding:13px 0;border-top:1px solid var(--line-dark);font-size:17px;color:rgba(233,238,236,.82)}
+.mcol li::before{content:"0" counter(m);font-family:var(--f-mono);font-size:12px;color:var(--orange);flex:none}
+.meas-note{margin-top:26px;color:rgba(233,238,236,.7);font-size:17px;max-width:70ch}
+.meas-note b{color:#FBFDFC}
+
+/* ── кому подойдёт ───────────────── */
+.f{background:var(--paper);padding:32px 30px}
+.f h3{margin-bottom:18px}
+.f ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px}
+.f li{display:flex;gap:12px;font-size:17px;line-height:1.5;color:var(--body)}
+.f li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange-d);margin-top:10px;flex:none}
+.f.no li::before{background:var(--muted)}
+.safe{margin-top:26px;border:1px solid var(--line);background:var(--paper);padding:24px 28px}
+.safe p{margin:0;font-size:16px;color:var(--muted);line-height:1.55}
+
+@media(max-width:1000px){
+  .head-split{grid-template-columns:1fr;gap:32px}
+  .entry{flex-direction:row;flex-wrap:wrap}
+  .entry .kicker{flex:1 0 100%}
+  .ecard{flex:1}
+  .loop,.split,.goal,.diag,.day,.health-top{grid-template-columns:1fr}
+  .formula{grid-template-columns:1fr}
+  .fop{justify-self:start}
+  .day-img{position:static}
+  .grid6,.sci,.mistakes,.why{grid-template-columns:1fr 1fr}
+  .phase-row{grid-template-columns:1fr 1fr}
+  .numbers,.stages,.got,.charts,.try,.enter3,.test2,.pillars{grid-template-columns:1fr 1fr}
+  .legacy{grid-template-columns:1fr 1fr 1fr}
+  .disc{grid-template-columns:1fr;gap:16px}
+  .pl-row{grid-template-columns:1fr 1fr 1fr}
+  .window-strip{grid-template-columns:1fr}
+  .crow{grid-template-columns:1fr 1fr 1fr .8fr}
+}
+@media(max-width:640px){
+  :root{--pad:20px}
+  body{font-size:17.5px;line-height:1.6}
+  h2{font-size:clamp(28px,7.6vw,34px);line-height:1.1}
+  h3{font-size:19.5px}
+  .lead{font-size:17.5px;line-height:1.55}
+  section{padding:56px 0}
+  .sec-head h2{margin:12px 0 18px}
+
+  /* HERO */
+  .hero-in{padding-top:84px;padding-bottom:26px}
+  .hero-img img{object-position:58% 22%}
+  .hero-img::after{background:
+    radial-gradient(120% 70% at 70% 26%,rgba(255,138,74,.2) 0%,rgba(255,106,43,0) 55%),
+    linear-gradient(to bottom,rgba(15,21,24,.78) 0%,rgba(15,21,24,.42) 34%,rgba(15,21,24,.86) 74%,rgba(15,21,24,.96) 100%)}
+  .stamp{font-size:11px;letter-spacing:.26em;padding:9px 14px 8px 18px}
+  .hero h1{font-size:clamp(42px,13vw,58px);letter-spacing:-.028em;margin-top:20px}
+  .hero .sub{font-size:11px;letter-spacing:.1em;line-height:1.75;margin-top:18px}
+  .hero .lead{font-size:17px;margin-top:18px;line-height:1.5}
+  .hero .sub{margin-top:16px}
+  .hero .sub span{display:block}
+  .hero .sub span+span::before{content:none}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:24px;border-top:1px solid rgba(242,245,244,.2)}
+  .facts div{padding:16px 0 14px;margin:0;border-right:0;border-top:0}
+  .facts div:nth-child(even){border-left:1px solid rgba(242,245,244,.2);padding-left:18px}
+  .facts div:nth-child(n+3){border-top:1px solid rgba(242,245,244,.2)}
+  .facts .n{font-size:29px}
+  .facts .t{font-size:10.5px;letter-spacing:.11em;margin-top:5px}
+  .cta{margin-top:26px;margin-bottom:0;gap:12px}
+  .hero .cta{flex-direction:column;align-items:stretch}
+  .hero .btn{text-align:center;padding:16px 20px}
+  .hero .btn-ghost{text-align:center;border:0;padding:2px 0 0}
+  .marquee{padding:11px 0}
+  .marquee span{font-size:11px;letter-spacing:.18em}
+
+  /* сетки в столбик */
+  .grid6,.sci,.phase-row,.numbers,.biohack,.mistakes,.stages,.got,.meas,.fit,.duo,.window-strip,.why,.charts,.try,.enter3,.mito,.readmore,.test2,.pillars{grid-template-columns:1fr}
+  .legacy{grid-template-columns:1fr 1fr}
+  .disc{grid-template-columns:1fr;gap:14px}
+  .disc .num-rome{font-size:40px}
+  .steps7,.norma{padding:22px 18px 18px}
+  .reveal-answer summary{padding:18px 20px}
+  .reveal-answer .body{padding:0 20px 24px}
+  .sr{grid-template-columns:1fr;gap:12px}
+  .srarrow{transform:rotate(90deg);justify-self:start}
+  .bar-row{grid-template-columns:1fr 54px;gap:10px}
+  .bar-row .bt{grid-column:1/3;order:3;height:10px}
+  .lancet{padding:24px 18px 20px}
+  .mosaic{grid-template-columns:1fr 1fr}
+  .pl-row{grid-template-columns:1fr 1fr}
+  .solo{grid-template-columns:1fr}
+  .solo-img img{min-height:0;height:290px}
+  .formula{grid-template-columns:1fr}
+  .fop{justify-self:start;padding:2px 0}
+  .loop,.split,.goal,.diag,.day,.health-top{grid-template-columns:1fr}
+  .day-img{position:static}
+  .mk,.st{min-height:0}
+
+  /* таблица сравнения карточками */
+  .cmp{border:0;background:transparent;gap:14px}
+  .chead{display:none}
+  .crow{grid-template-columns:1fr;gap:0;background:var(--line);border:1px solid var(--line)}
+  .crow>div{padding:13px 16px}
+  .crow .rh{background:var(--paper);font-size:17px;padding:16px}
+  .crow>div:not(.rh)::before{content:attr(data-l) " · ";font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+  .crow .hot{background:#fff}
+  .crow .hot::before{color:var(--orange-d)}
+
+  /* кольцо и подписи */
+  .ring text.lbl{display:none}
+  .ring-list{display:flex;flex-direction:column;gap:10px;margin-top:20px;list-style:none;padding:0}
+  .ring-list li{display:flex;gap:12px;font-size:16.5px;color:rgba(233,238,236,.78);align-items:baseline}
+  .ring-list li b{font-family:var(--f-mono);font-size:12px;color:var(--orange);flex:none}
+  .entry{flex-direction:column}
+  .ecard{flex:none}
+
+  /* графики и ленты */
+  .chart,.sess,.dayline,.progress21{padding:22px 18px 18px}
+  .chart .lbl,.sess .lbl,.dayline .lbl{font-size:15px}
+  .dayline svg{min-height:120px}
+  .p21 .mlb,.p21 .dlb{font-size:10px}
+  .p21 .dlb{top:54px}
+
+  /* финал */
+  .final-in{padding:64px var(--pad) 56px}
+  .final h2{font-size:clamp(30px,8.4vw,38px);max-width:none}
+  .price-row{gap:12px;padding-top:20px;margin-top:22px}
+  .price-row .pr-num{font-size:38px}
+  .price-row .pr-txt{font-size:15.5px;max-width:none}
+  .together{font-size:17.5px;margin-top:22px}
+  .count{font-size:12px;margin-top:20px}
+  .final .cta{flex-direction:column;align-items:stretch}
+  .final .btn{text-align:center}
+  .honest{margin-top:24px;padding-left:16px}
+  .honest p{font-size:15.5px}
+
+  /* прочее */
+  .qz .qb{font-size:12.5px;padding:13px 14px;min-height:46px}
+  .faq summary{font-size:18.5px;padding:18px 0;gap:14px}
+  .faq .a p{font-size:16.5px}
+  .break img{height:clamp(300px,52vh,420px)}
+  .break .cap p{font-size:20px;max-width:none}
+  .evening-img figcaption{padding:26px 18px 20px;font-size:15.5px}
+  .proof div{padding-right:18px;margin-right:18px}
+  .proof .n{font-size:26px}
+  footer .wrap.fcols{grid-template-columns:1fr;gap:26px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  .ring .arc-live{stroke-dashoffset:361}
+  .hero h1 .l span{transform:none}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="rail" aria-hidden="true"><b class="on"></b><b></b><b></b><b></b><b></b></div>
+
+<header>
+  <div class="wrap hd">
+    <div class="brand">Архитектура сознания</div>
+    <a class="enter" href="#vhod">Войти</a>
+  </div>
+</header>
+
+<!-- ── HERO ───────────────── -->
+<section class="hero" id="s1" style="padding:0">
+  <div class="hero-img"><img src="images/hero2.jpg" alt="Женщина широким шагом идёт по рассветной набережной"></div>
+  <div class="sunline"></div>
+  <div style="position:relative;z-index:3;width:100%">
+    <div class="wrap hero-in">
+      <div class="stamp">21 день · старт 11 августа</div>
+      <h1><span class="l"><span>Практика</span></span><span class="l"><span>ходьбы</span></span></h1>
+      <div class="sub"><span>21 день · 75 минут в день</span><span>тело, ясность, деньги и цели</span></div>
+      <p class="lead">За 21 день привычная ходьба превращается в точный инструмент, который сдвигает то, что стояло годами. <b>Один простой ключ,</b> и он давно при вас: осталось его расшифровать.</p>
+      <div class="facts">
+        <div><div class="n">75</div><div class="t">минут в день</div></div>
+        <div><div class="n">21</div><div class="t">день</div></div>
+        <div><div class="n">6</div><div class="t">режимов ходьбы</div></div>
+        <div><div class="n">11 авг</div><div class="t">старт потока</div></div>
+      </div>
+      <div class="cta">
+        <a class="btn" href="#vhod">Занять место в потоке</a>
+        <a class="btn-ghost" href="#s2">Что происходит, пока вы идёте</a>
+      </div>
+    </div>
+    <div class="marquee" aria-hidden="true">
+      <div class="track">
+        <span>Темп <b>·</b> Дыхание <b>·</b> Взгляд <b>·</b> Среда <b>·</b> Голос <b>·</b> Окно действия <b>·</b> </span>
+        <span>Темп <b>·</b> Дыхание <b>·</b> Взгляд <b>·</b> Среда <b>·</b> Голос <b>·</b> Окно действия <b>·</b> </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ── НАСЛЕДИЕ ───────────────── -->
+<section class="dark" id="legacy">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Столетиями</div>
+      <h2>Лучшие умы уходили думать на своих&nbsp;двоих</h2>
+      <p class="lead">Слова «нейробиология» они не знали. Они просто чувствовали то, что теперь измеряют приборами: стоит телу пойти, и внутри следом приходит в движение что-то&nbsp;ещё.</p>
+    </div>
+    <div class="legacy">
+      <div class="lg reveal"><div class="nm">Аристотель</div><p>Учил на ходу. Его школу так и назвали: перипатетики, «прогуливающиеся».</p></div>
+      <div class="lg reveal"><div class="nm">Дарвин</div><p>Каждый день ходил по одной и той же тропе, пока думал над теорией.</p></div>
+      <div class="lg reveal"><div class="nm">Кьеркегор</div><p>«Я вышагал свои лучшие мысли», признавался он в письмах.</p></div>
+      <div class="lg reveal"><div class="nm">Ницше</div><p>Считал, что настоящие мысли приходят только в движении.</p></div>
+      <div class="lg reveal"><div class="nm">Джобс</div><p>Проводил самые важные переговоры, шагая, а не за столом.</p></div>
+    </div>
+    <div class="bigquote reveal">
+      <p>«Все истинно великие мысли приходят во время&nbsp;ходьбы»</p>
+      <span class="who">Фридрих Ницше</span>
+    </div>
+    <p class="lead reveal" style="margin-top:34px">Где приходят самые ясные решения? Почти никогда за рабочим столом, где их часами выжимают. А тогда, когда человек встал и пошёл: в душе, за рулём, по дороге домой. Тело сдвинулось, и то, что было наглухо закрыто, вдруг&nbsp;приоткрылось.</p>
+  </div>
+</section>
+
+<!-- ── БОЛЬШАЯ ИДЕЯ ───────────────── -->
+<section id="idea">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Главная мысль</div>
+      <h2>Ходьба плюс&nbsp;направление</h2>
+      <p class="lead">Час ходьбы сам по себе одна из самых полезных вещей, которые человек может сделать для тела и мозга: это измерено лучше всего в медицине. Вопрос в том, куда уходит энергия и время этого часа.</p>
+    </div>
+    <div class="formula">
+      <div class="fx reveal"><div class="fk">Ходьба</div><p>Час движения: мозг в другом режиме, кортизол ниже, мышление шире. Энергия уже есть.</p></div>
+      <div class="fop reveal">+</div>
+      <div class="fx reveal"><div class="fk">Направление</div><p>Настройка на каждую сессию: намерение, видение, куда направить внимание. Её задаёт Дарья.</p></div>
+      <div class="fop reveal">=</div>
+      <div class="fx hot reveal"><div class="fk">Результат</div><p>Состояние, здоровье и цели, к которым доходят. Дорога к ним проверена на практике.</p></div>
+    </div>
+    <p class="lead reveal" style="margin-top:30px">Каждый элемент по отдельности известен давно. Результат даёт их соединение, и в этом весь&nbsp;протокол.</p>
+  </div>
+</section>
+
+<!-- ── УЗНАВАНИЕ ───────────────── -->
+<section id="s2">
+  <div class="wrap split">
+    <div class="reveal">
+      <div class="kicker">Вы это уже видели</div>
+      <h2 style="margin-top:14px">Денежная ходьба работает. Но причина&nbsp;другая</h2>
+    </div>
+    <div class="reveal">
+      <p class="lead">Про неё говорят третий год: намерение, благодарность, прогулка. У многих правда становится легче, а потом эффект тает, и человек решает, что дело в&nbsp;нём.</p>
+      <p class="lead">Дело в физиологии: кортизол, режим мышления, свет и ритм шага. Этот механизм измерен в исследованиях, ниже он разобран с именами и&nbsp;цифрами.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── ПОЧЕМУ СЮДА ───────────────── -->
+<section class="dark" id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Шесть отличий</div>
+      <h2>Что здесь устроено&nbsp;иначе</h2>
+    </div>
+    <div class="why">
+      <article class="w reveal"><div class="wn">01</div><h3>Технология вместо&nbsp;пожеланий</h3><p>У каждой сессии прописаны темп, дыхание, взгляд, среда и голос. Это инструкция, по которой можно идти буквально с первого утра.</p></article>
+      <article class="w reveal"><div class="wn">02</div><h3>Режим под ваш&nbsp;механизм</h3><p>Потолок у каждого держит своё. Тест первого дня определяет вход, дальше настройки меняются под то, что чинится сегодня.</p></article>
+      <article class="w reveal"><div class="wn">03</div><h3>Наука с&nbsp;именами</h3><p>За каждой настройкой стоит исследование: Стэнфорд, PNAS, JAMA Psychiatry. Всё проверяемо, источники открыты.</p></article>
+      <article class="w reveal"><div class="wn">04</div><h3>Действие каждый&nbsp;день</h3><p>Сессия заканчивается действием в реальные деньги, в открытое окно эффекта. За три недели таких шагов не меньше десяти.</p></article>
+      <article class="w reveal"><div class="wn">05</div><h3>Тело получает&nbsp;половину</h3><p>27 часов движения и замеры до и после: пульс, сон, талия, сахар. Обычно за этими эффектами идут к гаджетам и&nbsp;добавкам.</p></article>
+      <article class="w reveal"><div class="wn">06</div><h3>Сделано под&nbsp;жизнь</h3><p>План плохой погоды, адаптированная версия, пропуск не обнуляет. Конструкция держит, даже когда неделя рушится.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ── ПЯТЬ ОТКРЫТИЙ ───────────────── -->
+<section id="s3" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Что показали исследования</div>
+      <h2>Пять открытий о простом&nbsp;шаге</h2>
+      <p class="lead">За последние пятнадцать лет ходьбу проверили на десятках тысяч людей, на снимках мозга и в цифрах. Заработать на них нельзя: ходьбу не разлить по капсулам и не продать в аптеке, поэтому о её силе говорят тише, чем она&nbsp;заслуживает.</p>
+    </div>
+
+    <article class="disc reveal">
+      <div><div class="num-rome">I</div><h3>Ни одно лекарство не работает так&nbsp;широко</h3></div>
+      <div>
+        <p>Июль 2025 года, The Lancet Public Health: 57 исследований, больше 160 000 человек. Сравнили тех, кто проходит около семи тысяч шагов в день, с теми, у кого около двух&nbsp;тысяч.</p>
+        <div class="fact"><b>−47% смертности от всех причин</b><span>Плюс −38% деменции, −28% падений, −25% по сердцу и сосудам, −22% депрессии, −14% диабета второго типа</span></div>
+        <p>Ни одна таблетка в мире не закрывает такой список разом. Здесь его закрывает одно простое&nbsp;действие.</p>
+        <span class="src">The Lancet Public Health, 2025 · метаанализ 57 исследований</span>
+      </div>
+    </article>
+
+    <article class="disc reveal">
+      <div><div class="num-rome">II</div><h3>Каждый шаг строит внутри новые&nbsp;электростанции</h3></div>
+      <div>
+        <p>Энергию вырабатывают митохондрии, крошечные станции внутри каждой клетки. Чем их больше, тем больше сил на работу, жизнь и&nbsp;цели.</p>
+        <div class="fact"><b>Ходьба включает белок PGC-1α</b><span>Это главный переключатель, по команде которого тело собирает новые митохондрии</span></div>
+        <p>Вялость, когда к вечеру уже ни на что не остаётся сил, чаще всего значит простое: станций стало мало. Кофе подстёгивает их на час, движение отстраивает&nbsp;заново.</p>
+      </div>
+    </article>
+
+    <article class="disc reveal">
+      <div><div class="num-rome">III</div><h3>Ходьба физически наращивает&nbsp;мозг</h3></div>
+      <div>
+        <p>Эксперимент Крамера и Эриксона: люди ходили по сорок минут трижды в неделю в течение&nbsp;года.</p>
+        <div class="fact"><b>+2% объёма гиппокампа за год</b><span>Центр памяти и обучения вырос там, где с возрастом обычно идёт убыль</span></div>
+        <p>Двигатель роста это молекула BDNF, «удобрение для мозга»: она помогает нейронам ветвиться и строить новые связи. Старая норма это тоже нейронная цепь, и чтобы вырастить поверх неё новую, мозгу нужно&nbsp;удобрение.</p>
+        <span class="src">Erickson, Kramer et al., PNAS, 2011</span>
+      </div>
+    </article>
+
+    <article class="disc reveal">
+      <div><div class="num-rome">IV</div><h3>То, что не берётся мыслью, берётся&nbsp;шагом</h3></div>
+      <div>
+        <p>Тревогу невозможно передумать: чем сильнее останавливаешь мысль головой, тем крепче она затягивается. У этого есть точный адрес в мозге, субгенуальная префронтальная кора, та же зона, что активна при&nbsp;депрессии.</p>
+        <div class="fact"><b>90 минут по природе гасят руминацию</b><span>Активность тревожной зоны снизилась, у идущих вдоль шумной трассы такого эффекта не было</span></div>
+        <p>Ноги сделали то, чего не смогли никакие уговоры изнутри. Тревога держит человека маленьким: пока она гудит фоном, он не рискнёт и не назовёт свою&nbsp;цену.</p>
+        <span class="src">Bratman et al., PNAS, 2015</span>
+      </div>
+    </article>
+
+    <article class="disc reveal">
+      <div><div class="num-rome">V</div><h3>За одну прогулку решений становится&nbsp;больше</h3></div>
+      <div>
+        <p>Стэнфорд, Оппеццо и Шварц: людям давали творческие задачи сидя и на&nbsp;ходу.</p>
+        <div class="fact"><b>+60% к потоку решений</b><span>И эффект держался ещё какое-то время после того, как человек садился обратно</span></div>
+        <p>Прогулка не просто помогала в моменте, она оставляла мозг в состоянии «вижу больше вариантов». Решение, которое месяц не находилось сидя, ждёт на сороковой минуте&nbsp;шага.</p>
+        <span class="src">Oppezzo, Schwartz · Стэнфорд · 2014</span>
+      </div>
+    </article>
+
+    <div class="steps7 reveal">
+      <h3>И обратите внимание: не десять&nbsp;тысяч</h3>
+      <p class="sub">Легенда про десять тысяч шагов родилась из рекламного слогана японского шагомера шестидесятых, а не из науки. Основная выгода набирается уже к семи тысячам, это примерно час спокойного шага.</p>
+      <svg viewBox="0 0 560 240" role="img" aria-label="Кривая пользы: основная выгода набирается к семи тысячам шагов">
+        <rect class="zone" x="286" y="24" width="74" height="180"/>
+        <line class="ax" x1="44" y1="204" x2="540" y2="204"/>
+        <line class="ax" x1="44" y1="204" x2="44" y2="26"/>
+        <path class="curve" d="M48 190 C 140 172, 220 96, 320 62 C 400 40, 470 36, 536 34"/>
+        <text class="lbl" x="48" y="228">2000</text>
+        <text class="lbl hot" x="300" y="228">7000</text>
+        <text class="lbl" x="470" y="228">10 000 шагов</text>
+        <text class="lbl hot" x="290" y="18">основная выгода набрана</text>
+        <text class="lbl" x="404" y="60">дальше кривая почти ровная</text>
+        <text class="lbl" x="56" y="44">польза</text>
+      </svg>
+      <span class="src" style="margin-top:14px;display:block">Lancet Public Health, 2025 · Manpo-kei, Yamasa, 1965</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── ПОЧЕМУ ХОДЬБА ───────────────── -->
+<section id="s3b" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Почему не бег и не зал</div>
+      <h2>Для протокола нужны две вещи: каждый день и ясная&nbsp;голова</h2>
+      <p class="lead">Стэнфордские замеры делали именно на ходьбе: темп остаётся разговорным, и голова продолжает думать. Бег и зал так не умеют, там внимание забирает тело.</p>
+    </div>
+    <div class="cmp reveal">
+      <div class="crow chead"><div class="rh"></div><div data-l="Бег">Бег</div><div data-l="Зал">Зал</div><div class="hot" data-l="Ходьба">Ходьба</div></div>
+      <div class="crow"><div class="rh">Можно каждый день без адаптации</div><div data-l="Бег">Нужны восстановление и форма</div><div data-l="Зал">Обычно 3 раза в неделю</div><div class="hot" data-l="Ходьба">Да</div></div>
+      <div class="crow"><div class="rh">Голова остаётся в рабочем режиме</div><div data-l="Бег">Дыхание забирает внимание</div><div data-l="Зал">Внимание на упражнении</div><div class="hot" data-l="Ходьба">Да</div></div>
+      <div class="crow"><div class="rh">Вход с любого уровня, сегодня</div><div data-l="Бег">Порог по форме и суставам</div><div data-l="Зал">Зал, форма, расписание</div><div class="hot" data-l="Ходьба">Да</div></div>
+      <div class="crow"><div class="rh">Встраивается в обычный день</div><div data-l="Бег">Отдельное окно и душ</div><div data-l="Зал">Дорога и абонемент</div><div class="hot" data-l="Ходьба">Да</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── КОНТУР ───────────────── -->
+<section class="dark" id="s4">
+  <div class="wrap">
+    <div class="head-split">
+      <div class="sec-head reveal">
+        <div class="kicker">Механизм</div>
+        <h2>Тело и деньги стоят на одном&nbsp;круге</h2>
+        <p class="lead">Их принято разводить: здоровье когда будет время, деньги прямо сейчас. В физиологии это один контур, и он замкнут. Ходьба входит в него сразу в трёх точках.</p>
+      </div>
+      <aside class="entry reveal">
+        <div class="kicker">Три точки входа</div>
+        <div class="ecard"><b>01</b><span>Кортизол</span></div>
+        <div class="ecard"><b>02</b><span>Сон</span></div>
+        <div class="ecard"><b>03</b><span>Сахар</span></div>
+      </aside>
+    </div>
+
+    <div class="loop">
+      <svg class="ring reveal" viewBox="0 0 720 660" role="img" aria-label="Замкнутый круг: кортизол, сон, сахар, энергия, действия">
+        <circle class="arc" cx="360" cy="330" r="230"/>
+        <circle class="arc-live" cx="360" cy="330" r="230" transform="rotate(-90 360 330)"/>
+        <path id="loopPath" d="M360 100 A230 230 0 1 1 359.9 100" fill="none" stroke="none"/>
+        <circle class="runner" r="7" fill="#FF6A2B" opacity=".9">
+          <animateMotion dur="16s" repeatCount="indefinite" rotate="none"><mpath href="#loopPath"/></animateMotion>
+        </circle>
+        <g>
+          <circle class="pulse" cx="360" cy="100" r="14"/><circle class="dot hot" cx="360" cy="100" r="13"/><text class="num" x="360" y="106" text-anchor="middle">1</text>
+          <text class="lbl" x="360" y="62" text-anchor="middle">Кортизол растёт</text>
+          <text class="hit" x="360" y="146" text-anchor="middle">сюда входит ходьба</text>
+        </g>
+        <g>
+          <circle class="pulse" cx="579" cy="259" r="14"/><circle class="dot hot" cx="579" cy="259" r="13"/><text class="num" x="579" y="265" text-anchor="middle">2</text>
+          <text class="lbl" x="602" y="254" text-anchor="start">Сон короче</text>
+          <text class="hit" x="602" y="276" text-anchor="start">точка входа</text>
+        </g>
+        <g>
+          <circle class="pulse" cx="495" cy="516" r="14"/><circle class="dot hot" cx="495" cy="516" r="13"/><text class="num" x="495" y="522" text-anchor="middle">3</text>
+          <text class="lbl" x="518" y="540" text-anchor="start">Сахар скачет</text>
+          <text class="hit" x="518" y="562" text-anchor="start">точка входа</text>
+        </g>
+        <g>
+          <circle class="dot" cx="225" cy="516" r="13"/><text class="num" x="225" y="522" text-anchor="middle">4</text>
+          <text class="lbl" x="202" y="540" text-anchor="end">Энергия падает</text>
+        </g>
+        <g>
+          <circle class="dot" cx="141" cy="259" r="13"/><text class="num" x="141" y="265" text-anchor="middle">5</text>
+          <text class="lbl" x="124" y="254" text-anchor="end">Денег меньше</text>
+        </g>
+        <text x="360" y="322" text-anchor="middle" style="font-family:var(--f-display);font-size:27px;fill:#FBFDFC;letter-spacing:-.02em">и круг</text>
+        <text x="360" y="358" text-anchor="middle" style="font-family:var(--f-display);font-size:27px;fill:#FBFDFC;letter-spacing:-.02em">замыкается</text>
+      </svg>
+
+      <ol class="ring-list">
+        <li><b>1</b> Кортизол растёт, горизонт решений&nbsp;сужается</li>
+        <li><b>2</b> Сон становится короче</li>
+        <li><b>3</b> Сахар скачет, стратегия выключается</li>
+        <li><b>4</b> Энергия и настроение падают</li>
+        <li><b>5</b> Действий и денег становится меньше</li>
+      </ol>
+
+      <div class="points reveal">
+        <div class="pt">
+          <h3>Кортизол сужает поле&nbsp;решений</h3>
+          <p>При высоком кортизоле оценка риска перенастраивается физически. Человек не боится назвать цену, он просто не видит вариантов, где это&nbsp;возможно.</p>
+          <span class="src">Kandasamy, Coates et al., PNAS, 2014</span>
+        </div>
+        <div class="pt">
+          <h3>Недосып двигает денежные&nbsp;решения</h3>
+          <p>После ночи без сна мозг сильнее откликается на выигрыш и слабее на потерю. Выбор смещается к риску, а сам человек этого не замечает.</p>
+          <span class="src">Обзор 25 исследований принятия решений при недосыпе</span>
+        </div>
+        <div class="pt">
+          <h3>Настроение это доход</h3>
+          <p>У работающих людей с депрессией фиксируется около 23 лишних дней потерянной продуктивности в год. Это ровно те дни, когда не отправлено предложение и не названа цена.</p>
+          <span class="src">Оценки потерь продуктивности, ВОЗ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="loop-note reveal">
+      <div class="big">Не сначала здоровье, потом&nbsp;деньги.</div>
+      <p class="lead" style="margin:0">Одно действие каждый день, и то, и другое.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── ЗДОРОВЬЕ ───────────────── -->
+<section class="dark" id="s5" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:min(780px,100%)">
+      <div class="kicker">Вторая ось</div>
+      <h2>Пока вы работаете с деньгами, тело получает свою&nbsp;половину</h2>
+    </div>
+    <div class="health-top">
+      <p class="lead reveal">Эта часть доказана лучше денежной. Ходьба одно из самых изученных вмешательств в медицине, и протокол собран так, чтобы за 21 день набрался объём, на котором эффекты вообще&nbsp;фиксируются.</p>
+      <div class="reveal">
+        <img src="images/steps.jpg" alt="Стопы в кроссовках на утреннем асфальте" style="width:100%;height:clamp(200px,26vh,280px);object-fit:cover">
+      </div>
+    </div>
+
+    <div class="numbers reveal">
+      <div class="num">
+        <div class="v" data-count="25" data-pre="−" data-suf="%">−25%</div>
+        <div class="t">риска депрессии при недельном объёме, который даёт протокол</div>
+        <span class="s">JAMA Psychiatry, 2022 · 190 000 участников</span>
+      </div>
+      <div class="num">
+        <div class="v" data-count="2" data-pre="+" data-suf="%">+2%</div>
+        <div class="t">объёма гиппокампа за год ходьбы там, где обычно идёт убыль</div>
+        <span class="s">Erickson et al., PNAS, 2011</span>
+      </div>
+      <div class="num">
+        <div class="v" data-count="21">21</div>
+        <div class="t">прогулка после ужина, лучший режим по контролю сахара</div>
+        <span class="s">DiPietro et al., Diabetes Care, 2013</span>
+      </div>
+      <div class="num">
+        <div class="v" data-count="27" data-suf=" ч">27 ч</div>
+        <div class="t">движения за практикум, из них около шести в бодром темпе</div>
+        <span class="s">Расчёт протокола: 75 минут в день</span>
+      </div>
+    </div>
+
+
+    <div class="lancet reveal">
+      <div class="kicker">Крупнейший разбор на сегодня</div>
+      <h3>Семь тысяч шагов против двух&nbsp;тысяч</h3>
+      <p class="sub">Июль 2025 года, The Lancet Public Health: 57 исследований и больше 160 000 человек. Сравнили тех, кто проходит около 7000 шагов в день, с теми, у кого около 2000. Семь тысяч это примерно час спокойного шага, ровно объём утренней сессии&nbsp;протокола.</p>
+      <div class="bars">
+        <div class="bar-row"><div class="bl">Смертность от всех причин</div><div class="bt"><i style="--w:100%"></i></div><div class="bv">−47%</div></div>
+        <div class="bar-row"><div class="bl">Деменция</div><div class="bt"><i style="--w:81%"></i></div><div class="bv">−38%</div></div>
+        <div class="bar-row"><div class="bl">Падения</div><div class="bt"><i style="--w:60%"></i></div><div class="bv">−28%</div></div>
+        <div class="bar-row"><div class="bl">Сердце и сосуды</div><div class="bt"><i style="--w:53%"></i></div><div class="bv">−25%</div></div>
+        <div class="bar-row"><div class="bl">Депрессия</div><div class="bt"><i style="--w:47%"></i></div><div class="bv">−22%</div></div>
+        <div class="bar-row"><div class="bl">Диабет второго типа</div><div class="bt"><i style="--w:30%"></i></div><div class="bv">−14%</div></div>
+      </div>
+      <span class="src">The Lancet Public Health, 2025 · метаанализ 57 исследований</span>
+    </div>
+
+    <div class="biohack">
+      <div class="bh reveal">
+        <h3>За это обычно платят</h3>
+        <ul>
+          <li>Сенсор сахара и разбор пиков&nbsp;глюкозы</li>
+          <li>Трекер сна и работа с&nbsp;бессонницей</li>
+          <li>Курс добавок на энергию и&nbsp;настроение</li>
+          <li>Программа тренировок для сосудов и&nbsp;сердца</li>
+        </ul>
+      </div>
+      <div class="bh right reveal">
+        <h3>Здесь это делает протокол</h3>
+        <ul>
+          <li>Пятнадцать минут после ужина сбивают вечерний пик сахара сильнее, чем одна длинная прогулка днём</li>
+          <li>Утренний свет и ежедневная нагрузка чинят сон без&nbsp;таблеток</li>
+          <li>Медитативная часть снижает кортизол и маркеры воспаления, что видно в анализах крови</li>
+          <li>Бодрые отрезки в каждой сессии работают на сосуды, давление и сердце</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="charts">
+      <div class="chart reveal">
+        <h3>Доза и эффект</h3>
+        <p class="sub">Риск депрессии падает круче всего на первых часах движения в неделю. Объём протокола стоит в рабочей зоне&nbsp;кривой.</p>
+        <svg viewBox="0 0 560 260" role="img" aria-label="Кривая: риск депрессии падает с ростом объёма ходьбы">
+          <defs><linearGradient id="gOr" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#FF6A2B" stop-opacity=".28"/><stop offset="1" stop-color="#FF6A2B" stop-opacity="0"/>
+          </linearGradient></defs>
+          <rect class="zone" x="300" y="30" width="90" height="190"/>
+          <path class="area" d="M50 52 C 150 60, 200 140, 300 176 C 380 202, 470 208, 536 210 L536 220 L50 220 Z" fill="url(#gOr)" opacity="0"/>
+          <line class="ax" x1="46" y1="220" x2="540" y2="220"/>
+          <line class="ax" x1="46" y1="220" x2="46" y2="24"/>
+          <path class="curve hot" d="M50 52 C 150 60, 200 140, 300 176 C 380 202, 470 208, 536 210"/>
+          <text class="lbl" x="46" y="246">0</text>
+          <text class="lbl" x="536" y="246" text-anchor="end">объём в неделю</text>
+          <text class="lbl" x="56" y="40">риск</text>
+          <text class="lbl hot" x="392" y="22" text-anchor="end">зона протокола</text>
+          <text class="lbl hot" x="308" y="166">−25%</text>
+          <circle class="pulse" cx="345" cy="186" r="7"/>
+          <circle cx="345" cy="186" r="4" fill="#FF6A2B"/>
+        </svg>
+        <span class="src">Pearce et al., JAMA Psychiatry, 2022 · 190 000 участников</span>
+      </div>
+      <div class="chart reveal">
+        <h3>Вечер и сахар</h3>
+        <p class="sub">Пятнадцать минут шага после ужина срезают вечерний подъём глюкозы сильнее, чем одна длинная прогулка в другое&nbsp;время.</p>
+        <svg viewBox="0 0 560 260" role="img" aria-label="Две кривые сахара после ужина: с прогулкой ниже">
+          <line class="ax" x1="46" y1="220" x2="540" y2="220"/>
+          <line class="ax" x1="46" y1="220" x2="46" y2="24"/>
+          <path class="curve" d="M50 200 C 140 60, 260 60, 380 150 C 440 190, 500 204, 536 208"/>
+          <path class="curve hot" d="M50 200 C 140 132, 260 140, 380 186 C 440 202, 500 208, 536 210"/>
+          <text class="lbl" x="46" y="246">ужин</text>
+          <text class="lbl" x="536" y="246" text-anchor="end">3 часа</text>
+          <text class="lbl" x="212" y="52">сидя</text>
+          <text class="lbl hot" x="200" y="170">с прогулкой</text>
+          <circle class="pulse" cx="380" cy="186" r="7"/>
+          <circle cx="380" cy="186" r="4" fill="#FF6A2B"/>
+        </svg>
+        <span class="src">DiPietro et al., Diabetes Care, 2013 · схематично</span>
+      </div>
+    </div>
+
+    <figure class="evening-img reveal" style="margin-left:0;margin-right:0">
+      <img src="images/evening.jpg" alt="Вечерняя прогулка после ужина вдоль домов">
+      <figcaption><b>Вечерние пятнадцать минут стоят в протоколе каждый день и не меняются.</b> Это лучший из доступных метаболических эффектов ходьбы и одновременно условие для стратегического мышления, которому нужен ровный&nbsp;сахар.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ── ЦЕЛИ ───────────────── -->
+<section id="s6">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Цели и расширение</div>
+      <h2>Цель, которая стоит годами, двигается не&nbsp;усилием</h2>
+    </div>
+    <div class="goal">
+      <div class="goal-img reveal"><img src="images/stride.jpg" alt="Мужчина широким шагом переходит рассветную улицу"></div>
+      <div class="reveal">
+        <p class="lead">Когда задача не решается месяцами, кажется, что дело в воле. На деле не хватает вариантов: сжатая система видит два выхода, оба плохие, и выбирает не трогать. После сессии поле шире, и тот же вопрос выглядит иначе.</p>
+        <p class="lead">Отдельная ловушка: чистая визуализация желаемого. В экспериментах красочные мечты о результате снижали энергию и реальные шаги к нему. Намерение в протоколе построено по другой схеме, проверенной на десятках исследований, и это одна из вещей, которую вы забираете с собой навсегда.</p>
+        <span class="src">Oettingen, Mayer · 2002 · Kappes, Oettingen · 2011</span>
+      </div>
+    </div>
+
+    <div class="sr reveal">
+      <div class="srb">
+        <div class="k">Сжатие</div>
+        <h3>Состояние, где не видно&nbsp;ходов</h3>
+        <ul>
+          <li>Плечи вверх, дыхание уходит в грудь</li>
+          <li>Поле зрения сужается, возможность рядом и не видна</li>
+          <li>Цена проглатывается, место занимается поменьше</li>
+          <li>Свежее решение не рождается, потому что тело в обороне</li>
+        </ul>
+      </div>
+      <div class="srarrow">→</div>
+      <div class="srb open">
+        <div class="k">Расширение</div>
+        <h3>Состояние, где живёт всё&nbsp;большое</h3>
+        <ul>
+          <li>Кортизол отпускает, тревожная петля размыкается</li>
+          <li>Вариантов становится больше в среднем на 60%</li>
+          <li>Цена называется, и после неё держится тишина</li>
+          <li>Тело выходит из обороны, и человек расправляется</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="window-strip reveal">
+      <div class="ws"><div class="k">Шаг 1</div><h3>Сессия открывает&nbsp;окно</h3><p>Мышление шире, кортизол ниже, сопротивление слабее обычного.</p></div>
+      <div class="ws"><div class="k">Шаг 2</div><h3>Действие в это&nbsp;окно</h3><p>Письмо, цифра в прайсе, просьба. Одно движение в реальные деньги,&nbsp;сразу.</p></div>
+      <div class="ws"><div class="k">Шаг 3</div><h3>Строка в&nbsp;дневник</h3><p>Что сделано и что изменилось. За три недели из строк собирается&nbsp;сдвиг.</p></div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ── РОСТ ЧЕРЕЗ БОЛЬ ───────────────── -->
+<section class="dark" id="s6b">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Почему откатывает</div>
+      <h2>Психику нельзя уговорить&nbsp;вырасти</h2>
+      <p class="lead">Вопрос, который стоит за всеми брошенными на полпути целями: почему человек, точно знающий, что делать, всё равно откатывается назад. Дело не в&nbsp;дисциплине.</p>
+    </div>
+    <div class="split" style="margin-top:44px">
+      <div class="reveal">
+        <p class="lead">Старая норма, сколько можно зарабатывать, кем быть и чего заслуживать, записана глубже любых планов. Как только жизнь выходит за её пределы, тело включает тревогу и тянет обратно, к&nbsp;привычному.</p>
+        <p class="lead">Поэтому рост через голову, силой воли и установками, почти всегда идёт через надрыв и заканчивается&nbsp;откатом.</p>
+      </div>
+      <div class="reveal">
+        <p class="lead">Есть другой путь, и работает он надёжнее: подходить к психике со стороны тела. Меняется состояние тела, меняется и то, что психика готова&nbsp;впустить.</p>
+        <p class="lead">Новый уровень перестаёт быть угрозой и закрепляется как норма: спокойно и надолго, без рывков, за которыми обычно следует сползание&nbsp;назад.</p>
+      </div>
+    </div>
+
+    <div class="norma reveal">
+      <h3>Как встаёт новая&nbsp;норма</h3>
+      <p class="sub">Первые дни старое цепко тянет назад, к третьей неделе новое состояние держится само. Поэтому счёт и идёт на двадцать один день: ровно столько длится практика.</p>
+      <svg viewBox="0 0 560 220" role="img" aria-label="График: новая норма закрепляется к третьей неделе">
+        <line class="ax" x1="44" y1="186" x2="540" y2="186"/>
+        <path class="old" d="M48 60 C 150 66, 240 96, 330 128 C 410 156, 480 172, 536 178"/>
+        <path class="new" d="M48 172 C 130 150, 170 96, 250 92 C 300 89, 330 128, 380 104 C 430 82, 480 58, 536 44"/>
+        <text class="lbl" x="48" y="208">День 1</text>
+        <text class="lbl" x="270" y="208" text-anchor="middle">Неделя 2</text>
+        <text class="lbl hot" x="536" y="208" text-anchor="end">День 21</text>
+        <text class="lbl" x="60" y="52">старая норма</text>
+        <text class="lbl hot" x="536" y="34" text-anchor="end">новое состояние</text>
+      </svg>
+      <span class="src" style="margin-top:14px;display:block">Схема, измерений здесь нет</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── ВЛАДЕТЬ ХОДЬБОЙ ───────────────── -->
+<section id="s6c">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Разница</div>
+      <h2>Ходить умеют все. Владеть ходьбой&nbsp;единицы</h2>
+      <p class="lead">Большинство ходят всю жизнь и не получают почти ничего из описанного выше. Потому что ходят на автопилоте: телефон, дела, та же тревожная жвачка в голове, что и за столом. Тело идёт, а человек остаётся в&nbsp;сжатии.</p>
+      <p class="lead" style="margin-top:18px">Разница между «нахаживать шаги» и владеть ходьбой как между «нажимать клавиши» и играть музыку. Инструмент один, результат&nbsp;несопоставим.</p>
+    </div>
+
+    <div class="sec-head reveal" style="margin-top:64px">
+      <div class="kicker">Проверьте прямо сейчас</div>
+      <h2 style="font-size:clamp(26px,3.4vw,42px)">Два вопроса, и граница станет&nbsp;видна</h2>
+    </div>
+    <div class="test2">
+      <div class="t2 reveal">
+        <div class="k">Вопрос первый</div>
+        <h3>Сумма или цель, которую вы по-настоящему&nbsp;хотите</h3>
+        <p>Представьте так, будто это уже случилось, прямо сейчас. Побудьте там пару секунд и следите за&nbsp;телом.</p>
+      </div>
+      <div class="t2 reveal">
+        <div class="k">Вопрос второй</div>
+        <h3>Завтра вы просыпаетесь лёгким и полным&nbsp;сил</h3>
+        <p>Тело за целый день ни разу не подводит. Тоже задержитесь на пару секунд и&nbsp;наблюдайте.</p>
+      </div>
+    </div>
+    <details class="reveal-answer reveal">
+      <summary>Что вы, скорее всего, почувствовали<span></span></summary>
+      <div class="body">
+        <p>У большинства внутри что-то сжимается: плечи подаются вперёд, дыхание мельчает, и почти сразу поднимается ощущение тихой невозможности, будто это не получится или будет когда-нибудь потом.</p>
+        <p><b>Вот вы и нащупали границу.</b> Проходит она по телу и срабатывает раньше, чем включается мысль. Та же граница держит всё сразу: не даёт назвать цену, откладывает большое дело, отговаривает заняться собой, гасит смелость замахнуться.</p>
+        <p>Спорить с ней бесполезно, она глубже любых слов. Двигается она через тело. В этом и суть практики: она приводит в движение любой застой, в теле, в деньгах и в целях.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ── ПЕРЕДЫШКА ───────────────── -->
+<section class="break" id="break1">
+  <img src="images/plaza.jpg" alt="Одинокая фигура пересекает пустую площадь на рассвете">
+  <div class="cap"><div class="wrap"><p>Час утром. Пятнадцать минут вечером. Двадцать один&nbsp;день.</p></div></div>
+</section>
+
+
+<!-- ── ЧТО ПЕРЕДАЁМ ───────────────── -->
+<section id="s6d" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Что внутри практики</div>
+      <h2>За 21 день передаём весь код&nbsp;целиком</h2>
+      <p class="lead">Не хаотичные шаги для галочки, а точная последовательность, где каждый день встраивает одно звено новой нормы, той, что потом не&nbsp;откатывается.</p>
+    </div>
+    <div class="pillars">
+      <div class="pil reveal"><div class="pn">Звено 01</div><h3>Как входить в&nbsp;шаг</h3><p>Чтобы тело переключалось из выживания в расширение, а не просто нахаживало километры.</p></div>
+      <div class="pil reveal"><div class="pn">Звено 02</div><h3>Как снимать тревогу у&nbsp;корня</h3><p>Там, где она рождается, а не там, где её обычно пытаются переспорить словами.</p></div>
+      <div class="pil reveal"><div class="pn">Звено 03</div><h3>Как забирать с прогулки&nbsp;решения</h3><p>Вместо руминации: тот же час, но домой вы приносите ход, а не круг тревожных мыслей.</p></div>
+      <div class="pil reveal"><div class="pn">Звено 04</div><h3>Как направлять эту&nbsp;силу</h3><p>Туда, где нужен рост: в здоровье, в деньги, в цели. Иначе энергия расходится вхолостую.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ТЕХНОЛОГИЯ ───────────────── -->
+<section id="s7" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Технология</div>
+      <h2>У всех ходьба одна на 21 день. Здесь она разная каждый&nbsp;день</h2>
+      <p class="lead">Денежный потолок держат шесть механизмов, и под каждый собран свой режим движения. Настраиваются темп, дыхание, взгляд, среда, голос и окно действия после сессии. Стартовый режим определяется на первой прогулке, потому что универсальный план части людей просто вредит.</p>
+      <div class="qz reveal" role="group" aria-label="Что про вас, выберите">
+        <span class="kicker" style="flex-basis:100%">Что из этого про вас? Нажмите</span>
+        <button class="qb" data-m="0">Откладываю всё на завтра</button>
+        <button class="qb" data-m="1">Всё стало серым</button>
+        <button class="qb" data-m="2">Доход упёрся в цифру</button>
+        <button class="qb" data-m="3">Цена застревает в горле</button>
+        <button class="qb" data-m="4">Неловко брать</button>
+        <button class="qb" data-m="5">Деньги сразу расходятся</button>
+      </div>
+    </div>
+
+    <div class="grid6">
+      <article class="mode reveal">
+        <div class="idx">Режим 01</div>
+        <h3>Выход из&nbsp;замирания</h3>
+        <p>Когда о деньгах думать физически тяжело и хочется отложить всё на&nbsp;завтра.</p>
+        <div class="dials">
+          <div class="dial"><span>темп</span><i style="--w:24%"></i></div>
+          <div class="dial"><span>дыхание</span><i style="--w:86%"></i></div>
+          <div class="dial"><span>взгляд</span><i style="--w:40%"></i></div>
+          <div class="dial"><span>среда</span><i style="--w:70%"></i></div>
+          <div class="dial"><span>голос</span><i style="--w:12%"></i></div>
+        </div>
+      </article>
+      <article class="mode reveal">
+        <div class="idx">Режим 02</div>
+        <h3>Возвращение&nbsp;азарта</h3>
+        <p>Когда всё серое и ни одна цель больше не тянет вперёд.</p>
+        <div class="dials">
+          <div class="dial"><span>темп</span><i style="--w:58%"></i></div>
+          <div class="dial"><span>дыхание</span><i style="--w:44%"></i></div>
+          <div class="dial"><span>взгляд</span><i style="--w:66%"></i></div>
+          <div class="dial"><span>среда</span><i style="--w:95%"></i></div>
+          <div class="dial"><span>голос</span><i style="--w:36%"></i></div>
+        </div>
+      </article>
+      <article class="mode reveal">
+        <div class="idx">Режим 03</div>
+        <h3>Подъём&nbsp;потолка</h3>
+        <p>Когда доход упирается в одну и ту же цифру и всякий раз откатывается назад.</p>
+        <div class="dials">
+          <div class="dial"><span>темп</span><i style="--w:62%"></i></div>
+          <div class="dial"><span>дыхание</span><i style="--w:52%"></i></div>
+          <div class="dial"><span>взгляд</span><i style="--w:74%"></i></div>
+          <div class="dial"><span>среда</span><i style="--w:80%"></i></div>
+          <div class="dial"><span>голос</span><i style="--w:58%"></i></div>
+        </div>
+      </article>
+      <article class="mode reveal">
+        <div class="idx">Режим 04</div>
+        <h3>Право назвать&nbsp;цену</h3>
+        <p>Когда цифра застревает в горле, а после названной суммы хочется сразу&nbsp;оправдаться.</p>
+        <div class="dials">
+          <div class="dial"><span>темп</span><i style="--w:78%"></i></div>
+          <div class="dial"><span>дыхание</span><i style="--w:40%"></i></div>
+          <div class="dial"><span>взгляд</span><i style="--w:92%"></i></div>
+          <div class="dial"><span>среда</span><i style="--w:46%"></i></div>
+          <div class="dial"><span>голос</span><i style="--w:100%"></i></div>
+        </div>
+      </article>
+      <article class="mode reveal">
+        <div class="idx">Режим 05</div>
+        <h3>Способность&nbsp;брать</h3>
+        <p>Когда отдавать легко, а принимать деньги, помощь и похвалу&nbsp;неловко.</p>
+        <div class="dials">
+          <div class="dial"><span>темп</span><i style="--w:44%"></i></div>
+          <div class="dial"><span>дыхание</span><i style="--w:38%"></i></div>
+          <div class="dial"><span>взгляд</span><i style="--w:84%"></i></div>
+          <div class="dial"><span>среда</span><i style="--w:100%"></i></div>
+          <div class="dial"><span>голос</span><i style="--w:64%"></i></div>
+        </div>
+      </article>
+      <article class="mode reveal">
+        <div class="idx">Режим 06</div>
+        <h3>Горизонт вместо&nbsp;сегодня</h3>
+        <p>Когда деньги приходят и тут же расходятся, а плана дальше месяца&nbsp;нет.</p>
+        <div class="dials">
+          <div class="dial"><span>темп</span><i style="--w:50%"></i></div>
+          <div class="dial"><span>дыхание</span><i style="--w:48%"></i></div>
+          <div class="dial"><span>взгляд</span><i style="--w:70%"></i></div>
+          <div class="dial"><span>среда</span><i style="--w:60%"></i></div>
+          <div class="dial"><span>голос</span><i style="--w:42%"></i></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="locked reveal">
+      <b>Точные настройки шести режимов внутри&nbsp;практики.</b>
+      <span>Здесь показано, что именно меняется, а не&nbsp;как.</span>
+    </div>
+
+    <div class="phases reveal">
+      <div class="kicker">Одна сессия</div>
+      <h3 style="margin-top:14px;font-size:clamp(24px,3vw,34px)">Пять фаз, и каждая делает свою&nbsp;работу</h3>
+      <div class="phase-row">
+        <div class="ph"><div class="n">Фаза 1</div><h3>Сброс</h3><p>Заходим в денежную тему с холодной&nbsp;головой</p><div class="bar" style="--w:35%"></div></div>
+        <div class="ph"><div class="n">Фаза 2</div><h3>Разгон</h3><p class="blurred">Интенсивность, которая даёт эффект сверх объёма</p><div class="bar" style="--w:60%"></div></div>
+        <div class="ph"><div class="n">Фаза 3</div><h3>Ядро</h3><p class="blurred">Работа механизма дня на пике&nbsp;мышления</p><div class="bar" style="--w:100%"></div></div>
+        <div class="ph"><div class="n">Фаза 4</div><h3>Пик</h3><p class="blurred">Самое трудное: голос, цена и просьба</p><div class="bar" style="--w:80%"></div></div>
+        <div class="ph"><div class="n">Фаза 5</div><h3>Сборка</h3><p class="blurred">Состояние переводится в&nbsp;решение</p><div class="bar" style="--w:45%"></div></div>
+      </div>
+      <div class="locked" style="margin-top:22px"><b>Открыта только первая фаза.</b><span>Остальные четыре разворачиваются внутри&nbsp;практики.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ВАШ ВХОД ───────────────── -->
+<section id="s8" style="padding-top:0">
+  <div class="wrap">
+    <div class="diag">
+      <div class="reveal">
+        <div class="kicker">Ваш вход</div>
+        <h2 style="margin-top:14px">Первая прогулка это&nbsp;диагностика</h2>
+        <p class="lead" style="margin-top:20px">На старте вы делаете короткий тест прямо на ходу и по реакции тела определяете свой вход: с какого режима начинать и чего в первые дни не делать вовсе.</p>
+        <div class="warn">
+          <p><b>Универсальный план части людей вредит.</b> Например, тем, кто в изоляции, одиночные прогулки в тишине её только усиливают. А тем, кто в сильной тревоге, нельзя стартовать с намерений про доход. Поэтому входов несколько, и ваш определяется по вам.</p>
+        </div>
+      </div>
+      <div class="diag-card reveal">
+        <div class="kicker">Тест первого дня</div>
+        <h3>Одна цифра, произнесённая вслух на&nbsp;ходу</h3>
+        <p>Реакция тела в первые две секунды: сжатие, азарт, пустота или торг. Она и есть ваша карта входа. Какая цифра, как её произносить и что означает каждая реакция: в первый день, внутри&nbsp;протокола.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ТРИ ОШИБКИ ───────────────── -->
+<section class="dark" id="s9" style="position:relative;overflow:hidden">
+  <div style="position:absolute;inset:-12% 0;opacity:.35"><img data-plx src="images/road.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 62%"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,21,24,.86),rgba(15,21,24,.72) 40%,rgba(15,21,24,.9))"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="sec-head reveal">
+      <div class="kicker">Почему у других не сработало</div>
+      <h2>Три ошибки обычных марафонов&nbsp;ходьбы</h2>
+      <p class="lead">Если вы уже пробовали и бросили, причина, скорее всего, ниже. И живёт она в конструкции самих марафонов.</p>
+    </div>
+    <div class="mistakes">
+      <article class="mk reveal">
+        <div class="n">21</div>
+        <h3>«Привычка за 21&nbsp;день»</h3>
+        <p>Цифра пришла из книги пластического хирурга 1960 года: столько пациенты привыкали к новому лицу в зеркале. Современные измерения дают от 18 до 254 дней, в среднем около 66.</p>
+        <div class="fix"><b>Как здесь</b>21 день честно называются разгоном. Финиш дальше: внутри заложен план на дни после, до 66-го.</div>
+      </article>
+      <article class="mk reveal">
+        <div class="n">10 000</div>
+        <h3>«Десять тысяч&nbsp;шагов»</h3>
+        <p>Норма родилась в японской рекламе шагомера 1965 года, наука её не задавала. Метаанализы видят пользу раньше, а решает не только объём, но и интенсивность с&nbsp;таймингом.</p>
+        <div class="fix"><b>Как здесь</b>Вместо круглой цифры: точная конструкция сессии, где у каждого элемента своя задача и своё время.</div>
+      </article>
+      <article class="mk reveal">
+        <div class="n">✕</div>
+        <h3>Визуализация вместо&nbsp;действия</h3>
+        <p>Красочные мечты о результате в экспериментах снижали энергию и реальные шаги: мозг частично засчитывает желаемое как полученное, и напряжение цели&nbsp;падает.</p>
+        <div class="fix"><b>Как здесь</b>Намерение здесь собирается по другой схеме, проверенной в экспериментах. По какой: внутри. А сессия всегда заканчивается&nbsp;действием.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── ДЕНЬ ───────────────── -->
+<section id="s10">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Изнутри</div>
+      <h2>Как устроен один&nbsp;день</h2>
+    </div>
+
+    <div class="day">
+      <div class="day-img reveal"><img src="images/park.jpg" alt="Утренняя аллея в тумане, женщина идёт вперёд"></div>
+      <div class="tl reveal">
+        <div class="step"><div class="k">Утро · 2 минуты</div><h3>Карточка дня</h3><p>Какой сегодня режим, зачем он и что будет на пике. Читается за пару минут до выхода.</p></div>
+        <div class="step"><div class="k">Сессия · 60 минут</div><h3>Аудио ведёт первую часть</h3><p>Голос задаёт темп, дыхание и фокус. Потом наушники снимаются, и остаток пути идёт в тишине: это&nbsp;принципиально.</p></div>
+        <div class="step hot"><div class="k">Сразу после</div><h3>Действие в открытое окно</h3><p>Одно конкретное движение в реальные деньги: отправить, назвать, отложить, спросить. Пока эффект сессии ещё&nbsp;держится.</p></div>
+        <div class="step"><div class="k">Вечер · 15 минут</div><h3>Прогулка после ужина</h3><p>Метаболический блок, который не меняется все три недели. Сахар ровнее, сон глубже, утро легче.</p></div>
+        <div class="step"><div class="k">Перед сном · 3 минуты</div><h3>Строка дневника</h3><p>Четыре поля: состояние до и после, что заметили, что сделали. По этим строкам вы увидите собственный&nbsp;сдвиг.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── ГРАФИК ХОДЬБЫ ───────────────── -->
+<section id="s10b" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Расписание</div>
+      <h2>График&nbsp;ходьбы</h2>
+      <p class="lead">Два выхода в день: утренняя сессия в удобное вам окно и пятнадцать минут после ужина. Остальное время дня полностью&nbsp;ваше.</p>
+    </div>
+    <div class="dayline reveal">
+      <svg viewBox="0 0 560 150" role="img" aria-label="Лента суток с двумя выходами: утренняя сессия и вечерняя прогулка">
+        <defs>
+          <linearGradient id="gDay" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#18232A"/><stop offset=".14" stop-color="#C9491A" stop-opacity=".55"/>
+            <stop offset=".38" stop-color="#B9C4C0"/><stop offset=".72" stop-color="#8FA0A6"/>
+            <stop offset=".9" stop-color="#2A3A44"/><stop offset="1" stop-color="#18232A"/>
+          </linearGradient>
+        </defs>
+        <rect x="20" y="64" width="520" height="10" rx="5" fill="url(#gDay)"/>
+        <rect class="win" x="78" y="52" width="118" height="34" rx="4"/>
+        <rect class="win" x="398" y="52" width="46" height="34" rx="4"/>
+        <text class="lbl" x="24" y="40">ночь</text>
+        <text class="lbl hot" x="78" y="30">утро · сессия 60 минут</text>
+        <text class="lbl" x="250" y="40">ваш день</text>
+        <text class="lbl hot" x="540" y="30" text-anchor="end">после ужина · 15 минут</text>
+        <text class="lbl" x="78" y="112">выход 1</text>
+        <text class="lbl" x="398" y="112">выход 2</text>
+        <line class="axl" x1="137" y1="86" x2="137" y2="98"/>
+        <line class="axl" x1="421" y1="86" x2="421" y2="98"/>
+      </svg>
+    </div>
+    <div class="sess reveal">
+      <h3>Состояние внутри одного&nbsp;часа</h3>
+      <p class="sub">Схема сессии: сначала снимается напряжение, к середине мышление выходит на пик, а после остановки эффект держится, и в это окно ставится денежное&nbsp;действие.</p>
+      <svg viewBox="0 0 560 240" role="img" aria-label="Кривая состояния за час сессии и окно действия после">
+        <defs><linearGradient id="gSt" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#34505C" stop-opacity=".2"/><stop offset="1" stop-color="#34505C" stop-opacity="0"/>
+        </linearGradient></defs>
+        <g opacity=".5">
+          <line class="ax" x1="120" y1="30" x2="120" y2="202"/><line class="ax" x1="196" y1="30" x2="196" y2="202"/>
+          <line class="ax" x1="288" y1="30" x2="288" y2="202"/><line class="ax" x1="360" y1="30" x2="360" y2="202"/>
+        </g>
+        <rect class="zone" x="424" y="26" width="112" height="176"/>
+        <path d="M44 176 C 120 168, 160 120, 250 84 C 320 58, 380 54, 424 58 L424 202 L44 202 Z" fill="url(#gSt)"/>
+        <line class="ax" x1="40" y1="202" x2="540" y2="202"/>
+        <path class="curve" d="M44 176 C 120 168, 160 120, 250 84 C 320 58, 380 54, 424 58"/>
+        <text class="lbl" x="40" y="226">0 мин</text>
+        <text class="lbl" x="236" y="226">30</text>
+        <text class="lbl" x="416" y="226" text-anchor="middle">60</text>
+        <text class="lbl" x="60" y="150">сброс напряжения</text>
+        <text class="lbl" x="212" y="66">пик мышления</text>
+        <text class="lbl hot" x="536" y="46" text-anchor="end">окно действия</text>
+        <circle class="pulse" cx="470" cy="70" r="7"/>
+        <circle cx="470" cy="70" r="4" fill="#FF6A2B"/>
+      </svg>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── КАРТА 21 ДНЯ ───────────────── -->
+<section class="dark" id="s11">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Маршрут</div>
+      <h2>Карта трёх&nbsp;недель</h2>
+      <p class="lead">Порядок выстроен по физиологии: сначала выключается режим угрозы, потом возвращается желание, и только затем голос и масштаб. Ставить его раньше, чем снята тревога, бессмысленно, тело не даст.</p>
+    </div>
+    <div class="stages reveal">
+      <div class="st"><div class="d">Дни 1-5</div><h3>Фундамент</h3><p>Диагностика входа, выход из сжатия, первые лёгкие победы. Никаких сумм и целей:&nbsp;сознательно.</p><div class="load"><i style="--w:30%"></i></div></div>
+      <div class="st"><div class="d">Дни 6-11</div><h3>Разгон</h3><p>Возвращение драйва, работа с внутренним потолком, первое действие из новой точки.</p><div class="load"><i style="--w:60%"></i></div></div>
+      <div class="st"><div class="d">Дни 12-17</div><h3>Голос</h3><p>Самая денежная неделя: цена вслух, прямые просьбы, способность принимать. Задания идут в реальные&nbsp;деньги.</p><div class="load"><i style="--w:100%"></i></div></div>
+      <div class="st"><div class="d">Дни 18-21</div><h3>Новая норма</h3><p>Горизонт и стратегия, сборка личного плана на следующие 45 дней, передача протокола вам&nbsp;насовсем.</p><div class="load"><i style="--w:80%"></i></div></div>
+    </div>
+
+    <div class="progress21 reveal">
+      <h3>Контрольные точки&nbsp;замеров</h3>
+      <div class="p21">
+        <div class="base"></div><div class="fill"></div>
+        <div class="tick" style="left:4.7%"></div><div class="tick" style="left:23.8%"></div><div class="tick" style="left:42.8%"></div><div class="tick" style="left:61.9%"></div><div class="tick" style="left:60%"></div>
+        <div class="pmk" style="left:0%"><i></i></div><div class="mlb" style="left:2%">замер</div><div class="dlb" style="left:2%">день 1</div>
+        <div class="pmk" style="left:50%"><i></i></div><div class="mlb" style="left:50%">замер</div><div class="dlb" style="left:50%">день 11</div>
+        <div class="pmk" style="left:100%"><i></i></div><div class="mlb" style="left:97%">замер</div><div class="dlb" style="left:97%">день 21</div>
+      </div>
+    </div>
+
+
+    <div class="mosaic reveal">
+      <div class="mo"><div class="v" data-count="75">75</div><div class="t">минут в день</div></div>
+      <div class="mo"><div class="v">6</div><div class="t">режимов ходьбы</div></div>
+      <div class="mo"><div class="v">5</div><div class="t">фаз в каждой сессии</div></div>
+      <div class="mo"><div class="v">10+</div><div class="t">действий в реальные деньги</div></div>
+      <div class="mo"><div class="v" data-count="21">21</div><div class="t">вечерняя прогулка</div></div>
+      <div class="mo"><div class="v">3</div><div class="t">контрольных замера</div></div>
+      <div class="mo"><div class="v" data-count="10">10</div><div class="t">показателей до и после</div></div>
+      <div class="mo"><div class="v" data-count="45">45</div><div class="t">дней в плане после финала</div></div>
+    </div>
+
+    <div class="after21 reveal">
+      <p style="margin:0"><b>Пропущенный день не обнуляет путь.</b> Это не поблажка, а данные: привычку строит повторение, идеальная серия ей не нужна. Догоняющий формат заложен в конструкцию.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── ЧТО ПОЛУЧАЕТЕ ───────────────── -->
+<section id="s12">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Состав</div>
+      <h2>Что вы&nbsp;получаете</h2>
+    </div>
+    <div class="got">
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" pathLength="100"/><path d="M15.5 8.5l-2 5-5 2 2-5z" pathLength="100"/></svg></div><h3>21 настройка дня</h3><p>Каждое утро Дарья задаёт направление: режим, смысл и задание дня. Коротко, перед&nbsp;выходом.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4" pathLength="100"/></svg></div><h3>Аудио в дорогу</h3><p>Голос ведёт первую часть сессии: темп, дыхание, вход в состояние. Слушается на ходу.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 6c-2-1.6-5-2-8-2v15c3 0 6 .4 8 2 2-1.6 5-2 8-2V4c-3 0-6 .4-8 2z" pathLength="100"/><path d="M12 6v15" pathLength="100"/></svg></div><h3>Практикум PDF</h3><p>Вся система целиком: исследование, механизмы, режимы, план до 66 дня. Остаётся у&nbsp;вас.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19l5-5 3 3 7-8" pathLength="100"/><path d="M15 9h4v4" pathLength="100"/></svg></div><h3>Личный кабинет</h3><p>Отдельная платформа, как у «Протокола денег»: карта 21 дня, цели и километры, графики прогресса, дневник. С телефона и&nbsp;компьютера.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h4l2-5 4 10 2-5h6" pathLength="100"/></svg></div><h3>Замеры до и после</h3><p>Пять цифр по деньгам и пять по телу: старт, контрольная точка на 11 день и&nbsp;финал.</p></div>
+      <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 21V4" pathLength="100"/><path d="M6 5c4-2 8 2 12 0v8c-4 2-8-2-12 0" pathLength="100"/></svg></div><h3>План после финала</h3><p>Личный протокол на следующие 45 дней собирается в последнюю неделю: путь не обрывается.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ЗАМЕРЫ ───────────────── -->
+<section class="dark" id="s13" style="position:relative;overflow:hidden">
+  <div style="position:absolute;inset:-12% 0;opacity:.3"><img data-plx src="images/rain.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,21,24,.88),rgba(15,21,24,.78) 45%,rgba(15,21,24,.92))"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="sec-head reveal">
+      <div class="kicker">Замеры до и после</div>
+      <h2>Десять цифр, которые вы увидите&nbsp;сами</h2>
+      <p class="lead">Пять минут перед стартом, и у сдвига появляется точка отсчёта. Сравнение на одиннадцатый и двадцать первый день.</p>
+    </div>
+    <div class="meas">
+      <div class="mcol reveal">
+        <h3>По деньгам</h3>
+        <ol>
+          <li>Привычная месячная сумма</li>
+          <li>Реакция тела на цифру теста</li>
+          <li>Три слова о своём состоянии с&nbsp;деньгами</li>
+          <li>Текущая цена за основную&nbsp;работу</li>
+          <li>Сколько денежных действий было за&nbsp;месяц</li>
+        </ol>
+      </div>
+      <div class="mcol right reveal">
+        <h3>По телу</h3>
+        <ol>
+          <li>Пульс покоя&nbsp;утром</li>
+          <li>Сон: часы и&nbsp;качество</li>
+          <li>Энергия днём и провал после&nbsp;обеда</li>
+          <li>Объём&nbsp;талии</li>
+          <li>Тяга к сладкому&nbsp;вечером</li>
+        </ol>
+      </div>
+    </div>
+    <p class="meas-note reveal"><b>Есть глюкометр или сенсор?</b> Добавьте замер сахара через час после ужина: разницу от вечерних прогулок видно с первых дней.</p>
+  </div>
+</section>
+
+
+<!-- ── ПОПРОБОВАТЬ СЕГОДНЯ ───────────────── -->
+<section id="s13b">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Проверить можно сегодня</div>
+      <h2>Три вещи из открытой части&nbsp;науки</h2>
+      <p class="lead">Практика стартует 11 августа, а физиология работает уже сейчас. Вот что можно проверить на себе до&nbsp;старта.</p>
+    </div>
+    <div class="try">
+      <div class="tr reveal"><div class="k">Сегодня вечером</div><h3>15 минут после&nbsp;ужина</h3><p>Короткая прогулка сразу после еды срезает вечерний подъём сахара. Если есть сенсор или глюкометр, разницу видно с первого&nbsp;раза.</p></div>
+      <div class="tr reveal"><div class="k">Завтра утром</div><h3>10 минут без&nbsp;наушников</h3><p>Выйдите без контента и заметьте, куда идут мысли. Это черновой замер собственной руминации, без приложений.</p></div>
+      <div class="tr reveal"><div class="k">После прогулки</div><h3>Одно отложенное&nbsp;дело</h3><p>Вернувшись, сразу сядьте за задачу, которую откладывали. Сравните, как она выглядит после часа движения.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── КОМУ ───────────────── -->
+<section id="s14">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Честно</div>
+      <h2>Кому подойдёт. И&nbsp;кому&nbsp;нет</h2>
+    </div>
+    <div class="fit">
+      <div class="f reveal">
+        <h3>Подойдёт, если</h3>
+        <ul>
+          <li>Доход упёрся в цифру, и мышлением её не сдвинуть</li>
+          <li>Про здоровье всё понятно, но «нет времени», и нужен формат, где оно&nbsp;встроено</li>
+          <li>Вы пробовали марафоны прогулок, стало легче, но эффект растаял</li>
+          <li>Хочется системы с механизмом вместо набора&nbsp;ритуалов</li>
+          <li>Есть 75 минут в день и готовность делать реальные шаги в деньгах</li>
+        </ul>
+      </div>
+      <div class="f no reveal">
+        <h3>Не подойдёт, если</h3>
+        <ul>
+          <li>Ждёте точную сумму к конкретной дате: этого здесь не&nbsp;обещают</li>
+          <li>Нужен результат без ежедневного&nbsp;участия</li>
+          <li>Идёте за магией: тут будет техника, дневник и работа&nbsp;голосом</li>
+          <li>Сейчас острое состояние, где сначала нужен врач или&nbsp;психотерапевт</li>
+        </ul>
+      </div>
+    </div>
+    <div class="safe reveal">
+      <p>Это образовательная программа о физиологии и психологии денежного состояния. Она не заменяет медицинскую помощь и не даёт финансовых советов. При заболеваниях сердца, диабете, проблемах с суставами, беременности или долгом перерыве в движении согласуйте нагрузку с врачом: внутри есть адаптированная версия.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── КТО ВЕДЁТ ───────────────── -->
+<section id="s15" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:none">
+      <div class="kicker">Люди</div>
+      <h2>Кто ведёт&nbsp;программу</h2>
+    </div>
+    <div class="solo reveal">
+      <div class="solo-img"><img src="images/daria.jpg" alt="Дарья Ростовцева"></div>
+      <div class="solo-txt">
+        <div class="role">Ведёт программу</div>
+        <h3>Дарья Ростовцева</h3>
+        <p>Голос всех настроек и аудио. Шесть лет ведёт программы о мозге, теле и деньгах: «Протокол денег», практики тишины. Каждое утро задаёт направление дня: мягко и по&nbsp;делу.</p>
+      </div>
+    </div>
+    <div class="proof reveal">
+      <div><div class="n">1000+</div><div class="t">человек в программах бренда</div></div>
+      <div><div class="n">92%</div><div class="t">отмечают изменения состояния</div></div>
+      <div><div class="n">6 лет</div><div class="t">ведёт программы</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ВОПРОСЫ ───────────────── -->
+<section id="s16" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Вопросы</div>
+      <h2>Частые вопросы</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>А если дождь, мороз или тёмная&nbsp;зима?</summary>
+        <div class="a"><p>В протоколе есть план плохого дня: короткий формат в помещении, по лестнице и коридору. День засчитывается, серия не рвётся. А холод сам по себе не противопоказание, одежда решает почти&nbsp;всё.</p></div>
+      </details>
+      <details>
+        <summary>У меня город без парка.&nbsp;Получится?</summary>
+        <div class="a"><p>Да. Зелёный маршрут желателен, но не обязателен: режимы работают на любой улице, а для дней, где среда важна, подойдёт сквер, набережная или тихий&nbsp;квартал.</p></div>
+      </details>
+      <details>
+        <summary>75 минут это много. Есть&nbsp;короче?</summary>
+        <div class="a"><p>Сессия 60 минут плюс 15 вечером, и это объём, на котором в исследованиях видны эффекты. Первая неделя мягче, вход постепенный. Совсем без времени лучше не заходить: протокол работает&nbsp;повторением.</p></div>
+      </details>
+      <details>
+        <summary>Пропустил день. Всё заново?</summary>
+        <div class="a"><p>Нет. Пропуск не обнуляет: это подтверждено данными о формировании привычек. В конструкции есть догоняющий формат, вы продолжаете с того места, где&nbsp;остановились.</p></div>
+      </details>
+      <details>
+        <summary>Можно слушать музыку или&nbsp;подкасты?</summary>
+        <div class="a"><p>Первую часть сессии ведёт аудио протокола, затем наушники снимаются, и остаток идёт в тишине. Часть эффекта живёт именно в тишине. Музыка остаётся для прогулок вне&nbsp;протокола.</p></div>
+      </details>
+      <details>
+        <summary>Я почти не хожу сейчас.&nbsp;Потяну?</summary>
+        <div class="a"><p>Для этого и есть диагностика первого дня и адаптированная версия: короче и мягче, с тем же смыслом. Начать можно с десяти минут, объём догоняется по&nbsp;неделям.</p></div>
+      </details>
+      <details>
+        <summary>У меня наёмная работа, не бизнес.&nbsp;Подойдёт?</summary>
+        <div class="a"><p>Да. Денежные действия подбираются под вашу ситуацию: разговор о пересмотре зарплаты, отклик на позицию уровнем выше, первые отложенные десять процентов, продажа ненужного. Протокол работает с состоянием и действиями, а они есть у всех, независимо от формы&nbsp;дохода.</p></div>
+      </details>
+      <details>
+        <summary>Где проходит программа?</summary>
+        <div class="a"><p>На отдельной платформе с личным кабинетом, как «Протокол денег»: вход по вашей почте, внутри карта дней, аудио, задания, дневник, цели и километры с графиками прогресса. Работает с телефона и компьютера, ставить ничего не&nbsp;нужно.</p></div>
+      </details>
+      <details>
+        <summary>Чем это отличается от обычных марафонов ходьбы?</summary>
+        <div class="a"><p>Тремя вещами: режим каждый день свой, под механизм дня; каждая сессия заканчивается действием в реальные деньги; и у всего есть проверяемое объяснение, от дыхания до времени вечерней прогулки.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── КАК ПОПАСТЬ ───────────────── -->
+<section id="s16b" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Как попасть</div>
+      <h2>Три шага до первой&nbsp;сессии</h2>
+    </div>
+    <div class="enter3">
+      <div class="en reveal"><div class="n">Шаг 1</div><h3>Оплачиваете&nbsp;участие</h3><p>Кнопка ниже. Оплата картой, доступ закрепляется за вашей&nbsp;почтой.</p></div>
+      <div class="en reveal"><div class="n">Шаг 2</div><h3>Получаете вход на&nbsp;платформу</h3><p>Личный кабинет откроется до старта: осмотритесь, пройдите замеры первого дня.</p></div>
+      <div class="en reveal"><div class="n">Шаг 3</div><h3>11 августа первая&nbsp;настройка</h3><p>Утром Дарья задаёт направление, и вы выходите на первую сессию. Дальше 21 день по&nbsp;карте.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── РАЗБОР ───────────────── -->
+<section id="s16c" style="padding-top:0">
+  <div class="wrap">
+    <div class="readmore reveal">
+      <div>
+        <div class="k">Открытый доступ</div>
+        <h3>Разбор «Ходьба: рассекреченный код&nbsp;тела»</h3>
+        <p>Тринадцать минут чтения: пять открытий о ходьбе, снимки мозга, цифры Lancet и Стэнфорда и разбор того, почему рост так часто идёт через боль. Читается до старта потока, бесплатно.</p>
+      </div>
+      <a class="btn" href="https://thebodymindcode.github.io/hodba/">Читать разбор</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── ФИНАЛ ───────────────── -->
+<section class="final" id="vhod">
+  <div class="final-img"><img src="images/bridge.jpg" alt="Женщина идёт по мосту к рассветному свету"></div>
+  <div class="wrap final-in">
+    <div class="kicker" style="color:rgba(242,245,244,.6)">Практика ходьбы · 21 день</div>
+    <h2 style="margin-top:16px">Старт потока: 11&nbsp;августа</h2>
+    <p class="lead">21 день, 75 минут в день. Технология, дневник, замеры и действия в реальные деньги. Всё, что нужно, у вас уже есть: ноги, улица и 21 утро подряд.</p>
+    <div class="price-row">
+      <div class="pr-num">3 500&nbsp;₽</div>
+      <div class="pr-txt">за всю практику: личный кабинет на платформе, 21 настройка дня, аудио в дорогу, практикум и план до 66&nbsp;дня</div>
+    </div>
+    <p class="together">Поток один, без догоняющих продаж: <b>11 августа</b> вся группа выходит в одно&nbsp;утро.</p>
+    <div class="count" id="count" hidden>До старта <b id="cd">…</b></div>
+    <div class="cta" style="margin-bottom:0">
+      <a class="btn" href="#">Занять место в потоке</a>
+    </div>
+    <div class="honest">
+      <p>Не обещаем сумм к датам и излечения. Даём механизм, объём, на котором в исследованиях виден эффект, и три недели точной&nbsp;работы.</p>
+    </div>
+  </div>
+</section>
+
+<div class="note">
+  <div class="wrap"><p>Макет страницы. Тексты черновые, цифры и источники настоящие. Финальный текст проходит словесника, редактора и детектор, цена и кнопка оплаты подключаются после решения по условиям.</p></div>
+</div>
+
+<footer>
+  <div class="wrap fcols">
+    <div class="fc">
+      <span class="fbrand">Архитектура сознания</span>
+      <p class="fnote">Мозг · тело · состояние</p>
+    </div>
+    <div class="fc">
+      <a href="https://t.me/+oSuGhJQlsr4zYmQy">Телеграм</a>
+      <a href="https://instagram.com/thebodymindcode">Инстаграм</a>
+      <a href="https://www.youtube.com/@thebodymindcode">Ютуб</a>
+      <a href="https://t.me/TheBodyMindCode_support">Поддержка</a>
+    </div>
+    <div class="fc">
+      <p class="fnote">ИП Ростовцева Дарья Валерьевна<br>ИНН 241103415641</p>
+      <p class="fnote">© 2026. Практика ходьбы · 21 день</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if(!('IntersectionObserver' in window)){
+    document.querySelectorAll('.reveal,.mode,.phase-row,.ring,.stages,.chart,.progress21,.sess,.lancet,.steps7,.norma').forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+
+  var pr = document.getElementById('progress');
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    pr.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.16, rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal,.mode,.phase-row,.ring,.stages,.chart,.progress21,.sess,.lancet,.steps7,.norma').forEach(function(el){ io.observe(el); });
+
+  // страховка: видимое показываем через 2 секунды в любом случае
+  setTimeout(function(){
+    document.querySelectorAll('.reveal:not(.in),.mode:not(.in)').forEach(function(el){
+      if(el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+    });
+  }, 2000);
+
+  var ioN = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target, to = parseFloat(el.dataset.count), pre = el.dataset.pre || '', suf = el.dataset.suf || '';
+      ioN.unobserve(el);
+      if(rm){ el.textContent = pre + to + suf; return; }
+      var t0 = null, dur = 1100;
+      requestAnimationFrame(function step(t){
+        if(!t0) t0 = t;
+        var p = Math.min((t - t0) / dur, 1), v = Math.round(to * (1 - Math.pow(1 - p, 3)));
+        el.textContent = pre + v + suf;
+        if(p < 1) requestAnimationFrame(step);
+      });
+    });
+  }, {threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(function(el){ ioN.observe(el); });
+
+  // подбор входа: кнопка подсвечивает карточку режима
+  var qbs = document.querySelectorAll('.qb');
+  var modes = document.querySelectorAll('.mode');
+  qbs.forEach(function(b){
+    b.addEventListener('click', function(){
+      qbs.forEach(function(x){ x.classList.toggle('on', x === b); });
+      modes.forEach(function(m){ m.classList.remove('lit'); });
+      var m = modes[parseInt(b.dataset.m, 10)];
+      if(m){ m.classList.add('lit'); m.classList.add('in'); m.scrollIntoView({behavior:'smooth', block:'center'}); }
+    });
+  });
+
+  // параллакс фоновых картинок
+  var plx = Array.prototype.slice.call(document.querySelectorAll('[data-plx]'));
+  if(plx.length && !rm){
+    var ticking = false;
+    function plxTick(){
+      plx.forEach(function(img){
+        var r = img.closest('section').getBoundingClientRect();
+        var k = (r.top + r.height/2 - window.innerHeight/2) / window.innerHeight;
+        img.style.transform = 'translateY(' + (k * 5.5) + '%)';
+      });
+      ticking = false;
+    }
+    window.addEventListener('scroll', function(){ if(!ticking){ requestAnimationFrame(plxTick); ticking = true; } }, {passive:true});
+    plxTick();
+  }
+
+  // отсчёт до старта 11 августа
+  (function(){
+    var box = document.getElementById('count'), out = document.getElementById('cd');
+    if(!box || !out) return;
+    var t0 = new Date('2026-08-11T00:00:00+03:00').getTime();
+    function pad(n){ return (n<10?'0':'')+n; }
+    function tick(){
+      var d = t0 - Date.now();
+      if(d <= 0){ box.hidden = true; return; }
+      var days = Math.floor(d/86400000), hh = Math.floor(d%86400000/3600000), mm = Math.floor(d%3600000/60000), ss = Math.floor(d%60000/1000);
+      var dw = (days%10===1&&days%100!==11)?'день':(days%10>=2&&days%10<=4&&(days%100<10||days%100>=20))?'дня':'дней';
+      out.textContent = days + ' ' + dw + ' ' + pad(hh) + ':' + pad(mm) + ':' + pad(ss);
+      box.hidden = false;
+      setTimeout(tick, 1000);
+    }
+    tick();
+  })();
+
+  var secs = ['s1','s4','s7','s11','vhod'].map(function(id){ return document.getElementById(id); });
+  var dots = document.querySelectorAll('#rail b');
+  var ioR = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var i = secs.indexOf(e.target);
+      if(i < 0) return;
+      dots.forEach(function(d, k){ d.classList.toggle('on', k === i); });
+    });
+  }, {threshold:.4});
+  secs.forEach(function(s){ if(s) ioR.observe(s); });
+})();
+</script>
+</body>
+</html>
