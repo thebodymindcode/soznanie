@@ -576,6 +576,17 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
 
 /* ── состав ───────────────── */
 .g{background:var(--paper);padding:30px 28px}
+/* ── плашка покупки по ходу страницы ───────────────── */
+.buy{margin-top:52px;border:1px solid var(--line);background:var(--paper);padding:clamp(26px,3.4vw,40px);
+  display:flex;align-items:center;justify-content:space-between;gap:clamp(20px,3vw,48px);flex-wrap:wrap}
+.buy .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.buy .pp{font-family:var(--f-display);font-weight:600;font-size:clamp(34px,4vw,50px);line-height:1;letter-spacing:-.02em;margin-top:12px}
+.buy p{font-size:16.5px;color:var(--body);margin:12px 0 0;max-width:44ch;line-height:1.5}
+.buy-txt{flex:1 1 340px;min-width:0}
+.buy .btn{flex:none}
+.dark .buy{background:var(--graphite);border-color:var(--line-dark)}
+.dark .buy .pp{color:#FBFDFC}
+.dark .buy p{color:rgba(233,238,236,.75)}
 .g .ic{width:40px;height:40px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
 .g .ic svg{width:20px;height:20px;stroke:var(--orange-d);fill:none;stroke-width:1.6}
 .g h3{font-size:20px;margin:0 0 8px}
@@ -655,6 +666,8 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
   .hero .cta{flex-direction:column;align-items:stretch}
   .hero .btn{text-align:center;padding:16px 20px}
   .hero .btn-ghost{text-align:center;border:0;padding:13px 0;min-height:44px;display:flex;align-items:center;justify-content:center}
+  .buy{display:block}
+  .buy .btn{display:block;width:100%;text-align:center;margin-top:22px}
   .marquee{padding:11px 0}
   .marquee span{font-size:11px;letter-spacing:.18em}
 
@@ -1166,6 +1179,14 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
       <div class="g reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 21V4" pathLength="100"/><path d="M6 5c4-2 8 2 12 0v8c-4 2-8-2-12 0" pathLength="100"/></svg></div><h3>Поток и ответы на&nbsp;вопросы</h3><p>Все три недели рядом группа, технология и поддержка каждый&nbsp;день.</p></div>
       <div class="g wide reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 6c-2-1.6-5-2-8-2v15c3 0 6 .4 8 2 2-1.6 5-2 8-2V4c-3 0-6 .4-8 2z" pathLength="100"/><path d="M12 6v15" pathLength="100"/></svg></div><h3>Бонусные материалы</h3><p>Практикум со всей системой целиком и дополнения к практике. Остаются у вас&nbsp;навсегда.</p></div>
     </div>
+    <div class="buy reveal">
+      <div class="buy-txt">
+        <div class="k">Практика ходьбы · 21 день</div>
+        <div class="pp">3 500&nbsp;₽</div>
+        <p>Всё это открывается 11 августа. Оплата картой, дальше вход в закрытый канал потока.</p>
+      </div>
+      <a class="btn" href="https://payform.ru/teccSD9/" target="_blank" rel="noopener">Занять место в потоке</a>
+    </div>
   </div>
 </section>
 
@@ -1236,6 +1257,14 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
           <li>Сейчас острое состояние, где сначала нужен врач или&nbsp;психотерапевт</li>
         </ul>
       </div>
+    </div>
+    <div class="buy reveal">
+      <div class="buy-txt">
+        <div class="k">Практика ходьбы · 21 день</div>
+        <div class="pp">3 500&nbsp;₽</div>
+        <p>Если это про вас, поток стартует 11 августа и идёт 21 день.</p>
+      </div>
+      <a class="btn" href="https://payform.ru/teccSD9/" target="_blank" rel="noopener">Занять место в потоке</a>
     </div>
       </div>
 </section>
@@ -1339,7 +1368,7 @@ footer span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-t
     </div>
     <div class="count" id="count" hidden>До старта <b id="cd">…</b></div>
     <div class="cta" style="margin-bottom:0">
-      <a class="btn" href="https://payform.ru/teccSD9/">Занять место в потоке</a>
+      <a class="btn" href="https://payform.ru/teccSD9/" target="_blank" rel="noopener">Занять место в потоке</a>
     </div>
     <div class="honest">
       <p>Код всё это время был при вас. Осталось его&nbsp;расшифровать.</p>
